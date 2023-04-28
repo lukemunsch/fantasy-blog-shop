@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
 
 /* ---------- text position --- */
 .text-right {
@@ -14,6 +15,8 @@
 
 .header-left-field {
     color: aliceblue;
+    font-family: Dosis, 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 .header-center-field {
@@ -22,5 +25,7 @@
 }
 
 .header-right-field {
+    font-family: Dosis, 'Times New Roman', Times, serif;
     color: rgb(0, 255, 0);
+    font-size: 30px;
 }
