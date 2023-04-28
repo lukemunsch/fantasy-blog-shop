@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 /* ---------- text position --- */
 .text-right {
@@ -17,6 +17,7 @@
 }
 
 .header-center-field {
+    font-family: 'Bruno Ace SC', Helvetica, sans-serif;
     color: yellow;
 }
 
