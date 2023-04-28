@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 {% endblock %}
 
 <!-- Set up custom CSS -->
@@ -33,25 +35,28 @@
 {% block corejs%}
 <!--fontawesome-->
 <script
-src="https://kit.fontawesome.com/5889d2f18a.js"
-crossorigin="anonymous"></script>
+    src="https://kit.fontawesome.com/5889d2f18a.js"
+    crossorigin="anonymous"></script>
 
 <!--jquery-->
 <script
-src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"></script>
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
 
 <!--bootstrap-->
 <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
-crossorigin="anonymous"></script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
 {% endblock %}
 
-    <title>Fantasy Blog Shop</title>
+    <title>Fantasy Blog Shop{% block extra_title %}{% endblock %}</title>
 </head>
 <body>
+    <div class="container-fluid fixed-top"></div>
+
+    <!-- Content set up for each page -->
     {% block content %}
     {% endblock %}
 </body>
