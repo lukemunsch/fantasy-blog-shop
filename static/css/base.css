@@ -1,5 +1,25 @@
+
+
+/* ---------- text position --- */
+.text-right {
+    text-align: right;
+}
+
+/* ---------- header --- */
 .header-field {
     height: 100px;
     background-color: #000;
     padding: 0 10px;
+}
+
+.header-left-field {
+    color: aliceblue;
+}
+
+.header-center-field {
+    color: yellow;
+}
+
+.header-right-field {
+    color: rgb(0, 255, 0);
 }
