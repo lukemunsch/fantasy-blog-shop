@@ -21,7 +21,8 @@
 }
 
 .menus:hover {
-    color: rgb(255, 145, 115);
+    color: red;
+    cursor: pointer;
 }
 
 /* Text decoration removal */
@@ -31,6 +32,10 @@
 
 .plain-link:hover {
     text-decoration: none;
+}
+
+u {
+    text-underline-position: under;
 }
 
 /* ---------- header --- */
