@@ -64,7 +64,7 @@ u {
 .header-right-field {
     font-family: Dosis, 'Times New Roman', Times, serif;
     color: red;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .list-inline-item {
@@ -91,4 +91,3 @@ u {
     background-color: rgb(0, 0, 0);
     color: red;
 }
-

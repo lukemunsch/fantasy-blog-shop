@@ -43,7 +43,7 @@
 
 <body>
     <header>
-        <div class="container-fluid fixed-top">
+        <div class="container-fluid fixed-top d-none d-md-block">
             <div class="row header-field">
                 <!-- Set up search bar for site -->
                 <div class="col-4 header-left-field my-auto">
@@ -51,13 +51,13 @@
                         <i class="fas fa-ellipsis-v"></i> Menu
                     </a>
                 </div>
-                <!-- Set up mani site header -->
-                <div class="d-none d-lg-block col-4 text-center header-center-field my-auto">
+                <!-- Set up main site header -->
+                <div class="d-none d-xl-block col-4 text-center header-center-field my-auto">
                     <a href="{% url 'home' %}" class="header-title">
                         <span class="renegade">Renegade</span><span class="league">League</span>
                     </a>
                 </div>
-                <div class="d-lg-none col-4 text-center header-center-field my-auto">
+                <div class="d-xl-none col-4 text-center header-center-field my-auto">
                     <a href="{% url 'home' %}" class="header-title">
                         <span class="renegade">R</span><span class="league">L</span>
                     </a>
@@ -94,6 +94,7 @@
                 </div>
             </div>
         </div>
+        {% include 'includes/mobile-header.html' %}
     </header>
     <!-- Content set up for each page -->
     {% block content %} {% endblock %}
