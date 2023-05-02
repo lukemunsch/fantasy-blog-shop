@@ -1,16 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* ---------- text position --- */
 .text-right {
     text-align: right;
 }
 
+/* ---------- Text colors --- */
+.renegade {
+    color: yellow;
+}
+
+.league {
+    color: rgb(0, 255, 0);
+}
+
+.menus {
+    color: red;
+}
+
+.menus:hover {
+    color: rgb(255, 145, 115);
+}
+
+/* Text decoration removal */
+.plain-link {
+    text-decoration: none;
+}
+
+.plain-link:hover {
+    text-decoration: none;
+}
+
 /* ---------- header --- */
 .header-field {
-    height: 100px;
+    height: 130px;
     background-color: #000;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .header-left-field {
@@ -19,13 +46,44 @@
     font-size: 30px;
 }
 
-.header-center-field {
+.header-title {
     font-family: 'Bruno Ace SC', Helvetica, sans-serif;
-    color: yellow;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.header-title:hover {
+    cursor: pointer;
 }
 
 .header-right-field {
     font-family: Dosis, 'Times New Roman', Times, serif;
-    color: rgb(0, 255, 0);
+    color: red;
     font-size: 30px;
 }
+
+.list-inline-item {
+    padding: 0 8px;
+}
+
+.list-inline-item:hover {
+    color: red;
+}
+
+.dropdown-menu {
+    background-color: rgb(255, 0, 0);
+}
+
+.dropdown-item {
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+    border-bottom: #000;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(0, 0, 0);
+    color: red;
+}
+
