@@ -39,55 +39,60 @@ u {
 }
 
 /* ---------- header --- */
-.header-field {
-    height: 130px;
-    background-color: #000;
-    padding: 0 20px;
-}
-
-.header-left-field {
-    color: aliceblue;
-    font-family: Dosis, 'Times New Roman', Times, serif;
-    font-size: 30px;
-}
-
-.header-title {
-    font-family: 'Bruno Ace SC', Helvetica, sans-serif;
+.navbar {
+    overflow: hidden;
+    background-color: #333; 
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-size: 40px;
-}
-
-.header-title:hover {
-    cursor: pointer;
-}
-
-.header-right-field {
-    font-family: Dosis, 'Times New Roman', Times, serif;
-    color: red;
-    font-size: 20px;
-}
-
-.list-inline-item {
-    padding: 0 8px;
-}
-
-.list-inline-item:hover {
-    color: red;
-}
-
-.dropdown-menu {
-    background-color: rgb(255, 0, 0);
-}
-
-.dropdown-item {
-    font-family: 'Urbanist', Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 2px;
-    border-bottom: #000;
-}
-
-.dropdown-item:hover {
-    background-color: rgb(0, 0, 0);
-    color: red;
-}
+  }
+  
+  .subnav {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .subnav .subnavbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: red;
+  }
+  
+  .subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .subnav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .subnav-content a:hover {
+    background-color: #eee;
+    color: black;
+  }
+  
+  .subnav:hover .subnav-content {
+    display: block;
+  }
