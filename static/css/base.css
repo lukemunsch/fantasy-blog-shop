@@ -5,6 +5,7 @@
 /* ---------- text position --- */
 .text-right {
     text-align: right;
+    align-items: right;
 }
 
 /* ---------- Text colors --- */
@@ -18,6 +19,8 @@
 
 .menus {
     color: red;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .menus:hover {
@@ -28,6 +31,10 @@
 /* background colors */
 .bg-black {
     background-color: black;
+}
+
+.bg-red {
+    background-color: red;
 }
 
 /* Text decoration removal */
@@ -56,5 +63,11 @@ u {
 .nav-link {
     font-family: 'Dosis', 'Times New Roman', Times, serif;
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
+    padding: 15px;
+}
+
+.dropdown-item:hover {
+    background-color: darkgreen;
+    color: yellow;
 }
