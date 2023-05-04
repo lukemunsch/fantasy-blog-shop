@@ -44,7 +44,7 @@
 
 .plain-link:hover {
     text-decoration: underline overline;
-    text-underline-offset: 6px;
+    text-underline-offset: 7px;
 }
 
 u {
