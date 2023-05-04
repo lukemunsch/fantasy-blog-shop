@@ -43,7 +43,8 @@
 }
 
 .plain-link:hover {
-    text-decoration: none;
+    text-decoration: underline overline;
+    text-underline-offset: 6px;
 }
 
 u {
@@ -63,11 +64,19 @@ u {
 .nav-link {
     font-family: 'Dosis', 'Times New Roman', Times, serif;
     font-size: 20px;
-    margin-right: 20px;
     padding: 15px;
+}
+
+.dropdown-menu {
+    border: 2px solid black;
+}
+
+.dropdown-item {
+    font-family: 'Dosis', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .dropdown-item:hover {
     background-color: darkgreen;
+    font-weight: 600;
     color: yellow;
 }
