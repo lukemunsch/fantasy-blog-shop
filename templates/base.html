@@ -105,6 +105,16 @@
         {% include 'includes/mobile-header.html' %}
     </header>
 
+    <!-- Main content -->
+    <main></main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Javascript files -->
+    {% block postloadjs %}
+        <script src="{% static 'js/mobile-header.js' %}"></script>
+    {% endblock %}
 </body>
 
 </html>

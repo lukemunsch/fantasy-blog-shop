@@ -1,11 +1,44 @@
 <div class="container-fluid w-100">
     <div class="row bg-black d-lg-none">
-        <div class="col-6 mobile-brand my-3">
-            <h1 class="renegade">R <span class="league">L</span></h1>
-        </div>
         <div class="col-6 my-3">
+            <a href="{% url 'home' %}" class="plain-link mobile-brand">
+                <h1 class="renegade">R <span class="league">L</span></h1>
+            </a>
+        </div>
+        <div class="col-6">
             <div class="text-right">
-                <h1 class="menus">Menu <i class="fas fa-level-down-alt"></i></h1>
+                <div id="myNav" class="overlay">
+                    <!-- Button to close the overlay navigation -->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <!-- Overlay content -->
+                    <div class="overlay-content">
+                        <a href="{% url 'home' %}">Home</a>
+                        <!-- content collapse -->
+                        <a href="#collapseContent" data-toggle="collapse" role="button" aria-expanded="false"
+                            aria-controls="collapseContent">Content <i class="fas fa-sort-down"></i></a>
+                            <div class="collapse" id="collapseContent">
+                                <div class="card card-body">
+                                  <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#" class="dropdown-item">News Updates</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">Personnel Changes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">Completion Reports</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                        <!-- account collapse -->
+                        <a href="#">Account <i class="fas fa-sort-down"></i></a>
+
+                        <a href="#">Shop</a>
+                    </div>
+                </div>
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <h4 class="nav-link menus" onclick="openNav()">Menu <i class="fas fa-level-down-alt"></i></h4>
             </div>
         </div>
     </div>
