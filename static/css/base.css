@@ -102,7 +102,7 @@ body {
 
 footer {
     height: 40px;
-    background-color: rgb(195, 55, 195);
+    background-color: rgb(165, 0, 0);
 }
 
 /* Set up styles for main content */
@@ -113,7 +113,7 @@ footer {
 
 .desc-text {
     font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
-    background-color: rgba(195, 55, 195, .5);
+    background-color: rgba(195, 55, 55, 0.5);
     color: gainsboro;
     padding: 15px;
     border: 3px solid gainsboro;
@@ -121,15 +121,15 @@ footer {
 }
 
 .btn-console-link {
-    color: gainsboro;
+    color: rgb(0, 0, 0);
     font-weight: 300;
     text-decoration: none;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
 }
 
 .btn-console-link:hover {
-    background-color: rgb(150, 0, 0);
+    background-color: rgb(0, 0, 0);
     font-weight: 700;
-    color: gainsboro;
+    color: rgb(255, 0, 0);
 }
