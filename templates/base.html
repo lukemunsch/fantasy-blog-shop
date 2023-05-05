@@ -103,12 +103,11 @@
     </header>
 
     <!-- Main content -->
-    <main></main>
-
-    <!-- Footer -->
-    <footer class="fixed-bottom text-center">
-        <p class="my-2">This is a fan made, non profit site. sounrce materials and locations are described in README for project</p>
-    </footer>
+    <main>
+        {% block content %}
+        
+        {% endblock %}
+    </main>
 
     <!-- Javascript files -->
     {% block postloadjs %}

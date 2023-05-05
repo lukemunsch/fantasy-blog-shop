@@ -6,11 +6,20 @@
 <!-- set up tab extra title -->
 {% block extra_title %} - Homepage{% endblock %}
 
-<!-- set up page heaader to push ccon down -->
-{% block page_header %} {% endblock%}
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+    <div class="container header-container mb-5">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock%}
 
 <!-- set up main content block -->
 {% block content %}
 
 
+<footer class="fixed-bottom text-center">
+        <p class="my-2">This is a fan made, non profit site. sounrce materials and locations are described in README for project</p>
+    </footer>
 {% endblock content %}
