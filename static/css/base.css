@@ -41,7 +41,6 @@
 }
 
 .content-titles a:hover {
-    font-weight: 500;
     border-bottom: 2px solid red;
 }
 
