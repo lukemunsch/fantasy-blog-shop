@@ -104,3 +104,9 @@ footer {
     height: 40px;
     background-color: rgb(196, 54, 196);
 }
+
+/* Set up styles for main content */
+
+.header-container {
+    height: 100px;
+}

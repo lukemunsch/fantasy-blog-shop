@@ -104,6 +104,11 @@
 
     <!-- Main content -->
     <main>
+        <!-- page header containers to push content down -->
+        {% block page_header %}
+        {% endblock %}
+
+            <!-- Where the rest of the content will go -->
         {% block content %}
         
         {% endblock %}
