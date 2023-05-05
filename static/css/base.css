@@ -8,7 +8,7 @@
     align-items: right;
 }
 
-/* ---------- Text colors --- */
+/* ---------- Text Styles --- */
 .renegade {
     color: yellow;
 }
@@ -26,6 +26,37 @@
 .menus:hover {
     color: red;
     cursor: pointer;
+}
+
+.content-titles {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.content-titles a {
+    color: red;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.content-titles a:hover {
+    font-weight: 500;
+    border-bottom: 2px solid red;
+}
+
+.page-heading {
+    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
+}
+
+.page-subhead {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.dividers {
+    font-weight: 700;
+    color: red;
 }
 
 /* background colors */
@@ -158,14 +189,9 @@ footer {
 
 /* Console page styles */
 
-.page-heading {
-    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
-}
 
-.page-subhead {
-    font-family: 'Dosis', 'Times New Roman', Times, serif;
-    font-size: 25px;
-}
+
+
 
 /* media queries */
 
