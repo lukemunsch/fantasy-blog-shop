@@ -78,6 +78,6 @@ u {
 
 .dropdown-item:hover {
     background-color: darkgreen;
-    font-weight: 600;
-    color: yellow;
+    font-weight: 700;
+    color: red;
 }

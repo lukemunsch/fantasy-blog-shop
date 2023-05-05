@@ -12,29 +12,43 @@
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <!-- Overlay content -->
                     <div class="overlay-content">
-                        <a href="{% url 'home' %}">Home</a>
+                        <a class="nav-link plain-link menus" href="{% url 'home' %}">Home</a>
                         <!-- content collapse -->
-                        <a href="#collapseContent" data-toggle="collapse" role="button" aria-expanded="false"
-                            aria-controls="collapseContent">Content <i class="fas fa-sort-down"></i></a>
-                            <div class="collapse" id="collapseContent">
-                                <div class="card card-body">
-                                  <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#" class="dropdown-item">News Updates</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Personnel Changes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Completion Reports</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
+                        <a class="nav-link plain-link menus" href="#collapseContent" data-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="collapseContent">
+                            Content <i class="fas fa-sort-down"></i></a>
+                        <div class="collapse" id="collapseContent">
+                            <div class="card card-body">
+                                {% if request.user.is_authenticated %}
+                                <a href="#" class="dropdown-item">Add New Entry</a>
+                                <div class="dropdown-divider"></div>
+                                {% endif %}
+                                <a href="#" class="dropdown-item">Mission posts</a>
+                                <a href="#" class="dropdown-item">Personnel Changes</a>
+                                <a href="#" class="dropdown-item">Completion Reports</a>
+                            </div>
+                        </div>
                         <!-- account collapse -->
-                        <a href="#">Account <i class="fas fa-sort-down"></i></a>
+                        <a class="nav-link plain-link menus" href="#collapseAccount" data-toggle="collapse"
+                            role="button" aria-expanded="false" aria-controls="collapseAccount">
+                            Account <i class="fas fa-sort-down"></i></a>
+                        <div class="collapse" id="collapseAccount">
+                            <div class="card card-body">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#" class="dropdown-item">Carry on</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">My</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item">Wayward Son</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-                        <a href="#">Shop</a>
+                        <a class="nav-link plain-link menus" href="#">Shop</a>
                     </div>
                 </div>
                 <!-- Use any element to open/show the overlay navigation menu -->

@@ -43,18 +43,10 @@
     color: red;
 }
 
-.collapse .card {
-    background-color: red;
-}
-
-li {
-    text-decoration: none;
-}
-
 .overlay .closebtn {
     position: absolute;
-    top: 30px;
-    right: 60px;
+    top: 40px;
+    right: 90px;
     font-size: 60px;
 }
 

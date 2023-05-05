@@ -5,35 +5,25 @@
 
 <head>
     {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- custom meta -->
-    <meta name='description' content="Loreyna's Aetheryte Ticket Counter">
-    <meta name='keywords'
-        content='eorzea database eorzean map Ffxiv aetheryte ticket Ff14 area district loctions aetheryte plaza teleportation'>
-    <meta name="author" content="Luke Munsch">
+    <meta name="description" content="Loreyna's Aetheryte Ticket Counter" />
+    <meta name="keywords"
+        content="eorzea database eorzean map Ffxiv aetheryte ticket Ff14 area district loctions aetheryte plaza teleportation" />
+    <meta name="author" content="Luke Munsch" />
 
     <!-- favicon -->
     <link rel="icon" type="image/ico" href="{% static 'img/favicon.ico' %}" />
-    {% endblock %}
-
-    {% block extra_meta %}
-    {% endblock %}
-
-    {% block corecss %}
+    {% endblock %} {% block extra_meta %} {% endblock %} {% block corecss %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base-mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base-mobile.css' %}" />
 
-    {% endblock %}
-
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
+    {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
     <script src="https://kit.fontawesome.com/5889d2f18a.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -43,10 +33,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
+    {% endblock %} {% block extra_js %} {% endblock %}
 
     <title>Fantasy Blog Shop {% block extra_title %}{% endblock %}</title>
 </head>
@@ -58,7 +45,9 @@
                 <nav class="navbar navbar-expand-lg">
                     <div class="col-6">
                         <a class="navbar-brand" href="{% url 'home' %}">
-                            <h1 class="renegade">Renegade<span class="league">League</span></h1>
+                            <h1 class="renegade">
+                                Renegade<span class="league">League</span>
+                            </h1>
                         </a>
                     </div>
                     <div class="col-6">
@@ -73,7 +62,11 @@
                                         aria-expanded="false">
                                         Content
                                     </a>
-                                    <div class="dropdown-menu bg-red" aria-labelledby="dropdownContentButton">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownContentButton">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="#" class="dropdown-item">Add New Entry</a>
+                                        <div class="dropdown-divider"></div>
+                                        {% endif %}
                                         <a href="#" class="dropdown-item">News Updates</a>
                                         <a href="#" class="dropdown-item">Personnel Roster</a>
                                         <a href="#" class="dropdown-item">Completion Reports</a>
@@ -87,7 +80,7 @@
                                         aria-expanded="false">
                                         Account
                                     </a>
-                                    <div class="dropdown-menu bg-red" aria-labelledby="dropdownAccountButton">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownAccountButton">
                                         <a href="#" class="dropdown-item">Carry On</a>
                                         <a href="#" class="dropdown-item">My</a>
                                         <a href="#" class="dropdown-item">Wayward Son</a>
@@ -113,7 +106,7 @@
 
     <!-- Javascript files -->
     {% block postloadjs %}
-        <script src="{% static 'js/mobile-header.js' %}"></script>
+    <script src="{% static 'js/mobile-header.js' %}"></script>
     {% endblock %}
 </body>
 
