@@ -79,6 +79,10 @@ body {
     border-bottom: 1px solid rgb(128, 69, 69);
 }
 
+.fixed-bottom {
+    border-top: 1px solid rgb(128, 69, 69);
+}
+
 .navbar {
     height: 80px;
 }
@@ -112,7 +116,9 @@ body {
 
 footer {
     height: 40px;
-    background-color: rgb(165, 0, 0);
+    background-color: rgb(0, 0, 0);
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
+    color: gainsboro;
 }
 
 /* Set up styles for main content */
@@ -124,6 +130,8 @@ footer {
 .container-push {
     margin-top: 60px;
 }
+
+/* Index page */
 
 .desc-text {
     font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
@@ -146,6 +154,13 @@ footer {
     background-color: rgb(0, 0, 0);
     font-weight: 700;
     color: rgb(255, 0, 0);
+}
+
+/* Console page styles */
+
+.page-heading {
+    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
+    
 }
 
 /* media queries */
