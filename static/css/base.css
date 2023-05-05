@@ -51,7 +51,24 @@ u {
     text-underline-position: under;
 }
 
+/* set up main body style */
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/static/img/main-wallpaper.png') no-repeat left center fixed;
+    background-size: cover;
+    height: calc(100vh - 100px); /* height of menu */
+    font-family: 'Patrick Hand', sans-serif;
+    overflow-x: hidden;
+}
+
 /* ---------- header --- */
+.fixed-top {
+    border-bottom: 1px solid rgb(128, 69, 69);
+}
+
 .navbar {
     height: 80px;
 }
@@ -79,4 +96,11 @@ u {
 .dropdown-item:hover {
     background-color: red;
     font-weight: 700;
+}
+
+/* footer */
+
+footer {
+    height: 40px;
+    background-color: rgb(196, 54, 196);
 }
