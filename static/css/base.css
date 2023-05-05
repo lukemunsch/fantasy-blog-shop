@@ -64,6 +64,16 @@ body {
     overflow-x: hidden;
 }
 
+.cover-up {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #015300;
+    z-index: -1;
+}
+
 /* ---------- header --- */
 .fixed-top {
     border-bottom: 1px solid rgb(128, 69, 69);
