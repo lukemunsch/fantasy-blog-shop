@@ -57,7 +57,7 @@ html {
 }
 
 body {
-    background: url('/static/img/main-wallpaper.png') no-repeat left center fixed;
+    background: url('/static/img/main-wallpaper.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 100px); /* height of menu */
     font-family: 'Patrick Hand', sans-serif;
@@ -111,6 +111,10 @@ footer {
     height: 100px;
 }
 
+.container-push {
+    margin-top: 60px;
+}
+
 .desc-text {
     font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
     background-color: rgba(195, 55, 55, 0.5);
@@ -132,4 +136,18 @@ footer {
     background-color: rgb(0, 0, 0);
     font-weight: 700;
     color: rgb(255, 0, 0);
+}
+
+/* media queries */
+
+@media (max-width: 991px) {
+    .container-push {
+        margin-top: 120px;
+    }
+}
+
+@media (max-height: 500px) {
+    .container-push {
+        margin-top: 10px;
+    }
 }
