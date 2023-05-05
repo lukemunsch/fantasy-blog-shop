@@ -1,0 +1,74 @@
+.mobile-brand {
+    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
+    font-size: 120%;
+}
+
+.mobile-brand:hover {
+    text-decoration: none;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow-y: hidden;
+    transition: 0.3s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay-menu-btn {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #950000;
+    display: block;
+    text-decoration: none;
+}
+
+.collapse-item {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.collapse-item:hover {
+    background-color: red;
+    color: black;
+    font-weight: 600;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 40px;
+    right: 90px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {
+        overflow-y: auto;
+    }
+
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

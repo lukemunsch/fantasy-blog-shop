@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ---------- text position --- */
+.text-right {
+    text-align: right;
+    align-items: right;
+}
+
+/* ---------- Text colors --- */
+.renegade {
+    color: yellow;
+}
+
+.league {
+    color: rgb(0, 255, 0);
+}
+
+.menus {
+    color: red;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.menus:hover {
+    color: red;
+    cursor: pointer;
+}
+
+/* background colors */
+.bg-black {
+    background-color: black;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+/* Text decoration removal */
+.plain-link {
+    text-decoration: none;
+}
+
+.plain-link:hover {
+    text-decoration: underline overline;
+    text-underline-offset: 7px;
+}
+
+u {
+    text-underline-position: under;
+}
+
+/* set up main body style */
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/static/img/main-wallpaper.png') no-repeat left center fixed;
+    background-size: cover;
+    height: calc(100vh - 100px); /* height of menu */
+    font-family: 'Patrick Hand', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ---------- header --- */
+.fixed-top {
+    border-bottom: 1px solid rgb(128, 69, 69);
+}
+
+.navbar {
+    height: 80px;
+}
+
+.navbar-brand {
+    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
+    margin: auto 10px 50px;
+}
+
+.nav-link {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.dropdown-menu {
+    border: 2px solid black;
+}
+
+.dropdown-item {
+    font-family: 'Dosis', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.dropdown-item:hover {
+    background-color: red;
+    font-weight: 700;
+}
+
+/* footer */
+
+footer {
+    height: 40px;
+    background-color: rgb(165, 0, 0);
+}
+
+/* Set up styles for main content */
+
+.header-container {
+    height: 100px;
+}
+
+.desc-text {
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
+    background-color: rgba(195, 55, 55, 0.5);
+    color: gainsboro;
+    padding: 15px;
+    border: 3px solid gainsboro;
+    border-radius: 10px;
+}
+
+.btn-console-link {
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+.btn-console-link:hover {
+    background-color: rgb(0, 0, 0);
+    font-weight: 700;
+    color: rgb(255, 0, 0);
+}
