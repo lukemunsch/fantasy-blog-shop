@@ -160,7 +160,11 @@ footer {
 
 .page-heading {
     font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
-    
+}
+
+.page-subhead {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    font-size: 25px;
 }
 
 /* media queries */

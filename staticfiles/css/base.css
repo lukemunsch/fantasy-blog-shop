@@ -57,16 +57,30 @@ html {
 }
 
 body {
-    background: url('/static/img/main-wallpaper.png') no-repeat left center fixed;
+    background: url('/static/img/main-wallpaper.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 100px); /* height of menu */
     font-family: 'Patrick Hand', sans-serif;
     overflow-x: hidden;
 }
 
+.cover-up {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #012000;
+    z-index: -1;
+}
+
 /* ---------- header --- */
 .fixed-top {
     border-bottom: 1px solid rgb(128, 69, 69);
+}
+
+.fixed-bottom {
+    border-top: 1px solid rgb(128, 69, 69);
 }
 
 .navbar {
@@ -102,7 +116,9 @@ body {
 
 footer {
     height: 40px;
-    background-color: rgb(165, 0, 0);
+    background-color: rgb(0, 0, 0);
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
+    color: gainsboro;
 }
 
 /* Set up styles for main content */
@@ -110,6 +126,12 @@ footer {
 .header-container {
     height: 100px;
 }
+
+.container-push {
+    margin-top: 60px;
+}
+
+/* Index page */
 
 .desc-text {
     font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
@@ -132,4 +154,29 @@ footer {
     background-color: rgb(0, 0, 0);
     font-weight: 700;
     color: rgb(255, 0, 0);
+}
+
+/* Console page styles */
+
+.page-heading {
+    font-family: 'Bruno Ace SC', Arial, Helvetica, sans-serif;
+}
+
+.page-subhead {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+/* media queries */
+
+@media (max-width: 991px) {
+    .container-push {
+        margin-top: 120px;
+    }
+}
+
+@media (max-height: 500px) {
+    .container-push {
+        margin-top: 10px;
+    }
 }
