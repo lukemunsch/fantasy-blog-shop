@@ -2,49 +2,49 @@
     <div class="row bg-black d-lg-none">
         <div class="col-6 my-3">
             <a href="{% url 'home' %}" class="plain-link mobile-brand">
-                <h1 class="renegade">R <span class="league">L</span></h1>
+                <h1 class="renegade">R<span class="league">L</span></h1>
             </a>
         </div>
         <div class="col-6">
             <div class="text-right">
                 <div id="myNav" class="overlay">
                     <!-- Button to close the overlay navigation -->
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="javascript:void(0)" class="closebtn overlay-menu-btn" onclick="closeNav()">&times;</a>
                     <!-- Overlay content -->
                     <div class="overlay-content">
-                        <a class="nav-link plain-link menus" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link plain-link overlay-menu-btn menus" href="{% url 'home' %}">Home</a>
                         <!-- content collapse -->
-                        <a class="nav-link plain-link menus" href="#collapseContent" data-toggle="collapse"
+                        <a class="nav-link plain-link overlay-menu-btn menus" href="#collapseContent" data-toggle="collapse"
                             role="button" aria-expanded="false" aria-controls="collapseContent">
                             Content <i class="fas fa-sort-down"></i></a>
                         <div class="collapse" id="collapseContent">
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
-                                <a href="#" class="dropdown-item">Add New Entry</a>
+                                <a href="#" class="collapse-item">Add New Entry</a>
                                 <div class="dropdown-divider"></div>
                                 {% endif %}
-                                <a href="#" class="dropdown-item">Mission posts</a>
-                                <a href="#" class="dropdown-item">Personnel Changes</a>
-                                <a href="#" class="dropdown-item">Completion Reports</a>
+                                <a href="#" class="collapse-item">Mission posts</a>
+                                <a href="#" class="collapse-item">Personnel Changes</a>
+                                <a href="#" class="collapse-item">Completion Reports</a>
                             </div>
                         </div>
                         <!-- account collapse -->
-                        <a class="nav-link plain-link menus" href="#collapseAccount" data-toggle="collapse"
+                        <a class="nav-link plain-link overlay-menu-btn menus" href="#collapseAccount" data-toggle="collapse"
                             role="button" aria-expanded="false" aria-controls="collapseAccount">
                             Account <i class="fas fa-sort-down"></i></a>
                         <div class="collapse" id="collapseAccount">
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Logout</a>
+                                <a href="#" class="collapse-item">My Profile</a>
+                                <a href="#" class="collapse-item">Logout</a>
                                 {% else %}
-                                <a href="#" class="dropdown-item">Register</a>
-                                <a href="#" class="dropdown-item">Login</a>
+                                <a href="#" class="collapse-item">Register</a>
+                                <a href="#" class="collapse-item">Login</a>
                                 {% endif %}
                             </div>
                         </div>
 
-                        <a class="nav-link plain-link menus" href="#">Shop</a>
+                        <a class="nav-link plain-link overlay-menu-btn menus" href="#">Shop</a>
                     </div>
                 </div>
                 <!-- Use any element to open/show the overlay navigation menu -->

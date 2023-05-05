@@ -16,7 +16,6 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.95);
     overflow-y: hidden;
-    transition: 0.5s;
 }
 
 .overlay-content {
@@ -27,20 +26,27 @@
     margin-top: 30px;
 }
 
-.overlay a {
+.overlay-menu-btn {
     font-family: 'Dosis', 'Times New Roman', Times, serif;
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
     color: #950000;
     display: block;
-    transition: 0.3s;
+    text-decoration: none;
 }
 
-.overlay a:hover,
-.overlay a:focus {
-    font-weight: 700;
-    color: red;
+.collapse-item {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.collapse-item:hover {
+    background-color: red;
+    color: black;
+    font-weight: 600;
 }
 
 .overlay .closebtn {
