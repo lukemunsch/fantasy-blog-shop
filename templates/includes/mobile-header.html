@@ -34,17 +34,13 @@
                             Account <i class="fas fa-sort-down"></i></a>
                         <div class="collapse" id="collapseAccount">
                             <div class="card card-body">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#" class="dropdown-item">Carry on</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">My</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Wayward Son</a>
-                                    </li>
-                                </ul>
+                                {% if request.user.is_authenticated %}
+                                <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Logout</a>
+                                {% else %}
+                                <a href="#" class="dropdown-item">Register</a>
+                                <a href="#" class="dropdown-item">Login</a>
+                                {% endif %}
                             </div>
                         </div>
 

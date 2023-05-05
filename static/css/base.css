@@ -77,7 +77,6 @@ u {
 }
 
 .dropdown-item:hover {
-    background-color: darkgreen;
+    background-color: red;
     font-weight: 700;
-    color: red;
 }
