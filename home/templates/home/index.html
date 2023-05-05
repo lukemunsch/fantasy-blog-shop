@@ -8,7 +8,7 @@
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
-    <div class="container header-container">
+<div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -17,9 +17,19 @@
 
 <!-- set up main content block -->
 {% block content %}
-<h1>Boom!!! mother fucker</h1>
+<div class="container-fluid pt-5">
+    <div class="row pt-5">
+        <div class="col-10 offset-1 col-md-4 offset-md-none text-center desc-text mt-5">
+            <h3>Welcome to the Renegade League</h3>
+            <h5>Giving you the updates and reports for the missions</h5>
+            <a class="btn btn-console-link" href="#">Access to the Console</a>
+        </div>
+    </div>
+    
+</div>
 
-<footer class="fixed-bottom text-center">
-        <p class="my-2">This is a fan made, non profit site. sounrce materials and locations are described in README for project</p>
-    </footer>
+<footer class="d-none d-lg-block fixed-bottom text-center">
+    <p class="my-2">This is a fan made, non profit site. Source materials and locations are described in README for
+        project</p>
+</footer>
 {% endblock content %}

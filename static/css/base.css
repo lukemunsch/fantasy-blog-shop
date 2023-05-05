@@ -102,11 +102,34 @@ body {
 
 footer {
     height: 40px;
-    background-color: rgb(196, 54, 196);
+    background-color: rgb(195, 55, 195);
 }
 
 /* Set up styles for main content */
 
 .header-container {
     height: 100px;
+}
+
+.desc-text {
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
+    background-color: rgba(195, 55, 195, .5);
+    color: gainsboro;
+    padding: 15px;
+    border: 3px solid gainsboro;
+    border-radius: 10px;
+}
+
+.btn-console-link {
+    color: gainsboro;
+    font-weight: 300;
+    text-decoration: none;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.btn-console-link:hover {
+    background-color: rgb(150, 0, 0);
+    font-weight: 700;
+    color: gainsboro;
 }
