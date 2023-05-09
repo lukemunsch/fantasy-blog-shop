@@ -2,19 +2,19 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.crypto import get_random_string
 
-def unique_member_id(instance):
-    """set up new member id"""
-    model = Personnel
-    while model.object.filter.exists():
-        member_id = get_random_string(length=10, unique=True)
-    return member_id
+
+def unique_member_id():
+    random_id = int(get_random_string(10, allowed_chars='0123456789'))
+    while Personnel.objects.filter(member_id=random_id).exists():
+        random_id = int(get_random_string(10, allowed_chars='0123456789'))
+    return random_id
 
 RANK = ((1, "Rookie"), (2, "Soldier"), (3, "Veteran"), (4, "Commander"))
 STATUSES = ((1, "Active"), (2, "Leave"), (3, "Medical Leave"), (4, "Retired"), (5, "Deceased"))
 # Create your models here.
 class Personnel(models.Model):
     """Set up model for our team members"""
-    member_id = models.CharField(max_length=10, null=False, blank=False, unique=True, default=unique_member_id)
+    member_id = models.IntegerField(primary_key=True, default=unique_member_id, editable=False, unique=True)
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
     age = models.PositiveIntegerField(default=0)
     originated_from = models.CharField(max_length=100, null=False, blank=False)
