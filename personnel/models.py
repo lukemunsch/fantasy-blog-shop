@@ -14,7 +14,12 @@ STATUSES = ((1, "Active"), (2, "Leave"), (3, "Medical Leave"), (4, "Retired"), (
 # Create your models here.
 class Personnel(models.Model):
     """Set up model for our team members"""
-    member_id = models.IntegerField(primary_key=True, default=unique_member_id, editable=False, unique=True)
+    member_id = models.IntegerField(
+        primary_key=True,
+        default=unique_member_id,
+        editable=False,
+        unique=True
+    )
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
     age = models.PositiveIntegerField(default=0)
     originated_from = models.CharField(max_length=100, null=False, blank=False)
