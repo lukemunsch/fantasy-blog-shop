@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
+    'django_summernote',
 
     # Set up custom apps
     'home',

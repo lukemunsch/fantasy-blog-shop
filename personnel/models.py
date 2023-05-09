@@ -34,10 +34,11 @@ class Personnel(models.Model):
     class Meta:
         """set up hoe the personnel is ordered"""
         ordering = ['rank', 'name']
-    
+        verbose_name_plural = "Personnel"
+
     def __str__(self):
         return self.name
-    
+
     def save(self, *args, **kwargs):
         """create a slug automatically"""
         if not self.slug:

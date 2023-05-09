@@ -6,7 +6,7 @@ from .models import Personnel
 @admin.register(Personnel)
 class PersonnelAdmin(SummernoteModelAdmin):
     """set up our personnel creation form"""
-    prepopulated_fields = {'slug': ('name', 'member_id',)}
+    prepopulated_fields = {'slug': ('name',)}
     summernote_field = ['speciality']
 
     list_filter = ('rank', 'current_status')
