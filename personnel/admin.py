@@ -5,7 +5,7 @@ from .models import Personnel
 @admin.register(Personnel)
 class PersonnelAdmin(admin.ModelAdmin):
     """set up our personnel creation form"""
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {'slug': ('name', 'originated_from', 'age',)}
 
     list_filter = ('rank', 'current_status')
     list_display = (
