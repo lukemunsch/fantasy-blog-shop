@@ -1,13 +1,11 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
 from .models import Personnel
 
 # Register your models here.
 @admin.register(Personnel)
-class PersonnelAdmin(SummernoteModelAdmin):
+class PersonnelAdmin(admin.ModelAdmin):
     """set up our personnel creation form"""
     prepopulated_fields = {'slug': ('name',)}
-    summernote_field = ['speciality']
 
     list_filter = ('rank', 'current_status')
     list_display = (
