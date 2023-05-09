@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Set up custom apps
     'home',
     'console',
+    'personnel',
 ]
 
 MIDDLEWARE = [
