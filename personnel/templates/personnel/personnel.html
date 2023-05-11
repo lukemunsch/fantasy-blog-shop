@@ -9,25 +9,41 @@
 <!-- set up page header to push ccon down -->
 {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
 </div>
 {% endblock%}
 
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
-<div class="container-fluid text-center">
-    <div class="row">
-        <div class="col-12 text-center">
-          <h3 class="renegade page-heading">Personnel Roster</h3>
-          <p class="league page-subhead">
-            This is the current collection of team members that belong to the league.
-          </p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">Personnel Roster</h3>
+      <p class="league page-subhead">
+        This is the current collection of team members that belong to the league.
+      </p>
+    </div>
+  </div>
+</div>
+<hr class="menus">
+<div class="container-fluid">
+  <div class="row">
+    {% for c in crew %}
+      <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+        <div class="card">
+          <img class="card-img-top" src="{{ c.profile_image }}" alt="{{ c.name }} profile image">
+          <div class="card-body">
+            <h5 class="card-title">{{ c.name|upper }}|{{ c.originated_from|lower }}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
-    <hr class="menus">
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
