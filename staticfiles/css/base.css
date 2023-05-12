@@ -38,10 +38,13 @@
     color: red;
     text-decoration: none;
     border: 2px solid transparent;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .content-titles a:hover {
-    border-bottom: 2px solid red;
+    border: 2px solid red;
 }
 
 .page-heading {
