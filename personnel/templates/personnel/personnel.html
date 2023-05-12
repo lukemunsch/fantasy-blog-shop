@@ -32,16 +32,19 @@
 <div class="container-fluid">
   <div class="row">
     {% for c in crew %}
-      <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
-        <div class="card">
-          <img class="card-img-top" src="{{ c.profile_image }}" alt="{{ c.name }} profile image">
-          <div class="card-body">
-            <h5 class="card-title">{{ c.name|upper }}|{{ c.originated_from|lower }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+      <div class="card">
+        {% if c.profile_img %}
+        <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ c.name|upper }} <span class="card-origins">| {{ c.originated_from|lower }}</span></h5>
+          <p class="card-text"><em>{{ c.get_rank_display }}</em></p>
+          <a href="#" class="btn btn-primary">View Profile</a>{% if request.user.is_superuser %} <a href="#"
+            class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a>{% endif %}
         </div>
       </div>
+    </div>
     {% endfor %}
   </div>
 </div>

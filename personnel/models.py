@@ -7,7 +7,7 @@ def unique_member_id():
     random_id = int(get_random_string(10, allowed_chars='0123456789'))
     return random_id
 
-RANK = ((1, "Rookie"), (2, "Soldier"), (3, "Veteran"), (4, "Commander"))
+RANK = ((1, "Rookie"), (2, "Soldier"), (3, "Veteran"), (4, "Commander"),)
 STATUSES = ((1, "Active"), (2, "Leave"), (3, "Medical Leave"), (4, "Retired"), (5, "Deceased"))
 # Create your models here.
 class Personnel(models.Model):
@@ -29,9 +29,11 @@ class Personnel(models.Model):
         verbose_name_plural = "Personnel"
 
     def __str__(self):
+        """set up how we display choices"""
         return self.name
 
     def save(self, *args, **kwargs):
+        """setting up the method for generating slug"""
         if not self.slug:
             self.slug = slugify(f'{self.name}-{self.originated_from}-{self.age}')
         return super().save(*args, **kwargs)
