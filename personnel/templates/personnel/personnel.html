@@ -39,7 +39,7 @@
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ c.name|upper }} <span class="card-origins">| {{ c.originated_from|lower }}</span></h5>
-          <p class="card-text"><em>{{ c.get_rank_display }}</em></p>
+          <p class="card-text">{{ c.get_rank_display }} - <em>{{ c.get_current_status_display }}</em></p>
           <a href="#" class="btn btn-primary">View Profile</a>{% if request.user.is_superuser %} <a href="#"
             class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a>{% endif %}
         </div>
