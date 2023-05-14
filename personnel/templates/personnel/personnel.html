@@ -23,26 +23,51 @@
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">Personnel Roster</h3>
       <p class="league page-subhead">
-        This is the current collection of team members that belong to the league.
+        This is the current collection of team members that belong to the
+        league.
       </p>
     </div>
   </div>
 </div>
-<hr class="menus">
+<hr class="menus" />
 <div class="container-fluid">
   <div class="row">
     {% for c in crew %}
-    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-1 mx-4">
       <div class="card">
-        {% if c.profile_image %}
-        <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
-        {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{ c.name|upper }} <span class="card-origins">| {{ c.originated_from|lower }}</span></h5>
-          <p class="card-text">{{ c.get_rank_display }} - <em>{{ c.get_current_status_display }}</em></p>
-          <a href="#" class="btn btn-primary">View Profile</a>{% if request.user.is_superuser %} <a href="#"
-            class="btn btn-secondary">Edit</a> <a href="#" class="btn btn-danger">Delete</a>{% endif %}
+        <div class="row">
+          <div class="col">
+            {% if c.profile_image %}
+            <div class="card-img-holder">
+              <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
+            </div>
+            {% endif %}
+          </div>
         </div>
+        <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ c.name|upper }}
+                <span class="card-origins">| {{ c.originated_from|lower }}</span>
+              </h5>
+              <p class="card-text">
+                {{ c.get_rank_display }} -
+                <em>{{ c.get_current_status_display }}</em>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="#" class="btn btn-primary">View Profile</a>
+            {% if request.user.is_superuser %}
+            <a href="#" class="btn btn-secondary">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+            {% endif %}
+          </div>
+        </div>
+
       </div>
     </div>
     {% endfor %}

@@ -192,6 +192,25 @@ footer {
 
 /* personnel page styles */
 
+.card {
+    width: 80%;
+    height: 400px;
+    align-items: center;
+}
+
+.card-img-holder {
+    text-align: center;
+    padding-top: 20px;
+    height: 240px;
+}
+
+.card-img-top {
+    float: center;
+    align-items: center;
+    text-align: center;
+    max-height: 220px;
+}
+
 .card-title {
     font-family: 'Ubuntu', Arial, Helvetica, sans-serif, serif;
     font-size: 27px;
