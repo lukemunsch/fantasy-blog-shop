@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 /* ---------- text position --- */
 .text-right {
@@ -189,9 +190,40 @@ footer {
     color: rgb(255, 0, 0);
 }
 
-/* Console page styles */
+/* personnel page styles */
 
+.card {
+    width: 80%;
+    height: auto;
+    align-items: center;
+    padding: 20px 10px 20px 10px ;
+    margin-left: 20px;
+}
 
+.card-img-holder {
+    text-align: center;
+
+    height: 240px;
+}
+
+.card-img-top {
+    float: center;
+    align-items: center;
+    text-align: center;
+    max-height: 220px;
+}
+
+.card-title {
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif, serif;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.card-origins {
+    font-family: 'Dosis', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}
 
 
 

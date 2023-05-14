@@ -33,15 +33,17 @@
 <div class="container-fluid">
   <div class="row">
     {% for c in crew %}
-    <div class="col-sm-6 col-md-4 col-xl-3 mb-1 mx-4">
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card">
         <div class="row">
           <div class="col">
-            {% if c.profile_image %}
             <div class="card-img-holder">
+              {% if c.profile_image %}
               <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
+              {% else %}
+              <img src="{{ MEDIA_URL }}no-image.png" alt="">
+              {% endif %}
             </div>
-            {% endif %}
           </div>
         </div>
         <div class="row">
@@ -67,11 +69,31 @@
             {% endif %}
           </div>
         </div>
-
       </div>
     </div>
+    {% if forloop.counter|divisibleby:1 %}
+    <div class="col-12 d-sm-none mb-5">
+      <hr class="menus">
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="col-12 d-none d-sm-block d-md-none mb-5">
+      <hr class="menus">
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:3 %}
+    <div class="col-12 d-none d-md-block d-xl-none mb-5">
+      <hr class="menus">
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:4 %}
+    <div class="col-12 d-none d-xl-block mb-5">
+      <hr class="menus">
+    </div>
+    {% endif %}
     {% endfor %}
   </div>
+
 </div>
 
 {% endblock %}
