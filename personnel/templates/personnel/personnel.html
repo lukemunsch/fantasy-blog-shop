@@ -34,7 +34,7 @@
     {% for c in crew %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card">
-        {% if c.profile_img %}
+        {% if c.profile_image %}
         <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
         {% endif %}
         <div class="card-body">
