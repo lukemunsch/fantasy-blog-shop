@@ -61,7 +61,7 @@
     <h3 class="content-titles league mb-5 mx-4">- Newest Personnel -</h3>
     {% for c in crew %}
     <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
-      <div class="card">
+      <div class="card personnel-card">
         <div class="row">
           <div class="col">
             <div class="card-img-holder">
@@ -100,19 +100,46 @@
       </div>
     </div>
     {% endfor %}
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+      <a href="{% url 'personnel' %}" class="link-to-content">
+        <div class="card personnel-card">
+          <div class="row">
+            <div class="col">
+              <p class="renegade my-5"><strong>All Personnel</strong></p>
+              <p class="void my-5">- Click Here! -</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
-<hr class="menus my-5" />
+<hr class="menus my-5" id="success"/>
 <!-- content for completion reports -->
-<div class="row mb-5">
-  <h3 class="content-titles league mb-5 mx-4">- Completion Reports -</h3>
-  <div class="col-12"></div>
+<div class="container-fluid">
+  <div class="row mb-5">
+    <h3 class="content-titles league mb-5 mx-4">- Completion Reports -</h3>
+    <div class="col-12">
+
+    </div>
+  </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center btt-btn">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
 </div>
-</div>
-<hr>
 <!-- set up footer for page -->
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
 <footer class="d-none d-lg-block fixed-bottom text-center">
   <p class="my-2">
     This is a fan made, non profit site. Source materials and locations are
@@ -120,3 +147,11 @@
   </p>
 </footer>
 {% endblock content %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+  $('.btt-link').click(function () {
+    window.scrollTo(0, 0)
+  })
+</script>
+{% endblock %}

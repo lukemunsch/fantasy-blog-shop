@@ -18,6 +18,10 @@
     color: rgb(0, 255, 0);
 }
 
+.void {
+    color: black;
+}
+
 .menus {
     color: red;
     font-weight: 700;
@@ -148,6 +152,10 @@ body {
 
 /* footer */
 
+.footer-container {
+    height: 60px;
+}
+
 footer {
     height: 40px;
     background-color: rgb(0, 0, 0);
@@ -215,9 +223,29 @@ footer {
     color: white;
 }
 
+.link-to-content {
+    text-decoration: none;
+    text-align: center;
+    height: 430px;
+}
+
+.btt-link {
+    color: rgb(30, 255, 0);
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: 300;
+}
+
+.btt-link:hover {
+    border: 1px solid black;
+    border-radius: 8px;
+    color: rgb(253, 249, 20);
+    font-weight: 700;
+}
+
 /* personnel page styles */
 
-.card {
+.personnel-card {
     background-color: rgb(180, 180, 180);
     border: 2px solid yellow;
     width: 80%;
