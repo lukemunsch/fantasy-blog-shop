@@ -190,6 +190,31 @@ footer {
     color: rgb(255, 0, 0);
 }
 
+/* Console page Styles */
+
+.section-flow {
+    overflow-x: auto;
+}
+
+.btn {
+    border: 1px solid black;
+}
+
+.btn-view {
+    background-color: rgb(0, 160, 0);
+    color: yellow;
+}
+
+.btn-edit {
+    background-color: orange;
+    color: white;
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+}
+
 /* personnel page styles */
 
 .card {
@@ -197,13 +222,12 @@ footer {
     height: auto;
     align-items: center;
     padding: 20px 10px 20px 10px ;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .card-img-holder {
     text-align: center;
-
-    height: 240px;
+    max-height: 240px;
 }
 
 .card-img-top {
