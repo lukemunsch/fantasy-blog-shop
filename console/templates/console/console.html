@@ -43,20 +43,22 @@
     </ul>
   </div>
 </div>
-<hr class="menus mb-5" />
+<hr class="menus mb-5" id="news" />
 <!-- The content entries section -->
 <!-- content for news updates -->
 <div class="container-fluid">
   <div class="row">
+    <h3 class="content-titles league mb-5 mx-4">- News Updates -</h3>
     <div class="col">
 
     </div>
   </div>
 </div>
-<hr class="menus my-5" />
+<hr class="menus my-5" id="personnel" />
 <!-- content for Personnel changes -->
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid mb-5">
+  <div class="row mb-5">
+    <h3 class="content-titles league mb-5 mx-4">- Newest Personnel -</h3>
     {% for c in crew %}
     <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
       <div class="card">
@@ -78,11 +80,9 @@
             <div class="card-body">
               <h5 class="card-title">
                 {{ c.name|upper }}
-
               </h5>
-              <p class="card-text">
+              <p class="card-text d-none d-md-inline-block">
                 {{ c.get_rank_display }} - <em>{{ c.originated_from|lower }}</em>
-
               </p>
             </div>
           </div>
@@ -105,12 +105,13 @@
 
 <hr class="menus my-5" />
 <!-- content for completion reports -->
-<div class="row">
+<div class="row mb-5">
+  <h3 class="content-titles league mb-5 mx-4">- Completion Reports -</h3>
   <div class="col-12"></div>
 </div>
 </div>
 </div>
-
+<hr>
 <!-- set up footer for page -->
 <footer class="d-none d-lg-block fixed-bottom text-center">
   <p class="my-2">

@@ -218,6 +218,8 @@ footer {
 /* personnel page styles */
 
 .card {
+    background-color: rgb(180, 180, 180);
+    border: 2px solid yellow;
     width: 80%;
     height: auto;
     align-items: center;
