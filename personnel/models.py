@@ -1,11 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-from django.utils.crypto import get_random_string
 
-
-def unique_member_id():
-    random_id = int(get_random_string(10, allowed_chars='0123456789'))
-    return random_id
 
 RANK = ((1, "Rookie"), (2, "Soldier"), (3, "Veteran"), (4, "Commander"),)
 STATUSES = ((1, "Active"), (2, "Leave"), (3, "Medical Leave"), (4, "Retired"), (5, "Deceased"))
