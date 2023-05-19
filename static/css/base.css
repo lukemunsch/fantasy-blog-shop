@@ -18,8 +18,13 @@
     color: rgb(0, 255, 0);
 }
 
+.darkleague {
+    color: rgb(0, 60, 0);
+}
+
 .void {
     color: black;
+    font-weight: 700;
 }
 
 .menus {
@@ -108,7 +113,7 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: #012000;
+    background: rgb(0, 60, 0);
     z-index: -1;
 }
 
@@ -209,7 +214,7 @@ footer {
 }
 
 .btn-view {
-    background-color: rgb(0, 160, 0);
+    background-color: green;
     color: yellow;
 }
 
@@ -246,13 +251,17 @@ footer {
 /* personnel page styles */
 
 .personnel-card {
-    background-color: rgb(180, 180, 180);
+    background-color: rgb(216, 216, 216);
     border: 2px solid yellow;
     width: 80%;
     height: auto;
     align-items: center;
     padding: 20px 10px 20px 10px ;
     margin-left: 40px;
+}
+
+.more-content-card:hover {
+    background-color: red;
 }
 
 .card-img-holder {
