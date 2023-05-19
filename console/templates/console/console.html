@@ -34,6 +34,10 @@
       </li>
 
       <li class="list-inline-item">
+        <a class="menus" href="#news">- Missions</a>
+      </li>
+
+      <li class="list-inline-item">
         <a class="menus" href="#personnel">- Personnel</a>
       </li>
 
@@ -47,11 +51,16 @@
 <!-- The content entries section -->
 <!-- content for news updates -->
 <div class="container-fluid">
-  <div class="row">
+  <div class="row mb-5">
     <h3 class="content-titles league mb-5 mx-4">- News Updates -</h3>
-    <div class="col">
-
-    </div>
+    <div class="col"></div>
+  </div>
+</div>
+<!-- content for Missions -->
+<div class="container-fluid">
+  <div class="row mb-5">
+    <h3 class="content-titles league mb-5 mx-4">- Mission Record -</h3>
+    <div class="col"></div>
   </div>
 </div>
 <hr class="menus my-5" id="personnel" />
@@ -67,9 +76,17 @@
             <div class="card-img-holder">
               <a href="#">
                 {% if c.profile_image %}
-                <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image">
+                <img
+                  class="card-img-top"
+                  src="{{ c.profile_image.url }}"
+                  alt="{{ c.name }} profile image"
+                />
                 {% else %}
-                <img class="card-img-top" src="{{ MEDIA_URL }}no-image.png" alt="No image available">
+                <img
+                  class="card-img-top"
+                  src="{{ MEDIA_URL }}no-image.png"
+                  alt="No image available"
+                />
                 {% endif %}
               </a>
             </div>
@@ -78,22 +95,25 @@
         <div class="row">
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">
-                {{ c.name|upper }}
-              </h5>
+              <h5 class="card-title">{{ c.name|upper }}</h5>
               <p class="card-text d-none d-md-inline-block">
-                {{ c.get_rank_display }} - <em>{{ c.originated_from|lower }}</em>
+                {{ c.get_rank_display }} -
+                <em>{{ c.originated_from|lower }}</em>
               </p>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"><span class="d-none d-lg-inline-block">View </span> <i
-                class="fas fa-eye"></i></a>
+            <a href="#" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
             {% if request.user.is_superuser %}
             <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
+            <a href="#" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
             {% endif %}
           </div>
         </div>
@@ -115,21 +135,20 @@
   </div>
 </div>
 
-<hr class="menus my-5" id="success"/>
+<hr class="menus my-5" id="success" />
 <!-- content for completion reports -->
 <div class="container-fluid">
   <div class="row mb-5">
     <h3 class="content-titles league mb-5 mx-4">- Completion Reports -</h3>
-    <div class="col-12">
-
-    </div>
+    <div class="col-12"></div>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-12 text-center btt-btn">
       <a class="btt-link btn">
-        <i class="fas fa-arrow-up"></i> Back to Top <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
       </a>
     </div>
   </div>
@@ -146,12 +165,10 @@
     described in README for project
   </p>
 </footer>
-{% endblock content %}
-{% block postloadjs %}
-{{ block.super }}
+{% endblock content %} {% block postloadjs %} {{ block.super }}
 <script>
-  $('.btt-link').click(function () {
-    window.scrollTo(0, 0)
-  })
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
 </script>
 {% endblock %}
