@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'console',
     'personnel',
+    'news',
 ]
 
 MIDDLEWARE = [
