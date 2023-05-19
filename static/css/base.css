@@ -260,6 +260,16 @@ footer {
     margin-left: 40px;
 }
 
+.news-card {
+    background-color: rgb(145, 255, 220);
+    border: 2px solid rgb(0, 70, 65);
+    width: 80%;
+    height: auto;
+    align-items: center;
+    padding: 20px 10px 20px 10px ;
+    margin-left: 40px;
+}
+
 .more-content-card:hover {
     background-color: red;
 }

@@ -43,13 +43,51 @@
     </ul>
   </div>
 </div>
-<hr class="menus mb-5"  />
+<hr class="menus mb-5" />
 <!-- The content entries section -->
 <!-- content for news updates -->
 <div class="container-fluid">
   <div class="row mb-5">
     <h3 class="content-titles league mb-5 mx-4">- News Updates -</h3>
-    <div class="col" id="missions"></div>
+    {% for n in news %}
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+      <div class="card news-card">
+        <div class="row">
+          <div class="col">
+            <div class="card-img-holder">
+              <a href="#">
+                {% if n.news_type == 1 %}
+                {% elseif n.news_type == 2 %}
+                {% else %}
+                {% endif %}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text d-none d-md-inline-block">
+                <strong>{{ n.title|upper }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- content control buttons -->
+        <div class="row">
+          <div class="col">
+            <a href="#" class="btn btn-view"><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i></a>
+            {% if request.user.is_superuser %}
+            <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+            <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
 </div>
 <hr class="menus my-5" />
@@ -73,17 +111,9 @@
             <div class="card-img-holder">
               <a href="#">
                 {% if c.profile_image %}
-                <img
-                  class="card-img-top"
-                  src="{{ c.profile_image.url }}"
-                  alt="{{ c.name }} profile image"
-                />
+                <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image" />
                 {% else %}
-                <img
-                  class="card-img-top"
-                  src="{{ MEDIA_URL }}no-image.png"
-                  alt="No image available"
-                />
+                <img class="card-img-top" src="{{ MEDIA_URL }}no-image.png" alt="No image available" />
                 {% endif %}
               </a>
             </div>
@@ -102,15 +132,11 @@
         </div>
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"
-              ><span class="d-none d-lg-inline-block">View </span>
-              <i class="fas fa-eye"></i
-            ></a>
+            <a href="#" class="btn btn-view"><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i></a>
             {% if request.user.is_superuser %}
             <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-delete"
-              ><i class="fas fa-trash-alt"></i
-            ></a>
+            <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
             {% endif %}
           </div>
         </div>
@@ -132,7 +158,7 @@
   </div>
 </div>
 
-<hr class="menus my-5"/>
+<hr class="menus my-5" />
 <div class="container">
   <div class="row">
     <div class="col-12 text-center btt-btn">
