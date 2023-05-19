@@ -20,7 +20,12 @@ class News(models.Model):
     title = models.CharField(max_length=150, null=False, blank=False)
     news_type = models.IntegerField(choices=TYPES, default=1)
     news_img = models.ImageField(null=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False
+    )
     publish_date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
     news_content = models.TextField(
@@ -29,6 +34,7 @@ class News(models.Model):
         blank=False,
         default='Add content here'
     )
+    slug = models.SlugField(max_length=254, unique=True)
 
     class Meta:
         """set up our ordering for this model"""
