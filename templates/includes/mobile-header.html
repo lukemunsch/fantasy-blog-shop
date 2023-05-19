@@ -16,18 +16,17 @@
                         <!-- content collapse -->
                         <a class="nav-link plain-link overlay-menu-btn menus" href="#collapseContent" data-toggle="collapse"
                             role="button" aria-expanded="false" aria-controls="collapseContent">
-                            Content <i class="fas fa-sort-down"></i></a>
+                            Console <i class="fas fa-sort-down"></i></a>
                         <div class="collapse" id="collapseContent">
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
                                 <a href="#" class="collapse-item">Add New Entry</a>
                                 <div class="dropdown-divider"></div>
                                 {% endif %}
-                                <a href="{% url 'console' %}" class="collapse-item">Console</a>
+                                <a href="{% url 'console' %}" class="collapse-item">General Access</a>
                                 <a href="{% url 'news' %}" class="collapse-item">News Updates</a>
                                 <a href="#" class="collapse-item">Mission Briefs</a>
                                 <a href="{% url 'personnel' %}" class="collapse-item">Personnel Roster</a>
-                                <a href="#" class="collapse-item">Completion Reports</a>
                             </div>
                         </div>
                         <!-- account collapse -->

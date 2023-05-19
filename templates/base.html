@@ -60,18 +60,17 @@
                                     <a href="#" class="nav-link plain-link dropdown-toggle menus" type="button"
                                         id="dropdownContentButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        Content
+                                        Console
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownContentButton">
                                         {% if request.user.is_superuser %}
                                         <a href="#" class="dropdown-item">Add New Entry</a>
                                         <div class="dropdown-divider"></div>
                                         {% endif %}
-                                        <a href="{% url 'console' %}" class="dropdown-item">Console</a>
+                                        <a href="{% url 'console' %}" class="dropdown-item">General Access</a>
                                         <a href="{% url 'news' %}" class="dropdown-item">News Updates</a>
                                         <a href="#" class="dropdown-item">Mission Brief</a>
                                         <a href="{% url 'personnel' %}" class="dropdown-item">Personnel Roster</a>
-                                        <a href="#" class="dropdown-item">Completion Reports</a>
                                     </div>
                                 </div>
                             </li>
