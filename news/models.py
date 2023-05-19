@@ -24,7 +24,8 @@ class News(models.Model):
         User,
         on_delete=models.CASCADE,
         null=False,
-        blank=False
+        blank=False,
+        default='Anonymous'
     )
     publish_date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
@@ -34,17 +35,18 @@ class News(models.Model):
         blank=False,
         default='Add content here'
     )
-    slug = models.SlugField(max_length=254, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
         """set up our ordering for this model"""
         ordering = ['updated_on', 'publish_date']
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
-        """set up our slug creation"""
+        """setting up the method for generating slug"""
         if not self.slug:
-            self.slug = slugify(f'{self.news_type}-{self.publish_date}')
+            self.slug = slugify(f'{self.news_type}-{self.author}-{self.title}')
         return super().save(*args, **kwargs)
