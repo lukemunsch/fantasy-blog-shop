@@ -18,6 +18,15 @@
     color: rgb(0, 255, 0);
 }
 
+.darkleague {
+    color: rgb(0, 60, 0);
+}
+
+.void {
+    color: black;
+    font-weight: 700;
+}
+
 .menus {
     color: red;
     font-weight: 700;
@@ -104,7 +113,7 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: #012000;
+    background: rgb(0, 60, 0);
     z-index: -1;
 }
 
@@ -148,6 +157,10 @@ body {
 
 /* footer */
 
+.footer-container {
+    height: 60px;
+}
+
 footer {
     height: 40px;
     background-color: rgb(0, 0, 0);
@@ -190,20 +203,70 @@ footer {
     color: rgb(255, 0, 0);
 }
 
+/* Console page Styles */
+
+.section-flow {
+    overflow-x: auto;
+}
+
+.btn {
+    border: 1px solid black;
+}
+
+.btn-view {
+    background-color: green;
+    color: yellow;
+}
+
+.btn-edit {
+    background-color: orange;
+    color: white;
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+}
+
+.link-to-content {
+    text-decoration: none;
+    text-align: center;
+    height: 430px;
+}
+
+.btt-link {
+    color: rgb(30, 255, 0);
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: 300;
+}
+
+.btt-link:hover {
+    border: 1px solid black;
+    border-radius: 8px;
+    color: rgb(253, 249, 20);
+    font-weight: 700;
+}
+
 /* personnel page styles */
 
-.card {
+.personnel-card {
+    background-color: rgb(216, 216, 216);
+    border: 2px solid yellow;
     width: 80%;
     height: auto;
     align-items: center;
     padding: 20px 10px 20px 10px ;
-    margin-left: 20px;
+    margin-left: 40px;
+}
+
+.more-content-card:hover {
+    background-color: red;
 }
 
 .card-img-holder {
     text-align: center;
-
-    height: 240px;
+    max-height: 240px;
 }
 
 .card-img-top {
