@@ -34,6 +34,38 @@
 <hr class="menus" />
 <div class="container-fluid">
     <div class="row mb-5">
+        {% for n in news %}
+        <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+            <div class="card personnel-card">
+                <div class="row">
+                    <div class="col">
+                        <div class="card-img-holder">
+                            <a href="#">
+                                {% if n.news_type == 1 %}
+                                <img src="{{ MEDIA_URL }}announcement-default-img.png" alt="system issue default image"
+                                    class="card-img-top" />
+                                {% elif n.news_type == 2 %}
+                                <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
+                                    class="card-img-top" />
+                                {% else %}
+                                <img src="{{ MEDIA_URL }}discover-default-img.png"
+                                    alt="General announcement deault image" class="card-img-top" />
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ n.title|upper }}</h5>
+                            <p class="card-origins"><em>by {{ n.author }}</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
