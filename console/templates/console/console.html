@@ -57,8 +57,11 @@
             <div class="card-img-holder">
               <a href="#">
                 {% if n.news_type == 1 %}
+                <img src="/media/discover-default-img.png" alt="system issue default image" class="card-img-top">
                 {% elif n.news_type == 2 %}
+                <img src="/media/system-default-img.png" alt="Discoveries dault image" class="card-img-top">
                 {% else %}
+                <img src="/media/anouncement-default-img.png" alt="General announcement deault image" class="card-img-top">
                 {% endif %}
               </a>
             </div>
