@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'console',
     'personnel',
     'news',
+    'missions',
 ]
 
 MIDDLEWARE = [
