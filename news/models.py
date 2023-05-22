@@ -39,7 +39,7 @@ class News(models.Model):
 
     class Meta:
         """set up our ordering for this model"""
-        ordering = ['updated_on', 'publish_date']
+        ordering = ['-updated_on', '-publish_date']
         verbose_name_plural = "News"
 
     def __str__(self):
