@@ -27,6 +27,9 @@
         league.
       </p>
     </div>
+    <div class="col-12 content-titles">
+      <a href="{% url 'console' %}" class="menus">Back to Console</a>
+    </div>
   </div>
 </div>
 <hr class="menus" />
@@ -58,7 +61,9 @@
           <div class="col">
             <div class="card-body text-center">
               <h5 class="card-title">{{ c.name|upper }}</h5>
-              <p class="card-origins">from <em>{{ c.originated_from|lower }}</em></p>
+              <p class="card-origins">
+                from <em>{{ c.originated_from|lower }}</em>
+              </p>
               <p class="card-text">
                 {{ c.get_rank_display }} -
                 <em>{{ c.get_current_status_display }}</em>
@@ -98,15 +103,15 @@
     <div class="col-12 d-none d-xl-block">
       <hr class="menus my-5" />
     </div>
-    {% endif %}
-    {% endfor %}
+    {% endif %} {% endfor %}
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-12 text-center btt-btn">
       <a class="btt-link btn">
-        <i class="fas fa-arrow-up"></i> Back to Top <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
       </a>
     </div>
   </div>
@@ -124,12 +129,10 @@
   </p>
 </footer>
 
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script>
-    $('.btt-link').click(function () {
-        window.scrollTo(0, 0)
-    })
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
 </script>
 {% endblock %}
