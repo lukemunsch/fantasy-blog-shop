@@ -59,7 +59,7 @@
                 {% if n.news_type == 1 %}
                 <img
                   src="{{ MEDIA_URL }}announcement-default-img.png"
-                  alt="general announcement default image"
+                  alt="General announcement default image"
                   class="card-img-top"
                 />
                 {% elif n.news_type == 2 %}
@@ -71,7 +71,7 @@
                 {% else %}
                 <img
                   src="{{ MEDIA_URL }}discover-default-img.png"
-                  alt="system update deault image"
+                  alt="System update deault image"
                   class="card-img-top"
                 />
                 {% endif %}
@@ -83,7 +83,7 @@
           <div class="col">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              <p class="card-text d-none d-md-inline-block">
+              <p class="card-text">
                 <strong>{{ n.title|upper }}</strong>
               </p>
             </div>
