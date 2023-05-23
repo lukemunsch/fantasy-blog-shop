@@ -48,11 +48,15 @@
                                 <img src="{{ MEDIA_URL }}announcement-default-img.png" alt="system issue default image"
                                     class="card-img-top" />
                                 {% elif n.news_type == 2 %}
-                                <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
-                                    class="card-img-top" />
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}discover-default-img.png"
-                                    alt="General announcement deault image" class="card-img-top" />
+                                    <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
+                                        class="card-img-top" />
+                                    {% else %}
+                                    {% if n.news_img %}
+                                    <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="card-img-top">
+                                    {% else %}
+                                    <img src="{{ MEDIA_URL }}discover-default-img.png"
+                                        alt="General announcement deault image" class="card-img-top" />
+                                    {% endif %}
                                 {% endif %}
                             </a>
                         </div>
@@ -94,25 +98,23 @@
         <div class="col-12 d-none d-xl-block">
             <hr class="menus my-5" />
         </div>
-        {% endif %}
-        {% endfor %}
+        {% endif %} {% endfor %}
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-12 text-center btt-btn">
             <a class="btt-link btn">
-                <i class="fas fa-arrow-up"></i> Back to Top <i class="fas fa-arrow-up"></i>
+                <i class="fas fa-arrow-up"></i> Back to Top
+                <i class="fas fa-arrow-up"></i>
             </a>
         </div>
     </div>
 </div>
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script>
-    $('.btt-link').click(function () {
-        window.scrollTo(0, 0)
-    })
+    $(".btt-link").click(function () {
+        window.scrollTo(0, 0);
+    });
 </script>
 {% endblock %}
