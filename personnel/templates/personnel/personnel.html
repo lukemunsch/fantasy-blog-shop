@@ -36,8 +36,74 @@
 <div class="container-fluid">
   <div class="row mb-5">
     {% for c in crew %}
-    {% include 'personnel/includes/crew-template.html' %}
-    {% endfor %}
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+      <div class="card personnel-card">
+        <div class="row">
+          <div class="col">
+            <div class="card-img-holder">
+              {% if c.profile_image %}
+              <img
+                class="card-img-top"
+                src="{{ c.profile_image.url }}"
+                alt="{{ c.name }} profile image"
+              />
+              {% else %}
+              <img
+                class="card-img-top"
+                src="{{ MEDIA_URL }}no-image.png"
+                alt="No image available"
+              />
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ c.name|upper }}</h5>
+              <p class="card-origins">
+                from <em>{{ c.originated_from|lower }}</em>
+              </p>
+              <p class="card-text">
+                {{ c.get_rank_display }} -
+                <em>{{ c.get_current_status_display }}</em>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <a href="#" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
+            {% if request.user.is_superuser %}
+            <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+            <a href="#" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:1 %}
+    <div class="col-12 d-sm-none my-5">
+      <hr class="menus my-5" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:2 %}
+    <div class="col-12 d-none d-sm-block d-md-none">
+      <hr class="menus my-5" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:3 %}
+    <div class="col-12 d-none d-md-block d-xl-none">
+      <hr class="menus my-5" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:4 %}
+    <div class="col-12 d-none d-xl-block">
+      <hr class="menus my-5" />
+    </div>
+    {% endif %} {% endfor %}
   </div>
 </div>
 <div class="container">
