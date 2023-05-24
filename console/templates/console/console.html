@@ -43,14 +43,14 @@
     </ul>
   </div>
 </div>
-<hr class="menus mb-5" />
+<hr class="menus mb-3" />
 <!-- The content entries section -->
 <!-- content for news updates -->
 <div class="container-fluid">
-  <div class="row mb-5">
+  <div class="row mb-3">
     <h3 class="content-titles league mb-5 mx-4">- News Updates -</h3>
     {% for n in news %}
-    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-2">
       <div class="card news-card">
         <div class="row">
           <div class="col">
@@ -115,13 +115,13 @@
       </div>
     </div>
     {% endfor %}
-    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-3">
       <a href="{% url 'news' %}" class="link-to-content">
         <div class="card news-card more-content-card">
           <div class="row">
             <div class="col">
               <p class="darkleague my-5"><strong>All News</strong></p>
-              <p class="void my-5" id="missions">- Click Here! -</p>
+              <p class="void my-5">- Click Here! -</p>
             </div>
           </div>
         </div>
@@ -129,13 +129,13 @@
     </div>
   </div>
 </div>
-<hr class="menus my-5" />
+<hr class="menus mt-4 mb-3" id="missions" />
 <!-- content for Missions -->
 <div class="container-fluid">
-  <div class="row mb-5">
+  <div class="row mb-3">
     <h3 class="content-titles league mb-5 mx-4">- Mission Briefs -</h3>
     {% for m in mission %}
-    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-3">
       <div class="card mission-card">
         <div class="row">
           <div class="col">
@@ -203,10 +203,10 @@
     </div>
   </div>
 </div>
-<hr class="menus my-5" />
+<hr class="menus mt-4 mb-3"  id="personnel"/>
 <!-- content for Personnel changes -->
 <div class="container-fluid mb-5">
-  <div class="row mb-5">
+  <div class="row mb-3">
     <h3 class="content-titles league mb-5 mx-4">- Newest Personnel -</h3>
     {% for c in crew %}
     <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
@@ -275,7 +275,6 @@
   </div>
 </div>
 
-<hr class="menus my-5" />
 <div class="container">
   <div class="row">
     <div class="col-12 text-center btt-btn">
