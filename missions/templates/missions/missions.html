@@ -35,7 +35,7 @@
 <hr class="menus" />
 <div class="container-fluid">
   <div class="row mb-5">
-    {% for m in missions %}
+    {% for m in mission %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card personnel-card">
         <div class="row">
@@ -45,7 +45,7 @@
               <img
                 class="card-img-top"
                 src="{{ m.mission_img.url }}"
-                alt="{{ m.mission_name }} profile image"
+                alt="{{ m.mission }} profile image"
               />
               {% else %}
               <img
@@ -60,13 +60,12 @@
         <div class="row">
           <div class="col">
             <div class="card-body text-center">
-              <h5 class="card-title">{{ c.name|upper }}</h5>
+              <h5 class="card-title">{{ m.mission|upper }}</h5>
               <p class="card-origins">
-                from <em>{{ c.originated_from|lower }}</em>
+                Mission Grade - <strong>{{ m.get_mission_grade_display }}</strong>
               </p>
               <p class="card-text">
-                {{ c.get_rank_display }} -
-                <em>{{ c.get_current_status_display }}</em>
+                <em> Lead - <strong>{{ m.mission_lead|upper }}</strong></em>
               </p>
             </div>
           </div>
