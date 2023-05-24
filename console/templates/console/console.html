@@ -134,7 +134,73 @@
 <div class="container-fluid">
   <div class="row mb-5">
     <h3 class="content-titles league mb-5 mx-4">- Mission Briefs -</h3>
-    <div class="col" id="personnel"></div>
+    {% for m in mission %}
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+      <div class="card mission-card">
+        <div class="row">
+          <div class="col">
+            <div class="card-img-holder">
+              <a href="#">
+                {% if m.mission_image %}
+              <img
+                class="card-img-top"
+                src="{{ m.mission_img.url }}"
+                alt="{{ m.mission }} profile image"
+              />
+              {% else %}
+              <img
+                class="card-img-top"
+                src="{{ MEDIA_URL }}mission-default-image.png"
+                alt="No image available"
+              />
+              {% endif %}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text">
+                <strong>{{ m.mission|upper }}</strong>
+              </p>
+              <p class="card-text">
+                <em>{{ m.mission_lead }}</em> - <strong>{{ m.get_mission_grade_display|lower }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- content control buttons -->
+        <div class="row">
+          <div class="col">
+            <a href="#" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
+            {% if request.user.is_superuser %}
+            <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+            <a href="#" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mb-5">
+      <a href="{% url 'missions' %}" class="link-to-content">
+        <div class="card mission-card more-content-card">
+          <div class="row">
+            <div class="col">
+              <p class="darkleague my-5"><strong>All Missions</strong></p>
+              <p class="void my-5">- Click Here! -</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 <hr class="menus my-5" />
