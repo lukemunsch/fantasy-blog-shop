@@ -19,10 +19,12 @@ class Mission(models.Model):
     description = models.TextField(max_length=2000, null=False, blank=False)
     prep_time = models.PositiveIntegerField(default=5) #number in days
     mission_length = models.PositiveIntegerField(default=1) #number in weeks
+    mission_img =models.ImageField(null=True, blank=True)
+    img_url = models.URLField(max_length=1024, null=True, blank=False)
 
     class Meta:
         """Set up our extra model settings"""
-        ordering = ['mission_grade']
+        ordering = ['mission_grade', 'mission_length']
 
     def __str__(self):
         return self.mission

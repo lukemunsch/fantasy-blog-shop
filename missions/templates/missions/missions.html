@@ -4,7 +4,7 @@
 {% load static %}
 
 <!-- set up tab extra title -->
-{% block extra_title %} - News Updates{% endblock %}
+{% block extra_title %} - Mission Log{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -44,13 +44,13 @@
               {% if m.mission_image %}
               <img
                 class="card-img-top"
-                src="{{ c.profile_image.url }}"
+                src="{{ m.mission_img.url }}"
                 alt="{{ m.mission_name }} profile image"
               />
               {% else %}
               <img
                 class="card-img-top"
-                src="{{ MEDIA_URL }}no-image.png"
+                src="{{ MEDIA_URL }}mission-default-image.png"
                 alt="No image available"
               />
               {% endif %}
