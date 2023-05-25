@@ -252,31 +252,25 @@ footer {
 .personnel-card {
     background-color: rgb(216, 216, 216);
     border: 2px solid yellow;
-    width: 80%;
     height: auto;
     align-items: center;
-    padding: 20px 10px 20px 10px ;
-    margin-left: 40px;
+    padding: 20px 10px 20px 10px;
 }
 
 .news-card {
     background-color: rgb(65, 195, 255);
     border: 2px solid rgb(250, 255, 35);
-    width: 80%;
     height: auto;
     align-items: center;
-    padding: 20px 10px 20px 10px ;
-    margin-left: 40px;
+    padding: 20px 10px 20px 10px;
 }
 
 .mission-card {
     background-color: rgb(160, 110, 255);
     border: 2px solid rgb(250, 255, 35);
-    width: 80%;
     height: auto;
     align-items: center;
-    padding: 20px 10px 20px 10px ;
-    margin-left: 40px;
+    padding: 20px 10px 20px 10px;
 }
 
 .more-content-card:hover {

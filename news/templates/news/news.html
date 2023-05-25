@@ -36,7 +36,7 @@
 </div>
 <hr class="menus" />
 <div class="container-fluid">
-    <div class="row mb-5">
+    <div class="row mb-3">
         {% for n in news %}
         <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
             <div class="card news-card">
@@ -48,9 +48,9 @@
                                 <img src="{{ MEDIA_URL }}announcement-default-img.png" alt="system issue default image"
                                     class="card-img-top" />
                                 {% elif n.news_type == 2 %}
-                                    <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
-                                        class="card-img-top" />
-                                    {% else %}
+                                <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
+                                    class="card-img-top" />
+                                {% else %}
                                     {% if n.news_img %}
                                     <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="card-img-top">
                                     {% else %}
@@ -83,20 +83,20 @@
             </div>
         </div>
         {% if forloop.counter|divisibleby:1 %}
-        <div class="col-12 d-sm-none my-5">
-            <hr class="menus my-5" />
+        <div class="col-12 d-sm-none">
+            <hr class="menus my-3" />
         </div>
         {% endif %} {% if forloop.counter|divisibleby:2 %}
         <div class="col-12 d-none d-sm-block d-md-none">
-            <hr class="menus my-5" />
+            <hr class="menus my-3" />
         </div>
         {% endif %} {% if forloop.counter|divisibleby:3 %}
         <div class="col-12 d-none d-md-block d-xl-none">
-            <hr class="menus my-5" />
+            <hr class="menus my-3" />
         </div>
         {% endif %} {% if forloop.counter|divisibleby:4 %}
         <div class="col-12 d-none d-xl-block">
-            <hr class="menus my-5" />
+            <hr class="menus my-3" />
         </div>
         {% endif %} {% endfor %}
     </div>

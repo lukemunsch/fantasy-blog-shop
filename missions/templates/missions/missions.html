@@ -34,7 +34,7 @@
 </div>
 <hr class="menus" />
 <div class="container-fluid">
-  <div class="row mb-5">
+  <div class="row mb-2">
     {% for m in mission %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card mission-card">
@@ -87,20 +87,20 @@
       </div>
     </div>
     {% if forloop.counter|divisibleby:1 %}
-    <div class="col-12 d-sm-none my-5">
-      <hr class="menus my-5" />
+    <div class="col-12 d-sm-none">
+      <hr class="menus" />
     </div>
     {% endif %} {% if forloop.counter|divisibleby:2 %}
     <div class="col-12 d-none d-sm-block d-md-none">
-      <hr class="menus my-5" />
+      <hr class="menus my-3" />
     </div>
     {% endif %} {% if forloop.counter|divisibleby:3 %}
     <div class="col-12 d-none d-md-block d-xl-none">
-      <hr class="menus my-5" />
+      <hr class="menus my-3" />
     </div>
     {% endif %} {% if forloop.counter|divisibleby:4 %}
     <div class="col-12 d-none d-xl-block">
-      <hr class="menus my-5" />
+      <hr class="menus my-3" />
     </div>
     {% endif %} {% endfor %}
   </div>
