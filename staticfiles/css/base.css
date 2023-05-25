@@ -35,7 +35,6 @@
 
 .menus:hover {
     color: red;
-    cursor: pointer;
 }
 
 .content-titles {
@@ -260,6 +259,26 @@ footer {
     margin-left: 40px;
 }
 
+.news-card {
+    background-color: rgb(65, 195, 255);
+    border: 2px solid rgb(250, 255, 35);
+    width: 80%;
+    height: auto;
+    align-items: center;
+    padding: 20px 10px 20px 10px ;
+    margin-left: 40px;
+}
+
+.mission-card {
+    background-color: rgb(160, 110, 255);
+    border: 2px solid rgb(250, 255, 35);
+    width: 80%;
+    height: auto;
+    align-items: center;
+    padding: 20px 10px 20px 10px ;
+    margin-left: 40px;
+}
+
 .more-content-card:hover {
     background-color: red;
 }
@@ -267,6 +286,7 @@ footer {
 .card-img-holder {
     text-align: center;
     max-height: 240px;
+    border: 2px solid black;
 }
 
 .card-img-top {
@@ -287,8 +307,6 @@ footer {
     font-weight: 500;
     font-size: 20px;
 }
-
-
 
 /* media queries */
 
