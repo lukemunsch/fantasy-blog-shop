@@ -128,7 +128,19 @@
     </div>
   </div>
 </div>
-{% endblock %} {% block postloadjs %} {{ block.super }}
+<!-- set up footer for page -->
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+<footer class="d-none d-lg-block fixed-bottom text-center">
+  <p class="my-2">
+    This is a fan made, non profit site. Source materials and locations are
+    described in README for project
+  </p>
+</footer>
+{% endblock content %} {% block postloadjs %} {{ block.super }}
 <script>
   $(".btt-link").click(function () {
     window.scrollTo(0, 0);
