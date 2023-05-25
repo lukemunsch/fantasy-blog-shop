@@ -58,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row void">
             <div class="col">
               <div class="card-body text-center">
                 <h5 class="card-title">{{ c.name|upper }}</h5>
@@ -74,7 +74,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <a href="#" class="btn btn-view"
+              <a href="{% url 'personnel_details' c.id %}" class="btn btn-view"
                 ><span class="d-none d-lg-inline-block">View </span>
                 <i class="fas fa-eye"></i
               ></a>

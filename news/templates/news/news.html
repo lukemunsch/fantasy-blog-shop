@@ -9,9 +9,9 @@
 <!-- set up page header to push ccon down -->
 {% block page_header %}
 <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+  <div class="row">
+    <div class="col"></div>
+  </div>
 </div>
 {% endblock%}
 
@@ -19,102 +19,119 @@
 {% block content %}
 <div class="cover-up"></div>
 <div class="container text-center">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3 class="renegade page-heading">News updates</h3>
-            <p class="league page-subhead">
-                Here are all the news updates posted to the message board;
-            </p>
-            <p class="league page-subhead">
-                from system updates, discoveries and general announcements.
-            </p>
-        </div>
-        <div class="col-12 content-titles">
-            <a href="{% url 'console' %}" class="menus">Back to Console</a>
-        </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">News updates</h3>
+      <p class="league page-subhead">
+        Here are all the news updates posted to the message board;
+      </p>
+      <p class="league page-subhead">
+        from system updates, discoveries and general announcements.
+      </p>
     </div>
+    <div class="col-12 content-titles">
+      <a href="{% url 'console' %}" class="menus">Back to Console</a>
+    </div>
+  </div>
 </div>
 <hr class="menus" />
 <div class="container-fluid">
-    <div class="row mb-3">
-        {% for n in news %}
-        <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
-            <div class="card news-card">
-                <div class="row">
-                    <div class="col">
-                        <div class="card-img-holder">
-                            <a href="#">
-                                {% if n.news_type == 1 %}
-                                <img src="{{ MEDIA_URL }}announcement-default-img.png" alt="system issue default image"
-                                    class="card-img-top" />
-                                {% elif n.news_type == 2 %}
-                                <img src="{{ MEDIA_URL }}system-default-img.png" alt="Discoveries dault image"
-                                    class="card-img-top" />
-                                {% else %}
-                                    {% if n.news_img %}
-                                    <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="card-img-top">
-                                    {% else %}
-                                    <img src="{{ MEDIA_URL }}discover-default-img.png"
-                                        alt="General announcement deault image" class="card-img-top" />
-                                    {% endif %}
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ n.title }}</h5>
-                            <p class="card-origins"><em>by {{ n.author }}</em></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a href="{% url 'news_details' n.id %}" class="btn btn-view"><span class="d-none d-lg-inline-block">View </span>
-                            <i class="fas fa-eye"></i></a>
-                        {% if request.user.is_superuser %}
-                        <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-                        <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
-                        {% endif %}
-                    </div>
-                </div>
+  <div class="row mb-3">
+    {% for n in news %}
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+      <div class="card news-card">
+        <div class="row">
+          <div class="col">
+            <div class="card-img-holder">
+              <a href="{% url 'news_details' n.id %}">
+                {% if n.news_type == 1 %}
+                <img
+                  src="{{ MEDIA_URL }}announcement-default-img.png"
+                  alt="system issue default image"
+                  class="card-img-top"
+                />
+                {% elif n.news_type == 2 %}
+                <img
+                  src="{{ MEDIA_URL }}system-default-img.png"
+                  alt="Discoveries dault image"
+                  class="card-img-top"
+                />
+                {% else %} {% if n.news_img %}
+                <img
+                  src="{{ n.news_img.url }}"
+                  alt="{{ n.title }} image"
+                  class="card-img-top"
+                />
+                {% else %}
+                <img
+                  src="{{ MEDIA_URL }}discover-default-img.png"
+                  alt="General announcement deault image"
+                  class="card-img-top"
+                />
+                {% endif %} {% endif %}
+              </a>
             </div>
+          </div>
         </div>
-        {% if forloop.counter|divisibleby:1 %}
-        <div class="col-12 d-sm-none">
-            <hr class="menus my-3" />
+        <div class="row">
+          <div class="col">
+            <a href="{% url 'news_details' n.id %}">
+              <div class="card-body text-center void">
+                <h5 class="card-title">{{ n.title }}</h5>
+                <p class="card-origins"><em>by {{ n.author }}</em></p>
+              </div>
+            </a>
+          </div>
         </div>
-        {% endif %} {% if forloop.counter|divisibleby:2 %}
-        <div class="col-12 d-none d-sm-block d-md-none">
-            <hr class="menus my-3" />
+        <div class="row">
+          <div class="col">
+            <a href="{% url 'news_details' n.id %}" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
+            {% if request.user.is_superuser %}
+            <a href="#" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+            <a href="#" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
+            {% endif %}
+          </div>
         </div>
-        {% endif %} {% if forloop.counter|divisibleby:3 %}
-        <div class="col-12 d-none d-md-block d-xl-none">
-            <hr class="menus my-3" />
-        </div>
-        {% endif %} {% if forloop.counter|divisibleby:4 %}
-        <div class="col-12 d-none d-xl-block">
-            <hr class="menus my-3" />
-        </div>
-        {% endif %} {% endfor %}
+      </div>
     </div>
+    {% if forloop.counter|divisibleby:1 %}
+    <div class="col-12 d-sm-none">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:2 %}
+    <div class="col-12 d-none d-sm-block d-md-none">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:3 %}
+    <div class="col-12 d-none d-md-block d-xl-none">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:4 %}
+    <div class="col-12 d-none d-xl-block">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% endfor %}
+  </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-12 text-center btt-btn">
-            <a class="btt-link btn">
-                <i class="fas fa-arrow-up"></i> Back to Top
-                <i class="fas fa-arrow-up"></i>
-            </a>
-        </div>
+  <div class="row">
+    <div class="col-12 text-center btt-btn">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
     </div>
+  </div>
 </div>
 {% endblock %} {% block postloadjs %} {{ block.super }}
 <script>
-    $(".btt-link").click(function () {
-        window.scrollTo(0, 0);
-    });
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
 </script>
 {% endblock %}

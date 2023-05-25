@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col">
             <div class="card-img-holder">
-              <a href="#">
+              <a href="{% url 'news_details' n.id %}">
                 {% if n.news_type == 1 %}
                 <img
                   src="{{ MEDIA_URL }}announcement-default-img.png"
@@ -87,18 +87,19 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text">
-                <strong>{{ n.title|upper }}</strong>
-              </p>
-            </div>
+            <a href="{% url 'news_details' n.id %}">
+              <div class="card-body">
+                <p class="card-text void">
+                  <strong>{{ n.title|upper }}</strong>
+                </p>
+              </div>
+            </a>
           </div>
         </div>
         <!-- content control buttons -->
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"
+            <a href="{% url 'news_details' n.id %}" class="btn btn-view"
               ><span class="d-none d-lg-inline-block">View </span>
               <i class="fas fa-eye"></i
             ></a>
@@ -138,7 +139,7 @@
         <div class="row">
           <div class="col">
             <div class="card-img-holder">
-              <a href="#">
+              <a href="{% url 'mission_details' m.id %}">
                 {% if m.mission_image %}
                 <img
                   class="card-img-top"
@@ -159,21 +160,22 @@
         <div class="row">
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text">
-                <strong>{{ m.mission|upper }}</strong>
-              </p>
-              <p class="card-text">
-                <em>{{ m.mission_lead }}</em> -
-                <strong>{{ m.get_mission_grade_display|lower }}</strong>
-              </p>
+              <a href="{% url 'mission_details' m.id %}">
+                <p class="card-text void">
+                  <strong>{{ m.mission|upper }}</strong>
+                </p>
+                <p class="card-text void">
+                  <em>{{ m.mission_lead }}</em> -
+                  <strong>{{ m.get_mission_grade_display|lower }}</strong>
+                </p>
+              </a>
             </div>
           </div>
         </div>
         <!-- content control buttons -->
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"
+            <a href="{% url 'mission_details' m.id %}" class="btn btn-view"
               ><span class="d-none d-lg-inline-block">View </span>
               <i class="fas fa-eye"></i
             ></a>

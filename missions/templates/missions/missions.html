@@ -40,39 +40,44 @@
       <div class="card mission-card">
         <div class="row">
           <div class="col">
-            <div class="card-img-holder">
-              {% if m.mission_image %}
-              <img
-                class="card-img-top"
-                src="{{ m.mission_img.url }}"
-                alt="{{ m.mission }} profile image"
-              />
-              {% else %}
-              <img
-                class="card-img-top"
-                src="{{ MEDIA_URL }}mission-default-image.png"
-                alt="No image available"
-              />
-              {% endif %}
-            </div>
+            <a href="{% url 'mission_details' m.id %}">
+              <div class="card-img-holder">
+                {% if m.mission_image %}
+                <img
+                  class="card-img-top"
+                  src="{{ m.mission_img.url }}"
+                  alt="{{ m.mission }} profile image"
+                />
+                {% else %}
+                <img
+                  class="card-img-top"
+                  src="{{ MEDIA_URL }}mission-default-image.png"
+                  alt="No image available"
+                />
+                {% endif %}
+              </div>
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <div class="card-body text-center">
+            <a href="{% url 'mission_details' m.id %}">
+              <div class="card-body text-center void">
               <h5 class="card-title">{{ m.mission|upper }}</h5>
               <p class="card-origins">
-                Mission Grade - <strong>{{ m.get_mission_grade_display }}</strong>
+                Mission Grade -
+                <strong>{{ m.get_mission_grade_display }}</strong>
               </p>
               <p class="card-text">
                 <em> Lead - <strong>{{ m.mission_lead|upper }}</strong></em>
               </p>
             </div>
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"
+            <a href="{% url 'mission_details' m.id %}" class="btn btn-view"
               ><span class="d-none d-lg-inline-block">View </span>
               <i class="fas fa-eye"></i
             ></a>
