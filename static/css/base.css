@@ -24,7 +24,6 @@
 
 .void {
     color: black;
-    font-weight: 700;
 }
 
 .menus {
@@ -189,7 +188,7 @@ footer {
 }
 
 .btn-console-link {
-    color: rgb(0, 0, 0);
+    color: black;
     font-weight: 300;
     text-decoration: none;
     background-color: rgb(255, 255, 255);
@@ -248,6 +247,10 @@ footer {
 }
 
 /* personnel page styles */
+
+.card a {
+    text-decoration: none;
+}
 
 .personnel-card {
     background-color: rgb(216, 216, 216);

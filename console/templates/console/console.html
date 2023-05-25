@@ -68,21 +68,19 @@
                   alt="System dault image"
                   class="card-img-top"
                 />
-                {% else %} 
-                  {% if n.news_img %}
-                    <img
-                      src="{{ n.news_img.url }}"
-                      alt="{{ n.title }} image"
-                      class="card-img-top"
-                    />
-                    {% else %}
-                    <img
-                      src="{{ MEDIA_URL }}discover-default-img.png"
-                      alt="General announcement deault image"
-                      class="card-img-top"
-                    />
-                  {% endif %} 
-                {% endif %}
+                {% else %} {% if n.news_img %}
+                <img
+                  src="{{ n.news_img.url }}"
+                  alt="{{ n.title }} image"
+                  class="card-img-top"
+                />
+                {% else %}
+                <img
+                  src="{{ MEDIA_URL }}discover-default-img.png"
+                  alt="General announcement deault image"
+                  class="card-img-top"
+                />
+                {% endif %} {% endif %}
               </a>
             </div>
           </div>
@@ -142,18 +140,18 @@
             <div class="card-img-holder">
               <a href="#">
                 {% if m.mission_image %}
-              <img
-                class="card-img-top"
-                src="{{ m.mission_img.url }}"
-                alt="{{ m.mission }} profile image"
-              />
-              {% else %}
-              <img
-                class="card-img-top"
-                src="{{ MEDIA_URL }}mission-default-image.png"
-                alt="No image available"
-              />
-              {% endif %}
+                <img
+                  class="card-img-top"
+                  src="{{ m.mission_img.url }}"
+                  alt="{{ m.mission }} profile image"
+                />
+                {% else %}
+                <img
+                  class="card-img-top"
+                  src="{{ MEDIA_URL }}mission-default-image.png"
+                  alt="No image available"
+                />
+                {% endif %}
               </a>
             </div>
           </div>
@@ -166,7 +164,8 @@
                 <strong>{{ m.mission|upper }}</strong>
               </p>
               <p class="card-text">
-                <em>{{ m.mission_lead }}</em> - <strong>{{ m.get_mission_grade_display|lower }}</strong>
+                <em>{{ m.mission_lead }}</em> -
+                <strong>{{ m.get_mission_grade_display|lower }}</strong>
               </p>
             </div>
           </div>
@@ -203,7 +202,7 @@
     </div>
   </div>
 </div>
-<hr class="menus mt-4 mb-3"  id="personnel"/>
+<hr class="menus mt-4 mb-3" id="personnel" />
 <!-- content for Personnel changes -->
 <div class="container-fluid mb-5">
   <div class="row mb-3">
@@ -214,7 +213,7 @@
         <div class="row">
           <div class="col">
             <div class="card-img-holder">
-              <a href="#">
+              <a href="{% url 'personnel_details' c.id %}">
                 {% if c.profile_image %}
                 <img
                   class="card-img-top"
@@ -234,18 +233,20 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="card-body">
-              <h5 class="card-title">{{ c.name|upper }}</h5>
-              <p class="card-text d-none d-md-inline-block">
-                {{ c.get_rank_display }} -
-                <em>{{ c.originated_from|lower }}</em>
-              </p>
-            </div>
+            <a href="{% url 'personnel_details' c.id %}">
+              <div class="card-body">
+                <h5 class="card-title void">{{ c.name|upper }}</h5>
+                <p class="card-text d-none d-md-inline-block void">
+                  {{ c.get_rank_display }} -
+                  <em>{{ c.originated_from|lower }}</em>
+                </p>
+              </div>
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a href="#" class="btn btn-view"
+            <a href="{% url 'personnel_details' c.id %} " class="btn btn-view"
               ><span class="d-none d-lg-inline-block">View </span>
               <i class="fas fa-eye"></i
             ></a>

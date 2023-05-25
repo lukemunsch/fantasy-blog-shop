@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 
 from .models import News
 
@@ -10,3 +10,13 @@ def news(request):
         'news': news,
     }
     return render(request, 'news/news.html', context)
+
+def news_details(request, news_id):
+    """set up our drill down into specific news entry"""
+    event = get_object_or_404(News, pk=news_id)
+
+    context = {
+        'event': event,
+    }
+
+    return render(request, 'news/news-details.html', context)
