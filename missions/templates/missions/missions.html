@@ -63,15 +63,16 @@
           <div class="col">
             <a href="{% url 'mission_details' m.id %}">
               <div class="card-body text-center void">
-              <h5 class="card-title">{{ m.mission|upper }}</h5>
-              <p class="card-origins">
-                Mission Grade -
-                <strong>{{ m.get_mission_grade_display }}</strong>
-              </p>
-              <p class="card-text">
-                <em> Lead - <strong>{{ m.mission_lead|upper }}</strong></em>
-              </p>
-            </div>
+                <h5 class="card-title">{{ m.mission|upper }}</h5>
+                <p class="card-origins">
+                  Grade -
+                  <strong>{{ m.get_mission_grade_display }}</strong>
+                  | Status - <strong>{{ m.get_mission_status_display }}</strong>
+                </p>
+                <p class="card-text">
+                  <em> Lead - <strong>{{ m.mission_lead|upper }}</strong></em>
+                </p>
+              </div>
             </a>
           </div>
         </div>

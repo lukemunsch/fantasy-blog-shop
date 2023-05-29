@@ -11,6 +11,12 @@ GRADES = (
     (5, 'Basic'),
     (6, 'Training')
 )
+STATUS = (
+    (1, 'Active'),
+    (2, 'Completed'),
+    (3, 'On Hold'),
+    (4, 'Cancelled')
+)
 class Mission(models.Model):
     """Set up our model for missions"""
     mission = models.CharField(max_length=100, null=False, blank=False, unique=True)
@@ -19,6 +25,7 @@ class Mission(models.Model):
     description = models.TextField(max_length=2000, null=False, blank=False)
     prep_time = models.PositiveIntegerField(default=5) #number in days
     mission_length = models.PositiveIntegerField(default=1) #number in weeks
+    mission_status = models.IntegerField(choices=STATUS, default=1)
     mission_img =models.ImageField(null=True, blank=True)
     img_url = models.URLField(max_length=1024, null=True, blank=False)
 

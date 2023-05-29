@@ -162,11 +162,11 @@
             <div class="card-body">
               <a href="{% url 'mission_details' m.id %}">
                 <p class="card-text void">
-                  <strong>{{ m.mission|upper }}</strong>
+                  <strong>{{ m.mission|upper }}</strong> - {{ m.get_mission_status_display }}
                 </p>
                 <p class="card-text void">
-                  <em>{{ m.mission_lead }}</em> -
-                  <strong>{{ m.get_mission_grade_display|lower }}</strong>
+                  {{ m.mission_lead }} -
+                  <em>{{ m.get_mission_grade_display|lower }}</em>
                 </p>
               </a>
             </div>
