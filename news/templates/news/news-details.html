@@ -3,8 +3,13 @@
 <!-- set  up load static -->
 {% load static %}
 
+<!-- add extra css stylesheet -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/news-details.css' %}" />
+{% endblock %}
+
 <!-- set up tab extra title -->
-{% block extra_title %} - News Entry{% endblock %}
+{% block extra_title %} - News Report{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -18,4 +23,19 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3 class="renegade page-heading">News Report</h3>
+            <p class="league page-subhead">
+                This is the news article you have selected</em>
+            </p>
+        </div>
+        <div class="col-12 content-titles">
+            <a href="{% url 'news' %}" class="menus"><< Back to News Articles</a> 
+            <a href="{% url 'console' %}" class="menus"><< Back to Console</a>
+        </div>
+    </div>
+</div>
+<hr class="menus" />
 {% endblock %}
