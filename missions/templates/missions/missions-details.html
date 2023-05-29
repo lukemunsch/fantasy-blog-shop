@@ -26,9 +26,9 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-12 text-center">
-            <h3 class="renegade page-heading">{{ task.mission|upper }}</h3>
+            <h3 class="renegade page-heading">Latest Mission Report</h3>
             <p class="league page-subhead">
-                Latest report from <em>{{ task.mission_lead|upper }}</em>
+                This is the lastest information we have received from the team leader regarding the mission.</em>
             </p>
         </div>
         <div class="col-12 content-titles">
@@ -55,10 +55,10 @@
             {% endif %}
         </div>
         <div class="col-12 col-md-6 league mission-breakdown">
-            <p>Mission Title: {{ task.mission }}</p>
-            <p>Mission being led by: {{ task.mission_lead }}</p>
-            <p>Prep Time: {{ task.prep_time }} days</p>
-            <p>Estimated mission length: {{ task.mission_length }} weeks</p>
+            <p>Mission Title: <strong>{{ task.mission }}</strong></p>
+            <p>Mission being led by: <strong>{{ task.mission_lead }}</strong></p>
+            <p>Prep Time: <strong>{{ task.prep_time }} days</strong></p>
+            <p>Estimated mission length: <strong>{{ task.mission_length }} weeks</strong></p>
         </div>
     </div>
     <div class="row mb-3">
