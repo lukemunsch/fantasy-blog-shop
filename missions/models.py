@@ -27,7 +27,7 @@ class Mission(models.Model):
     mission_length = models.PositiveIntegerField(default=1) #number in weeks
     mission_status = models.IntegerField(choices=STATUS, default=1)
     mission_img =models.ImageField(null=True, blank=True)
-    img_url = models.URLField(max_length=1024, null=True, blank=False)
+    img_url = models.URLField(max_length=1024, null=True, blank=True)
 
     class Meta:
         """Set up our extra model settings"""

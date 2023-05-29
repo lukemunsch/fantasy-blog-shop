@@ -6,7 +6,18 @@
 
 .mission-img {
     max-height: 500px;
-    max-width: 500px;
+    max-width: 100%;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.mission-breakdown {
+    font-size: 120%;
+    text-transform: capitalize;
+}
+
+.mission-desc {
+    font-size: 120%;
 }
 
 .status-blink {
@@ -19,6 +30,6 @@
 
 @keyframes status-blink {
     0% {opacity: 1;}
-    50% {opacity: 0.2;}
+    50% {opacity: 0.1;}
     100% {opacity: 1;}
 }
