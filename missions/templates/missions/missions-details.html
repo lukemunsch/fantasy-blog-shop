@@ -3,6 +3,11 @@
 <!-- set  up load static -->
 {% load static %}
 
+<!-- add extra css stylesheet -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mission-details.css' %}" />
+{% endblock %}
+
 <!-- set up tab extra title -->
 {% block extra_title %} - Mission Brief{% endblock %}
 
@@ -21,9 +26,9 @@
 <div class="container text-center">
     <div class="row">
         <div class="col-12 text-center">
-            <h3 class="renegade page-heading">Latest Mission Update</h3>
+            <h3 class="renegade page-heading">{{ task.mission|upper }}</h3>
             <p class="league page-subhead">
-                <strong>{{ task.mission|upper }}</strong> - latest report from <em>{{ task.mission_lead|upper }}</em>
+                Latest report from <em>{{ task.mission_lead|upper }}</em>
             </p>
         </div>
         <div class="col-12 content-titles">
@@ -33,8 +38,33 @@
 </div>
 <hr class="menus" />
 <div class="container">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h3 class="current-mission league mb-5 mx-4">Current Mission Status -
+                <span class="status-blink {% if task.mission_status != 1 %}menus{% endif %}">{{ task.get_mission_status_display|upper }}</span></h3>
+            </div>
+    </div>
     <div class="row">
-        <div class="col"></div>
+        <div class="col-12 col-md-6 text-center">
+            {% if m.mission_image %}
+            <img
+              class="mission-img"
+              src="{{ m.mission_img.url }}"
+              alt="{{ m.mission }} profile image"
+            />
+            {% else %}
+            <img
+              class="mission-img"
+              src="{{ MEDIA_URL }}mission-default-image.png"
+              alt="No image available"
+            />
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-6 league">
+            <p>Prep Time - {{ task.prep_time }} days</p>
+            <p>Estimated mission length - {{ task.mission_length }} weeks</p>
+        </div>
     </div>
 </div>
+
 {% endblock %}

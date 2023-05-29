@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+.current-mission {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+}
+
+.mission-img {
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.status-blink {
+    letter-spacing: 3px;
+    font-weight: 700;
+    animation-name: status-blink;
+    animation-duration: .5s;
+    animation-iteration-count: 5;
+}
+
+@keyframes status-blink {
+    0% {opacity: 1;}
+    50% {opacity: 0.2;}
+    100% {opacity: 1;}
+}
