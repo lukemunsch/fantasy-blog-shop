@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+.image-top {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.current-news {
+    font-family: 'Dosis', Arial, 'Times New Roman', Times, serif;
+}

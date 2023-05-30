@@ -30,7 +30,7 @@ class News(models.Model):
     publish_date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
     news_content = models.TextField(
-        max_length=2000,
+        max_length=4000,
         null=False,
         blank=False,
         default='Add content here'
