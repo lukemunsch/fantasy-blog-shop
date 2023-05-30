@@ -7,14 +7,7 @@ from personnel.models import Personnel
 # Create your models here.
 # ---------- set up choices for integer fields ---
 TYPES = ((1, 'General'), (2, 'Systems'), (3, 'Discoveries'))
-GRADES = (
-    (1, 'Extreme'),
-    (2, 'Dangerous'),
-    (3, 'Serious'),
-    (4, 'Moderate'),
-    (5, 'Basic'),
-    (6, 'Training')
-)
+PUBLISH = ((0, 'Hidden'), (1, 'Displayed'))
 class News(models.Model):
     """Setting up my model to update news"""
     title = models.CharField(max_length=150, null=False, blank=False)
@@ -27,6 +20,7 @@ class News(models.Model):
         blank=False,
         default='Anonymous'
     )
+    approved_post = models.IntegerField(choices=PUBLISH, default=0)
     publish_date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
     news_content = models.TextField(

@@ -5,7 +5,7 @@
 
 <!-- add extra css stylesheet -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/news-details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/personnel-details.css' %}" />
 {% endblock %}
 
 <!-- set up tab extra title -->
@@ -38,4 +38,64 @@
     </div>
 </div>
 <hr class="menus" />
+<div class="container current-personnel league">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class=""><strong>{{ member.name }}</strong></h1>
+        </div>
+        <div class="col-12 text-center">
+            <h3>{{ member.get_rank_display|upper }} - <em>{{ member.get_current_status_display }}</em></h3>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-12 col-lg-6 text-center mb-5">
+            {% if member.profile_image %}
+                <img class="profile-img" src="{{ member.profile_image.url }}" alt="{{ member.name }} profile image" />
+            {% else %}
+                <img class="profile-img" src="{{ MEDIA_URL }}no-image.png" alt="No image available" />
+            {% endif %}
+        </div>
+        <div class="col-12 col-lg-6 personnel-desc">
+            <p>Originating from {{ member.originated_from }}. </p>
+            <br>
+            <p>Their age is {{ member.age }} years old.</p>
+            <br>
+            <p>They joined the league on {{ member.joined }}.</p>
+            <br>
+            <p>{{ member.speciality|linebreaks }}</p>
+        </div>
+    </div>
+</div>
+<!-- back to top button -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center btt-btn">
+            <a class="btt-link btn">
+                <i class="fas fa-arrow-up"></i> Back to Top
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- footer elements -->
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+<footer class="d-none d-lg-block fixed-bottom text-center">
+    <p class="my-2">
+        This is a fan made, non profit site. Source materials and locations are
+        described in README for project
+    </p>
+</footer>
+{% endblock content %}
+<!-- page specific javascript -->
+{% block postloadjs %} {{ block.super }}
+<script>
+    $(".btt-link").click(function () {
+        window.scrollTo(0, 0);
+    });
+</script>
 {% endblock %}

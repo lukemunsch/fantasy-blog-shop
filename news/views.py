@@ -5,7 +5,7 @@ from .models import News
 # Create your views here.
 def news(request):
     """set up your news updates view"""
-    news = News.objects.all()
+    news = News.objects.filter(approved_post=1)
     context = {
         'news': news,
     }

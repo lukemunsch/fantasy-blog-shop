@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+.current-personnel {
+    font-family: 'Dosis', 'Times New Roman', Times, serif;
+}
+
+.personnel-desc {
+    font-size: 120%;
+}
+
+.profile-img {
+    border: 2px solid black;
+    border-radius: 8px;
+    max-width: 60%;
+}
