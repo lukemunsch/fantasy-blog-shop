@@ -8,7 +8,7 @@ from missions.models import Mission
 def console(request):
     """set up new page for displaying all content"""
     crew = Personnel.objects.filter()[:5]
-    news = News.objects.filter()[:5]
+    news = News.objects.filter(approved_post=1)[:5]
     mission = Mission.objects.filter()[:5]
 
     context = {
