@@ -33,9 +33,10 @@
         </div>
         <div class="col-12 content-titles">
             <a href="{% url 'news' %}" class="menus">
-                << Back to News Articles </a>
+                << Back to News Articles 
+            </a> 
             <a href="{% url 'console' %}" class="menus">
-                << Back to Console
+                << Back to Console 
             </a>
         </div>
     </div>
@@ -45,7 +46,6 @@
 <div class="container league current-news">
     <div class="row">
         <div class="col-12 text-center mb-3">
-            <h1 class="current-news league mb-3 mx-4"><strong>{{ event.title }}</strong></h1>
             {% if event.news_type == 1 %}
             <img src="{{ MEDIA_URL }}announcement-default-img.png"
                 alt="General announcement default image" class="image-top" />
@@ -59,15 +59,18 @@
                 alt="General announcement deault image" class="image-top" />
             {% endif %} {% endif %}
         </div>
-        <div class="col-12 col-md-6 mb-3 text-center">
-            <em><h5>Published on <strong>{{ event.publish_date }}</strong></h5></em>
+        <div class="col-12">
+            <h1 class="league mb-3 mx-4 text-center"><strong>{{ event.title }}</strong></h1>
         </div>
-        <div class="col-12 col-md-6 mb-3 text-center">
-            <em><h5>Article by <strong>{{ event.author }}</strong></h5></em>
+        <div class="col-12 mb-5 text-center">
+            <em>
+                <h5>Published on <strong>{{ event.publish_date }}</strong>
+                    Article by <strong>{{ event.author }}</strong></h5>
+            </em>
         </div>
     </div>
     <div class="row mb-5">
-        <div class="col-8 offset-2 news-content">
+        <div class="col-6 offset-3 news-content">
             {{ event.news_content|linebreaks }}
         </div>
     </div>
