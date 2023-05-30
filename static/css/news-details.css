@@ -9,3 +9,7 @@
 .current-news {
     font-family: 'Dosis', Arial, 'Times New Roman', Times, serif;
 }
+
+.news-content {
+    font-size: 120%;
+}

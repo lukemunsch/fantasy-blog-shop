@@ -38,10 +38,10 @@
     </div>
 </div>
 <hr class="menus" />
-<div class="container">
+<div class="container current-mission">
     <div class="row">
         <div class="col-12">
-            <h3 class="current-mission league mb-3 mx-4">Current Mission Status -
+            <h3 class="league mb-3 mx-4">Current Mission Status -
                 <span
                     class="status-blink {% if task.mission_status == 1 %}league{% elif task.mission_status == 2 %}renegade{% else %}menus{% endif %}">{{ task.get_mission_status_display|upper }}</span>
             </h3>
@@ -63,9 +63,9 @@
         </div>
     </div>
     <div class="row mb-3">
-        <div class="col-12 league mission-desc">
+        <div class="col-10 offset-1 league mission-desc">
             <p><strong>Mission Description:</strong></p>
-            <p>{{ task.description }}</p>
+            <p>{{ task.description|linebreaks }}</p>
         </div>
     </div>
 </div>

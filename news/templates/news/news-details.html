@@ -23,7 +23,7 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
-<div class="container text-center">
+<div class="container text-center current-news">
     <div class="row">
         <div class="col-12 text-center">
             <h3 class="renegade page-heading">News Report</h3>
@@ -33,38 +33,70 @@
         </div>
         <div class="col-12 content-titles">
             <a href="{% url 'news' %}" class="menus">
-                << Back to News Articles</a> <a href="{% url 'console' %}" class="menus">
-                    << Back to Console</a> </div> </div> </div> <hr class="menus" />
-
-                    <!-- main content for displaying news articles -->
-                    <div class="container league">
-                        <div class="row">
-                            <div class="col-12 text-center mb-3">
-                                <h1 class="current-news league mb-3 mx-4"><strong>{{ event.title }}</strong></h1>
-                                {% if event.news_type == 1 %}
-                                <img src="{{ MEDIA_URL }}announcement-default-img.png"
-                                    alt="General announcement default image" class="image-top" />
-                                {% elif event.news_type == 2 %}
-                                <img src="{{ MEDIA_URL }}system-default-img.png" alt="System dault image"
-                                    class="image-top" />
-                                {% else %} {% if event.news_img %}
-                                <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="image-top" />
-                                {% else %}
-                                <img src="{{ MEDIA_URL }}discover-default-img.png"
-                                    alt="General announcement deault image" class="image-top" />
-                                {% endif %} {% endif %}
-                            </div>
-                            <div class="col-12 col-md-6 mb-3 text-center">
-                                <h5>Published on <strong>{{ event.publish_date }}</strong></h5>
-                            </div>
-                            <div class="col-12 col-md-6 mb-3 text-center">
-                                <h5>Article by <strong>{{ event.author }}</strong></h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                {{ event.news_content }}
-                            </div>
-                        </div>
-                    </div>
-                    {% endblock %}
+                << Back to News Articles </a>
+            <a href="{% url 'console' %}" class="menus">
+                << Back to Console
+            </a>
+        </div>
+    </div>
+</div>
+<hr class="menus" />
+<!-- main content for displaying news articles -->
+<div class="container league current-news">
+    <div class="row">
+        <div class="col-12 text-center mb-3">
+            <h1 class="current-news league mb-3 mx-4"><strong>{{ event.title }}</strong></h1>
+            {% if event.news_type == 1 %}
+            <img src="{{ MEDIA_URL }}announcement-default-img.png"
+                alt="General announcement default image" class="image-top" />
+            {% elif event.news_type == 2 %}
+            <img src="{{ MEDIA_URL }}system-default-img.png" alt="System dault image"
+                class="image-top" />
+            {% else %} {% if event.news_img %}
+            <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="image-top" />
+            {% else %}
+            <img src="{{ MEDIA_URL }}discover-default-img.png"
+                alt="General announcement deault image" class="image-top" />
+            {% endif %} {% endif %}
+        </div>
+        <div class="col-12 col-md-6 mb-3 text-center">
+            <em><h5>Published on <strong>{{ event.publish_date }}</strong></h5></em>
+        </div>
+        <div class="col-12 col-md-6 mb-3 text-center">
+            <em><h5>Article by <strong>{{ event.author }}</strong></h5></em>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-8 offset-2 news-content">
+            {{ event.news_content|linebreaks }}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center btt-btn">
+            <a class="btt-link btn">
+                <i class="fas fa-arrow-up"></i> Back to Top
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+<footer class="d-none d-lg-block fixed-bottom text-center">
+    <p class="my-2">
+        This is a fan made, non profit site. Source materials and locations are
+        described in README for project
+    </p>
+</footer>
+{% endblock content %} {% block postloadjs %} {{ block.super }}
+<script>
+    $(".btt-link").click(function () {
+        window.scrollTo(0, 0);
+    });
+</script>
+{% endblock %}
