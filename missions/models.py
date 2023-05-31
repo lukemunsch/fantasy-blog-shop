@@ -11,13 +11,16 @@ GRADES = (
     (5, 'Basic'),
     (6, 'Training')
 )
+
 STATUS = (
     (1, 'Active'),
     (2, 'Completed'),
     (3, 'On Hold'),
     (4, 'Cancelled')
 )
+
 PUBLISH = ((0, 'Hidden'), (1, 'Displayed'))
+
 class Mission(models.Model):
     """Set up our model for missions"""
     mission = models.CharField(max_length=100, null=False, blank=False, unique=True)
