@@ -16,10 +16,21 @@ def index(request):
     return render(request, 'home/index.html', context)
 
 def pending_articles(request):
-    """Set up our GET request for unapproved articles"""
-    ua_articles = News.objects.filter(approved_post=0)
+    """Set up our template for unapproved articles"""
+    news = News.objects.filter(approved_post=0)
 
     context = {
-        'ua_articles': ua_articles,
+        'news': news,
+        'from_homepage': True
     }
-    render(request, 'news/news.html', context)
+    return render(request, 'news/news.html', context)
+
+def pending_missions(request):
+    """set up our tempalte for unapproved missions"""
+    mission = Mission.objects.filter(approved_mission=0)
+
+    context = {
+        'mission': mission,
+        'from_homepage': True
+    }
+    return render(request, 'missions/missions.html', context)

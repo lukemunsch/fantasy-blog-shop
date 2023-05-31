@@ -32,7 +32,13 @@
             </p>
         </div>
         <div class="col-12 content-titles">
-            <a href="{% url 'missions' %}" class="menus"><< Back to Missions</a> 
+            {% if from_pending == True %}
+            <a href="{% url 'pending_missions' %}" class="menus">
+                << Back to Pending Missions 
+            </a>
+            {% else %}
+            <a href="{% url 'missions' %}" class="menus"><< Back to Missions</a>
+            {% endif %} 
             <a href="{% url 'console' %}" class="menus"><< Back to Console</a>
         </div>
     </div>

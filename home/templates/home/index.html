@@ -32,12 +32,14 @@
             <h5 class="mt-2">There are currently updates requiring your attention: -</h5>
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    <h5>Pending News Articles</h5>
-                    <a href="{% url 'pending_articles' %}" class="menus">{{ articles|length }} Unapproved Articles</a>
+                    <h5><u>Pending News Articles</u></h5>
+                    <a href="{% url 'pending_articles' %}" class="btn btn-console-link p-1 mt-2">{{ articles|length }}
+                        Unapproved Articles</a>
                 </div>
                 <div class="col-12 col-lg-6 divide-left">
-                    <h5>Pending Mission Reports</h5>
-                    <a href="#" class="menus">{{ missions|length }} Unapproved Missions</a>
+                    <h5><u>Pending Mission Reports</u></h5>
+                    <a href="{% url 'pending_missions' %}" class="btn btn-console-link p-1 mt-2">{{ missions|length }}
+                        Unapproved Missions</a>
                 </div>
             </div>
         </div>

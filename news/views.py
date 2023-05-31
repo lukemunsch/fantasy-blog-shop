@@ -13,10 +13,16 @@ def news(request):
 
 def news_details(request, news_id):
     """set up our drill down into specific news entry"""
+    from_pending = False
+
     event = get_object_or_404(News, pk=news_id)
+
+    if event.approved_post == 0:
+        from_pending = True
 
     context = {
         'event': event,
+        'from_pending': from_pending,
     }
 
     return render(request, 'news/news-details.html', context)
