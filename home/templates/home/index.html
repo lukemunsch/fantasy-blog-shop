@@ -18,13 +18,31 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="container-fluid container-push">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-10 offset-1 col-md-4 offset-md-none text-center desc-text mb-5">
             <h3>Welcome to the Renegade League</h3>
             <h5 class="mt-2">Giving you the updates and reports for the missions</h5>
             <a class="btn btn-console-link p-1 mt-2" href="{% url 'console' %}">Access to the Console</a>
         </div>
     </div>
+    {% if request.user.is_superuser %}
+    <div class="row">
+        <div class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5">
+            <h3>Welcome back, Grandmaster {{ request.user }}</h3>
+            <h5 class="mt-2">There are currently updates requiring your attention: -</h5>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h5>Pending News Articles</h5>
+                    <a href="{% url 'pending_articles' %}" class="menus">{{ articles|length }} Unapproved Articles</a>
+                </div>
+                <div class="col-12 col-lg-6 divide-left">
+                    <h5>Pending Mission Reports</h5>
+                    <a href="#" class="menus">{{ missions|length }} Unapproved Missions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 <footer class="d-none d-lg-block fixed-bottom text-center">

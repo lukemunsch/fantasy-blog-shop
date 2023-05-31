@@ -14,3 +14,12 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
+
+def pending_articles(request):
+    """Set up our GET request for unapproved articles"""
+    ua_articles = News.objects.filter(approved_post=0)
+
+    context = {
+        'ua_articles': ua_articles,
+    }
+    render(request, 'news/news.html', context)
