@@ -22,18 +22,25 @@ def index(request):
 @login_required
 def pending_articles(request):
     """Set up our template for unapproved articles"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'Sorry, User is not authorised'
+        )
+        return redirect(reverse('home'))
+
     news = News.objects.filter(approved_post=0)
 
     context = {
         'news': news,
-        'from_homepage': True
+        'from_homepage': True,
     }
     return render(request, 'news/news.html', context)
 
 
 @login_required
 def pending_missions(request):
-    """set up our tempalte for unapproved missions"""
+    """set up our template for unapproved missions"""
     if not request.user.is_superuser:
         messages.error(
             request,
@@ -45,6 +52,6 @@ def pending_missions(request):
 
     context = {
         'mission': mission,
-        'from_homepage': True
+        'from_homepage': True,
     }
     return render(request, 'missions/missions.html', context)

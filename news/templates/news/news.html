@@ -43,13 +43,23 @@
 </div>
 <hr class="menus" />
 <div class="container-fluid">
-  <div class="row mb-3">
+  <div class="row">
+    <div class="col-12 text-center content-titles">
+      {% if from_homepage and request.user.is_superuser %}
+      <a href="{% url 'news' %}" class="void"><< Approved Articles</a>
+      {% elif request.user.is_superuser %}
+      <a href="{% url 'pending_articles' %}" class="void"><< Pending Articles</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row mb-5">
   {% if news|length == 0 %}
     <div class="col-12 text-center league">
       <h5>There are no news articles to display!</h5>
     </div>
-  </div>
   {% endif %}
+  </div>
+  <div class="row mb-5">
     {% for n in news %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card news-card">

@@ -16,6 +16,6 @@
 
 @media (max-width: 500px) {
     .image-top {
-        width: 90%;
+        max-width: 90%;
     }
 }
