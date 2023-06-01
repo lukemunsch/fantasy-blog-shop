@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -33,6 +34,13 @@ def pending_articles(request):
 @login_required
 def pending_missions(request):
     """set up our tempalte for unapproved missions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'Sorry, User is not authorised'
+        )
+        return redirect(reverse('home'))
+
     mission = Mission.objects.filter(approved_mission=0)
 
     context = {

@@ -13,3 +13,9 @@
 .news-content {
     font-size: 120%;
 }
+
+@media screen (max-width: 500px) {
+    .image-top {
+        max-width: 90%;
+    }
+}
