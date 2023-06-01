@@ -23,10 +23,14 @@
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">News updates</h3>
       <p class="league page-subhead">
+        {% if from_homepage %}
+        These are the Unapproved News articles awaiting your review
+        {% else %}
         Here are all the news updates posted to the message board;
       </p>
       <p class="league page-subhead">
         from system updates, discoveries and general announcements.
+        {% endif %}
       </p>
     </div>
     <div class="col-12 content-titles">
