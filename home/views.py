@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+
 from missions.models import Mission
 from news.models import News
 
@@ -15,6 +18,7 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
+@login_required
 def pending_articles(request):
     """Set up our template for unapproved articles"""
     news = News.objects.filter(approved_post=0)
@@ -25,6 +29,8 @@ def pending_articles(request):
     }
     return render(request, 'news/news.html', context)
 
+
+@login_required
 def pending_missions(request):
     """set up our tempalte for unapproved missions"""
     mission = Mission.objects.filter(approved_mission=0)
