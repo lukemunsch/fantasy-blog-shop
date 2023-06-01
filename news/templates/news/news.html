@@ -40,6 +40,12 @@
 <hr class="menus" />
 <div class="container-fluid">
   <div class="row mb-3">
+  {% if news|length == 0 %}
+    <div class="col-12 text-center league">
+      <h5>There are no news articles to display!</h5>
+    </div>
+  </div>
+  {% endif %}
     {% for n in news %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card news-card">

@@ -38,6 +38,12 @@
 <hr class="menus" />
 <div class="container-fluid">
   <div class="row mb-2">
+  {% if mission|length == 0 %}
+    <div class="col-12 text-center league">
+      <h5>There are no Missions to display!</h5>
+    </div>
+  </div>
+  {% endif %}
     {% for m in mission %}
     <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
       <div class="card mission-card">

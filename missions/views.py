@@ -3,7 +3,7 @@ from .models import Mission
 # Create your views here.
 def missions(request):
     """set up our standard missions page"""
-    mission = Mission.objects.all()
+    mission = Mission.objects.filter(approved_mission=1)
 
     context = {
         'mission': mission,
