@@ -24,7 +24,7 @@ class Personnel(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
-        """set up hoe the personnel is ordered"""
+        """set up how the personnel is ordered"""
         ordering = ['-rank', 'current_status', 'name']
         verbose_name_plural = "Personnel"
 
