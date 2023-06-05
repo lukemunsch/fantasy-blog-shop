@@ -55,6 +55,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+
     'storages',
 
     # Set up custom apps
