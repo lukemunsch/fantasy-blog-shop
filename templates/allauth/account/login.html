@@ -11,7 +11,7 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p class="league page-subhead mb-3">{% blocktrans with site.name as site_name %}Please sign in with one
+<p class="league page-subhead mb-3text-center">{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a class="plain-link menus" href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
@@ -28,7 +28,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p class="league page-subhead mb-3">{% blocktrans %}If you have not created an account yet, then please
+<p class="league page-subhead mb-3 text-center">{% blocktrans %}If you have not created an account yet, then please
 <a class="plain-link menus" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 

@@ -7,7 +7,7 @@
 {% block inner_content %}
 <h2 class="page-heading renegade text-center">{% trans "Sign Up" %}</h2>
 
-<p class="league page-subhead mb-3">{% blocktrans %}Already have an account? Then please <a class="plain-link menus" href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="league page-subhead mb-3 text-center">{% blocktrans %}Already have an account? Then please <a class="plain-link menus" href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
 <form class="signup my-5 league card-origins" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
