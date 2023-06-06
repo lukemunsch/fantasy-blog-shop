@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    'crispy_forms',
     'storages',
 
     # Set up custom apps
@@ -85,10 +85,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Fantasy_blog.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,6 +103,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', # not added by default for images
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -154,7 +163,6 @@ USE_L10N = True
 USE_TZ = True
 
 # Setting up customer variables
-
 
 
 # Static files (CSS, JavaScript, Images)
