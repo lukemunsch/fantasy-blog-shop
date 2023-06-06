@@ -259,7 +259,7 @@ footer {
     font-weight: 700;
 }
 
-/* personnel page styles */
+/* Card styles */
 
 .card a {
     text-decoration: none;
@@ -295,15 +295,17 @@ footer {
 
 .card-img-holder {
     text-align: center;
-    max-height: 240px;
+    max-height: 200px;
     border: 2px solid black;
+    max-width: 200px;
+    margin: 0px auto;
 }
 
 .card-img-top {
     float: center;
     align-items: center;
     text-align: center;
-    max-height: 220px;
+    max-height: 200px;
 }
 
 .card-title {
