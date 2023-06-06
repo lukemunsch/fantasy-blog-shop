@@ -12,7 +12,7 @@
 
 {% if socialaccount_providers %}
 <p class="league page-subhead mb-3">{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+of your existing third party accounts. Or, <a class="plain-link menus" href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
@@ -29,7 +29,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% else %}
 <p class="league page-subhead mb-3">{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<a class="plain-link menus" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login my-5 league card-origins" method="POST" action="{% url 'account_login' %}">
@@ -38,7 +38,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="nav-link plain-link league my-5 p-1" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <a class="nav-link plain-link menus my-5 p-0" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="btn-console-link" type="submit">{% trans "Sign In" %}</button>
 </form>
 
