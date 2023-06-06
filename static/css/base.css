@@ -318,6 +318,17 @@ footer {
     font-size: 20px;
 }
 
+/* Crispy form settings */
+
+.allauth-form-inner-content label {
+    margin-bottom: 10px;
+}
+
+.allauth-form-inner-content .textinput.textInput {
+    width: 75%;
+    margin-bottom: 20px;
+}
+
 /* media queries */
 
 @media (max-width: 991px) {
