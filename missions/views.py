@@ -1,4 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 from .models import Mission
 # Create your views here.
 def missions(request):
@@ -25,3 +27,7 @@ def mission_details(request, mission_id):
     }
 
     return render(request, 'missions/missions-details.html', context)
+
+@login_required
+def add_mission(request):
+    """set up our new view for adding a new mission"""
