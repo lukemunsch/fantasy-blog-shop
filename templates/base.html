@@ -64,12 +64,12 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownContentButton">
                                         {% if request.user.is_superuser %}
-                                        <a href="#" class="dropdown-item">Add New Entry</a>
+                                        <a href="{% url 'console_add_entry' %}" class="dropdown-item">Add New Entry</a>
                                         <a href="{% url 'pending_articles' %}" class="dropdown-item">Pending Articles</a>
                                         <a href="{% url 'pending_missions' %}" class="dropdown-item">Pending Missions</a>
                                         <div class="dropdown-divider"></div>
                                         {% endif %}
-                                        <a href="{% url 'console' %}" class="dropdown-item">General Access</a>
+                                        <a href="{% url 'console' %}" class="dropdown-item">- General Access -</a>
                                         <a href="{% url 'news' %}" class="dropdown-item">News Updates</a>
                                         <a href="{% url 'missions' %}" class="dropdown-item">Mission Brief</a>
                                         <a href="{% url 'personnel' %}" class="dropdown-item">Personnel Roster</a>

@@ -18,3 +18,7 @@ def console(request):
     }
 
     return render(request, 'console/console.html', context)
+
+def console_add_entry(request):
+    """create view for our base add entry page"""
+    return render(request, 'console/console-add-entries.html')

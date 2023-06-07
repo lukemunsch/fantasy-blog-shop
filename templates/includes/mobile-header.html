@@ -20,10 +20,12 @@
                         <div class="collapse" id="collapseContent">
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
-                                <a href="#" class="collapse-item">Add New Entry</a>
+                                <a href="{% url 'console_add_entry' %}" class="collapse-item">Add New Entry</a>
+                                <a href="{% url 'pending_articles' %}" class="collapse-item">Pending Articles</a>
+                                <a href="{% url 'pending_missions' %}" class="collapse-item">Pending Missions</a>
                                 <div class="dropdown-divider"></div>
                                 {% endif %}
-                                <a href="{% url 'console' %}" class="collapse-item">General Access</a>
+                                <a href="{% url 'console' %}" class="collapse-item">- General Access -</a>
                                 <a href="{% url 'news' %}" class="collapse-item">News Updates</a>
                                 <a href="{% url 'missions' %}" class="collapse-item">Mission Briefs</a>
                                 <a href="{% url 'personnel' %}" class="collapse-item">Personnel Roster</a>
@@ -37,10 +39,10 @@
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
                                 <a href="#" class="collapse-item">My Profile</a>
-                                <a href="#" class="collapse-item">Logout</a>
+                                <a href="{% url 'account_logout' %}" class="collapse-item">Logout</a>
                                 {% else %}
-                                <a href="#" class="collapse-item">Register</a>
-                                <a href="#" class="collapse-item">Login</a>
+                                <a href="{% url 'account_signup' %}" class="collapse-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="collapse-item">Login</a>
                                 {% endif %}
                             </div>
                         </div>

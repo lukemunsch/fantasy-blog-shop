@@ -327,11 +327,17 @@ footer {
 }
 
 .allauth-form-inner-content .textinput.textInput {
-    width: 75%;
+    width: 100%;
     margin-bottom: 20px;
 }
 
 /* media queries */
+
+@media (min-width: 1200px) {
+    .allauth-form-inner-content .textinput.textInput {
+        width: 60%;
+    }
+}
 
 @media (max-width: 991px) {
     .container-push {

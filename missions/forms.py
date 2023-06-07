@@ -25,7 +25,7 @@ class MissionForm(forms.ModelForm):
     Form for creating a new mission to go 
     into our pending list
     """
-    personnel = Personnel.objects.filter(rank>=2)
+    personnel = Personnel.objects.all()
     class Meta:
         """set up our form widgets"""
         model = Mission
@@ -46,21 +46,19 @@ class MissionForm(forms.ModelForm):
             'img_url': forms.TextInput(
                 attrs={'placeholder': 'Online Image URL'}
             ),
+            'description': forms.Textarea(
+                attrs={'placeholder': 'Add Mission Description Here'}
+            )
         }
 
     mission_grade = forms.RadioSelect(choices=GRADES)
     mission_lead = forms.ModelChoiceField(
         queryset=personnel
     )
-    prep_time = forms.NumberInput(
-        label='Prep Time (in days)'
-    )
-    mission_length = forms.NumberInput(
-        label='Mission Length (in weeks)'
-    )
+    prep_time = forms.NumberInput()
+    mission_length = forms.NumberInput()
     mission_img = forms.ImageField(
-        label='Image Upload'
-    )
-    description = forms.Textarea(
-        placeholder='Add Description Here'
+        label='Image Upload',
+        required=False,
+        widget=CustomClearableFileInput,
     )
