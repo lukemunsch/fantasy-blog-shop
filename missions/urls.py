@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.missions, name='missions'),
     path('<int:mission_id>', views.mission_details, name='mission_details'),
+    path('add-mission/', views.add_mission, name='add_mission'),
 ]

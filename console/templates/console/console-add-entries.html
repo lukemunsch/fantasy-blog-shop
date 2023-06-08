@@ -21,15 +21,37 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center">
-      <h2 class="renegade page-heading">Welcome Back, Grandmaster {{ request.user }}</h2>
+      <h2 class="renegade page-heading">
+        Welcome Back, Grandmaster {{ request.user }}
+      </h2>
       <p class="league page-subhead">
         Please choose the type of entry you would like to complete:
       </p>
     </div>
   </div>
-  <hr class="menus mb-3" />
+  <!-- row for navigation buttons -->
+  <div class="row text-center my-3">
+    <div class="col-12 text-center content-titles">
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      <a href="{% url 'console' %}" class="menus"><< Console</a>
+    </div>
+  </div>
+</div>
+<hr class="menus mb-5" />
+<div class="container-fluid">
   <div class="row">
-    
+    <a href="#"
+      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-2 text-center addition-btn news-btn my-3 plain-link add-link"
+    >Add a New Article
+    </a>
+    <a href="{% url 'add_mission' %}"
+      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-1 text-center addition-btn mission-btn my-3 plain-link add-link"
+    >Add a New Mission
+    </a>
+    <a
+      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-1 text-center addition-btn personnel-btn my-3 plain-link add-link"
+    >Add a New Member
+    </a>
   </div>
 </div>
 {% endblock %}

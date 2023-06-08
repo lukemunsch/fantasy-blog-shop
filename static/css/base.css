@@ -320,6 +320,48 @@ footer {
     font-size: 20px;
 }
 
+.addition-btn {
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif, serif;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    border: 2px solid yellow;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a.add-link {
+    color: black;
+}
+
+.add-link:hover {
+    color: antiquewhite;
+}
+
+.news-btn {
+    background-color: rgb(65, 195, 255);
+}
+
+.news-btn:hover {
+    background-color: rgb(25, 65, 85);
+}
+
+.mission-btn {
+    background-color: rgb(160, 110, 255);
+}
+
+.mission-btn:hover {
+    background-color: rgb(65, 25, 85);
+}
+
+.personnel-btn {
+    background-color: rgb(216, 216, 216);
+}
+
+.personnel-btn:hover {
+    background-color: rgb(65, 65, 65);
+}
+
 /* Crispy form settings */
 
 .allauth-form-inner-content label {

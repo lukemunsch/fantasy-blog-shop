@@ -44,20 +44,11 @@ def add_mission(request):
         form = MissionForm(request.POST)
         if form.is_valid():
             form.save()
-            message.success(
-                request,
-                'New Mission is waiting your approval!'
-            )
             return redirect(reverse('home'))
-        else:
-            messages.error(
-                request,
-                'Failed to create Mission - Ensure all details are correct!'
-            )
     else:
         form = MissionForm()
 
     context = {
         'form': form,
     }
-    return render(request, 'mission/add-mission.html', context)
+    return render(request, 'missions/add-mission.html', context)
