@@ -35,12 +35,20 @@ def mission_details(request, mission_id):
 def add_mission(request):
     """set up our new view for adding a new mission"""
     if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access thie Resource!'
+        )
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = MissionForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                'This mission has been successfully posted to the pending mission page!'
+            )
             return redirect(reverse('home'))
     else:
         form = MissionForm()

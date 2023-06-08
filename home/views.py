@@ -25,7 +25,7 @@ def pending_articles(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'Sorry, User is not authorised'
+            'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
 
@@ -44,7 +44,7 @@ def pending_missions(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'Sorry, User is not authorised'
+            'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
 

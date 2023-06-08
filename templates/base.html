@@ -2,138 +2,217 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- custom meta -->
     <meta name="description" content="Renegade League" />
-    <meta name="keywords"
-        content="" />
+    <meta name="keywords" content="" />
     <meta name="author" content="Luke Munsch" />
 
     <!-- favicon -->
     <link rel="icon" type="image/ico" href="{% static 'img/favicon.ico' %}" />
     {% endblock %} {% block extra_meta %} {% endblock %} {% block corecss %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/base-mobile.css' %}" />
 
     {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
-    <script src="https://kit.fontawesome.com/5889d2f18a.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://kit.fontawesome.com/5889d2f18a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     {% endblock %} {% block extra_js %} {% endblock %}
 
     <title>Renegade League {% block extra_title %}{% endblock %}</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="container-fluid w-100 fixed-top">
-            <div class="row bg-black d-none d-lg-block">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="col-6">
-                        <a class="navbar-brand" href="{% url 'home' %}">
-                            <h1 class="renegade">
-                                Renegade<span class="league">League</span>
-                            </h1>
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <ul id="topnav" class="list-inline row text-center">
-                            <li class="col-3 menuitem">
-                                <a class="nav-link plain-link menus" href="{% url 'home' %}"><span>Home</span></a>
-                            </li>
-                            <li class="col-3">
-                                <div class="dropdown">
-                                    <a href="#" class="nav-link plain-link dropdown-toggle menus" type="button"
-                                        id="dropdownContentButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Console
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownContentButton">
-                                        {% if request.user.is_superuser %}
-                                        <a href="{% url 'console_add_entry' %}" class="dropdown-item">Add New Entry</a>
-                                        <a href="{% url 'pending_articles' %}" class="dropdown-item">Pending Articles</a>
-                                        <a href="{% url 'pending_missions' %}" class="dropdown-item">Pending Missions</a>
-                                        <div class="dropdown-divider"></div>
-                                        {% endif %}
-                                        <a href="{% url 'console' %}" class="dropdown-item">- General Access -</a>
-                                        <a href="{% url 'news' %}" class="dropdown-item">News Updates</a>
-                                        <a href="{% url 'missions' %}" class="dropdown-item">Mission Brief</a>
-                                        <a href="{% url 'personnel' %}" class="dropdown-item">Personnel Roster</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-3">
-                                <div class="dropdown">
-                                    <a href="#" class="nav-link plain-link dropdown-toggle menus" type="button"
-                                        id="dropdownAccountButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Account
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownAccountButton">
-                                        {% if request.user.is_authenticated %}
-                                        <a href="#" class="dropdown-item">My Profile</a>
-                                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                        {% else %}
-                                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-3 menuitem">
-                                <a class="nav-link plain-link menus" href="#"><span>Shop</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+      <div class="container-fluid w-100 fixed-top">
+        <div class="row bg-black d-none d-lg-block">
+          <nav class="navbar navbar-expand-lg">
+            <div class="col-6">
+              <a class="navbar-brand" href="{% url 'home' %}">
+                <h1 class="renegade">
+                  Renegade<span class="league">League</span>
+                </h1>
+              </a>
             </div>
+            <div class="col-6">
+              <ul id="topnav" class="list-inline row text-center">
+                <li class="col-3 menuitem">
+                  <a class="nav-link plain-link menus" href="{% url 'home' %}"
+                    ><span>Home</span></a
+                  >
+                </li>
+                <li class="col-3">
+                  <div class="dropdown">
+                    <a
+                      href="#"
+                      class="nav-link plain-link dropdown-toggle menus"
+                      type="button"
+                      id="dropdownContentButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Console
+                    </a>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownContentButton"
+                    >
+                      {% if request.user.is_superuser %}
+                      <a
+                        href="{% url 'console_add_entry' %}"
+                        class="dropdown-item"
+                        >Add New Entry</a
+                      >
+                      <a
+                        href="{% url 'pending_articles' %}"
+                        class="dropdown-item"
+                        >Pending Articles</a
+                      >
+                      <a
+                        href="{% url 'pending_missions' %}"
+                        class="dropdown-item"
+                        >Pending Missions</a
+                      >
+                      <div class="dropdown-divider"></div>
+                      {% endif %}
+                      <a href="{% url 'console' %}" class="dropdown-item"
+                        >- General Access -</a
+                      >
+                      <a href="{% url 'news' %}" class="dropdown-item"
+                        >News Updates</a
+                      >
+                      <a href="{% url 'missions' %}" class="dropdown-item"
+                        >Mission Brief</a
+                      >
+                      <a href="{% url 'personnel' %}" class="dropdown-item"
+                        >Personnel Roster</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="col-3">
+                  <div class="dropdown">
+                    <a
+                      href="#"
+                      class="nav-link plain-link dropdown-toggle menus"
+                      type="button"
+                      id="dropdownAccountButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Account
+                    </a>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownAccountButton"
+                    >
+                      {% if request.user.is_authenticated %}
+                      <a href="#" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item"
+                        >Logout</a
+                      >
+                      {% else %}
+                      <a href="{% url 'account_signup' %}" class="dropdown-item"
+                        >Register</a
+                      >
+                      <a href="{% url 'account_login' %}" class="dropdown-item"
+                        >Login</a
+                      >
+                      {% endif %}
+                    </div>
+                  </div>
+                </li>
+                <li class="col-3 menuitem">
+                  <a class="nav-link plain-link menus" href="#"
+                    ><span>Shop</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        {% include 'includes/mobile-header.html' %}
+      </div>
+      {% include 'includes/mobile-header.html' %}
     </header>
 
     <!-- MESSAGES CONTAINER -->
-    <div class="container fixed-alerts">
-        <div class="row">
-            <div class="col-md-8 offset-md-2 mt-3">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible text-center fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                </div>
-                {% endfor %}
-            </div>
+    <div class="container-fluid fixed-alerts">
+      <div class="row">
+        <div class="col-8 offset-2">
+          {% for message in messages %}
+          <div
+            class="alert {{ message.tags }} alert-dismissible text-center fade show"
+            id="msg"
+            role="alert"
+          >
+            {{ message | safe }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          {% endfor %}
         </div>
+      </div>
     </div>
 
     <!-- Main content -->
     <main>
-        <!-- page header containers to push content down -->
-        {% block page_header %}
-        {% endblock %}
+      <!-- page header containers to push content down -->
+      {% block page_header %} {% endblock %}
 
-            <!-- Where the rest of the content will go -->
-        {% block content %}
-        
-        {% endblock %}
+      <!-- Where the rest of the content will go -->
+      {% block content %} {% endblock %}
     </main>
 
     <!-- Javascript files -->
     {% block postloadjs %}
     <script src="{% static 'js/mobile-header.js' %}"></script>
+    <script>
+      setTimeout(function () {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+      }, 1500);
+    </script>
     {% endblock %}
-</body>
-
+  </body>
 </html>
