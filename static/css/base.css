@@ -157,6 +157,16 @@ body {
     font-weight: 700;
 }
 
+/* messages */
+
+.fixed-alerts {
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 70px;
+    z-index: 1;
+}
+
 /* footer */
 
 .footer-container {

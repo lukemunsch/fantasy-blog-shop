@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Mission
@@ -34,10 +35,6 @@ def mission_details(request, mission_id):
 def add_mission(request):
     """set up our new view for adding a new mission"""
     if not request.user.is_superuser:
-        message.error(
-            request,
-            'Sorry, You cannot access this function!'
-        )
         return redirect(reverse('home'))
 
     if request.method == 'POST':
