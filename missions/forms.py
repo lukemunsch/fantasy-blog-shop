@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import Select
 
 from .models import Mission
 from personnel.models import Personnel
@@ -25,7 +26,6 @@ class MissionForm(forms.ModelForm):
     Form for creating a new mission to go 
     into our pending list
     """
-    personnel = Personnel.objects.all()
     class Meta:
         """set up our form widgets"""
         model = Mission
@@ -41,22 +41,34 @@ class MissionForm(forms.ModelForm):
         ]
         widgets = {
             'mission': forms.TextInput(
-                attrs={'placeholder': 'Mission Title Here'}
+                attrs={
+                    'placeholder': 'Mission Title Here',
+                }
             ),
+            'mission_lead': Select(
+                attrs={
+                    'style': 'width: 200px;',
+                }
+            ),
+            'mission_grade': forms.RadioSelect(),
             'img_url': forms.TextInput(
                 attrs={'placeholder': 'Online Image URL'}
             ),
             'description': forms.Textarea(
                 attrs={'placeholder': 'Add Mission Description Here'}
-            )
+            ),
+            'prep_time': forms.NumberInput(
+                attrs={
+                    'style': 'width: 100px;',
+                }
+            ),
+            'mission_length': forms.NumberInput(
+                attrs={
+                    'style': 'width: 100px;',
+                }
+            ),
         }
 
-    mission_grade = forms.RadioSelect(choices=GRADES)
-    mission_lead = forms.ModelChoiceField(
-        queryset=personnel
-    )
-    prep_time = forms.NumberInput()
-    mission_length = forms.NumberInput()
     mission_img = forms.ImageField(
         label='Image Upload',
         required=False,

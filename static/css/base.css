@@ -215,6 +215,7 @@ footer {
     font-weight: 300;
     text-decoration: none;
     background-color: rgb(255, 255, 255);
+    padding: 10px;
     border: 2px solid black;
 }
 
@@ -374,11 +375,11 @@ a.add-link {
 
 /* Crispy form settings */
 
-.allauth-form-inner-content label {
+.form-inner-content label {
     margin-bottom: 10px;
 }
 
-.allauth-form-inner-content .textinput.textInput {
+.form-inner-content .textinput.textInput {
     width: 100%;
     margin-bottom: 20px;
 }
@@ -386,7 +387,7 @@ a.add-link {
 /* media queries */
 
 @media (min-width: 1200px) {
-    .allauth-form-inner-content .textinput.textInput {
+    .form-inner-content .textinput.textInput {
         width: 60%;
     }
 }
