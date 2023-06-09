@@ -47,10 +47,11 @@ def add_news(request):
     if request.method == 'POST':
         form = NewsForm(request.POST)
         if form.is_valid():
+            form.instance.author = request.user
             form.save()
             messages.success(
                 request,
-                'This Article has been successfully posted to the pending news page!'
+                f'{{ news.title }} has been successfully added to the Pending articles page!'
             )
             return redirect(reverse('home'))
     else:

@@ -9,4 +9,9 @@ urlpatterns = [
         views.personnel_details,
         name='personnel_details'
     ),
+    path(
+        'add-member/',
+        views.add_member,
+        name='add_member'
+    ),
 ]

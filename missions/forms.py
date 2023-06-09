@@ -26,6 +26,11 @@ class MissionForm(forms.ModelForm):
     Form for creating a new mission to go 
     into our pending list
     """
+    def __init__(self, *args, **kwargs):
+        super(MissionForm, self).__init__(*args, **kwargs)
+        self.fields['prep_time'].label = 'Preparation Time (in days)'
+        self.fields['mission_length'].label = 'Mission Length (in weeks)'
+
     class Meta:
         """set up our form widgets"""
         model = Mission

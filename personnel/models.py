@@ -9,6 +9,7 @@ def unique_member_id():
 
 RANK = ((1, "Rookie"), (2, "Soldier"), (3, "Veteran"), (4, "Commander"),)
 STATUSES = ((1, "Active"), (2, "Leave"), (3, "Medical Leave"), (4, "Retired"), (5, "Deceased"))
+DISPLAY = ((0, 'Hidden'), (1, 'Shown'))
 # Create your models here.
 class Personnel(models.Model):
     """Set up model for our team members"""
@@ -21,6 +22,7 @@ class Personnel(models.Model):
     joined = models.DateField(auto_now=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     profile_image = models.ImageField(null=True, blank=True)
+    authorised = models.PositiveIntegerField(choices=DISPLAY, default=0)
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:

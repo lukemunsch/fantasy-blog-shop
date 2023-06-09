@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from personnel.models import Personnel
 from news.models import News
@@ -19,6 +21,14 @@ def console(request):
 
     return render(request, 'console/console.html', context)
 
+@login_required
 def console_add_entry(request):
     """create view for our base add entry page"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'Sorry, this page is for Grandmasters Only'
+        )
+        return redirect(reverse('home'))
+
     return render(request, 'console/console-add-entries.html')
