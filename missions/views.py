@@ -37,7 +37,7 @@ def add_mission(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'You are not authorised to access thie Resource!'
+            'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
 

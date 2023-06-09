@@ -37,7 +37,7 @@ def add_member(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'You are not authorised to Access this Resource!'
+            'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
 
@@ -47,5 +47,14 @@ def add_member(request):
             form.save()
             messages.success(
                 request,
-                f'{{ personnel.name }} has been successfully added to the Roster'
+                'This mission has been successfully posted to the pending mission page!'
             )
+            return redirect(reverse('home'))
+    else:
+        form = PersonnelForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'personnel/add-member.html', context)
