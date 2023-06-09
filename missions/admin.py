@@ -10,6 +10,7 @@ class MissionAdmin(admin.ModelAdmin):
         'mission_grade',
         'mission_lead',
         'mission_length',
+        'approved_mission',
     )
 
     list_filter = (
@@ -21,3 +22,8 @@ class MissionAdmin(admin.ModelAdmin):
         'mission',
         'description',
     ]
+
+    actions = ['approve_mission']
+
+    def approve_mission(self, request, queryset):
+        queryset.update(approved_mission=1)

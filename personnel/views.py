@@ -8,7 +8,7 @@ from .forms import PersonnelForm
 # Create your views here.
 def personnel(request):
     """set up new page for displaying all content"""
-    crew = Personnel.objects.all()
+    crew = Personnel.objects.filter(authorised=1)
 
     context = {
         'crew': crew,
@@ -18,10 +18,15 @@ def personnel(request):
 
 def personnel_details(request, personnel_id):
     """create view to bring up the personnel specifics"""
+    from_pending = False
     member = get_object_or_404(Personnel, pk=personnel_id)
+
+    if member.authorised == 0:
+        from_pending = True
 
     context = {
         'member': member,
+        'from_pending': from_pending,
     }
 
     return render(request, 'personnel/personnel-details.html', context)

@@ -73,6 +73,11 @@
     border-left: 3px solid black;
 }
 
+.divide-top {
+    border-top: 3px solid black;
+    padding-top: 20px;
+}
+
 /* background colors */
 .bg-black {
     background-color: black;
@@ -396,6 +401,11 @@ a.add-link {
     .container-push {
         margin-top: 120px;
     }
+
+    .row.divide-top, 
+    .pending-mission.divide-left {
+        border: none;
+    } 
 }
 
 @media (max-height: 500px) {

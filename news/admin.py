@@ -14,6 +14,7 @@ class NewsAdmin(admin.ModelAdmin):
         'news_type',
         'author',
         'publish_date',
+        'approved_post'
     )
 
     list_filter = (
@@ -25,3 +26,8 @@ class NewsAdmin(admin.ModelAdmin):
         'author',
         'news_content',
     ]
+
+    actions = ['approve_post']
+
+    def approve_post(self, request, queryset):
+        queryset.update(approved_post=1)

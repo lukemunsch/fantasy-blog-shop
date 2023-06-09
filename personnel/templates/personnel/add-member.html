@@ -4,7 +4,7 @@
 {% load static %}
 
 <!-- set up tab extra title -->
-{% block extra_title %} - Console{% endblock %}
+{% block extra_title %} - Add Member{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -21,9 +21,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 text-center">
-        <h3 class="renegade page-heading">Add a New Article</h3>
+        <h3 class="renegade page-heading">Add a New Member</h3>
         <p class="league page-subhead">
-            Please use the form below to Add a News Article to the Operation</em>
+            Please use the form below to Add a News Member to the Operation</em>
         </p>
     </div>
     <div class="col-12 content-titles text-center">
@@ -40,7 +40,7 @@
       <form action="{% url 'add_news' %}" method="POST" class="form mb-5 league card-origins">
         {% csrf_token %}
         {% for field in form %}
-          {% if field.name != 'news_img' %}
+          {% if field.name != 'profile_image' %}
             <div class="my-4">
               {{ field | as_crispy_field }}
             </div>
@@ -50,7 +50,7 @@
         {% endfor %}
         <div class="my-3 text-right">
           <a href="{% url 'console_add_entry' %}" class="btn-console-link"><< Cancel</a>
-          <button class="btn-console-link" type="submit">+ Add Article</button>
+          <button class="btn-console-link" type="submit">+ Add Member</button>
         </div>
       </form>
     </div>

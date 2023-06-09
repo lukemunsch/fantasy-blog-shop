@@ -9,7 +9,7 @@ from missions.models import Mission
 # Create your views here.
 def console(request):
     """set up new page for displaying all content"""
-    crew = Personnel.objects.filter()[:5]
+    crew = Personnel.objects.filter(authorised=1)[:5]
     news = News.objects.filter(approved_post=1)[:5]
     mission = Mission.objects.filter(approved_mission=1)[:5]
 
