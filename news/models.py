@@ -27,7 +27,7 @@ class News(models.Model):
         max_length=4000,
         null=False,
         blank=False,
-        default='Add content here'
+        default=''
     )
     slug = models.SlugField(max_length=200, unique=True)
 
@@ -42,5 +42,5 @@ class News(models.Model):
     def save(self, *args, **kwargs):
         """setting up the method for generating slug"""
         if not self.slug:
-            self.slug = slugify(f'{self.news_type}-{self.author}-{self.title}')
+            self.slug = slugify(f'{self.news_type}-{self.title}')
         return super().save(*args, **kwargs)
