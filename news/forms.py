@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import News
-from .widgets import CustomClearableFileInput
+from missions.widgets import CustomClearableFileInput
 
 TYPES = ((1, 'General'), (2, 'Systems'), (3, 'Discoveries'))
 
