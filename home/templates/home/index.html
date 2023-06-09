@@ -44,7 +44,7 @@
           <a
             href="{% url 'pending_articles' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ articles|length }}</strong> Unapproved Articles</a
+            ><strong>{{ articles|length }}</strong> Unapproved Article(s)</a
           >
         </div>
         <div class="col-12 col-lg-6 pending-mission divide-left">
@@ -52,7 +52,7 @@
           <a
             href="{% url 'pending_missions' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ missions|length }}</strong> Unapproved Missions</a
+            ><strong>{{ missions|length }}</strong> Unapproved Mission(s)</a
           >
         </div>
       </div>
@@ -63,7 +63,7 @@
             href="{% url 'pending_members' %}"
             class="my-3 btn btn-console-link p1"
           >
-            <strong>{{ members|length }}</strong> Unapproved Recruits
+            <strong>{{ members|length }}</strong> Unapproved Recruit(s)
           </a>
         </div>
       </div>

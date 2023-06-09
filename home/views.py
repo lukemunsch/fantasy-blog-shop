@@ -68,12 +68,12 @@ def pending_members(request):
             'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
-    
-    members = Personnel.objects.filter(authorised=0)
+
+    crew = Personnel.objects.filter(authorised=0)
 
     context = {
-        'members': members,
+        'crew': crew,
         'from_homepage': True,
     }
 
-    return render(request, 'personnel/personnel.html')
+    return render(request, 'personnel/personnel.html', context)

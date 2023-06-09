@@ -23,20 +23,40 @@
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">Personnel Roster</h3>
       <p class="league page-subhead">
-        This is the current collection of team members that belong to the
-        league.
+        {% if from_homepage %} These are the Unauthorsied recruits awaiting your
+        review {% else %} This is the current collection of team members that
+        belong to the league. {% endif %}
       </p>
     </div>
     <div class="col-12 content-titles">
+      {% if from_homepage %}
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      {% endif %}
       <a href="{% url 'console' %}" class="menus"><< Console</a>
     </div>
   </div>
 </div>
 <hr class="menus" />
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center content-titles">
+      {% if from_homepage and request.user.is_superuser %}
+      <a href="{% url 'personnel' %}"><< Authorised Members</a>
+      {% elif request.user.is_superuser %}
+      <a href="{% url 'pending_members' %}"><< Pending Recruits</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row my-5">
+    {% if crew|length == 0 %}
+    <div class="col-12 text-center league">
+      <h5>There are no recruits to display!</h5>
+    </div>
+    {% endif %}
+  </div>
   <div class="row mb-3">
     {% for c in crew %}
-    <div class="col-sm-6 col-md-4 col-xl-3 mb-1">
+    <div class="col-10 offset-1 offset-sm-0 col-sm-6 col-md-4 col-xl-3 mb-1">
       <div class="card personnel-card">
         <a href="{% url 'personnel_details' c.id %}">
           <div class="row">
