@@ -5,21 +5,7 @@ from .models import Mission
 from personnel.models import Personnel
 from .widgets import CustomClearableFileInput
 
-GRADES = (
-    (1, 'Extreme'),
-    (2, 'Dangerous'),
-    (3, 'Serious'),
-    (4, 'Moderate'),
-    (5, 'Basic'),
-    (6, 'Training')
-)
-STATUS = (
-    (1, 'Active'),
-    (2, 'Completed'),
-    (3, 'On Hold'),
-    (4, 'Cancelled')
-)
-PUBLISH = ((0, 'Hidden'), (1, 'Displayed'))
+
 
 class MissionForm(forms.ModelForm):
     """
@@ -60,7 +46,9 @@ class MissionForm(forms.ModelForm):
                 attrs={'placeholder': 'Online Image URL'}
             ),
             'description': forms.Textarea(
-                attrs={'placeholder': 'Add Mission Description Here'}
+                attrs={
+                    'placeholder': 'Add Mission Description Here'
+                }
             ),
             'prep_time': forms.NumberInput(
                 attrs={
