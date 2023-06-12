@@ -47,7 +47,7 @@ def add_member(request):
             form.save()
             messages.success(
                 request,
-                'This mission has been successfully posted to the pending mission page!'
+                f'{{ personnel.name|upper }} is awaiting review!'
             )
             return redirect(reverse('home'))
     else:
@@ -56,5 +56,4 @@ def add_member(request):
     context = {
         'form': form,
     }
-
     return render(request, 'personnel/add-member.html', context)

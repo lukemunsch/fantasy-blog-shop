@@ -51,7 +51,7 @@ def add_news(request):
             form.save()
             messages.success(
                 request,
-                f'{{ news.title }} has been successfully added to the Pending articles page!'
+                f'{{ news.title }} is waiting to be reviewed!'
             )
             return redirect(reverse('home'))
     else:
