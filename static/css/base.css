@@ -389,6 +389,10 @@ a.add-link {
     margin-bottom: 20px;
 }
 
+.select.form-control {
+    max-width: 200px;
+}
+
 /* media queries */
 
 @media (min-width: 1200px) {

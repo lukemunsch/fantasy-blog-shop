@@ -42,14 +42,19 @@ def add_mission(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = MissionForm(request.POST)
+        form = MissionForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(
                 request,
                 'New Mission is awaiting review!'
             )
-            return redirect(reverse('home'))
+            return redirect(reverse('pending_missions'))
+        else:
+            messages.error(
+                request,
+                'Something went wrong - Please check through the form again!'
+            )
     else:
         form = MissionForm()
 

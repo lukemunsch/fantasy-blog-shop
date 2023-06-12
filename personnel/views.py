@@ -42,14 +42,19 @@ def add_member(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = PersonnelForm(request.POST)
+        form = PersonnelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(
                 request,
                 'A New Personnel is awaiting review!'
             )
-            return redirect(reverse('home'))
+            return redirect(reverse('pending_members'))
+        else:
+            messages.error(
+                request,
+                'Something went wrong - Please check through the form again!'
+            )
     else:
         form = PersonnelForm()
 

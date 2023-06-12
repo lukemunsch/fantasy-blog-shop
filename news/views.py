@@ -45,15 +45,20 @@ def add_news(request):
         return redirect(reverse('home'))
 
     if request.method == 'POST':
-        form = NewsForm(request.POST)
+        form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.instance.author = request.user
             form.save()
             messages.success(
                 request,
-                f'{{ news.title }} is waiting to be reviewed!'
+                'New Article is awaiting your review!'
             )
-            return redirect(reverse('home'))
+            return redirect(reverse('pending_articles'))
+        else:
+            messages.error(
+                request,
+                'Something went wrong - Please check through the form again!'
+            )
     else:
         form = NewsForm()
 

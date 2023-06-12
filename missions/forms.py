@@ -37,11 +37,6 @@ class MissionForm(forms.ModelForm):
                     'placeholder': 'Mission Title Here',
                 }
             ),
-            'mission_lead': Select(
-                attrs={
-                    'style': 'width: 200px;',
-                }
-            ),
             'mission_grade': forms.RadioSelect(),
             'img_url': forms.TextInput(
                 attrs={'placeholder': 'Online Image URL'}
@@ -68,6 +63,9 @@ class MissionForm(forms.ModelForm):
             )
         }
 
+    mission_lead = forms.ModelChoiceField(
+        queryset=Personnel.objects.filter(authorised=1)
+    )
     mission_img = forms.ImageField(
         label='Image Upload',
         required=False,

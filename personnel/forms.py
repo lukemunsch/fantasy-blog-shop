@@ -65,7 +65,7 @@ class PersonnelForm(forms.ModelForm):
         }
 
     profile_image = forms.ImageField(
-        label='Image Upload',
+        label='Image',
         required=False,
-        widget=CustomClearableFileInput,
+        widget=CustomClearableFileInput
     )

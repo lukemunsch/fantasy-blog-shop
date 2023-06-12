@@ -4,20 +4,20 @@
   <img
     width="auto"
     height="96"
-    class="rounded shadow-sm"
+    class="rounded shadow-sm league"
     src="{{ widget.value.url }}"
   />
 </a>
 {% if not widget.required %}
-<div class="custom-control custom-checkbox my-5">
+<div class="custom-control custom-checkbox mt-2">
   <input
-    class="custom-control-input"
+    class="custom-control-input league"
     type="checkbox"
     name="{{ widget.checkbox_name }}"
     id="{{ widget.checkbox_id }}"
   />
   <label
-    class="custom-control-label text-lightblue"
+    class="custom-control-label"
     for="{{ widget.checkbox_id }}"
     >{{ widget.clear_checkbox_label }}</label
   >
@@ -25,7 +25,7 @@
 {% endif %}
 <br />
 {{ widget.input_text }} {% endif %}
-<span>
+<span class="btn btn-white rounded-1 btn-lg league">
   Select Image
   <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" class="btn-console-link" />
 </span>
