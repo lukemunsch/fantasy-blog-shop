@@ -19,6 +19,7 @@ class PersonnelForm(forms.ModelForm):
             'current_status',
             'profile_image',
             'image_url',
+            'authorised',
         ]
         widgets = {
             'name': forms.TextInput(
@@ -54,6 +55,11 @@ class PersonnelForm(forms.ModelForm):
             'image_url': forms.TextInput(
                 attrs={
                     'placeholder': 'Online Image URL'
+                }
+            ),
+            'authorised': forms.Select(
+                attrs={
+                    'style': 'width: 200px;',
                 }
             )
         }

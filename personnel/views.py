@@ -47,7 +47,7 @@ def add_member(request):
             form.save()
             messages.success(
                 request,
-                f'{{ personnel.name|upper }} is awaiting review!'
+                'A New Personnel is awaiting review!'
             )
             return redirect(reverse('home'))
     else:

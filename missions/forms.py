@@ -29,6 +29,7 @@ class MissionForm(forms.ModelForm):
             'mission_img',
             'img_url',
             'description',
+            'approved_mission',
         ]
         widgets = {
             'mission': forms.TextInput(
@@ -60,6 +61,11 @@ class MissionForm(forms.ModelForm):
                     'style': 'width: 100px;',
                 }
             ),
+            'approved_mission': forms.Select(
+                attrs={
+                    'style': 'width: 200px;',
+                }
+            )
         }
 
     mission_img = forms.ImageField(

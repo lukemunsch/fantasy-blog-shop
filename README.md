@@ -8,4 +8,5 @@ This is a Fantasy genre App for updating blogs, news, personel changes and Event
 - https://www.zerochan.net/3393892 - personnel image for natsu
 - https://www.hiclipart.com/free-transparent-background-png-clipart-jdudz - "no image" emblem
 - https://www.pexels.com/photo/black-flat-screen-computer-monitor-1714208/ - josh sorenson image for computer used for 'system' news
+- https://www.prompthunt.com/prompt/clgfcjurx000ble08hi16wzzy?selectedAsset=clgfcjv7p000dle088vh1hmbr - image for mikasa ackerman
 

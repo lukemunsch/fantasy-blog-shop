@@ -47,7 +47,7 @@ def add_mission(request):
             form.save()
             messages.success(
                 request,
-                f'{{ mission.mission }} is awaiting review!'
+                'New Mission is awaiting review!'
             )
             return redirect(reverse('home'))
     else:

@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import Select
 
 from .models import News
 from missions.widgets import CustomClearableFileInput
@@ -15,6 +16,7 @@ class NewsForm(forms.ModelForm):
             'news_type',
             'news_img',
             'news_content',
+            'approved_post',
         ]
         widgets = {
             'title': forms.TextInput(
@@ -28,6 +30,11 @@ class NewsForm(forms.ModelForm):
                     'placeholder': 'Add title Content Here'
                 }
             ),
+            'approved_post': forms.Select(
+                attrs={
+                    'style': 'width: 200px;',
+                }
+            )
         }
 
     news_img = forms.ImageField(
