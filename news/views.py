@@ -85,3 +85,47 @@ def add_news(request):
         'form': form,
     }
     return render(request, 'news/add-news.html', context)
+
+@login_required
+def edit_news(request, news_id):
+    """set up how we activate editing news articles"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('missions'))
+
+    news = get_object_or_404(News, pk=news_id)
+    if request.method == 'POST':
+        form = NewsForm(
+            request.POST,
+            request.FILES,
+            instace=news
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'Successfully updated { news.title }'
+            )
+            return redirect(reverse('news'))
+        else:
+            messages.error(
+                request, (
+                'Failed to update Mission'
+                'Please check through the form again!'
+                )
+            )
+    else:
+        form = NewsForm(instance=news)
+        messages.info(
+            request,
+            f'You are editing { news.title }'
+        )
+
+    context = {
+        'news': news,
+        'form': form,
+    }
+    return render(request, 'news/add-news.html', context)

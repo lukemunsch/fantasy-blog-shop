@@ -12,6 +12,7 @@ def missions(request):
 
     context = {
         'mission': mission,
+        'from_mission': True,
     }
 
     return render(request, 'missions/missions.html', context)
@@ -31,7 +32,6 @@ def pending_missions(request):
 
     context = {
         'mission': mission,
-        'from_homepage': True,
     }
     return render(request, 'missions/missions.html', context)
 
@@ -93,6 +93,7 @@ def edit_mission(request, mission_id):
         )
         return redirect(reverse('missions'))
 
+    from_console = True
     mission = get_object_or_404(Mission, pk=mission_id)
     if request.method == 'POST':
         form = MissionForm(
@@ -123,5 +124,6 @@ def edit_mission(request, mission_id):
     context = {
         'mission': mission,
         'form': form,
+        'from_console': from_console,
     }
     return render(request, 'missions/add-mission.html', context)
