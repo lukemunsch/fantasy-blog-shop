@@ -82,3 +82,46 @@ def add_mission(request):
         'form': form,
     }
     return render(request, 'missions/add-mission.html', context)
+
+@login_required
+def edit_mission(request, mission_id):
+    """Set up our page for editing missions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('missions'))
+
+    mission = get_object_or_404(Mission, pk=mission_id)
+    if request.method == 'POST':
+        form = MissionForm(
+            request.POST,
+            request.FILES,
+            instance=mission
+        )
+
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'Successfully update { mission.mission }!'
+            )
+            return redirect(reverse('missions'))
+        else:
+            messages.error(request, (
+                'Failed to update Mission'
+                'Please check through the form again!'
+            ))
+    else:
+        form = MissionForm(instance=mission)
+        messages.info(
+            request,
+            f'You are editing { mission.mission }'
+        )
+
+    context = {
+        'mission': mission,
+        'form': form,
+    }
+    return render(request, 'missions/add-mission.html', context)
