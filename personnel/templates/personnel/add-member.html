@@ -37,7 +37,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 offset-md-3 form-inner-content">
-      <form action="{% url 'add_member' %}" method="POST" class="form mb-5 league card-origins">
+      <form action="{% url 'add_member' %}" method="POST" class="form mb-5 league card-origins" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
           {% if field.name != 'profile_image' %}
@@ -56,4 +56,14 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`You have chosen - ${file.name} - as your new image!`);
+        });
+    </script>
 {% endblock %}
