@@ -17,6 +17,25 @@ def news(request):
     return render(request, 'news/news.html', context)
 
 
+@login_required
+def pending_articles(request):
+    """Set up our template for unapproved articles"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    news = News.objects.filter(approved_post=0)
+
+    context = {
+        'news': news,
+        'from_homepage': True,
+    }
+    return render(request, 'news/news.html', context)
+
+
 def news_details(request, news_id):
     """set up our drill down into specific news entry"""
     from_pending = False

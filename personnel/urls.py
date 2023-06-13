@@ -14,4 +14,5 @@ urlpatterns = [
         views.add_member,
         name='add_member'
     ),
+    path('pending-members/', views.pending_members, name='pending_members'),
 ]

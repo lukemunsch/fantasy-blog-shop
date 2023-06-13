@@ -16,6 +16,26 @@ def missions(request):
 
     return render(request, 'missions/missions.html', context)
 
+
+@login_required
+def pending_missions(request):
+    """set up our template for unapproved missions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    mission = Mission.objects.filter(approved_mission=0)
+
+    context = {
+        'mission': mission,
+        'from_homepage': True,
+    }
+    return render(request, 'missions/missions.html', context)
+
+
 def mission_details(request, mission_id):
     """Set up how we display our mission brief"""
     from_pending = False

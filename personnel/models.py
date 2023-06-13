@@ -27,7 +27,7 @@ class Personnel(models.Model):
 
     class Meta:
         """set up how the personnel is ordered"""
-        ordering = ['-rank', 'current_status', 'name']
+        ordering = ['-joined']
         verbose_name_plural = "Personnel"
 
     def __str__(self):

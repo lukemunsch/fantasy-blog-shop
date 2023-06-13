@@ -16,6 +16,27 @@ def personnel(request):
 
     return render(request, 'personnel/personnel.html', context)
 
+
+@login_required
+def pending_members(request):
+    """set up our pending members authorisation page"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    crew = Personnel.objects.filter(authorised=0)
+
+    context = {
+        'crew': crew,
+        'from_homepage': True,
+    }
+
+    return render(request, 'personnel/personnel.html', context)
+
+
 def personnel_details(request, personnel_id):
     """create view to bring up the personnel specifics"""
     from_pending = False
