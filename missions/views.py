@@ -32,6 +32,7 @@ def pending_missions(request):
 
     context = {
         'mission': mission,
+        'from_homepage': True,
     }
     return render(request, 'missions/missions.html', context)
 
