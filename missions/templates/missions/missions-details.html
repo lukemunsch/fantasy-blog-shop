@@ -49,32 +49,51 @@
         <div class="col-12">
             <h3 class="league mb-3 mx-4">Current Mission Status -
                 <span
-                    class="status-blink {% if task.mission_status == 1 %}league{% elif task.mission_status == 2 %}renegade{% else %}menus{% endif %}">{{ task.get_mission_status_display|upper }}</span>
+                    class="status-blink {% if mission.mission_status == 1 %}league{% elif mission.mission_status == 2 %}renegade{% else %}menus{% endif %}">{{ mission.get_mission_status_display|upper }}</span>
             </h3>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-6 text-center">
-            {% if m.mission_image %}
-            <img class="mission-img mb-3" src="{{ m.mission_img.url }}" alt="{{ m.mission }} profile image" />
+            {% if mission.mission_image %}
+            <img class="mission-img mb-3" src="{{ mission.mission_img.url }}" alt="{{ mission.mission }} profile image" />
             {% else %}
             <img class="mission-img mb-3" src="{{ MEDIA_URL }}mission-default-image.png" alt="No image available" />
             {% endif %}
         </div>
         <div class="col-12 col-md-6 league mission-breakdown">
-            <p>Mission Title: <strong>{{ task.mission }}</strong></p>
-            <p>Mission being led by: <strong>{{ task.mission_lead }}</strong></p>
-            <p>Prep Time: <strong>{{ task.prep_time }} days</strong></p>
-            <p>Estimated mission length: <strong>{{ task.mission_length }} weeks</strong></p>
+            <p>Mission Title: <strong>{{ missiion.mission }}</strong></p>
+            <p>Mission being led by: <strong>{{ mission.mission_lead }}</strong></p>
+            <p>Prep Time: <strong>{{ mission.prep_time }} days</strong></p>
+            <p>Estimated mission length: <strong>{{ mission.mission_length }} weeks</strong></p>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-10 offset-1 league mission-desc">
             <p><strong>Mission Description:</strong></p>
-            <p>{{ task.description|linebreaks }}</p>
+            <p>{{ mission.description|linebreaks }}</p>
         </div>
     </div>
 </div>
+<hr class="menus">
+{% if request.user.is_superuser %}
+<div class="container text-center league">
+    <div class="row">
+        <div class="col-12">
+            <p class="page-subhead">This brief is currently {{ mission.get_approved_mission_display }} to the general users.</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
+            <form action="{% url 'mission_details' mission.id %}" method="post" class="form mb-5 card-origins approval-form">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn-console-link my-3" type="submit">Update Approval</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
 <!-- back to top button -->
 <div class="container">
     <div class="row">

@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Mission
-from .forms import MissionForm
+from .forms import MissionForm, ApproveMissionForm
 
 # Create your views here.
 def missions(request):
@@ -40,14 +40,35 @@ def pending_missions(request):
 def mission_details(request, mission_id):
     """Set up how we display our mission brief"""
     from_pending = False
-    task = get_object_or_404(Mission, pk=mission_id)
+    mission = get_object_or_404(Mission, pk=mission_id)
 
-    if task.approved_mission == 0:
+    if mission.approved_mission == 0:
         from_pending = True
 
+    if request.method == 'POST':
+        form = ApproveMissionForm(
+            request,
+            instance=mission
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'You have now changed the approval of the mission to { mission.approved_mission }'
+            )
+            return redirect(reverse('missions'))
+        else:
+            messages.error(
+                request,
+                "You have failed to update the mission's approval"
+            )
+    else:
+        form = ApproveMissionForm(instance=mission)
+
     context = {
-        'task': task,
+        'mission': mission,
         'from_pending': from_pending,
+        'form': form,
     }
 
     return render(request, 'missions/missions-details.html', context)

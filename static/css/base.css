@@ -389,8 +389,8 @@ a.add-link {
     margin-bottom: 20px;
 }
 
-.select.form-control {
-    max-width: 200px;
+.approval-form .select.form-control {
+    text-align: center;
 }
 
 .select-image:hover {

@@ -1,10 +1,10 @@
 from django import forms
 from django.forms import Select
 
-from .models import Mission
 from personnel.models import Personnel
-from .widgets import CustomClearableFileInput
+from .models import Mission
 
+from .widgets import CustomClearableFileInput
 
 
 class MissionForm(forms.ModelForm):
@@ -12,10 +12,12 @@ class MissionForm(forms.ModelForm):
     Form for creating a new mission to go 
     into our pending list
     """
+
     def __init__(self, *args, **kwargs):
         super(MissionForm, self).__init__(*args, **kwargs)
         self.fields['prep_time'].label = 'Preparation Time (in days)'
         self.fields['mission_length'].label = 'Mission Length (in weeks)'
+        self.fields['approved_mission'].label = 'Approve Mission?'
 
     class Meta:
         """set up our form widgets"""
@@ -71,3 +73,21 @@ class MissionForm(forms.ModelForm):
         required=False,
         widget=CustomClearableFileInput,
     )
+
+
+class ApproveMissionForm(forms.ModelForm):
+    """Set up form for pending mission approval"""
+    def __init__(self, *args, **kwargs):
+        super(ApproveMissionForm, self).__init__(*args, **kwargs)
+        self.fields['approved_mission'].label = 'How would you like to display this mission?'
+    class Meta:
+        """set up our form fields"""
+        model = Mission
+        fields = ['approved_mission']
+        widgets = {
+            'approved_mission': forms.Select(
+                attrs={
+                    'style': 'width: 100%;',
+                }
+            )
+        }
