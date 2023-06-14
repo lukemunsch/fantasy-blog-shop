@@ -98,10 +98,9 @@ def edit_member(request, personnel_id):
     member = get_object_or_404(Personnel, pk=personnel_id)
     if request.method == 'POST':
         form = PersonnelForm(
-            request.POST, request.FILES, instance=personnel
+            request.POST, request.FILES, instance=member
         )
         if form.is_valid():
-
             form.save()
             messages.success(
                 request,
@@ -125,4 +124,4 @@ def edit_member(request, personnel_id):
         'member': member,
         'form': form,
     }
-    return render(request, 'personnel/add-member.html', context)
+    return render(request, 'personnel/edit-member.html', context)
