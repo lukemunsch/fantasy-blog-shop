@@ -21,14 +21,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 text-center">
-        <h3 class="renegade page-heading">Add a New Article</h3>
+        <h3 class="renegade page-heading">Edit a News Article</h3>
         <p class="league page-subhead">
-            Please use the form below to Add a News Article to the Operation</em>
+            Please use the form below to Edit a News Article for the Operation</em>
         </p>
     </div>
     <div class="col-12 content-titles text-center">
         <a href="{% url 'home' %}" class="menus"><< Home</a>
-        <a href="{% url 'console_add_entry' %}" class="menus"><< Add Page</a>
+        <a href="{% url 'news' %}" class="menus"><< Articles</a>
         <a href="{% url 'console' %}" class="menus"><< Console</a>
     </div>
   </div>
@@ -37,7 +37,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 offset-md-3 form-inner-content">
-      <form action="{% url 'add_news' %}" method="POST" class="form mb-5 league card-origins" enctype="multipart/form-data">
+      <form action="{% url 'edit_news' article.id %}" method="POST" class="form mb-5 league card-origins" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
           {% if field.name != 'news_img' %}
@@ -49,8 +49,8 @@
           {% endif %}
         {% endfor %}
         <div class="my-3 text-right">
-          <a href="{% url 'console_add_entry' %}" class="btn-console-link"><< Cancel</a>
-          <button class="btn-console-link" type="submit">+ Add Article</button>
+          <a href="{% url 'news' %}" class="btn-console-link"><< Cancel</a>
+          <button class="btn-console-link" type="submit">+ Edit Article</button>
         </div>
       </form>
     </div>

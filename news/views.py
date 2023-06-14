@@ -10,9 +10,9 @@ from .forms import NewsForm
 
 def news(request):
     """set up your news updates view"""
-    news = News.objects.filter(approved_post=1)
+    articles = News.objects.filter(approved_post=1)
     context = {
-        'news': news,
+        'articles': articles,
     }
     return render(request, 'news/news.html', context)
 
@@ -27,10 +27,10 @@ def pending_articles(request):
         )
         return redirect(reverse('home'))
 
-    news = News.objects.filter(approved_post=0)
+    articles = News.objects.filter(approved_post=0)
 
     context = {
-        'news': news,
+        'articles': articles,
         'from_homepage': True,
     }
     return render(request, 'news/news.html', context)
@@ -94,20 +94,20 @@ def edit_news(request, news_id):
             request,
             'You are not authorised to access this Resource!'
         )
-        return redirect(reverse('missions'))
+        return redirect(reverse('news'))
 
-    news = get_object_or_404(News, pk=news_id)
+    article = get_object_or_404(News, pk=news_id)
     if request.method == 'POST':
         form = NewsForm(
             request.POST,
             request.FILES,
-            instace=news
+            instance=article
         )
         if form.is_valid():
             form.save()
             messages.success(
                 request,
-                f'Successfully updated { news.title }'
+                f'Successfully updated { article.title }'
             )
             return redirect(reverse('news'))
         else:
@@ -118,14 +118,14 @@ def edit_news(request, news_id):
                 )
             )
     else:
-        form = NewsForm(instance=news)
+        form = NewsForm(instance=article)
         messages.info(
             request,
-            f'You are editing { news.title }'
+            f'You are editing { article.title }'
         )
 
     context = {
-        'news': news,
+        'article': article,
         'form': form,
     }
-    return render(request, 'news/add-news.html', context)
+    return render(request, 'news/edit-news.html', context)
