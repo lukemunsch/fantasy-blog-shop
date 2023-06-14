@@ -393,6 +393,10 @@ a.add-link {
     max-width: 200px;
 }
 
+.select-image:hover {
+    color: rgb(0, 255, 0);
+}
+
 /* media queries */
 
 @media (min-width: 1200px) {

@@ -83,3 +83,46 @@ def add_member(request):
         'form': form,
     }
     return render(request, 'personnel/add-member.html', context)
+
+@login_required
+def edit_member(request, personnel_id):
+    """set up our view for editing members"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('personnel'))
+    
+
+    member = get_object_or_404(Personnel, pk=personnel_id)
+    if request.method == 'POST':
+        form = PersonnelForm(
+            request.POST, request.FILES, instance=personnel
+        )
+        if form.is_valid():
+
+            form.save()
+            messages.success(
+                request,
+                f'Successfully updated { member.name }'
+            )
+            return redirect(reverse('personnel'))
+        else:
+            messages.error(
+                request,
+                'Failed to update Mission'
+                'Please check through the form again!'
+            )
+    else:
+        form = PersonnelForm(instance=member)
+        messages.info(
+            request,
+            f'You are editing { member.name }'
+        )
+
+    context = {
+        'member': member,
+        'form': form,
+    }
+    return render(request, 'personnel/add-member.html', context)

@@ -15,4 +15,5 @@ urlpatterns = [
         name='add_member'
     ),
     path('pending-members/', views.pending_members, name='pending_members'),
+    path('edit-member/<int:personnel_id>', views.edit_member, name='edit_member'),
 ]
