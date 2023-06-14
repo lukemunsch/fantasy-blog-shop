@@ -93,12 +93,13 @@ def edit_member(request, personnel_id):
             'You are not authorised to access this Resource!'
         )
         return redirect(reverse('personnel'))
-    
 
     member = get_object_or_404(Personnel, pk=personnel_id)
     if request.method == 'POST':
         form = PersonnelForm(
-            request.POST, request.FILES, instance=member
+            request.POST,
+            request.FILES,
+            instance=member
         )
         if form.is_valid():
             form.save()
