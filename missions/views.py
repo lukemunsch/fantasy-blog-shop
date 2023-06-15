@@ -47,7 +47,7 @@ def mission_details(request, mission_id):
 
     if request.method == 'POST':
         form = ApproveMissionForm(
-            request,
+            request.POST,
             instance=mission
         )
         if form.is_valid():
@@ -72,6 +72,7 @@ def mission_details(request, mission_id):
     }
 
     return render(request, 'missions/missions-details.html', context)
+
 
 @login_required
 def add_mission(request):

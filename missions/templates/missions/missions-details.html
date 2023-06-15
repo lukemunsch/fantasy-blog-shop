@@ -62,7 +62,7 @@
             {% endif %}
         </div>
         <div class="col-12 col-md-6 league mission-breakdown">
-            <p>Mission Title: <strong>{{ missiion.mission }}</strong></p>
+            <p>Mission Title: <strong>{{ mission.mission }}</strong></p>
             <p>Mission being led by: <strong>{{ mission.mission_lead }}</strong></p>
             <p>Prep Time: <strong>{{ mission.prep_time }} days</strong></p>
             <p>Estimated mission length: <strong>{{ mission.mission_length }} weeks</strong></p>
@@ -80,7 +80,7 @@
 <div class="container text-center league">
     <div class="row">
         <div class="col-12">
-            <p class="page-subhead">This brief is currently {{ mission.get_approved_mission_display }} to the general users.</p>
+            <p class="page-subhead">This brief is currently {{ mission.get_approved_mission_display|lower }} to the general users.</p>
         </div>
     </div>
     <div class="row text-center">
