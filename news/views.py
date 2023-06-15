@@ -54,7 +54,7 @@ def news_details(request, news_id):
             form.save()
             messages.success(
                 request,
-                f'You have now changed the approval of the article to { event.approved_post }'
+                'You have successfully changed the approval of the article!'
             )
         else:
             messages.error(

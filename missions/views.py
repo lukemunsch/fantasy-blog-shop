@@ -54,7 +54,7 @@ def mission_details(request, mission_id):
             form.save()
             messages.success(
                 request,
-                f'You have now changed the approval of the mission to { mission.approved_mission }'
+                'You have successfully changed the approval of the mission!'
             )
             return redirect(reverse('missions'))
         else:

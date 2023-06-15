@@ -3,9 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Personnel
-from .forms import PersonnelForm
+from .forms import PersonnelForm, ApprovePersonnelForm
 
 # Create your views here.
+
+
 def personnel(request):
     """set up new page for displaying all content"""
     crew = Personnel.objects.filter(authorised=1)
@@ -45,12 +47,35 @@ def personnel_details(request, personnel_id):
     if member.authorised == 0:
         from_pending = True
 
+    if request.method == 'POST':
+        form = ApprovePersonnelForm(
+            request.POST,
+            instance=member
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have successfully changed the approval of the member!'
+            )
+        else:
+            messages.error(
+                request,
+                "You have failed to update this member's approval"
+            )
+    else:
+        form = ApprovePersonnelForm(
+            instance=member
+        )
+
     context = {
         'member': member,
         'from_pending': from_pending,
+        'form': form,
     }
 
     return render(request, 'personnel/personnel-details.html', context)
+
 
 @login_required
 def add_member(request):
@@ -83,6 +108,7 @@ def add_member(request):
         'form': form,
     }
     return render(request, 'personnel/add-member.html', context)
+
 
 @login_required
 def edit_member(request, personnel_id):

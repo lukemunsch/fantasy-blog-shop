@@ -19,7 +19,7 @@ class Personnel(models.Model):
     rank = models.PositiveIntegerField(choices=RANK, default=1)
     speciality = models.TextField(default="", max_length=1000)
     current_status = models.PositiveIntegerField(choices=STATUSES, default=1)
-    joined = models.DateField(auto_now=True)
+    joined = models.DateField(auto_now_add=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     profile_image = models.ImageField(null=True, blank=True)
     authorised = models.PositiveIntegerField(choices=DISPLAY, default=0)

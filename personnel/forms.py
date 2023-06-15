@@ -69,3 +69,22 @@ class PersonnelForm(forms.ModelForm):
         required=False,
         widget=CustomClearableFileInput
     )
+
+class ApprovePersonnelForm(forms.ModelForm):
+    """set up our personnel approval form"""
+    def __init__(self, *args, **kwargs):
+        super(ApprovePersonnelForm, self).__init__(*args, **kwargs)
+        self.fields['authorised'].label = 'How would you like to display this member?'
+    class Meta:
+        """specific form details"""
+        model = Personnel
+        fields = [
+            'authorised'
+        ]
+        widgets = {
+            'authorised': forms.Select(
+                attrs={
+                    'style': 'width: 100%',
+                }
+            )
+        }
