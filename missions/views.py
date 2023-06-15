@@ -60,7 +60,7 @@ def mission_details(request, mission_id):
         else:
             messages.error(
                 request,
-                "You have failed to update the mission's approval"
+                "You have failed to update this mission's approval"
             )
     else:
         form = ApproveMissionForm(instance=mission)

@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import News
-from .forms import NewsForm
+from .forms import NewsForm, ApproveNewsForm
 
 # Create your views here.
 
@@ -45,9 +45,29 @@ def news_details(request, news_id):
     if event.approved_post == 0:
         from_pending = True
 
+    if request.method == 'POST':
+        form = ApproveNewsForm(
+            request.POST,
+            instance=event
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'You have now changed the approval of the article to { event.approved_post }'
+            )
+        else:
+            messages.error(
+                request,
+                "You have failed to update this article's approval"
+            )
+    else:
+        form = ApproveNewsForm(instance=event)
+
     context = {
         'event': event,
         'from_pending': from_pending,
+        'form': form,
     }
 
     return render(request, 'news/news-details.html', context)
@@ -86,6 +106,7 @@ def add_news(request):
     }
     return render(request, 'news/add-news.html', context)
 
+
 @login_required
 def edit_news(request, news_id):
     """set up how we activate editing news articles"""
@@ -113,8 +134,8 @@ def edit_news(request, news_id):
         else:
             messages.error(
                 request, (
-                'Failed to update Mission'
-                'Please check through the form again!'
+                    'Failed to update Mission'
+                    'Please check through the form again!'
                 )
             )
     else:

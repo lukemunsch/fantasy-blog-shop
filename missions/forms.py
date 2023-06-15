@@ -83,7 +83,9 @@ class ApproveMissionForm(forms.ModelForm):
     class Meta:
         """set up our form fields"""
         model = Mission
-        fields = ['approved_mission']
+        fields = [
+            'approved_mission'
+        ]
         widgets = {
             'approved_mission': forms.Select(
                 attrs={

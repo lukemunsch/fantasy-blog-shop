@@ -38,7 +38,5 @@ class Mission(models.Model):
 
     class Meta:
         """Set up our extra model settings"""
-        ordering = ['mission_grade', 'mission_length']
-
     def __str__(self):
         return self.mission

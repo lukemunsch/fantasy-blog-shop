@@ -42,3 +42,23 @@ class NewsForm(forms.ModelForm):
         required=False,
         widget=CustomClearableFileInput,
     )
+
+
+class ApproveNewsForm(forms.ModelForm):
+    """set up our approval form for news articles"""
+    def __init__(self, *args, **kwargs):
+        super(ApproveNewsForm, self).__init__(*args, **kwargs)
+        self.fields['approved_post'].label = 'How would you like to display this article?'
+    class Meta:
+        """Add form elements"""
+        model = News
+        fields = [
+            'approved_post'
+        ]
+        widgets = {
+            'approved_post': forms.Select(
+                attrs={
+                    'style': 'width: 100%;',
+                }
+            )
+        }

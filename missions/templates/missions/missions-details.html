@@ -75,8 +75,8 @@
         </div>
     </div>
 </div>
-<hr class="menus">
 {% if request.user.is_superuser %}
+<hr class="menus">
 <div class="container text-center league">
     <div class="row">
         <div class="col-12">
@@ -85,7 +85,7 @@
     </div>
     <div class="row text-center">
         <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
-            <form action="{% url 'mission_details' mission.id %}" method="post" class="form mb-5 card-origins approval-form">
+            <form action="{% url 'mission_details' mission.id %}" method="POST" class="form mb-5 card-origins approval-form">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn-console-link my-3" type="submit">Update Approval</button>
