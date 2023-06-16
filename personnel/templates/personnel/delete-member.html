@@ -37,10 +37,8 @@
         <div class="my-3">
             <form method="post" class="form">
                 {% csrf_token %}
-                <a href="{% url 'personnel' %}">
-                    <button class="btn-console-link"><< Cancel</button>
-                </a>
-                <button class="btn-console-link" type="submit">X Delete</button>
+                <a href="{% url 'personnel' %}" class="btn-lg btn-console-link"><< Cancel</a>
+                <button class="btn-lg btn-console-link" type="submit">X Delete</button>
             </form>
         </div>
     </div>
