@@ -49,6 +49,13 @@
 <!-- main content for displaying news articles -->
 <div class="container league current-news">
     <div class="row">
+        {% if request.user.is_superuser %}
+        <div class="col-12 text-center">
+            <a href="{% url 'edit_member' member.id %}">
+                <button class="btn-console-link my-3">Edit Member</button>
+            </a>
+        </div>
+        {% endif %}
         <div class="col-12 text-center mb-3">
             {% if event.news_type == 1 %}
             <img src="{{ MEDIA_URL }}announcement-default-img.png"

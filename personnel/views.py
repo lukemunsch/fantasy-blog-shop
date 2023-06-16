@@ -152,3 +152,32 @@ def edit_member(request, personnel_id):
         'form': form,
     }
     return render(request, 'personnel/edit-member.html', context)
+
+@login_required
+def delete_member(request, personnel_id):
+    """
+    set up the view to delete our members 
+    if we no longer require them
+    """
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    member = get_object_or_404(Personnel, pk=personnel_id)
+
+    if request.method == 'POST':
+        member.delete()
+        messages.success(
+            request,
+            f'You have successfully deleted { member.name }'
+        )
+        return redirect(reverse('personnel'))
+
+    context = {
+        'member': member,
+    }
+
+    return render(request, 'personnel/delete-member.html', context)

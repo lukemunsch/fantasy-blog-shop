@@ -16,4 +16,5 @@ urlpatterns = [
     ),
     path('pending-members/', views.pending_members, name='pending_members'),
     path('edit-member/<int:personnel_id>', views.edit_member, name='edit_member'),
+    path('delete-member/<int:personnel_id>', views.delete_member, name='delete_member'),
 ]

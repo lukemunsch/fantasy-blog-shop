@@ -9,7 +9,7 @@
 {% endblock %}
 
 <!-- set up tab extra title -->
-{% block extra_title %} - Personnel Changes{% endblock %}
+{% block extra_title %} - Personnel Details{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -46,6 +46,16 @@
 <hr class="menus" />
 <div class="container current-personnel league">
     <div class="row mb-5">
+        {% if request.user.is_superuser %}
+        <div class="col-12 text-center">
+            <a href="{% url 'edit_member' member.id %}">
+                <button class="btn-console-link my-3">Edit Member</button>
+            </a>
+            <a href="{% url 'delete_member' member.id %}">
+                <button class="btn-console-link my-3">Delete Member</button>
+            </a>
+        </div>
+        {% endif %}
         <div class="col-12 text-center">
             <h1 class=""><strong>{{ member.name }}</strong></h1>
         </div>
