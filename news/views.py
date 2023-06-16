@@ -169,6 +169,7 @@ def delete_news(request, news_id):
             request,
             f'You have successfully deleted { article.title }'
         )
+        return(redirect(reverse('news')))
 
     context = {
         'article': article,
