@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Delete Mission{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12 text-center">
+            <h3 class="renegade page-heading">Delete Mission</h3>
+            <p class="league page-subhead">
+                Are you sure you want to delete the following Mission?</em>
+            </p>
+        </div>
+        <hr class="menus">
+        <div class="col-12">
+            <p class="league page-subhead">{{ mission.mission|upper }}</p>
+            <p class="league page-subhead">{{ mission.get_mission_grade_display }} - {{ mission.get_mission_status_display }}</p>
+        </div>
+        <div class="col-12 menus page-heading my-5">
+            <h1>WARNING - Deleting this mission will remove it from the console permanently!</h1>
+        </div>
+        <div class="my-3">
+            <form method="post" class="form">
+                {% csrf_token %}
+                <a href="{% url 'missions' %}" class="btn-lg btn-console-link"><< Cancel</a>
+                <button class="btn-lg btn-console-link" type="submit">X Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

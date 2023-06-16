@@ -148,3 +148,27 @@ def edit_mission(request, mission_id):
         'form': form,
     }
     return render(request, 'missions/edit-mission.html', context)
+
+@login_required
+def delete_mission(request, mission_id):
+    """set up our view to delete missions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    mission = get_object_or_404(Mission, pk=mission_id)
+    if request.method == 'POST':
+        mission.delete()
+        messages.success(
+            request,
+            f'You have successfully deleted { mission.mission }'
+        )
+        return redirect(reverse('missions'))
+    
+    context = {
+        'mission': mission,
+    }
+    return render(request, 'missions/delete-mission.html', context)

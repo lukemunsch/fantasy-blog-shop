@@ -44,6 +44,21 @@
     </div>
 </div>
 <hr class="menus" />
+{% if request.user.is_superuser %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'edit_mission' mission.id %}">
+                <button class="btn-console-link my-3">Edit Mission</button>
+            </a>
+            <a href="{% url 'delete_mission' mission.id %}">
+                <button class="btn-console-link my-3">Delete Mission</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% else %}
+{% endif %}
 <div class="container current-mission">
     <div class="row">
         <div class="col-12">

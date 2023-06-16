@@ -18,7 +18,7 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
-<div class="container"> 
+<div class="container">
   <div class="row">
     <div class="col-12 text-center">
       <h2 class="renegade page-heading">Welcome to the Console</h2>
@@ -27,10 +27,15 @@
       </p>
     </div>
   </div>
-  <hr class="menus">
+  {% if request.user.is_superuser %}
+  <hr class="menus" />
   <div class="col-12 text-center">
-    
+    <a href="{% url 'console_add_entry' %}">
+      <button class="btn-console-link">Add Content</button>
+    </a>
   </div>
+  <hr class="menus" />
+  {% endif %}
   <div class="col-12">
     <ul class="list-inline list-unstyled text-center content-titles" id="news">
       <li class="list-inline-item">
@@ -63,15 +68,29 @@
             <div class="card-img-holder">
               <a href="{% url 'news_details' n.id %}">
                 {% if n.news_type == 1 %}
-                <img src="{{ MEDIA_URL }}announcement-default-img.png" alt="General announcement default image"
-                  class="card-img-top" />
+                <img
+                  src="{{ MEDIA_URL }}announcement-default-img.png"
+                  alt="General announcement default image"
+                  class="card-img-top"
+                />
                 {% elif n.news_type == 2 %}
-                <img src="{{ MEDIA_URL }}system-default-img.png" alt="System dault image" class="card-img-top" />
+                <img
+                  src="{{ MEDIA_URL }}system-default-img.png"
+                  alt="System dault image"
+                  class="card-img-top"
+                />
                 {% else %} {% if n.news_img %}
-                <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="card-img-top" />
+                <img
+                  src="{{ n.news_img.url }}"
+                  alt="{{ n.title }} image"
+                  class="card-img-top"
+                />
                 {% else %}
-                <img src="{{ MEDIA_URL }}discover-default-img.png" alt="General announcement deault image"
-                  class="card-img-top" />
+                <img
+                  src="{{ MEDIA_URL }}discover-default-img.png"
+                  alt="General announcement deault image"
+                  class="card-img-top"
+                />
                 {% endif %} {% endif %}
               </a>
             </div>
@@ -91,12 +110,17 @@
         <!-- content control buttons -->
         <div class="row">
           <div class="col">
-            <a href="{% url 'news_details' n.id %}" class="btn btn-view"><span class="d-none d-lg-inline-block">View
-              </span>
-              <i class="fas fa-eye"></i></a>
+            <a href="{% url 'news_details' n.id %}" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
             {% if request.user.is_superuser %}
-            <a href="{% url 'edit_news' n.id %}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
+            <a href="{% url 'edit_news' n.id %}" class="btn btn-edit"
+              ><i class="fas fa-edit"></i
+            ></a>
+            <a href="#" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
             {% endif %}
           </div>
         </div>
@@ -132,9 +156,17 @@
             <div class="card-img-holder">
               <a href="{% url 'mission_details' m.id %}">
                 {% if m.mission_image %}
-                <img class="card-img-top" src="{{ m.mission_img.url }}" alt="{{ m.mission }} profile image" />
+                <img
+                  class="card-img-top"
+                  src="{{ m.mission_img.url }}"
+                  alt="{{ m.mission }} profile image"
+                />
                 {% else %}
-                <img class="card-img-top" src="{{ MEDIA_URL }}mission-default-image.png" alt="No image available" />
+                <img
+                  class="card-img-top"
+                  src="{{ MEDIA_URL }}mission-default-image.png"
+                  alt="No image available"
+                />
                 {% endif %}
               </a>
             </div>
@@ -160,12 +192,17 @@
         <!-- content control buttons -->
         <div class="row">
           <div class="col">
-            <a href="{% url 'mission_details' m.id %}" class="btn btn-view"><span class="d-none d-lg-inline-block">View
-              </span>
-              <i class="fas fa-eye"></i></a>
+            <a href="{% url 'mission_details' m.id %}" class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
             {% if request.user.is_superuser %}
-            <a href="{%  url 'edit_mission' m.id  %}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
+            <a href="{%  url 'edit_mission' m.id  %}" class="btn btn-edit"
+              ><i class="fas fa-edit"></i
+            ></a>
+            <a href="{% url 'delete_mission' m.id %}" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
             {% endif %}
           </div>
         </div>
@@ -201,9 +238,17 @@
             <div class="card-img-holder">
               <a href="{% url 'personnel_details' c.id %}">
                 {% if c.profile_image %}
-                <img class="card-img-top" src="{{ c.profile_image.url }}" alt="{{ c.name }} profile image" />
+                <img
+                  class="card-img-top"
+                  src="{{ c.profile_image.url }}"
+                  alt="{{ c.name }} profile image"
+                />
                 {% else %}
-                <img class="card-img-top" src="{{ MEDIA_URL }}no-image.png" alt="No image available" />
+                <img
+                  class="card-img-top"
+                  src="{{ MEDIA_URL }}no-image.png"
+                  alt="No image available"
+                />
                 {% endif %}
               </a>
             </div>
@@ -224,12 +269,17 @@
         </div>
         <div class="row">
           <div class="col">
-            <a href="{% url 'personnel_details' c.id %} " class="btn btn-view"><span
-                class="d-none d-lg-inline-block">View </span>
-              <i class="fas fa-eye"></i></a>
+            <a href="{% url 'personnel_details' c.id %} " class="btn btn-view"
+              ><span class="d-none d-lg-inline-block">View </span>
+              <i class="fas fa-eye"></i
+            ></a>
             {% if request.user.is_superuser %}
-            <a href="{% url 'edit_member' c.id %}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="{% url 'delete_member' c.id %}" class="btn btn-delete"><i class="fas fa-trash-alt"></i></a>
+            <a href="{% url 'edit_member' c.id %}" class="btn btn-edit"
+              ><i class="fas fa-edit"></i
+            ></a>
+            <a href="{% url 'delete_member' c.id %}" class="btn btn-delete"
+              ><i class="fas fa-trash-alt"></i
+            ></a>
             {% endif %}
           </div>
         </div>
