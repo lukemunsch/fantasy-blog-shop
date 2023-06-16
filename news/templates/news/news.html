@@ -114,7 +114,7 @@
             ></a>
             {% if request.user.is_superuser %}
             <a href="{% url 'edit_news' a.id %}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-            <a href="#" class="btn btn-delete"
+            <a href="{% url 'delete_news' a.id %}" class="btn btn-delete"
               ><i class="fas fa-trash-alt"></i
             ></a>
             {% endif %}

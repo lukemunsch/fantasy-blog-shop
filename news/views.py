@@ -150,3 +150,28 @@ def edit_news(request, news_id):
         'form': form,
     }
     return render(request, 'news/edit-news.html', context)
+
+@login_required
+def delete_news(request, news_id):
+    """set up delete news view"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    article = get_object_or_404(News, pk=news_id)
+
+    if request.method == 'POST':
+        article.delete()
+        messages.success(
+            request,
+            f'You have successfully deleted { article.title }'
+        )
+
+    context = {
+        'article': article,
+    }
+
+    return render(request, 'news/delete-news.html', context)
