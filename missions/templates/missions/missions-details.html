@@ -100,15 +100,30 @@
     </div>
     <div class="row text-center">
         <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
-            <form action="{% url 'mission_details' mission.id %}" method="POST" class="form mb-5 card-origins approval-form">
+            <form action="{% url 'mission_details' mission.id %}" method="POST" class="form mt-5 mb-2 card-origins approval-form">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button class="btn-console-link my-3" type="submit">Update Approval</button>
+                <button class="btn-console-link mt-3" type="submit">Update Approval</button>
             </form>
         </div>
     </div>
 </div>
 {% endif %}
+<hr class="menus">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="page-subhead league">
+                There are currently {{ updates|length }} updates for this mission.
+            </p>
+        </div>
+    </div>
+</div>
+{% for u in updates %}
+
+{% endfor %}
+
+<hr class="menus">
 <!-- back to top button -->
 <div class="container">
     <div class="row">

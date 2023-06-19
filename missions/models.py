@@ -41,29 +41,3 @@ class Mission(models.Model):
         """Set up our extra model settings"""
     def __str__(self):
         return self.mission
-
-
-class MissionUpdate(models.Model):
-    """Set up the model for our updates"""
-    mission = models.ForeignKey(
-        Mission,
-        on_delete=models.CASCADE,
-        related_name='update'
-    )
-    name = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        default='Anonymous'
-    )
-    body = models.TextField(default='', max_length=2000)
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved_update = models.IntegerField(choices=PUBLISH, default=0)
-
-    class Meta:
-        """set the order for comments"""
-        ordering = ['created_on']
-
-    def __str__(self):
-        return self.name
