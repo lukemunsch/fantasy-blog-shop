@@ -2,8 +2,8 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Mission
-from .forms import MissionForm, ApproveMissionForm
+from .models import Mission, MissionUpdate
+from .forms import MissionForm, ApproveMissionForm, MissionUpdateForm
 
 # Create your views here.
 def missions(request):
@@ -172,3 +172,28 @@ def delete_mission(request, mission_id):
         'mission': mission,
     }
     return render(request, 'missions/delete-mission.html', context)
+
+def add_mission_update(request, mission_id):
+    """Set up how we add updates to missions"""
+    mission = get_object_or_404(Mission, pk=mission_id)
+    if request.method == 'POST':
+        form = MissionUpdateForm(request.POST)
+        if form.is_valid():
+            form.instance.name = request.user
+            update = form.save()
+            update.mission = mission
+            update.save()
+            messages.success(
+                request,
+                'Thank you for leaving an update on this mission!'
+            )
+            return redirect(reverse('mission_details', pk=mission.pk))
+    else:
+        form = MissionUpdateForm()
+
+    context = {
+        'mission': mission,
+        'update': update,
+        'form': form,
+    }
+    return render(request, 'missions/mission-details.html', context)
