@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Mission
+from .models import Mission, MissionUpdate
 
 # Register your models here.
 @admin.register(Mission)
@@ -27,3 +27,15 @@ class MissionAdmin(admin.ModelAdmin):
 
     def approve_mission(self, request, queryset):
         queryset.update(approved_mission=1)
+
+
+@admin.register(MissionUpdate)
+class MissionUpdateAdmin(admin.ModelAdmin):
+    """set up our admin page for Comments"""
+    list_display = ('name', 'mission', 'created_on',)
+    search_fields = ['mission', 'name', 'body',]
+
+    actions = ['approve_update']
+
+    def approve_update(self, request, queryset):
+        queryset.update(approve_update=1)
