@@ -114,7 +114,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            {% if not update %}
+            {% if not mission.updates.all %}
             <p class="page-subhead league">
                 There are currently no updates for this Mission
             </p>
@@ -122,15 +122,28 @@
             <a href="#" class="menus plain-link">Write an update now</a>
             {% endif %}
             {% else %}
-            <p class="page-subhead league text-center">These are the current updates for the mission</p>
+            <h3 class="page-heading league text-center mb-5">Mission Updates</h3>
             {% endif %}
         </div>
     </div>
-    {% for u in update %}
+    {% for u in mission.updates.all %}
     <div class="row">
-        <div class="col-12"></div>
+        <div class="col-10 offset-1">
+            <p class="menus">{{ mission.mission_lead }} - {{ u.created_on }}</p>
+        </div>
+        <div class="col-10 offset-1 league mission-desc">
+            <p>{{ u.body }}</p>
+        </div>
     </div>
+    <hr class="menus">
     {% endfor %}
+    {% if request.user.is_superuser %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="#" class="menus plain-link">Write an update now</a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 

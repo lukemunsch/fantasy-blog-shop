@@ -39,6 +39,9 @@ class Mission(models.Model):
 
     class Meta:
         """Set up our extra model settings"""
+        ordering = [
+            '-mission'
+        ]
 
     def __str__(self):
         return self.mission
@@ -53,6 +56,9 @@ class Update(models.Model):
 
     class Meta:
         """set up class meta for Updates"""
+        ordering = [
+            '-created_on'
+        ]
 
     def __str__(self):
         return self.title

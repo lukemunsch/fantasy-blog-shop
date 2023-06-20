@@ -174,3 +174,17 @@ def delete_mission(request, mission_id):
         'mission': mission,
     }
     return render(request, 'missions/delete-mission.html', context)
+
+@login_required
+def add_update(request, mission_id):
+    """set up a view for adding an update"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+    mission = get_object_or_404(Mission, pk=mission_id)
+    if request.method == 'POST':
+        pass
+    context = {}
+    return render(request, 'missions/update.html', context)

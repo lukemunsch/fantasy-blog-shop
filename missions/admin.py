@@ -32,6 +32,7 @@ class MissionAdmin(admin.ModelAdmin):
 class UpdateAdmin(admin.ModelAdmin):
     list_display = (
         'mission',
+        'title',
         'created_on',
         'approved',
     )
