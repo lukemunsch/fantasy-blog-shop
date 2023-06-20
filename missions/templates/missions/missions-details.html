@@ -95,7 +95,7 @@
 <div class="container text-center league">
     <div class="row">
         <div class="col-12">
-            <p class="page-subhead">This brief is currently {{ mission.get_approved_mission_display|lower }} to the general users.</p>
+            <p class="page-subhead">This brief is currently {{ mission.get_approved_mission_display|lower }} to the general users</p>
         </div>
     </div>
     <div class="row text-center">
@@ -115,9 +115,7 @@
     <div class="row">
         <div class="col-12">
             <p class="page-subhead league">
-                {% if not mission.updates.all %}
-                <p>There have been no updates for this mission</p>
-                {% endif %}
+                There are currently {{ mission.updates.all|length }} Updates for this Mission
             </p>
         </div>
     </div>
