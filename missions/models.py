@@ -45,7 +45,7 @@ class Mission(models.Model):
 
 class Update(models.Model):
     """set up our new model for updates"""
-    mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
+    mission = models.ForeignKey(Mission, on_delete=models.CASCADE, related_name='updates')
     name = models.CharField(max_length=50, null=False, blank=False)
     body = models.TextField(default='', max_length=2000)
     created_on = models.DateTimeField(auto_now_add=True)

@@ -110,20 +110,22 @@
 </div>
 {% endif %}
 <hr class="menus">
+<!-- This is the updates section for our mission -->
 <div class="container">
     <div class="row">
         <div class="col-12">
             <p class="page-subhead league">
-                There are currently {{ updates|length }} updates for this mission.
+                {% if not mission.updates.all %}
+                <p>There have been no updates for this mission</p>
+                {% endif %}
             </p>
         </div>
     </div>
 </div>
-{% for u in updates %}
 
-{% endfor %}
 
 <hr class="menus">
+
 <!-- back to top button -->
 <div class="container">
     <div class="row">
