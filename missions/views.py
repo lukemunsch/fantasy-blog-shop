@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Mission
+from .models import Mission, Update
 from .forms import MissionForm, ApproveMissionForm
 
 # Create your views here.
@@ -41,6 +41,7 @@ def mission_details(request, mission_id):
     """Set up how we display our mission brief"""
     from_pending = False
     mission = get_object_or_404(Mission, pk=mission_id)
+    update = Update.objects.filter(approved=1)
 
     if mission.approved_mission == 0:
         from_pending = True
@@ -69,6 +70,7 @@ def mission_details(request, mission_id):
         'mission': mission,
         'from_pending': from_pending,
         'form': form,
+        'update': update,
     }
 
     return render(request, 'missions/missions-details.html', context)

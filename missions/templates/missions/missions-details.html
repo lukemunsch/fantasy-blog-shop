@@ -28,7 +28,7 @@
         <div class="col-12 text-center">
             <h3 class="renegade page-heading">Latest Mission Report</h3>
             <p class="league page-subhead">
-                This is the lastest information we have received from the team leader regarding the mission.</em>
+                This is the latest information we have received from the team leader regarding the mission.</em>
             </p>
         </div>
         <div class="col-12 content-titles">
@@ -100,7 +100,7 @@
     </div>
     <div class="row text-center">
         <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
-            <form action="{% url 'mission_details' mission.id %}" method="POST" class="form mt-5 mb-2 card-origins approval-form">
+            <form action="{% url 'mission_details' mission.id %}" method="POST" class="form mt-3 mb-2 card-origins approval-form">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn-console-link mt-3" type="submit">Update Approval</button>
@@ -113,12 +113,24 @@
 <!-- This is the updates section for our mission -->
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 text-center">
+            {% if not update %}
             <p class="page-subhead league">
-                There are currently {{ mission.updates.all|length }} Updates for this Mission
+                There are currently no updates for this Mission
             </p>
+            {% if request.user.is_superuser %}
+            <a href="#" class="menus plain-link">Write an update now</a>
+            {% endif %}
+            {% else %}
+            <p class="page-subhead league text-center">These are the current updates for the mission</p>
+            {% endif %}
         </div>
     </div>
+    {% for u in update %}
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
+    {% endfor %}
 </div>
 
 

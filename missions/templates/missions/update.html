@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- add extra css stylesheet -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mission-details.css' %}" />
+{% endblock %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Mission Brief{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+
+{% endblock %}

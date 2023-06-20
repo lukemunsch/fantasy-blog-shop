@@ -31,7 +31,6 @@ class MissionAdmin(admin.ModelAdmin):
 @admin.register(Update)
 class UpdateAdmin(admin.ModelAdmin):
     list_display = (
-        'name',
         'mission',
         'created_on',
         'approved',
@@ -42,7 +41,6 @@ class UpdateAdmin(admin.ModelAdmin):
     search_fields = [
         'mission',
         'body',
-        'name',
     ]
 
     actions = [
