@@ -124,6 +124,7 @@
         </div>
     </div>
     {% for u in mission.updates.all %}
+    {% if u.approved == 1 %}
     <div class="row">
         <div class="col-10 offset-1">
             <p class="menus">{{ mission.mission_lead }} - {{ u.created_on }}</p>
@@ -134,6 +135,7 @@
         </div>
     </div>
     <hr class="menus">
+    {% endif %}
     {% endfor %}
     {% if request.user.is_superuser %}
     <div class="row">

@@ -57,7 +57,7 @@ class Update(models.Model):
     class Meta:
         """set up class meta for Updates"""
         ordering = [
-            '-created_on'
+            'created_on'
         ]
 
     def __str__(self):
