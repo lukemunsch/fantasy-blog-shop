@@ -39,5 +39,20 @@ class Mission(models.Model):
 
     class Meta:
         """Set up our extra model settings"""
+
     def __str__(self):
         return self.mission
+
+class Update(models.Model):
+    """set up our new model for updates"""
+    mission = models.ForeignKey(Mission, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, null=False, blank=False)
+    body = models.TextField(default='', max_length=2000)
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.PositiveIntegerField(choices=PUBLISH, default=0)
+
+    class Meta:
+        """set up class meta for Updates"""
+
+    def __str__(self):
+        return self.name
