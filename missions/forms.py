@@ -2,7 +2,7 @@ from django import forms
 from django.forms import Select
 
 from personnel.models import Personnel
-from .models import Mission
+from .models import Mission, Update
 
 from .widgets import CustomClearableFileInput
 
@@ -92,4 +92,30 @@ class ApproveMissionForm(forms.ModelForm):
                     'style': 'width: 100%;',
                 }
             )
+        }
+
+
+class UpdateForm(forms.ModelForm):
+    """Set up form for writing an update"""
+    def __init__(self, *args, **kwargs):
+        super(UpdateForm, self).__init__(*args, **kwargs)
+        self.fields['body'].label = 'Update Contents'
+    class Meta:
+        """update meta for Update form"""
+        model = Update
+        fields = [
+            'title',
+            'body'
+        ]
+        widgets = {
+            'title': forms.TextInput(
+                attrs={
+                    'placeholder': 'Update title here'
+                }
+            ),
+            'body': forms.Textarea(
+                attrs={
+                    'placeholder': 'Add Update Contents Here'
+                }
+            ),
         }
