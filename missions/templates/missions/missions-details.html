@@ -124,18 +124,26 @@
         </div>
     </div>
     {% for u in mission.updates.all %}
-    {% if u.approved == 1 %}
-    <div class="row">
-        <div class="col-10 offset-1">
-            <p class="menus">{{ mission.mission_lead }} - {{ u.created_on }}</p>
+        {% if u.approved == 1 %}
+        <div class="row">
+            <div class="col-10 offset-1">
+                <p class="menus">{{ mission.mission_lead }} - {{ u.created_on }}</p>
+            </div>
+            <div class="col-10 offset-1 league mission-desc">
+                <p><strong>{{ u.title }}</strong></p>
+                <p>{{ u.body }}</p>
+            </div>
         </div>
-        <div class="col-10 offset-1 league mission-desc">
-            <p><strong>{{ .title }}</strong></p>
-            <p>{{ u.body }}</p>
-        </div>
-    </div>
-    <hr class="menus">
-    {% endif %}
+        <hr class="menus">
+        {% else %}
+            {% if request.user.is_superuser %}
+            <div class="row">
+                <div class="col-10 offset-1 menus">
+                    <p>You have a pending update that needs approval</p>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
     {% endfor %}
     {% if request.user.is_superuser %}
     <div class="row">

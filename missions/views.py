@@ -184,18 +184,20 @@ def add_update(request, mission_id):
             'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
-    
+
     mission = get_object_or_404(Mission, pk=mission_id)
     if request.method == 'POST':
-        form = UpdateForm(request.POST, instance=mission)
+        form = UpdateForm(
+            request.POST
+        )
         if form.is_valid():
-            
+            form.instance.mission = mission
             form.save()
             messages.success(
                 request,
                 f'You have added an Update to { mission.mission }'
             )
-            return redirect(reverse('mission_details'))
+            return redirect(reverse('missions'))
     else:
         form = UpdateForm()
 
