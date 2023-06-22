@@ -215,7 +215,7 @@ def add_update(request, mission_id):
 
 
 @login_required
-def updates(request):
+def pending_updates(request):
     """set up a view for all the updates"""
     if not request.user.is_superuser:
         messages.error(
@@ -224,10 +224,10 @@ def updates(request):
         )
         return redirect(reverse('home'))
 
-    update_list = Update.objects.all()
+    updates = Update.objects.filter(approved=0)
 
     context = {
-        'update_list': update_list,
+        'updates': updates,
     }
 
     return render(request, 'missions/updates.html', context)

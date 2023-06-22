@@ -57,14 +57,22 @@
         </div>
       </div>
       <div class="row divide-top">
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
           <h5><u>Unauthorised Members</u></h5>
           <a
             href="{% url 'pending_members' %}"
-            class="my-3 btn btn-console-link p1"
+            class="mb-3 btn btn-console-link p-1 mt-2"
           >
-            <strong>{{ members|length }}</strong> Unapproved Recruit(s)
+            <strong>{{ members|length }}</strong> Unapproved Members(s)
           </a>
+        </div>
+        <div class="col-12 col-lg-6 pending-mission divide-left">
+          <h5><u>Pending Mission Reports</u></h5>
+          <a
+            href="{% url 'pending_updates' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+            ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
+          >
         </div>
       </div>
     </div>

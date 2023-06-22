@@ -11,5 +11,5 @@ urlpatterns = [
     path('edit-missions/<int:mission_id>', views.edit_mission, name='edit_mission'),
     path('delete-mission/<int:mission_id>', views.delete_mission, name='delete_mission'),
     path('<int:mission_id>/add-update', views.add_update, name='add_update'),
-    path('updates/', views.updates, name='updates'),
+    path('pending_updates/', views.pending_updates, name='pending_updates'),
 ]

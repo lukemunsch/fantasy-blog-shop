@@ -6,6 +6,11 @@
 <!-- set up tab extra title -->
 {% block extra_title %} - Mission Log{% endblock %}
 
+<!-- set up extra css for updates page -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/update-list.css' %}" />
+{% endblock %}
+
 <!-- set up page header to push ccon down -->
 {% block page_header %}
 <div class="container header-container">
@@ -32,7 +37,11 @@
   </div>
 </div>
 <hr class="menus" />
-<!-- Content for displaying Updates -->
+<!-- 
+  Content for displaying Updates - 
+  these ones are only the pending ones 
+  that require attention -->
+
 
 <!-- back to top button -->
 <div class="container my-5">
