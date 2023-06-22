@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- add extra css stylesheet -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/mission-details.css' %}" />
+{% endblock %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Add a Comment{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3 class="renegade page-heading">Update Details</h3>
+            <p class="league page-subhead">
+                These are the details for the Update</em>
+            </p>
+        </div>
+        <div class="col-12 content-titles text-center">
+            <a href="{% url 'home' %}" class="menus"><< Home</a>
+            <a href="{% url 'mission_details' update.mission.id %}" class="menus"><< Back to Mission</a>
+        </div>
+    </div>
+</div>
+<hr class="menus">
+
+{% endblock %}

@@ -3,7 +3,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Mission, Update
-from .forms import MissionForm, ApproveMissionForm, UpdateForm
+from .forms import (
+    MissionForm,
+    ApproveMissionForm,
+    UpdateForm,
+    ApproveUpdateForm
+)
 
 # Create your views here.
 
@@ -231,3 +236,21 @@ def pending_updates(request):
     }
 
     return render(request, 'missions/updates.html', context)
+
+@login_required
+def update_details(request, update_id):
+    """set up the view to fully display an update"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access thie Resource!'
+        )
+        return redirect(reverse('home'))
+
+    update = get_object_or_404(Update, pk=update_id)
+
+    context = {
+        'update': update,
+    }
+
+    return render(request, 'missions/update-details.html', context)

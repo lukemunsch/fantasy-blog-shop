@@ -114,7 +114,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            {% if not mission.updates.all %}
+            {% if not mission.updates.all.approved == 1 %}
             <p class="page-subhead league">
                 There are currently no updates for this Mission
             </p>
@@ -136,18 +136,21 @@
         </div>
         <hr class="menus">
         {% else %}
-            {% if request.user.is_superuser %}
-            <div class="row">
-                <div class="col-10 offset-1 my-3">
-                    <a href="#" class="menus plain-link">You have a pending update that needs approval</a>
-                </div>
+        {% if request.user.is_superuser %}
+        <div class="row">
+            <div class="col-10 offset-1 my-3">
+                <a href="{% url 'update_details' u.id %}" class="menus plain-link">
+                    You have a pending update that needs approval
+                </a>
             </div>
-            {% endif %}
+        </div>
+        <hr class="menus">
+        {% endif %}
         {% endif %}
     {% endfor %}
     {% if request.user.is_superuser %}
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center my-5">
             <a href="{% url 'add_update' mission.id %}" class="btn-console-link">Write an update now</a>
         </div>
     </div>
