@@ -206,4 +206,4 @@ def add_update(request, mission_id):
         'form': form,
     }
 
-    return render(request, 'missions/update.html', context)
+    return render(request, 'missions/add_update.html', context)
