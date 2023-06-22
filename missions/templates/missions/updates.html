@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Mission Log{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">Mission Updates</h3>
+      <p class="league page-subhead">
+        Here are all the updates that are currently require your attention
+      </p>
+    </div>
+    <div class="col-12 content-titles">
+      <a href="{% url 'missions' %}" class="menus"><< Missions</a>
+    </div>
+  </div>
+</div>
+<hr class="menus" />
+<!-- Content for displaying Updates -->
+
+<!-- back to top button -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center btt-btn">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- set up footer for page -->
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+<footer class="d-none d-lg-block fixed-bottom text-center">
+  <p class="my-2">
+    This is a fan made, non profit site. Source materials and locations are
+    described in README for project
+  </p>
+</footer>
+{% endblock content %} {% block postloadjs %} {{ block.super }}
+<script>
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
+</script>
+{% endblock %}

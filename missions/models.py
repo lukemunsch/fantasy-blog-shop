@@ -57,6 +57,7 @@ class Update(models.Model):
     class Meta:
         """set up class meta for Updates"""
         ordering = [
+            'mission',
             'created_on'
         ]
 

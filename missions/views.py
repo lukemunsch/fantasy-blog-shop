@@ -6,6 +6,8 @@ from .models import Mission, Update
 from .forms import MissionForm, ApproveMissionForm, UpdateForm
 
 # Create your views here.
+
+
 def missions(request):
     """set up our standard missions page"""
     mission = Mission.objects.filter(approved_mission=1)
@@ -108,6 +110,7 @@ def add_mission(request):
     }
     return render(request, 'missions/add-mission.html', context)
 
+
 @login_required
 def edit_mission(request, mission_id):
     """Set up our page for editing missions"""
@@ -151,6 +154,7 @@ def edit_mission(request, mission_id):
     }
     return render(request, 'missions/edit-mission.html', context)
 
+
 @login_required
 def delete_mission(request, mission_id):
     """set up our view to delete missions"""
@@ -169,11 +173,12 @@ def delete_mission(request, mission_id):
             f'You have successfully deleted { mission.mission }'
         )
         return redirect(reverse('missions'))
-    
+
     context = {
         'mission': mission,
     }
     return render(request, 'missions/delete-mission.html', context)
+
 
 @login_required
 def add_update(request, mission_id):
@@ -207,3 +212,22 @@ def add_update(request, mission_id):
     }
 
     return render(request, 'missions/add_update.html', context)
+
+
+@login_required
+def updates(request):
+    """set up a view for all the updates"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    update_list = Update.objects.all()
+
+    context = {
+        'update_list': update_list,
+    }
+
+    return render(request, 'missions/updates.html', context)
