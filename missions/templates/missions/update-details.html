@@ -38,5 +38,26 @@
     </div>
 </div>
 <hr class="menus">
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h4 class="text-center menus page-heading">
+                This is an update for: {{ update.mission }}
+            </h4>
+        </div>
+        <div class="col-12 mb-3">
+            <p class="page-subhead league text-center"><strong>"{{ update.title }}"</strong></p>
+        </div>
+        <div class="col-12 col-md-8 offset-md-2 mb-3">
+            <p class="update-body league">{{ update.body }}</p>
+        </div>
+        <div class="col-12 col-md-8 offset-md-2 mb-3">
+            <p class="update-body league">{{ update.created_on }}</p>
+        </div>
+        <div class="col-12 col-md-8 offset-md-2 mb-3 text-center">
+            
+        </div>
+    </div>
+</div>
 
 {% endblock %}

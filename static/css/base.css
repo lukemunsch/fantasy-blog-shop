@@ -64,6 +64,11 @@
     font-size: 25px;
 }
 
+.update-body {
+    font-family: 'Urbanist', Helvetica, sans-serif;
+    font-size: 20px;
+}
+
 .dividers {
     font-weight: 700;
     color: red;

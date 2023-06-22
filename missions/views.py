@@ -80,7 +80,7 @@ def mission_details(request, mission_id):
         'update': update,
     }
 
-    return render(request, 'missions/missions-details.html', context)
+    return render(request, 'missions/mission-details.html', context)
 
 
 @login_required
