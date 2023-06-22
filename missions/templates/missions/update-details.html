@@ -58,6 +58,15 @@
             
         </div>
     </div>
+    <div class="row text-center">
+        <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
+            <form action="{% url 'update_details' update.id %}" method="POST" class="form mt-3 mb-2 card-origins approval-form league">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn-console-link mt-3" type="submit">Approve Update</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

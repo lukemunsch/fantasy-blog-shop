@@ -243,14 +243,35 @@ def update_details(request, update_id):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'You are not authorised to access thie Resource!'
+            'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
 
     update = get_object_or_404(Update, pk=update_id)
 
+    if request.method == 'POST':
+        form = ApproveUpdateForm(
+            request.POST,
+            instance=update
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have successfully changed the approval of the update!'
+            )
+            return redirect(reverse('missions'))
+        else:
+            messages.error(
+                request,
+                "You have failed to approve this Update!"
+            )
+    else:
+        form = ApproveUpdateForm(instance=update)
+
     context = {
         'update': update,
+        'form': form,
     }
 
     return render(request, 'missions/update-details.html', context)

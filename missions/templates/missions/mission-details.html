@@ -126,7 +126,7 @@
         {% if u.approved == 1 %}
         <div class="row">
             <div class="col-10 offset-1">
-                <p class="menus">{{ mission.mission_lead }} - {{ u.created_on }}</p>
+                <a href="{% url 'update_details' u.id %}" class="menus plain-link">{{ mission.mission_lead }} - {{ u.created_on }}</a>
             </div>
             <div class="col-10 offset-1 league mission-desc">
                 <p><strong>{{ u.title }}</strong></p>

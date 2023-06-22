@@ -124,13 +124,14 @@ class UpdateForm(forms.ModelForm):
 class ApproveUpdateForm(forms.ModelForm):
     """set up a new form for approving updates"""
     def __init__(self, *args, **kwargs):
-        super(ApproveUpdateForm, self).__init(*args, **kwargs)
+        super(ApproveUpdateForm, self).__init__(*args, **kwargs)
         self.fields['approved'].label = 'How would you like to display this update?'
-
     class Meta:
-        """set up specifics for how to display our form"""
+        """set up our form fields"""
         model = Update
-        fields = ['approved']
+        fields = [
+            'approved'
+        ]
         widgets = {
             'approved': forms.Select(
                 attrs={

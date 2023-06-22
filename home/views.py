@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
-from missions.models import Mission
+from missions.models import Mission, Update
 from news.models import News
 from personnel.models import Personnel
 
@@ -13,11 +13,13 @@ def index(request):
     missions = Mission.objects.filter(approved_mission=0)
     articles = News.objects.filter(approved_post=0)
     members = Personnel.objects.filter(authorised=0)
+    updates = Update.objects.filter(approved=0)
 
     context = {
         'missions': missions,
         'articles': articles,
         'members': members,
+        'updates': updates,
     }
 
     return render(request, 'home/index.html', context)
