@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -260,7 +261,7 @@ def update_details(request, update_id):
                 request,
                 'You have successfully changed the approval of the update!'
             )
-            return redirect(reverse('missions'))
+            return redirect(reverse('pending_updates'))
         else:
             messages.error(
                 request,
