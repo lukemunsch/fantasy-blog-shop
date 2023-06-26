@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'personnel',
     'news',
     'missions',
+    'profile',
 ]
 
 MIDDLEWARE = [
