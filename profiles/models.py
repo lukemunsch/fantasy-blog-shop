@@ -7,17 +7,24 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
-    """set up our customer profile to 
-    attach orders and store user preferences"""
+    """set up custom profile to attach to user
+    orders and store user purchase history"""
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE
     )
     default_phone_number = models.CharField(
-        max_length=20, null=True, blank=True
+        max_length=20,
+        null=True,
+        blank=True
     )
     default_town_or_city = models.CharField(
         max_length=50,
+        null=True,
+        blank=True
+    )
+    default_country = CountryField(
+        blank_label='Country',
         null=True,
         blank=True
     )
@@ -25,10 +32,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    """handle the creation or update of a user profile"""
+    """handle to creation or update of a user profile"""
     if created:
         UserProfile.objects.create(user=instance)
-        # Exising user: just save the profile
+    # Existing users: just save the profile
     instance.userprofile.save()
