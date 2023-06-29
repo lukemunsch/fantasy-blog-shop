@@ -4,7 +4,7 @@
 {% load static %}
 
 <!-- set up tab extra title -->
-{% block extra_title %} - Profile{% endblock %}
+{% block extra_title %} - User Profile{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -18,4 +18,21 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">User Profile</h3>
+      <p class="league page-subhead">
+        Below is a form with your personal details. Please feel free to update the details.
+      </p>
+    </div>
+    <div class="col-12 content-titles">
+      {% if from_homepage %}
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      {% endif %}
+      <a href="{% url 'console' %}" class="menus"><< Console</a>
+    </div>
+  </div>
+</div>
+<hr class="menus" />
 {% endblock %}
