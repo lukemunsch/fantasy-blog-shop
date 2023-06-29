@@ -9,7 +9,7 @@ def profile_page(request):
     """Set up our view to implement a view of our profiles"""
     profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(
@@ -19,8 +19,10 @@ def profile_page(request):
         else:
             messages.error(
                 request,
-            'You have failed to update your details'
+                'You have failed to update your details'
             )
+    else:
+        form = UserProfileForm()
     context = {
         'form': form,
     }
