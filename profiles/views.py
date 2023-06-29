@@ -8,6 +8,20 @@ from .forms import UserProfileForm
 def profile_page(request):
     """Set up our view to implement a view of our profiles"""
     profile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have updated your profile details'
+            )
+        else:
+            messages.error(
+                request,
+            'You have failed to update your details'
+            )
     context = {
+        'form': form,
     }
     return render(request, 'profiles/profile.html', context)
