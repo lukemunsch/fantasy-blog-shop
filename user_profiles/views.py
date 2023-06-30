@@ -20,10 +20,9 @@ def profile(request):
     else:
         form = UserProfileForm()
 
-    template = 'user_profiles/profile.html'
     context = {
         'profile': profile,
         'form': form,
     }
 
-    return render(request, template, context)
+    return render(request, 'user_profiles/profiles.html', context)
