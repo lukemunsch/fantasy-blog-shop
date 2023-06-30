@@ -12,7 +12,10 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile Successfully Updated')
+            messages.success(
+                request,
+                'Profile Successfully Updated'
+            )
         else:
             messages.error(request, (
                 'Update failed. Please ensure '
