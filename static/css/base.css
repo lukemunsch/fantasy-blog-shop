@@ -64,6 +64,11 @@
     font-size: 25px;
 }
 
+.account-font {
+    font-family: 'Urbanist', Helvetica, sans-serif;
+    font-size: 15px;
+}
+
 .update-body {
     font-family: 'Urbanist', Helvetica, sans-serif;
     font-size: 20px;

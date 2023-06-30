@@ -18,13 +18,12 @@ def profile(request):
                 'Update failed. Please ensure '
                 'the form is valid.'))
     else:
-        form = UserProfileForm(instance=profile)
+        form = UserProfileForm()
 
-    template = 'profiles/profile.html'
+    template = 'user_profiles/profile.html'
     context = {
         'profile': profile,
         'form': form,
-        'on_profile_page': True,
     }
 
     return render(request, template, context)
