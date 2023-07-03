@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'storages',
+    'django_countries',
 
     # Set up custom apps
     'home',
