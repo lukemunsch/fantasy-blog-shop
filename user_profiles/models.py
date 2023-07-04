@@ -31,3 +31,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+@receiver(post_save, sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """handle to creation or update of a user profile"""
+    if created:
+        UserProfile.objects.create(user=instance)
+    # Existing users: just save the profile
+    instance.userprofile.save()
