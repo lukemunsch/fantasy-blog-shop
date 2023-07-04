@@ -18,7 +18,7 @@ def profile(request):
                 'Update failed. Please ensure '
                 'the form is valid.'))
     else:
-        form = UserProfileForm()
+        form = UserProfileForm(instance=profile)
 
     context = {
         'profile': profile,

@@ -54,3 +54,8 @@
   <div class="col-12 col-lg-6"></div>
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
+{% endblock %}
