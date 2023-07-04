@@ -4,7 +4,7 @@
 {% load static %}
 
 <!-- set up tab extra title -->
-{% block extra_title %} - Mission Log{% endblock %}
+{% block extra_title %} - User profile{% endblock %}
 
 <!-- set up page header to push ccon down -->
 {% block page_header %}
@@ -21,24 +21,36 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-12 text-center">
-      <h3 class="renegade page-heading">Mission Briefs</h3>
+      <h3 class="renegade page-heading">
+        User Profile: {% if request.user.is_superuser %}
+        Grandmaster {% endif %}{{ profile.user }}
+      </h3>
       <p class="league page-subhead">
-        {% if from_homepage %}
-        These are the Unapproved Missions awaiting your review
-        {% else %}
-        Here are all the missions the team are currently completing or have
-        completed.
-        {% endif %}
+        Below are the details for the user's profile.
       </p>
     </div>
     <div class="col-12 content-titles">
-      {% if from_homepage %}
       <a href="{% url 'home' %}" class="menus"><< Home</a>
-      {% endif %}
       <a href="{% url 'console' %}" class="menus"><< Console</a>
     </div>
   </div>
 </div>
 <hr class="menus" />
-<p class="league">{{ profile }}</p>
+<div class="container">
+  <!-- add code for our user details form -->
+  <div class="col-12 col-lg-6">
+    <form 
+      action="{% url 'profile' %}"
+      method="POST"
+      id="profile-update-form"
+      class="form-inner-content league mt-3">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn-console-link my-3">Update Profile</button>
+    </form>
+  </div>
+
+  <!-- Add code for displaying the orers we have placed -->
+  <div class="col-12 col-lg-6"></div>
+</div>
 {% endblock %}
