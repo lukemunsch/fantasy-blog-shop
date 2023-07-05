@@ -18,7 +18,8 @@ class News(models.Model):
         on_delete=models.CASCADE,
         null=False,
         blank=False,
-        default='Anonymous'
+        default='Anonymous',
+        related_name='articles'
     )
     approved_post = models.IntegerField(choices=PUBLISH, default=0)
     publish_date = models.DateField(auto_now_add=True)

@@ -79,6 +79,25 @@
             <p>They joined the league on {{ member.joined }}.</p>
             <br>
             <p>{{ member.speciality|linebreaks }}</p>
+            <br>
+            <h4>Mission Leader for the following mission:</h4>
+            <p>
+                {% for missions in member.missions.all %}
+                    {% if missions.length == 0 %}
+                    Currently hasn't lead any missions.
+                    {% else %}
+                    {{ missions }}, 
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</div>
+<hr class="menus">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            
         </div>
     </div>
 </div>
