@@ -52,6 +52,9 @@
     <hr class="menus">
     {% if request.user.is_superuser %}
     <h4>News articles you have contributed:</h4>
+    {% if request.user.articles|length == 0 %}
+    <p class="league">There have been no article produced</p>
+    {% endif %}
     <ul>
       {% for articles in request.user.articles.all %}
       <li>

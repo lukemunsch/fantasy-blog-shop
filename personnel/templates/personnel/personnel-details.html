@@ -81,23 +81,14 @@
             <p>{{ member.speciality|linebreaks }}</p>
             <br>
             <h4>Mission Leader for the following mission:</h4>
-            <p>
+            {% if member.missions.all|length == 0 %}
+            <p>They have currently lead no missions to this date.</p>
+            {% endif %}
+            <ul>
                 {% for missions in member.missions.all %}
-                    {% if missions.length == 0 %}
-                    Currently hasn't lead any missions.
-                    {% else %}
-                    {{ missions }}, 
-                    {% endif %}
+                    <li><a href="{% url 'mission_details' missions.id %}" class="plain-link menus">{{ missions }}</a></li> 
                 {% endfor %}
-            </p>
-        </div>
-    </div>
-</div>
-<hr class="menus">
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            
+            </ul>
         </div>
     </div>
 </div>
