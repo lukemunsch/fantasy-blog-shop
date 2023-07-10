@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
-        User Profile: {% if request.user.is_superuser %}
+        User Profile: {% if request.user.is_superuser %} 
         Grandmaster {% endif %}{{ profile.user }}
       </h3>
       <p class="league page-subhead">
@@ -37,45 +37,68 @@
 </div>
 <hr class="menus" />
 <div class="container">
-  <!-- add code for our user details form -->
-  <div class="col-12 col-lg-6 league">
-    <form 
-      action="{% url 'profile' %}"
-      method="POST"
-      id="profile-update-form"
-      class="form-inner-content mt-3">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <button type="submit" class="btn-console-link my-3">Update Profile</button>
-    </form>
-    <br>
-    <hr class="menus">
-    {% if request.user.is_superuser %}
-    <h4>News articles you have contributed:</h4>
-    {% if request.user.articles|length == 0 %}
-    <p class="league">There have been no article produced</p>
-    {% endif %}
-    <ul>
-      {% for articles in request.user.articles.all %}
-      <li>
-        <a 
-          href="{% url 'news_details' articles.id %}"
-          class="plain-link menus">
-          {{ articles }}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    
+  <div class="row">
+    <!-- add code for our user details form -->
+    <div class="col-12 col-lg-6 league mb-5">
+      <h3 class="renegade">Profile details:</h3>
+      <form
+        action="{% url 'profile' %}"
+        method="POST"
+        id="profile-update-form"
+        class="form-inner-content mt-3"
+      >
+        {% csrf_token %} {{ form|crispy }}
+        <button type="submit" class="btn-console-link my-3">
+          Update Profile
+        </button>
+      </form>
+      <br />
+      {% if request.user.is_superuser %}
+      <h4>News articles you have contributed:</h4>
+      {% if request.user.articles.all|length == 0 %}
+      <p class="league">There have been no article produced</p>
+      {% endif %}
+      <ul>
+        {% for articles in request.user.articles.all %}
+        <li>
+          <a
+            href="{% url 'news_details' articles.id %}"
+            class="plain-link menus"
+          >
+            {{ articles }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <!-- Add code for displaying the orers we have placed -->
+    <div class="col-12 col-lg-6 divide-left">
+      <h3 class="renegade">Order History:</h3>
+      <table class="table table-sm table-borderless mx-3 league">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Order No.</th>
+            <th scope="col">Date</th>
+            <th scope="col">Item Qnt.</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Order Number code -->
+            <th scope="row">123456...</th>
+            <!-- Date -->
+            <td>01/05/2047</td>
+            <!-- item count -->
+            <td>5</td>
+            <!-- Total order price -->
+            <td>§5487.26</td>
+          </tr>
+    </div>
   </div>
-
-  <!-- Add code for displaying the orers we have placed -->
-  <div class="col-12 col-lg-6"></div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
 {% endblock %}

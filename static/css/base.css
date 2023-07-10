@@ -407,6 +407,12 @@ a.add-link {
     color: rgb(0, 255, 0);
 }
 
+/* Order history */
+
+.thead-dark {
+    background-color: #000;
+}
+
 /* media queries */
 
 @media (min-width: 1200px) {
