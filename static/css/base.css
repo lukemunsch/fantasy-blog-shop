@@ -172,6 +172,14 @@ body {
     font-weight: 700;
 }
 
+#sort-dropdown {
+    text-align: left;
+}
+
+.dropdown-menu-move {
+    align-items: left;
+}
+
 /* messages */
 
 .fixed-alerts {
@@ -432,8 +440,24 @@ a.add-link {
     } 
 }
 
+@media (max-width: 767px){
+    #sort-dropdown {
+        text-align: center;
+    }
+
+    .dropdown-menu-move {
+        margin-left: 180px;
+    }
+}
+
 @media (max-height: 500px) {
     .container-push {
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 355px) {
+    .dropdown-menu-move {
+        margin-left: 80px;
     }
 }

@@ -19,27 +19,62 @@
 {% block content %}
 <div class="cover-up"></div>
 <div class="container text-center">
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
         <!-- header -->
         Shop for Resources
       </h3>
-      <p class="league page-subhead">
+      <p class="league page-subhead d-none d-md-block">
         <!-- subheader -->
         Please feel free to browse the resources our team have retrieved from
         the numerous mission they have been posted on.
       </p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6 content-titles">
-        <!-- drop down for sorting resources -->
-    </div>
-    <div class="col-6">
+  <div class="row mb-3">
+    <div class="col-12 col-md-6 m-auto mb-3">
         <!-- search bar -->
+        <form action="{% url 'resources' %}" method="GET">
+          <div class="input-group w-100">
+              <input type="text" class="form-control" name="q" placeholder="Search for Product">
+              <div class="input-group-append">
+                  <button class="form-control btn border bg-black" type="submit">
+                      <span class="icon menus"><i class="fas fa-search"></i></span>
+                  </button>
+              </div>
+          </div>
+      </form>
+    </div>
+    <div class="col-12 col-md-6">
+        <!-- drop down for sorting resources -->
+        <div class="dropdown">
+          <a
+            href="#"
+            class="nav-link plain-link dropdown-toggle menus mb-2"
+            id="sort-dropdown"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Sort resources by...
+            </a>
+          <div
+            class="dropdown-menu dropdown-menu-move"
+            aria-labelledby="dropdownContentButton"
+            >
+            <a class="dropdown-item" href="#">By Name</a>
+            <a class="dropdown-item" href="#">By Price</a>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-<hr class="menus" />
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      
+    </div>
+  </div>
+</div>
 {% endblock %}
