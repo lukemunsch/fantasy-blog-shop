@@ -173,11 +173,16 @@ body {
 }
 
 #sort-dropdown {
-    text-align: left;
+    right: 25%;
 }
 
 .dropdown-menu-move {
-    align-items: left;
+    margin-left: 200px;
+}
+
+.searchbar {
+    width: 200px;
+    margin-left: 25%;
 }
 
 /* messages */
@@ -443,6 +448,11 @@ a.add-link {
 @media (max-width: 767px){
     #sort-dropdown {
         text-align: center;
+    }
+
+    .searchbar {
+        width: 50%;
+        float: unset;
     }
 
     .dropdown-menu-move {

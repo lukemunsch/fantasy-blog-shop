@@ -35,7 +35,7 @@
   <div class="row mb-1">
     <div class="col-12 col-md-6 m-auto mb-3">
         <!-- search bar -->
-        <form action="{% url 'resources' %}" method="GET">
+        <form action="{% url 'resources' %}" method="GET" class="searchbar">
           <div class="input-group w-100">
               <input type="text" class="form-control" name="q" placeholder="Search for Product">
               <div class="input-group-append">
@@ -57,14 +57,15 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-            Sort resources by...
-            </a>
+            Sort by...
+          </a>
           <div
             class="dropdown-menu dropdown-menu-move"
             aria-labelledby="dropdownContentButton"
             >
             <a class="dropdown-item" href="#">By Name</a>
             <a class="dropdown-item" href="#">By Price</a>
+            <a class="dropdown-item" href="#">By Category</a>
           </div>
         </div>
     </div>
@@ -73,12 +74,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
+    <h4 class="league text-center content-titles">Categories</h4>
       <!-- list of categories -->
       <ul class="list-inline list-unstyled text-center">
         {% for c in categories %}
         <li class="list-inline-item list-unstyled">
           <a href="#" class="plain-link nav-link menus">
-            <h3>{{ c.friendly_name }}</h3>
+            <h3>{{ c.name }}</h3>
           </a>
         </li>
         {% endfor %}
