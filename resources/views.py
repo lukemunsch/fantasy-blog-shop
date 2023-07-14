@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
-from .models import Products, Category
+from .models import Product, Category
 
 # Create your views here.
 def resources(request):
     """set up shop for our resources"""
     categories = Category.objects.all()
-    products = Products.objects.all()
+    products = Product.objects.all()
 
     context = {
         'products': products,

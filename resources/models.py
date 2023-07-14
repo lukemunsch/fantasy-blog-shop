@@ -22,7 +22,7 @@ class Category(models.Model):
         friendly name instead of original name"""
         return self.friendly_name
 
-class Products(models.Model):
+class Product(models.Model):
     """set up model for our resources"""
     name = models.CharField(
         max_length=100,
