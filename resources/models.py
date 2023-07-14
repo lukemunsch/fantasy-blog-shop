@@ -11,9 +11,10 @@ class Category(models.Model):
 
     class Meta:
         """set up extra model settings"""
+        ordering = ['name']
         verbose_name_plural = 'Categories'
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
 class Product(models.Model):

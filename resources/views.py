@@ -6,7 +6,7 @@ from .models import Product, Category
 def resources(request):
     """set up shop for our resources"""
     categories = Category.objects.all()
-    products = Product.objects.all()
+    products = Product.objects.filter(approved_item=1)
 
     context = {
         'products': products,
