@@ -72,8 +72,17 @@
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
-      
+    <div class="col-12">
+      <!-- list of categories -->
+      <ul class="list-inline list-unstyled text-center">
+        {% for c in categories %}
+        <li class="list-inline-item list-unstyled">
+          <a href="#">
+            <span class="h5">{{ c.friendly_name }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </div>
