@@ -34,47 +34,53 @@
   </div>
   <div class="row mb-1">
     <div class="col-12 col-md-6 m-auto mb-3">
-        <!-- search bar -->
-        <form action="{% url 'resources' %}" method="GET" class="searchbar">
-          <div class="input-group w-100">
-              <input type="text" class="form-control" name="q" placeholder="Search for Product">
-              <div class="input-group-append">
-                  <button class="form-control btn border bg-black" type="submit">
-                      <span class="icon menus"><i class="fas fa-search"></i></span>
-                  </button>
-              </div>
+      <!-- search bar -->
+      <form action="{% url 'resources' %}" method="GET" class="searchbar">
+        <div class="input-group w-100">
+          <input
+            type="text"
+            class="form-control"
+            name="q"
+            placeholder="Search for Product"
+          />
+          <div class="input-group-append">
+            <button class="form-control btn border bg-black" type="submit">
+              <span class="icon menus"><i class="fas fa-search"></i></span>
+            </button>
           </div>
+        </div>
       </form>
     </div>
     <div class="col-12 col-md-6">
-        <!-- drop down for sorting resources -->
-        <div class="dropdown">
-          <a
-            href="#"
-            class="nav-link plain-link dropdown-toggle menus mb-2"
-            id="sort-dropdown"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-            Sort by...
-          </a>
-          <div
-            class="dropdown-menu dropdown-menu-move"
-            aria-labelledby="dropdownContentButton"
-            >
-            <a class="dropdown-item" href="#">By Name</a>
-            <a class="dropdown-item" href="#">By Price</a>
-            <a class="dropdown-item" href="#">By Category</a>
-          </div>
+      <!-- drop down for sorting resources -->
+      <div class="dropdown">
+        <a
+          href="#"
+          class="nav-link plain-link dropdown-toggle menus mb-2"
+          id="sort-dropdown"
+          type="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Sort by...
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-move"
+          aria-labelledby="dropdownContentButton"
+        >
+          <a class="dropdown-item" href="#">By Name</a>
+          <a class="dropdown-item" href="#">By Price</a>
+          <a class="dropdown-item" href="#">By Category</a>
         </div>
+      </div>
     </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-    <h4 class="league text-center content-titles">Categories</h4>
+      <h4 class="league text-center content-titles">Categories</h4>
       <!-- list of categories -->
       <ul class="list-inline list-unstyled text-center">
         {% for c in categories %}
@@ -85,8 +91,15 @@
         </li>
         {% endfor %}
       </ul>
-      <hr class="menus">
+      <hr class="menus" />
     </div>
+  </div>
+  <div class="row">
+    {% for p in products %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    {{ p }}
+    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
