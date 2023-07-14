@@ -8,7 +8,6 @@ PUBLISH = ((0, 'Hidden'), (1, 'Displayed'))
 class Category(models.Model):
     """set up our model for th categories of our"""
     name = models.CharField(max_length=50, null=False, blank=False)
-    friendly_name = models.CharField(max_length=50, null=False, blank=False)
 
     class Meta:
         """set up extra model settings"""
@@ -16,11 +15,6 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.name
-
-    def get_friendly_name(self):
-        """function for returning the 
-        friendly name instead of original name"""
-        return self.friendly_name
 
 class Product(models.Model):
     """set up model for our resources"""
