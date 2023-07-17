@@ -1,4 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.product-link {
+    text-decoration: none;
+    color: rgb(0, 255, 0);
+}
+
+.product-link:hover {
+    font-weight: 700;
+    color: red;
+}
+
+.product-name {
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.product-image-container {
+    height: 170px;
+}
+
 .product-image {
-    width: 50%;
+    max-width: 50%;
+    max-height: 150px;
     border: 1px solid lime;
 }
+
+.product-price {}
+
+.product-category {}

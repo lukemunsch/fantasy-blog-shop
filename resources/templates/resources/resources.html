@@ -8,7 +8,7 @@
 
 <!-- set up tab extra title -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/product-styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/product-styles.css' %}" />
 {% endblock %}
 
 <!-- set up page header to push ccon down -->
@@ -101,21 +101,44 @@
   </div>
   <div class="row">
     {% for p in products %}
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league text-center mb-5">
-      <a href="#">
-        <p class="product-name">{{ p.name }}</p>
-        {% if not p.image %}
-        <img 
-          src="{% static 'img/no-photo-available.jpg' %}"
-          alt="{{ p.name }}'s product image not available"
-          class="product-image"
-        >
-        {% else %}
-        <img src="{{ p.image }}" alt="{{ p.name }}'s product image" class="product-image">
-        {% endif %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league mb-5">
+      <a href="#" class="product-link">
+        <p class="product-name text-center">{{ p.name }}</p>
+        <div class="product-image-container text-center">
+          {% if not p.image %}
+          <img
+            src="{% static 'img/no-photo-available.jpg' %}"
+            alt="{{ p.name }}'s product image not available"
+            class="product-image"
+          />
+          {% else %}
+          <img
+            src="{{ p.image.url }}"
+            alt="{{ p.name }}'s product image"
+            class="text-center product-image"
+          />
+          {% endif %}
+        </div>
+        <p class="product-price text-center">Price: §{{ p.price }}</p>
       </a>
     </div>
-    {% endfor %}
+    {% if forloop.counter|divisibleby:1 %}
+    <div class="col-12 d-sm-none">
+      <hr class="menus" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:2 %}
+    <div class="col-12 d-none d-sm-block d-md-none">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:3 %}
+    <div class="col-12 d-none d-md-block d-xl-none">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% if forloop.counter|divisibleby:4 %}
+    <div class="col-12 d-none d-xl-block">
+      <hr class="menus my-3" />
+    </div>
+    {% endif %} {% endfor %}
   </div>
 </div>
 {% endblock %}
