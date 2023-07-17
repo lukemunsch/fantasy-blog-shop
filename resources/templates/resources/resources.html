@@ -6,6 +6,11 @@
 <!-- set up tab extra title -->
 {% block extra_title %} - Resources{% endblock %}
 
+<!-- set up tab extra title -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/product-styles.css' %}">
+{% endblock %}
+
 <!-- set up page header to push ccon down -->
 {% block page_header %}
 <div class="container header-container">
@@ -96,8 +101,17 @@
   </div>
   <div class="row">
     {% for p in products %}
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-    {{ p }}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league text-center mb-5">
+      <p class="product-name">{{ p.name }}</p>
+      {% if not p.image %}
+      <img 
+        src="{% static 'img/no-photo-available.jpg' %}"
+        alt="{{ p.name }}'s product image not available"
+        class="product-image"
+      >
+      {% else %}
+      <img src="{{ p.image }}" alt="{{ p.name }}'s product image" class="product-image">
+      {% endif %}
     </div>
     {% endfor %}
   </div>
