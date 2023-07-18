@@ -4,5 +4,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.resources, name='resources')
+    path('', views.resources, name='resources'),
+    path('pending-resources/', views.pending_resources, name='pending_resources')
 ]

@@ -38,14 +38,15 @@
     </div>
   </div>
   <hr class="menus" />
-  {% if request.user.is_superuser %}
   <div class="row">
-    <div class="col-12 text-center content-titles mb-2">
-      <a href="#"><< Check for Pending Resources</a>
+    <div class="col-12 text-center content-titles mb-3">
+      {% if from_homepage and request.user.is_superuser %}
+      <a href="{% url 'resources' %}"><< Return to the shop</a>
+      {% elif request.user.is_superuser %}
+      <a href="{% url 'pending_resources' %}"><< Check for Pending Resources</a>
+      {% endif %}
     </div>
-    <hr class="menus" />
   </div>
-  {% endif %}
   <div class="row mb-1">
     <div class="col-12 col-md-6 m-auto mb-3">
       <!-- search bar -->
@@ -67,34 +68,31 @@
     </div>
     <div class="col-12 col-md-6">
       <!-- drop down for sorting resources -->
-      <div class="dropdown">
-        <a
-          href="#"
-          class="nav-link plain-link dropdown-toggle menus mb-2"
-          id="sort-dropdown"
-          type="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Sort by...
-        </a>
-        <div
-          class="dropdown-menu dropdown-menu-move"
-          aria-labelledby="dropdownContentButton"
-        >
-          <a class="dropdown-item" href="#">By Name</a>
-          <a class="dropdown-item" href="#">By Price</a>
-          <a class="dropdown-item" href="#">By Category</a>
-        </div>
-      </div>
+      <div class="sort-select-wrapper">
+        <select id="sort-selector"
+            class="custom-select custom-select-sm">
+            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
+              Sort by...</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+              (low to high)</option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+              (high to low)</option>
+            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+              (A-Z)</option>
+            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+              (Z-A)</option>
+            <option value="area_asc" {% if current_sorting == 'area_asc' %}selected{% endif %}>
+              Category (A-Z)</option>
+            <option value="area_desc" {% if current_sorting == 'area_desc' %}selected{% endif %}>
+              Category (Z-A)</option>
+        </select>
+    </div>
     </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <h4 class="league text-center content-titles">Categories</h4>
       <!-- list of categories -->
       <ul class="list-inline list-unstyled text-center">
         {% for c in categories %}
@@ -111,25 +109,30 @@
   <div class="row">
     {% for p in products %}
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league mb-3">
-      <a href="#" class="product-link">
-        <p class="product-name text-center">{{ p.name }}</p>
-        <div class="product-image-container text-center">
-          {% if not p.image %}
-          <img
-            src="{% static 'img/no-photo-available.jpg' %}"
-            alt="{{ p.name }}'s product image not available"
-            class="product-image"
-          />
-          {% else %}
-          <img
-            src="{{ p.image.url }}"
-            alt="{{ p.name }}'s product image"
-            class="text-center product-image"
-          />
-          {% endif %}
-        </div>
+      <div class="card product-card">
+        <a href="#" class="product-link">
+          <p class="product-name text-center">{{ p.name }}</p>
+          <div class="product-image-container text-center">
+            {% if not p.image %}
+            <img
+              src="{% static 'img/no-photo-available.jpg' %}"
+              alt="{{ p.name }}'s product image not available"
+              class="product-image"
+            />
+            {% else %}
+            <img
+              src="{{ p.image.url }}"
+              alt="{{ p.name }}'s product image"
+              class="text-center product-image"
+            />
+            {% endif %}
+          </div>
+        </a>
         <p class="product-price text-center">Price: §{{ p.price }}</p>
-      </a>
+        <a href="#" class="product-link">
+          <p class="product-category text-center">Category: <strong><em>{{ p.category }}</em></strong></p>
+        </a>
+      </div>
     </div>
     {% if forloop.counter|divisibleby:1 %}
     <div class="col-12 d-sm-none">
@@ -153,5 +156,41 @@
     </div>
     {% endif %}{% endfor %}
   </div>
+  <div class="row">
+    <div class="col-12 text-center btt-btn mb-5">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
 </div>
+{% endblock %} {% block postloadjs %} {{ block.super }}
+<script>
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
+</script>
+<script>
+  $('#sort-selector').change(function () {
+      var selector = $(this);
+      var currentUrl = new URL(window.location);
+
+      var selectedVal = selector.val();
+      if (selectedVal != "reset") {
+          var sort = selectedVal.split("_")[0];
+          var direction = selectedVal.split("_")[1];
+
+          currentUrl.searchParams.set("sort", sort);
+          currentUrl.searchParams.set("direction", direction);
+
+          window.location.replace(currentUrl)
+      } else {
+          currentUrl.searchParams.delete("sort");
+          currentUrl.searchParams.delete("direction");
+
+          window.location.replace(currentUrl)
+      }
+  })
+</script>
 {% endblock %}
