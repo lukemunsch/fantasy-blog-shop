@@ -37,6 +37,15 @@
       </p>
     </div>
   </div>
+  <hr class="menus" />
+  {% if request.user.is_superuser %}
+  <div class="row">
+    <div class="col-12 text-center content-titles mb-2">
+      <a href="#"><< Check for Pending Resources</a>
+    </div>
+    <hr class="menus" />
+  </div>
+  {% endif %}
   <div class="row mb-1">
     <div class="col-12 col-md-6 m-auto mb-3">
       <!-- search bar -->
@@ -101,7 +110,7 @@
   </div>
   <div class="row">
     {% for p in products %}
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league mb-5">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 league mb-3">
       <a href="#" class="product-link">
         <p class="product-name text-center">{{ p.name }}</p>
         <div class="product-image-container text-center">
@@ -128,17 +137,21 @@
     </div>
     {% endif %} {% if forloop.counter|divisibleby:2 %}
     <div class="col-12 d-none d-sm-block d-md-none">
-      <hr class="menus my-3" />
+      <hr class="menus my-4" />
     </div>
     {% endif %} {% if forloop.counter|divisibleby:3 %}
-    <div class="col-12 d-none d-md-block d-xl-none">
-      <hr class="menus my-3" />
+    <div class="col-12 d-none d-md-block d-lg-none">
+      <hr class="menus my-4" />
     </div>
     {% endif %} {% if forloop.counter|divisibleby:4 %}
-    <div class="col-12 d-none d-xl-block">
-      <hr class="menus my-3" />
+    <div class="col-12 d-none d-lg-block d-xl-none">
+      <hr class="menus my-4" />
     </div>
-    {% endif %} {% endfor %}
+    {% endif %} {% if forloop.counter|divisibleby:6 %}
+    <div class="col-12 d-none d-xl-block">
+      <hr class="menus my-4" />
+    </div>
+    {% endif %}{% endfor %}
   </div>
 </div>
 {% endblock %}
