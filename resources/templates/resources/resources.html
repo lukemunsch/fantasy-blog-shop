@@ -81,9 +81,9 @@
               (A-Z)</option>
             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
               (Z-A)</option>
-            <option value="area_asc" {% if current_sorting == 'area_asc' %}selected{% endif %}>
+            <option value="category_asc" {% if current_sorting == 'cateogry_asc' %}selected{% endif %}>
               Category (A-Z)</option>
-            <option value="area_desc" {% if current_sorting == 'area_desc' %}selected{% endif %}>
+            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
               Category (Z-A)</option>
         </select>
     </div>
@@ -97,7 +97,7 @@
       <ul class="list-inline list-unstyled text-center">
         {% for c in categories %}
         <li class="list-inline-item list-unstyled">
-          <a href="#" class="plain-link nav-link menus">
+          <a href="{% url 'resources' %}?category={{ c.name }}" class="plain-link nav-link menus">
             <h3>{{ c.name }}</h3>
           </a>
         </li>
