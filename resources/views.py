@@ -75,31 +75,8 @@ def pending_resources(request):
 
     products = Product.objects.filter(approved_item=0)
 
-    sort = None
-    direction = None
-
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(
-                    lower_name=Lower('name')
-                )
-            if sortkey == 'category':
-                sortkey = 'category__name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
-
-    current_sorting = f'{sort}_{direction}'
-
     context = {
         'products': products,
         'from_homepage': True,
-        'current_sorting': current_sorting,
     }
     return render(request, 'resources/resources.html', context)

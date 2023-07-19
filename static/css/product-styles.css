@@ -5,6 +5,10 @@
     width: 200px;
 }
 
+.sort-selector-append {
+    width: 30px;
+}
+
 .reset-button {
     font-family: 'Dosis', 'Times New Roman', Times, serif;
     font-size: 17px;

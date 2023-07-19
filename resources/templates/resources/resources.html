@@ -73,20 +73,20 @@
             class="custom-select form-control mx-auto">
             <option 
             value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
-              Sort by...</option>
+              Sort by... ▼</option>
             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-              (low to high)</option>
+              (low to high) ▼</option>
             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-              (high to low)</option>
+              (high to low) ▼</option>
             <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
-              (A-Z)</option>
+              (A-Z) ▼</option>
             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
-              (Z-A)</option>
+              (Z-A) ▼</option>
             {% if not cat %}
             <option value="category_asc" {% if current_sorting == 'cateogry_asc' %}selected{% endif %}>
-              Category (A-Z)</option>
+              Category (A-Z) ▼</option>
             <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
-              Category (Z-A)</option>
+              Category (Z-A) ▼</option>
             {% endif %}
         </select>
     </div>
@@ -113,9 +113,13 @@
   </div>
   <div class="row">
     <div class="col-12 text-center mb-4">
-      {% if cat %}
+      {% if cat or search_term %}
       <a href="{% url 'resources' %}" class="menus reset-button">- Reset -</a>
       {% endif %}
+      <span class="league">{{ products|length }} Products
+        {% if search_term %} found for <strong>{{ search_term }}</strong> search term{% endif %}
+        {% if cat %} in this Category{% endif %}
+      </span>
     </div>
   </div>
   <div class="row">
