@@ -70,8 +70,9 @@
       <!-- drop down for sorting resources -->
       <div class="sort-select-wrapper">
         <select id="sort-selector"
-            class="custom-select custom-select-sm">
-            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
+            class="custom-select form-control mx-auto">
+            <option 
+            value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
               Sort by...</option>
             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
               (low to high)</option>
@@ -81,10 +82,12 @@
               (A-Z)</option>
             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
               (Z-A)</option>
+            {% if not cat %}
             <option value="category_asc" {% if current_sorting == 'cateogry_asc' %}selected{% endif %}>
               Category (A-Z)</option>
             <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
               Category (Z-A)</option>
+            {% endif %}
         </select>
     </div>
     </div>
@@ -97,13 +100,22 @@
       <ul class="list-inline list-unstyled text-center">
         {% for c in categories %}
         <li class="list-inline-item list-unstyled">
-          <a href="{% url 'resources' %}?category={{ c.name }}" class="plain-link nav-link menus">
+          <a 
+            href="{% url 'resources' %}?category={{ c.name }}"
+            class="plain-link nav-link menus">
             <h3>{{ c.name }}</h3>
           </a>
         </li>
         {% endfor %}
       </ul>
       <hr class="menus" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center mb-4">
+      {% if cat %}
+      <a href="{% url 'resources' %}" class="menus reset-button">- Reset -</a>
+      {% endif %}
     </div>
   </div>
   <div class="row">
@@ -129,8 +141,19 @@
           </div>
         </a>
         <p class="product-price text-center">Price: §{{ p.price }}</p>
-        <a href="#" class="product-link">
-          <p class="product-category text-center">Category: <strong><em>{{ p.category }}</em></strong></p>
+        <a 
+          href="{% if not from_homepage %}
+            {% url 'resources' %}?category={{ p.category }}
+          {% else %}
+            #
+          {% endif %}"
+          class="product-link">
+          <p class="product-category text-center">
+            Category: 
+            <strong><em>
+              {% if p.category %}{{ p.category }}{% else %}---{% endif %}
+            </em></strong>
+          </p>
         </a>
       </div>
     </div>
@@ -157,7 +180,7 @@
     {% endif %}{% endfor %}
   </div>
   <div class="row">
-    <div class="col-12 text-center btt-btn mb-5">
+    <div class="col-12 text-center btt-btn my-5">
       <a class="btt-link btn">
         <i class="fas fa-arrow-up"></i> Back to Top
         <i class="fas fa-arrow-up"></i>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
+from django.db.models import Q
 
 from .models import Product, Category
 
@@ -14,6 +15,7 @@ def resources(request):
     sort = None
     direction = None
     cat = None
+    query = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -37,6 +39,19 @@ def resources(request):
             products = products.filter(category__name=cat)
             cat = Category.objects.filter(name=cat)
 
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request,
+                    'Woops! You forgot to include a search term - Try again!'
+                )
+                return redirect(reverse('resources'))
+
+            queries = Q(
+                name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -44,6 +59,7 @@ def resources(request):
         'categories': categories,
         'cat': cat,
         'current_sorting': current_sorting,
+        'search_term': query,
     }
     return render(request, 'resources/resources.html', context)
 
