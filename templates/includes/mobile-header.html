@@ -19,7 +19,7 @@
                             Console <i class="fas fa-sort-down"></i></a>
                         <div class="collapse" id="collapseContent">
                             <div class="card card-body">
-                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
                                 <a href="{% url 'console_add_entry' %}" class="collapse-item">Add New Entry</a>
                                 <a href="{% url 'pending_articles' %}" class="collapse-item">Pending Articles</a>
                                 <a href="{% url 'pending_missions' %}" class="collapse-item">Pending Missions</a>
