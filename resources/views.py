@@ -35,9 +35,9 @@ def resources(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-            cat = request.GET['category']
-            products = products.filter(category__name=cat)
-            cat = Category.objects.filter(name=cat)
+            category = request.GET['category']
+            products = products.filter(category__name=category)
+            cat = Category.objects.filter(name=category)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -60,6 +60,7 @@ def resources(request):
         'cat': cat,
         'current_sorting': current_sorting,
         'search_term': query,
+        'category': category,
     }
     return render(request, 'resources/resources.html', context)
 

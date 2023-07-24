@@ -119,8 +119,8 @@
       <a href="{% url 'resources' %}" class="menus reset-button">- Reset -</a>
       {% endif %}
       <span class="league">{{ products|length }} Products
-        {% if search_term %} found for <strong>{{ search_term }}</strong> search term{% endif %}
-        {% if cat %} in this Category{% endif %}
+        {% if search_term %} found for search term <strong>'{{ search_term }}'</strong>{% endif %}
+        {% if cat %} in the Category <strong>'{{ category }}'</strong>{% endif %}
       </span>
     </div>
   </div>
