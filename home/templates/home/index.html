@@ -35,7 +35,7 @@
       {% else %}
       <a class="btn btn-console-link p-1 mt-2" href="{% url 'account_login' %}">Log in to your account</a>
       {% endif %}
-      <a class="btn btn-console-link p-1 mt-2" href="#">Purchase the Spoils</a>
+      <a class="btn btn-console-link p-1 mt-2" href="{% url 'resources' %}">Purchase the Spoils</a>
     </div>
   </div>
   {% if request.user.is_superuser %}
