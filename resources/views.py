@@ -14,6 +14,7 @@ def resources(request):
 
     sort = None
     direction = None
+    category = None
     cat = None
     query = None
 
