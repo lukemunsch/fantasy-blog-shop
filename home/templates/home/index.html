@@ -29,17 +29,23 @@
       <a class="btn btn-console-link p-1 my-2" href="{% url 'console' %}"
         >Access to the Console</a
       >
-      <h5 class="mt-2 divide-top">Access to your user profiles and ordering for resources</h5>
+      <h5 class="mt-2 divide-top">
+        Access to your user profiles and ordering for resources
+      </h5>
       {% if request.user.is_authenticated %}
-      <a class="btn btn-console-link p-1 mt-2" href="{% url 'profile' %}">Access to your profile</a>
+      <a class="btn btn-console-link p-1 mt-2" href="{% url 'profile' %}"
+        >Access to your profile</a
+      >
       {% else %}
-      <a class="btn btn-console-link p-1 mt-2" href="{% url 'account_login' %}">Log in to your account</a>
+      <a class="btn btn-console-link p-1 mt-2" href="{% url 'account_login' %}"
+        >Log in to your account</a
+      >
       {% endif %}
-      <a class="btn btn-console-link p-1 mt-2" href="{% url 'resources' %}">Purchase the Spoils</a>
+      <a class="btn btn-console-link p-1 mt-2" href="{% url 'resources' %}"
+        >Purchase the Spoils</a
+      >
     </div>
-  </div>
-  {% if request.user.is_superuser %}
-  <div class="row">
+    {% if request.user.is_superuser %}
     <div
       class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5"
     >
@@ -82,6 +88,17 @@
             class="mb-3 btn btn-console-link p-1 mt-2"
             ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
           >
+        </div>
+      </div>
+      <div class="row divide-top">
+        <div class="col-12">
+          <h5><u>Unauthorised Items</u></h5>
+          <a
+            href="{% url 'pending_resources' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+          >
+            <strong>{{ resourcess|length }}</strong> Unapproved Item(s)
+          </a>
         </div>
       </div>
     </div>
