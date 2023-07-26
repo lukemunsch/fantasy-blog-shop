@@ -82,3 +82,19 @@ def pending_resources(request):
         'from_homepage': True,
     }
     return render(request, 'resources/resources.html', context)
+
+def resource_details(request, slug):
+    """create a new view to display item's details"""
+    from_pending = False
+
+    product = get_object_or_404(Product, slug=slug)
+    
+    if product.approved_item == 0:
+        from_pending = True
+
+    context = {
+        'product': product,
+        'from_pending': from_pending,
+    }
+
+    return render(request, 'resources/resource-details.html', context)

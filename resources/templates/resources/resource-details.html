@@ -28,14 +28,39 @@
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
         <!-- header -->
-        Shop for Resources
+        Product Details
       </h3>
       <p class="league page-subhead d-none d-md-block">
         <!-- subheader -->
-        Please feel free to browse the resources our team have retrieved from
-        the numerous mission they have been posted on.
+        This is the product you have selected
       </p>
     </div>
+    <div class="col-12">
+      <!-- Links for returning to shop -->
+      <div class="col-12 content-titles">
+        {% if from_pending == True %}
+        <a href="{% url 'pending_resources' %}" class="menus">
+          << Pending Resources
+        </a>
+        {% else %}
+        <a href="{% url 'resources' %}" class="menus"><< Resources</a>
+        {% endif %}
+        <a href="{% url 'home' %}" class="menus"> << Home </a>
+      </div>
+    </div>
+  </div>
+  <hr class="menus">
+  <div class="row">
+    {% if request.user.is_superuser %}
+        <div class="col-12 text-center">
+            <a href="#">
+                <button class="btn-console-link my-3">Edit Resource</button>
+            </a>
+            <a href="#">
+                <button class="btn-console-link my-3">Delete Resource</button>
+            </a>
+        </div>
+        {% endif %}
   </div>
 </div>
 {% endblock %}
