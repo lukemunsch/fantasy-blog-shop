@@ -45,22 +45,40 @@
         {% else %}
         <a href="{% url 'resources' %}" class="menus"><< Resources</a>
         {% endif %}
-        <a href="{% url 'home' %}" class="menus"> << Home </a>
+        <a href="{% url 'home' %}" class="menus"><< Home </a>
       </div>
     </div>
   </div>
-  <hr class="menus">
-  <div class="row">
+  <hr class="menus" />
+  <div class="row mb-5">
     {% if request.user.is_superuser %}
-        <div class="col-12 text-center">
-            <a href="#">
-                <button class="btn-console-link my-3">Edit Resource</button>
-            </a>
-            <a href="#">
-                <button class="btn-console-link my-3">Delete Resource</button>
-            </a>
-        </div>
-        {% endif %}
+    <div class="col-12 text-center">
+      <a href="#">
+        <button class="btn-console-link my-3">Edit Resource</button>
+      </a>
+      <a href="#">
+        <button class="btn-console-link my-3">Delete Resource</button>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1 league mb-4 text-center">
+      <h4><strong>{{ product.name }}</strong> - <em>{{ product.category }}</em></h4>
+    </div>
+    <div class="col-12 col-md-5 offset-md-1 text-center">
+      <img
+        src="{{ product.image.url }}"
+        alt="{{ product.image.url }}'s product image"
+        class="product-display-img mb-4">
+    </div>
+    <div class="col-12 col-md-5 league">
+      <!-- product information -->
+      <p class="product-desc mb-5">{{ product.description }}</p>
+      <p class="product-price mb-3">Price: §{{ product.price }}</p>
+    </div>
   </div>
 </div>
 {% endblock %}

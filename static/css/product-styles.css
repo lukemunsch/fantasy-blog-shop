@@ -60,3 +60,28 @@
 .product-category {
     font-size: 20px;
 }
+
+.product-display-img {
+    max-width: 90%;
+    max-height: 400px;
+    border: 2px solid yellow;
+    
+}
+
+.product-desc {
+    text-align: justify;
+}
+
+.product-price {
+    font-size: 24px;
+}
+
+@media (max-width: 767px) {
+    .product-desc {
+        padding: 0 20px 0px 20px;
+    }
+
+    .product-price {
+        padding: 0 0 0 20px;
+    }
+}
