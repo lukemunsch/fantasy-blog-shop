@@ -93,7 +93,7 @@ def add_member(request):
             form.save()
             messages.success(
                 request,
-                'A New Personnel is awaiting review!'
+                'A New Member is awaiting review!'
             )
             return redirect(reverse('pending_members'))
         else:

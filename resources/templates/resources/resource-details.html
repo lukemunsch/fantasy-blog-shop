@@ -81,4 +81,28 @@
     </div>
   </div>
 </div>
+{% if request.user.is_superuser %}
+<hr class="menus">
+<div class="container text-center league">
+    <div class="row">
+        <div class="col-12">
+            <p class="page-subhead">This item is currently {{ product.get_approved_item_display|lower }} to the general users.</p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
+            <form
+              action="{% url 'resource_details' product.slug %}"
+              method="POST"
+              class="form mb-5 card-origins approval-form"
+            >
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn-console-link my-3" type="submit">Update Approval</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}

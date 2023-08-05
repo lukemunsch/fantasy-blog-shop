@@ -5,6 +5,7 @@ from django.db.models.functions import Lower
 from django.db.models import Q
 
 from .models import Product, Category
+from .forms import ProductForm, ApproveProductForm
 
 # Create your views here.
 def resources(request):
@@ -92,9 +93,57 @@ def resource_details(request, slug):
     if product.approved_item == 0:
         from_pending = True
 
+    if request.method == 'POST':
+        form = ApproveProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have updated the appearance of the product!'
+            )
+        else:
+            messages.error(
+                request,
+                "You have failed to update this item's approval"
+            )
+    else:
+        form = ApproveProductForm(instance=product)
+
     context = {
         'product': product,
         'from_pending': from_pending,
+        'form': form,
     }
 
     return render(request, 'resources/resource-details.html', context)
+
+def add_resource(request):
+    """set up a new view for adding new products"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+    
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have successfully added the new item to be reviewed!'
+            )
+            return redirect(reverse('pending_resources'))
+        else:
+            messages.error(
+                request,
+                'Something went wrong - Please check through the form again!'
+            )
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'resources/add-resource.html', context)
