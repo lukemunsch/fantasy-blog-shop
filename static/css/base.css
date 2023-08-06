@@ -367,6 +367,7 @@ footer {
     border: 2px solid yellow;
     padding-top: 10px;
     padding-bottom: 10px;
+    width: 70%;
 }
 
 a.add-link {
@@ -399,6 +400,15 @@ a.add-link {
 
 .personnel-btn:hover {
     background-color: rgb(65, 65, 65);
+}
+
+.item-btn {
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+}
+
+.item-btn:hover {
+    background-color: rgb(20, 45, 20);
 }
 
 /* Crispy form settings */
@@ -461,6 +471,12 @@ a.add-link {
 
     .warning-statement {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 515px) {
+    .addition-btn {
+        width: 100%;
     }
 }
 

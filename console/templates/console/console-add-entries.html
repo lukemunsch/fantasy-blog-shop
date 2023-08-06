@@ -38,23 +38,45 @@
   </div>
 </div>
 <hr class="menus mb-5" />
+<!-- container for additional buttons -->
 <div class="container-fluid">
   <div class="row">
-    <a
-      href="{% url 'add_news' %}"
-      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-2 text-center addition-btn news-btn my-3 plain-link add-link"
-      >Add a New Article
-    </a>
-    <a
-      href="{% url 'add_mission' %}"
-      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-1 text-center addition-btn mission-btn my-3 plain-link add-link"
-      >Add a New Mission
-    </a>
-    <a
-      href="{% url 'add_member' %}"
-      class="col-10 offset-1 col-md-6 offset-md-3 col-lg-2 offset-lg-1 text-center addition-btn personnel-btn my-3 plain-link add-link"
-      >Add a New Member
-    </a>
+    <div
+      class="col-10 offset-1 col-md-6 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'add_news' %}" class="my-3">
+        <button class="addition-btn news-btn plain-link add-link">
+          Add a New Article
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-6 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'add_mission' %}" class="text-center my-3">
+        <button class="addition-btn mission-btn plain-link add-link">
+          Add a New Mission
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-6 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'add_member' %}" class="my-3">
+        <button class="addition-btn personnel-btn plain-link add-link">
+          Add a New Member
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-6 offset-md-0
+      col-lg-4 offset-lg-4 col-xl-3 offset-xl-0 text-center mb-4">
+      <a href="{% url 'add_resource' %}" class="text-center my-3">
+        <button class="addition-btn item-btn plain-link add-link">
+          Add a New Product
+        </button>
+      </a>
+    </div>
   </div>
 </div>
 {% endblock %}
