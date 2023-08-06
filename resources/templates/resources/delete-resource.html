@@ -32,12 +32,16 @@
             <p class="league page-subhead">{{ product.category }}</p>
         </div>
         <div class="col-12 menus page-heading my-5">
-            <h1>WARNING - Deleting this product will remove it from the shop permanently!</h1>
+            <h1 class="warning-statement">WARNING - Deleting this product will remove it from the shop permanently!</h1>
         </div>
         <div class="my-3">
             <form method="post" class="form">
                 {% csrf_token %}
+                {% if not from_pending %}
                 <a href="{% url 'resources' %}" class="btn-lg btn-console-link"><< Cancel</a>
+                {% else %}
+                <a href="{% url 'pending_resources' %}" class="btn-lg btn-console-link"><< Cancel</a>
+                {% endif %}
                 <button class="btn-lg btn-console-link" type="submit">X Delete</button>
             </form>
         </div>

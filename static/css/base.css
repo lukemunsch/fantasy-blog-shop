@@ -458,6 +458,10 @@ a.add-link {
     .dropdown-menu-move {
         margin-left: 180px;
     }
+
+    .warning-statement {
+        font-size: 20px;
+    }
 }
 
 @media (max-height: 500px) {

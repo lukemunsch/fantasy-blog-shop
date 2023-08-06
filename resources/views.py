@@ -161,6 +161,11 @@ def delete_resource(request, slug):
 
     product = get_object_or_404(Product, slug=slug)
 
+    from_pending = False
+
+    if product.approved_item==0:
+        from_pending = True
+
     if request.method == 'POST':
         product.delete()
         messages.success(
@@ -171,5 +176,6 @@ def delete_resource(request, slug):
 
     context = {
         'product': product,
+        'from_pending': from_pending,
     }
     return render(request, 'resources/delete-resource.html', context)
