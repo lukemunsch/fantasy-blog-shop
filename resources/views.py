@@ -89,7 +89,7 @@ def resource_details(request, slug):
     from_pending = False
 
     product = get_object_or_404(Product, slug=slug)
-    
+
     if product.approved_item == 0:
         from_pending = True
 
@@ -117,6 +117,7 @@ def resource_details(request, slug):
 
     return render(request, 'resources/resource-details.html', context)
 
+@login_required
 def add_resource(request):
     """set up a new view for adding new products"""
     if not request.user.is_superuser:
@@ -147,3 +148,28 @@ def add_resource(request):
         'form': form,
     }
     return render(request, 'resources/add-resource.html', context)
+
+@login_required
+def delete_resource(request, slug):
+    """set up view to delete product from db"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        product.delete()
+        messages.success(
+            request,
+            f'You have successfully deleted ${ product.name }'
+        )
+        return redirect(reverse('resources'))
+
+    context = {
+        'product': product,
+    }
+    return render(request, 'resources/delete-resource.html', context)

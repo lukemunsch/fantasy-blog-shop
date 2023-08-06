@@ -50,8 +50,8 @@
     </div>
   </div>
   <hr class="menus" />
+  {% if request.user.is_superuser %}
   <div class="row mb-5">
-    {% if request.user.is_superuser %}
     <div class="col-12 text-center">
       <a href="#">
         <button class="btn-console-link my-3">Edit Resource</button>
@@ -60,17 +60,17 @@
         <button class="btn-console-link my-3">Delete Resource</button>
       </a>
     </div>
-    {% endif %}
   </div>
+  {% endif %}
 </div>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
     <div class="col-10 offset-1 league mb-4 text-center">
       <h4>
         <strong>{{ product.name }}</strong> - <em>{{ product.category }}</em>
       </h4>
     </div>
-    <div class="col-12 col-md-5 offset-md-1 text-center">
+    <div class="col-12 col-md-5 offset-md-1 text-center mb-5">
       {% if not product.image %}
       <img
         src="{% static 'img/no-photo-available.jpg' %}"
@@ -87,9 +87,9 @@
     </div>
     <div class="col-12 col-md-5 league">
       <!-- product information -->
-      <p class="product-desc mb-5">{{ product.description }}</p>
-      <p class="product-desc mb-2">Category: <strong>{{ product.category }}</strong></p>
-      <p class="product-price mb-3">Price: §{{ product.price }}</p>
+      <p class="product-desc">{{ product.description }}</p>
+      <p class="product-desc my-4">Category: <strong>{{ product.category }}</strong></p>
+      <p class="product-price mb-3">Price: <strong>§{{ product.price }}</strong></p>
     </div>
   </div>
 </div>
@@ -119,4 +119,6 @@
     </div>
   </div>
 </div>
-{% endif %} {% endblock %}
+{% endif %} 
+
+{% endblock %}

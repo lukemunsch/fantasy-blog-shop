@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Delete Resource{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12 text-center">
+            <h3 class="renegade page-heading">Delete Resource</h3>
+            <p class="league page-subhead">
+                Are you sure you want to delete the following product?</em>
+            </p>
+        </div>
+        <hr class="menus">
+        <div class="col-12">
+            <p class="league page-subhead">{{ product.name|upper }}</p>
+            <p class="league page-subhead">{{ product.category }}</p>
+        </div>
+        <div class="col-12 menus page-heading my-5">
+            <h1>WARNING - Deleting this product will remove it from the shop permanently!</h1>
+        </div>
+        <div class="my-3">
+            <form method="post" class="form">
+                {% csrf_token %}
+                <a href="{% url 'resources' %}" class="btn-lg btn-console-link"><< Cancel</a>
+                <button class="btn-lg btn-console-link" type="submit">X Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
