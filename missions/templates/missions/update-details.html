@@ -37,6 +37,21 @@
         </div>
     </div>
 </div>
+<hr class="menus" />
+{% if request.user.is_superuser %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'edit_update' update.id %}">
+                <button class="btn-console-link my-3">Edit Update</button>
+            </a>
+            <a href="#">
+                <button class="btn-console-link my-3">Delete Update</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
 <hr class="menus">
 <div class="container">
     <div class="row">

@@ -236,7 +236,7 @@ def pending_updates(request):
         'updates': updates,
     }
 
-    return render(request, 'missions/updates.html', context)
+    return render(request, 'missions/pending-updates.html', context)
 
 @login_required
 def update_details(request, update_id):
@@ -276,3 +276,42 @@ def update_details(request, update_id):
     }
 
     return render(request, 'missions/update-details.html', context)
+
+@login_required
+def edit_update(request, update_id):
+    """set up our view for editing updates"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    update = get_object_or_404(Update, pk=update_id)
+
+    if request.method == 'POST':
+        form = UpdateForm(
+            request.POST,
+            instance=update
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'You have'
+            )
+            return redirect(reverse('update_details'))
+        else:
+            messages.error(request, (
+                'Failed to edit Update'
+                'Please check through the form again!'
+            ))
+    else:
+        form = UpdateForm(instance=update)
+
+    context = {
+        'update': update,
+        'form': form,
+    }
+
+    return render(request, 'missions/edit-update.html', context)
