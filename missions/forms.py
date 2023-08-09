@@ -24,6 +24,7 @@ class MissionForm(forms.ModelForm):
         model = Mission
         fields = [
             'mission',
+            'mission_status',
             'mission_grade',
             'mission_lead',
             'prep_time',
@@ -37,6 +38,11 @@ class MissionForm(forms.ModelForm):
             'mission': forms.TextInput(
                 attrs={
                     'placeholder': 'Mission Title Here',
+                }
+            ),
+            'mission_status': forms.Select(
+                attrs={
+                    'style': 'width: 200px;',
                 }
             ),
             'mission_grade': forms.RadioSelect(),
