@@ -49,17 +49,20 @@
         Attached to mission: {{ u.mission|upper }}
       </a>
     </div>
-    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-3 league mb-2">Title: <strong>{{ u.title }}</strong></div>
-    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-3 league mb-2">Content: <em>{{ u.body|truncatechars:60 }}</em></div>
-    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-3 league mb-2">This update was created on: <strong>{{ u.created_on }}</strong></div>
-  </div>
-  <div class="row my-5">
-    <div class="col-12 text-center">
-      <a href="{% url 'update_details' u.id %}" class="btn-console-link">View Update</a>
+    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-3 league mb-2">
+      Title: <strong>{{ u.title }}</strong>
+    </div>
+    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-3 league mb-2">
+      This update was created on: <strong>{{ u.created_on }}</strong>
+    </div>
+    <div class="col-10 offset-1 col-md-6 offset-md-0 col-xl-2 offset-xl-1 league my-2">
+      <a href="{% url 'update_details' u.id %}" class="btn-console-link"
+        >View Update</a
+      >
     </div>
   </div>
 
-  <hr class="menus">
+  <hr class="menus" />
   {% endfor %}
 </div>
 
