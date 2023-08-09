@@ -394,6 +394,14 @@ a.add-link {
     background-color: rgb(65, 25, 85);
 }
 
+.update-btn {
+    background-color: rgb(255, 110, 225);
+}
+
+.update-btn:hover {
+    background-color: rgb(72, 31, 63);
+}
+
 .personnel-btn {
     background-color: rgb(216, 216, 216);
 }
