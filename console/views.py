@@ -32,3 +32,15 @@ def console_add_entry(request):
         return redirect(reverse('home'))
 
     return render(request, 'console/console-add-entries.html')
+
+@login_required
+def console_pending_entries(request):
+    """create view for our base add entry page"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'Sorry, this page is for Grandmasters Only'
+        )
+        return redirect(reverse('home'))
+
+    return render(request, 'console/console-pending.html')

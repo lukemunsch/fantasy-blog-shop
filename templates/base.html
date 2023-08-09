@@ -96,19 +96,9 @@
                         >Add New Entry</a
                       >
                       <a
-                        href="{% url 'pending_articles' %}"
+                        href="{% url 'console_pending' %}"
                         class="dropdown-item"
                         >Pending Articles</a
-                      >
-                      <a
-                        href="{% url 'pending_missions' %}"
-                        class="dropdown-item"
-                        >Pending Missions</a
-                      >
-                      <a
-                        href="{% url 'pending_members' %}"
-                        class="dropdown-item"
-                        >Pending Members</a
                       >
                       <div class="dropdown-divider"></div>
                       {% endif %}
@@ -208,7 +198,7 @@
     </main>
 
     {% block page_footer %}{% endblock %}
-    
+
     {% include 'includes/footer.html' %}
 
     <!-- Javascript files -->

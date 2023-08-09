@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Add Content{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2 class="renegade page-heading">
+        Welcome Back, Grandmaster {{ request.user }}
+      </h2>
+      <p class="league page-subhead">
+        Please choose the type of entry you would like to complete:
+      </p>
+    </div>
+  </div>
+  <!-- row for navigation buttons -->
+  <div class="row text-center my-3">
+    <div class="col-12 text-center content-titles">
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      <a href="{% url 'console' %}" class="menus"><< Console</a>
+    </div>
+  </div>
+</div>
+<hr class="menus mb-5" />
+<!-- container for additional buttons -->
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="col-10 offset-1 col-md-3 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'pending_articles' %}" class="my-3">
+        <button class="addition-btn news-btn plain-link add-link">
+          Access Pending Articles
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-3 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'pending_mission' %}" class="text-center my-3">
+        <button class="addition-btn mission-btn plain-link add-link">
+          Access Pending Missions
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-3 offset-md-0
+      col-lg-4 col-xl-3 text-center mb-4">
+      <a href="{% url 'pending_member' %}" class="my-3">
+        <button class="addition-btn personnel-btn plain-link add-link">
+          Access Pending Members
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-3 offset-md-0
+      col-lg-4 offset-lg-4 col-xl-1 offset-xl-0 text-center mb-4">
+      <a href="{% url 'pending_resource' %}" class="text-center my-3">
+        <button class="addition-btn item-btn plain-link add-link">
+          Access Pending Products
+        </button>
+      </a>
+    </div>
+    <div
+      class="col-10 offset-1 col-md-3 offset-md-0
+      col-lg-4 offset-lg-4 col-xl-2 offset-xl-0 text-center mb-4">
+      <a href="{% url 'pending_resource' %}" class="text-center my-3">
+        <button class="addition-btn item-btn plain-link add-link">
+          Access Pending Updates
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
