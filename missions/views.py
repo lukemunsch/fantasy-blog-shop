@@ -65,7 +65,10 @@ def mission_details(request, mission_id):
                 request,
                 'You have successfully changed the approval of the mission!'
             )
-            return redirect(reverse('missions'))
+            if mission.approved_mission == 0:
+                from_pending = True
+            else:
+                from_pending = False
         else:
             messages.error(
                 request,
@@ -125,7 +128,7 @@ def edit_mission(request, mission_id):
             request,
             'You are not authorised to access this Resource!'
         )
-        return redirect(reverse('missions'))
+        return redirect(reverse('home'))
 
     mission = get_object_or_404(Mission, pk=mission_id)
     if request.method == 'POST':
@@ -261,7 +264,6 @@ def update_details(request, update_id):
                 request,
                 'You have successfully changed the approval of the update!'
             )
-            return redirect(reverse('pending_updates'))
         else:
             messages.error(
                 request,
@@ -279,7 +281,7 @@ def update_details(request, update_id):
 
 @login_required
 def edit_update(request, update_id):
-    """set up our view for editing updates"""
+    """Set up our page for editing missions"""
     if not request.user.is_superuser:
         messages.error(
             request,
@@ -294,13 +296,14 @@ def edit_update(request, update_id):
             request.POST,
             instance=update
         )
+
         if form.is_valid():
             form.save()
             messages.success(
                 request,
-                'You have'
+                f'Successfully update { update.title }!'
             )
-            return redirect(reverse('update_details'))
+            return redirect('update_details', update_id)
         else:
             messages.error(request, (
                 'Failed to edit Update'
@@ -308,10 +311,37 @@ def edit_update(request, update_id):
             ))
     else:
         form = UpdateForm(instance=update)
+        messages.info(
+            request,
+            f'You are editing { update.title }'
+        )
 
     context = {
         'update': update,
         'form': form,
     }
-
     return render(request, 'missions/edit-update.html', context)
+
+@login_required
+def delete_update(request, update_id):
+    """set up our view to delete missions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('home'))
+
+    update = get_object_or_404(Update, pk=update_id)
+    if request.method == 'POST':
+        update.delete()
+        messages.success(
+            request,
+            f'You have successfully deleted { update.title }'
+        )
+        return redirect(reverse('missions'))
+
+    context = {
+        'update': update,
+    }
+    return render(request, 'missions/delete-update.html', context)

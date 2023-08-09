@@ -58,6 +58,10 @@ def personnel_details(request, personnel_id):
                 request,
                 'You have successfully changed the approval of the member!'
             )
+            if member.authorised == 0:
+                from_pending = True
+            else:
+                from_pending = False
         else:
             messages.error(
                 request,

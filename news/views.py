@@ -56,6 +56,10 @@ def news_details(request, news_id):
                 request,
                 'You have successfully changed the approval of the article!'
             )
+            if event.approved_post == 0:
+                from_pending = True
+            else:
+                from_pending = False
         else:
             messages.error(
                 request,
