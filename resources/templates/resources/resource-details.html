@@ -53,7 +53,7 @@
   {% if request.user.is_superuser %}
   <div class="row mb-5">
     <div class="col-12 text-center">
-      <a href="#">
+      <a href="{% url 'edit_resource' product.slug %}">
         <button class="btn-console-link my-3">Edit Resource</button>
       </a>
       <a href="{% url 'delete_resource' product.slug %}">

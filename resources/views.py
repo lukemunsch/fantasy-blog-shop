@@ -94,7 +94,10 @@ def resource_details(request, slug):
         from_pending = True
 
     if request.method == 'POST':
-        form = ApproveProductForm(request.POST, instance=product)
+        form = ApproveProductForm(
+            request.POST,
+            instance=product
+        )
         if form.is_valid():
             form.save()
             messages.success(
@@ -126,7 +129,7 @@ def add_resource(request):
             'You are not authorised to access this Resource!'
         )
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -148,6 +151,51 @@ def add_resource(request):
         'form': form,
     }
     return render(request, 'resources/add-resource.html', context)
+
+@login_required
+def edit_resource(request, slug):
+    """set up our view for editing resources"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorised to access this Resource!'
+        )
+        return redirect(reverse('resources'))
+
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        form = ProductForm(
+            request.POST,
+            request.FILES,
+            instance=product
+        )
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f'You have successfully edited { product.name }'
+            )
+        else:
+            messages.error(request, (
+                'You have failed to update this resource,'
+                'Please check your form again!'
+            ))
+    else:
+        form = ProductForm(
+            instance=product
+        )
+        messages.info(
+            request,
+            f'You are editing { product.name }'
+        )
+
+    context = {
+        'product': product,
+        'form': form,
+    }
+
+    return render(request, 'resources/edit-resource.html', context)
 
 @login_required
 def delete_resource(request, slug):

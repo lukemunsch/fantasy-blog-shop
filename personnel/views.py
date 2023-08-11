@@ -140,9 +140,9 @@ def edit_member(request, personnel_id):
             return redirect(reverse('personnel'))
         else:
             messages.error(
-                request,
+                request, (
                 'Failed to update Mission'
-                'Please check through the form again!'
+                'Please check through the form again!')
             )
     else:
         form = PersonnelForm(instance=member)

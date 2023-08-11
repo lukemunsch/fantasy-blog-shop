@@ -5,7 +5,6 @@ from missions.widgets import CustomClearableFileInput
 
 from .models import Product
 
-
 class ProductForm(forms.ModelForm):
     """st up our new additional product form"""
     class Meta:
@@ -16,13 +15,16 @@ class ProductForm(forms.ModelForm):
             'price',
             'category',
             'approved_item',
-            'image',
         ]
         widgets = {
             'name': forms.TextInput(
                 attrs={'placeholder': 'Give the product a name (size)'}
             ),
-            'price': forms.DecimalField(),
+            'price': forms.NumberInput(
+                attrs={
+                    'style': 'width: 200px;',
+                }
+            ),
             'category': forms.RadioSelect(),
             'approved_item': forms.Select(
                 attrs={
