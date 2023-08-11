@@ -10,7 +10,8 @@ class ProductForm(forms.ModelForm):
     class Meta:
         """set up how our form works"""
         model = Product
-        fields = ['name',
+        fields = [
+            'name',
             'description',
             'price',
             'category',
@@ -20,12 +21,22 @@ class ProductForm(forms.ModelForm):
             'name': forms.TextInput(
                 attrs={'placeholder': 'Give the product a name (size)'}
             ),
+            'description': forms.Textarea(
+                attrs={
+                    'placeholder': 'Enter Product description here',
+                }
+            ),
             'price': forms.NumberInput(
+                attrs={
+                    'style': 'width: 200px;',
+                    'placeholder': 'Enter Price',
+                }
+            ),
+            'category': forms.Select(
                 attrs={
                     'style': 'width: 200px;',
                 }
             ),
-            'category': forms.RadioSelect(),
             'approved_item': forms.Select(
                 attrs={
                     'style': 'width: 200px;',

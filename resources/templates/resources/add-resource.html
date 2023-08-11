@@ -60,8 +60,30 @@
     </div>
   </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center btt-btn">
+            <a class="btt-link btn">
+                <i class="fas fa-arrow-up"></i> Back to Top
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
+{% block page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+</div>
+{% endblock page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+</div>
 {% block postloadjs %}
     {{ block.super }}
     <script>
@@ -70,4 +92,9 @@
             $('#filename').text(`You have chosen - ${file.name} - as your new image!`);
         });
     </script>
+    <script>
+      $(".btt-link").click(function () {
+          window.scrollTo(0, 0);
+      });
+  </script>
 {% endblock %}

@@ -28,7 +28,7 @@
     </div>
     <div class="col-12 content-titles text-center">
         <a href="{% url 'home' %}" class="menus"><< Home</a>
-        <a href="{% url 'console_add_entry' %}" class="menus"><< Add Page</a>
+        <a href="{% url 'resources' %}" class="menus"><< Resources</a>
         <a href="{% url 'console' %}" class="menus"><< Console</a>
     </div>
   </div>
@@ -53,14 +53,32 @@
           {% endif %}
         {% endfor %}
         <div class="my-3 text-right">
-          <a href="{% url 'console_add_entry' %}" class="btn-console-link"><< Cancel</a>
-          <button class="btn-console-link" type="submit">+ Add Item</button>
+          <a href="{% url 'resource_details' product.slug %}" class="btn-console-link"><< Cancel</a>
+          <button class="btn-console-link" type="submit">+ Edit Item</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center btt-btn">
+            <a class="btt-link btn">
+                <i class="fas fa-arrow-up"></i> Back to Top
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+{% block page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col-12"></div>
+  </div>
+</div>
+{% endblock page_footer %}
 
 {% block postloadjs %}
     {{ block.super }}
@@ -70,4 +88,9 @@
             $('#filename').text(`You have chosen - ${file.name} - as your new image!`);
         });
     </script>
+    <script>
+      $(".btt-link").click(function () {
+          window.scrollTo(0, 0);
+      });
+  </script>
 {% endblock %}
