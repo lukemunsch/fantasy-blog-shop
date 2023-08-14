@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'missions',
     'user_profiles',
     'resources',
+    'basket',
 ]
 
 MIDDLEWARE = [
