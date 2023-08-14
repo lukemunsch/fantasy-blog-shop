@@ -145,7 +145,17 @@
   </div>
 </div>
 <!-- set up footer for page -->
-{% endblock content %} {% block postloadjs %} {{ block.super }}
+{% endblock content %}
+
+{% block page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %} {{ block.super }}
 <script>
   $(".btt-link").click(function () {
     window.scrollTo(0, 0);

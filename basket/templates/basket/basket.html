@@ -17,5 +17,28 @@
 
 <!-- set up main content block -->
 {% block content %}
+<div class="cover-up"></div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">Shopping Basket</h3>
+      <p class="league page-subhead">
+        Here is a list of products you currently have loaded into your shopping basket:
+      </p>
+    </div>
+    <div class="col-12 content-titles">
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      <a href="{% url 'resources' %}" class="menus"><< Resources</a>
+    </div>
+  </div>
+</div>
+<hr class="menus" />
+{% endblock %}
 
+{% block page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
 {% endblock %}
