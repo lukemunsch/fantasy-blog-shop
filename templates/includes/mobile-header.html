@@ -33,10 +33,10 @@
                             </div>
                         </div>
                         <!-- account collapse -->
-                        <a class="nav-link plain-link overlay-menu-btn menus" href="#collapseAccount" data-toggle="collapse"
+                        <a class="nav-link plain-link overlay-menu-btn menus" href="#collapseResources" data-toggle="collapse"
                             role="button" aria-expanded="false" aria-controls="collapseAccount">
                             Account <i class="fas fa-sort-down"></i></a>
-                        <div class="collapse" id="collapseAccount">
+                        <div class="collapse" id="collapseResources">
                             <div class="card card-body">
                                 {% if request.user.is_authenticated %}
                                 <a href="{% url 'profile' %}" class="collapse-item">My Profile</a>
@@ -47,7 +47,26 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <a class="nav-link plain-link overlay-menu-btn menus" href="{% url 'resources' %}">Shop</a>
+                        <a
+                            class="nav-link plain-link overlay-menu-btn menus"
+                            href="#collapseAccount"
+                            data-toggle="collapse"
+                            role="button"
+                            aria-expanded="false"
+                            aria-controls="collapseAccount">
+                            {% if grand_total %}
+                                §{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                Shop
+                            {% endif %} <i class="fas fa-sort-down"></i>
+                        </a>
+                        <div class="collapse" id="collapseAccount">
+                            <div class="card card-body">
+                                <a href="{% url 'resources' %}" class="collapse-item">Resources</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{% url 'view_basket' %}" class="collapse-item">Basket</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Use any element to open/show the overlay navigation menu -->

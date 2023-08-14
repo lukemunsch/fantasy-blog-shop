@@ -359,6 +359,26 @@ footer {
     font-size: 20px;
 }
 
+/* floating shopping bag button in resourves pages */
+
+a.shopping-link {
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+
+p.basket-btn i {
+    color: yellow;
+    font-size: 40px;
+}
+
+a p.basket-btn {
+    text-decoration: none;
+    color: yellow;
+}
+
+/* Adding content buttons */
+
 .addition-btn {
     font-family: 'Ubuntu', Arial, Helvetica, sans-serif, serif;
     font-size: 30px;

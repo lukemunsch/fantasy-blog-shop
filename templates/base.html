@@ -151,9 +151,31 @@
                   </div>
                 </li>
                 <li class="col-3 menuitem">
-                  <a class="nav-link plain-link menus" href="{% url 'resources' %}"
-                    ><span>Shop</span></a
-                  >
+                  <div class="dropdown">
+                    <a
+                      href="#"
+                      class="nav-link plain-link dropdown-toggle menus"
+                      type="button"
+                      id="dropdownAccountButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {% if grand_total %}
+                        §{{ grand_total|floatformat:2 }}
+                        {% else %}
+                        Shop
+                      {% endif %}
+                    </a>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownAccountButton">
+                      <a href="{% url 'resources' %}" class="dropdown-item">Resources</a>
+                      <div class="dropdown-divider"></div>
+                      <a href="{% url 'view_basket' %}" class="dropdown-item">Basket</a>
+                      </a>
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
