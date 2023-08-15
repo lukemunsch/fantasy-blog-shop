@@ -245,6 +245,7 @@ footer {
     background-color: rgb(255, 255, 255);
     padding: 10px;
     border: 2px solid black;
+    border-radius: 8px;
 }
 
 .btn-console-link:hover {
@@ -357,24 +358,6 @@ footer {
     font-family: 'Dosis', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 500;
     font-size: 20px;
-}
-
-/* floating shopping bag button in resourves pages */
-
-a.shopping-link {
-    position: absolute;
-    right: 30px;
-    top: 100px;
-}
-
-p.basket-btn i {
-    color: yellow;
-    font-size: 40px;
-}
-
-a p.basket-btn {
-    text-decoration: none;
-    color: yellow;
 }
 
 /* Adding content buttons */

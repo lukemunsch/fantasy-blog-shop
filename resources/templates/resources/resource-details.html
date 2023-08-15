@@ -88,11 +88,43 @@
     <div class="col-12 col-md-5 league">
       <!-- product information -->
       <p class="product-desc">{{ product.description }}</p>
-      <p class="product-desc my-4">Category: <strong>{{ product.category }}</strong></p>
-      <p class="product-price mb-3">Price: <strong>§{{ product.price }}</strong></p>
+      <p class="product-desc my-4">
+        Category: <strong>{{ product.category }}</strong>
+      </p>
+      <p class="product-price mb-3">
+        Price: <strong>§{{ product.price }}</strong>
+      </p>
+      <form action="#" method="POST" class="form quantity-form">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="col-12">
+            <p class="mt-3"><strong>Quantity:</strong></p>
+            <div class="form-group w-50">
+              <div class="input-group">
+                <input
+                  type="number"
+                  class="form-control qty_input"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  max="99"
+                  data_item_id="{{ product.id }}"
+                  id="id_qty_{{ product.id }}"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <a href="{% url 'resources' %}" class="btn-console-link"><< Cancel</a>
+            <button class="btn-console-link" type="submit">+ Basket</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+<!-- Admin section for updating approval quickly -->
 {% if request.user.is_superuser %}
 <hr class="menus" />
 <div class="container text-center league">
@@ -119,11 +151,7 @@
     </div>
   </div>
 </div>
-{% endif %} 
-
-{% endblock %}
-
-{% block page_footer %}
+{% endif %} {% endblock %} {% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>

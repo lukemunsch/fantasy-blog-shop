@@ -63,7 +63,9 @@
         <div class="col-12">
             <h3 class="league mb-3 mx-4">Current Mission Status -
                 <span
-                    class="status-blink {% if mission.mission_status == 1 %}league{% elif mission.mission_status == 2 %}renegade{% else %}menus{% endif %}">{{ mission.get_mission_status_display|upper }}</span>
+                    class="status-blink {% if mission.mission_status == 1 %}league{% elif mission.mission_status == 2 %}renegade{% else %}menus{% endif %}">
+                    {{ mission.get_mission_status_display|upper }}
+                </span>
             </h3>
         </div>
     </div>

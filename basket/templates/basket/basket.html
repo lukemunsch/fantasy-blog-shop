@@ -18,12 +18,13 @@
 <!-- set up main content block -->
 {% block content %}
 <div class="cover-up"></div>
-<div class="container text-center">
+<div class="container-fluid text-center">
   <div class="row">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">Shopping Basket</h3>
       <p class="league page-subhead">
-        Here is a list of products you currently have loaded into your shopping basket:
+        Here is a list of products you currently have loaded into your shopping
+        basket:
       </p>
     </div>
     <div class="col-12 content-titles">
@@ -33,9 +34,22 @@
   </div>
 </div>
 <hr class="menus" />
-{% endblock %}
-
-{% block page_footer %}
+<!-- main content -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      {% if basket_items %}
+      <div class="table-responsive rounded-1"></div>
+      {% else %}
+      <h4 class="lead renegade mb-5">Your Basket is EMPTY!!!</h4>
+      <a href="{% url 'resources' %}">
+        <button class="btn-console-link my-3"><< Keep Shopping</button>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %} {% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>
