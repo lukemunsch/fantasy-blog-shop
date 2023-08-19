@@ -9,7 +9,7 @@ def basket_contents(request):
     total = 0
     product_count = 0
     delivery = 0
-    basket = request.session('basket', {})
+    basket = request.session.get('basket', {})
 
     if total < settings.PURCHASE_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERC/100)
@@ -30,4 +30,5 @@ def basket_contents(request):
         'grand_total': grand_total,
         'standard_delivery_perc': settings.STANDARD_DELIVERY_PERC,
     }
+    print(request.session.get('basket', {}))
     return context
