@@ -22,7 +22,6 @@ def basket_contents(request):
 
     context = {
         'basket_items': basket_items,
-        'basket': basket,
         'total': total,
         'product_count': product_count,
         'free_delivery_delta': free_delivery_delta,
