@@ -178,7 +178,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Setting up customer variables
-PURCHASE_THRESHOLD = 2000
+PURCHASE_THRESHOLD = 1500
 STANDARD_DELIVERY_PERC = 20
 
 # Static files (CSS, JavaScript, Images)

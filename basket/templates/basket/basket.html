@@ -47,8 +47,8 @@
       <div class="table-responsive">
         <table class="table table-sm table-borderless">
           <thead>
-            <tr class="renegade">
-              <th scope="col" class="text-right">Product Info</th>
+            <tr class="renegade text-right">
+              <th scope="col" class="">Product Info</th>
               <th scope="col"></th>
               <th scope="col">Price</th>
               <th scope="col">Quantity</th>
@@ -71,7 +71,7 @@
             <td class="p-3 text-right">
               <p class="my-0"><strong>§{{ item.product.price|floatformat:2 }}</strong></p>
             </td>
-            <td class="p-3 w-25 text-right">
+            <td class="p-3 text-right w-25">
               <p class="my-0"><strong>{{ item.quantity }}</strong></p>
             </td>
             <td class="p-3 text-right">
@@ -81,16 +81,16 @@
           {% endfor %}
           <tr class="menus">
             <td colspan="5" class="pt-5 text-right">
-              <h6>Basket Total: §{{ total|floatformat:2 }}</h6>
+              <h6>Basket Total: <strong>§{{ total|floatformat:2 }}</strong></h6>
               {% if delivery <= 0 %}
-              <h6><strong>You have qualified for free delivery!</strong></h6>
+              <h6 class="mt-3"><strong>You have qualified for free delivery!</strong></h6>
               {% else %}
-              <h6>Delivery Charge: §{{ delivery|floatformat:2 }}</h6>
+              <h6 class="mt-3">Delivery Charge: <strong>§{{ delivery|floatformat:2 }}</strong></h6>
               {% endif %}
               {% if free_delivery_delta > 0 %}
-                <p class="void mb-1">
-                  You can get free delivery if you spend just
-                  <strong>{{ free_delivery_delta }}</strong> more!
+                <p class="menus mb-3">
+                  Free delivery if you spend just
+                  <strong>§{{ free_delivery_delta }}</strong> more!
                 </p>
               {% endif %}
               <h4><strong>Grand Total: §{{ grand_total|floatformat:2 }}</strong></h4>
