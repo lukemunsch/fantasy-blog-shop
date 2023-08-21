@@ -1,0 +1,5 @@
+.item-image {
+    max-height: 100px;
+    float: right;
+    border: 2px solid yellow;
+}

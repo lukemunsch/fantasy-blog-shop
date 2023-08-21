@@ -3,6 +3,11 @@
 <!-- set  up load static -->
 {% load static %}
 
+<!-- Add extra css from resources -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/basket-styles.css' %}" />
+{% endblock %}
+
 <!-- set up tab extra title -->
 {% block extra_title %} - Homepage{% endblock %}
 
@@ -39,7 +44,60 @@
   <div class="row">
     <div class="col-12">
       {% if basket_items %}
-      <div class="table-responsive rounded-1"></div>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless">
+          <thead>
+            <tr class="renegade">
+              <th scope="col" class="text-right">Product Info</th>
+              <th scope="col"></th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          {% for item in basket_items %}
+          <tr class="league">
+            <td class="p-3 text-center">
+              <img
+                src="{{ item.product.image.url }}"
+                alt="{{ item.product.name}} product image"
+                class="item-image"
+              />
+            </td>
+            <td class="p-3">
+              <h4 class="my-0"><strong>{{ item.product.name }}</strong></h4>
+              <p class="my-0 small"><em>Cat: {{ item.product.category }}</em></p>
+            </td>
+            <td class="p-3 text-right">
+              <p class="my-0"><strong>§{{ item.product.price|floatformat:2 }}</strong></p>
+            </td>
+            <td class="p-3 w-25 text-right">
+              <p class="my-0"><strong>{{ item.quantity }}</strong></p>
+            </td>
+            <td class="p-3 text-right">
+              <p class="my-0"><strong>§{{ item.product.price|floatformat:2 }}</strong></p>
+            </td>
+          </tr>
+          {% endfor %}
+          <tr class="menus">
+            <td colspan="5" class="pt-5 text-right">
+              <h6>Basket Total: §{{ total|floatformat:2 }}</h6>
+              {% if delivery <= 0 %}
+              <h6><strong>You have qualified for free delivery!</strong></h6>
+              {% else %}
+              <h6>Delivery Charge: §{{ delivery|floatformat:2 }}</h6>
+              {% endif %}
+              {% if free_delivery_delta > 0 %}
+                <p class="void mb-1">
+                  You can get free delivery if you spend just
+                  <strong>{{ free_delivery_delta }}</strong> more!
+                </p>
+              {% endif %}
+              <h4><strong>Grand Total: §{{ grand_total|floatformat:2 }}</strong></h4>
+            </td>
+          </tr>
+        </table>
+      </div>
       {% else %}
       <h4 class="lead renegade mb-5">Your Basket is EMPTY!!!</h4>
       <a href="{% url 'resources' %}">
