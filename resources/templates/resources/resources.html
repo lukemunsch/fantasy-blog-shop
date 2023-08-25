@@ -45,8 +45,9 @@
       {% if from_homepage and request.user.is_superuser %}
       <a href="{% url 'resources' %}"><< Return to the shop</a>
       {% elif request.user.is_superuser %}
-      <a href="{% url 'pending_resources' %}"><< Check for Pending Resources</a>
+      <a href="{% url 'pending_resources' %}"><< Pending Resources</a>
       {% endif %}
+      <a href="{% url 'view_basket' %}"><< Shopping Basket</a>
     </div>
   </div>
   {% if not from_homepage %}
@@ -92,7 +93,7 @@
               Category (Z-A) ▼</option>
             {% endif %}
         </select>
-    </div>
+      </div>
     </div>
   </div>
   {% endif %}
