@@ -6,8 +6,8 @@ from django.conf import settings
 from resources.models import Product
 
 def basket_contents(request):
-    """set up a context file for basket"""
-    basket_items = []
+    """set up the context for our wallet"""
+    basket_products = []
     total = 0
     product_count = 0
     basket = request.session.get('basket', {})
@@ -16,7 +16,7 @@ def basket_contents(request):
         product = get_object_or_404(Product, pk=product_id)
         total += quantity * product.price
         product_count += quantity
-        basket_items.append({
+        basket_products.append({
             'product_id': product_id,
             'quantity': quantity,
             'product': product,
@@ -32,14 +32,14 @@ def basket_contents(request):
     grand_total = total + delivery
 
     context = {
-        'basket_items': basket_items,
+        'basket_products': basket_products,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
-        'purchase_threshold': settings.PURCHASE_THRESHOLD,
+        'PURCHASE_THRESHOLD': settings.PURCHASE_THRESHOLD,
+        'STANDARD_DELIVERY_PERC': settings.STANDARD_DELIVERY_PERC,
         'grand_total': grand_total,
-        'standard_delivery_perc': settings.STANDARD_DELIVERY_PERC,
     }
 
     return context
