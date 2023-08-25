@@ -82,12 +82,9 @@
     animation-iteration-count: 7;
 }
 
-.quantity-form {
-    padding: 0;
-}
-
-.quantity-form input.qty_input {
-    margin-bottom: 20px;
+.input-group-append button,
+.input-group-prepend button {
+    border-radius: 0;
 }
 
 @keyframes delivery-blink {
