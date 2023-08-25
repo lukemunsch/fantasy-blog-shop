@@ -1,5 +1,19 @@
-<script>
+<script type="text/javascript">
 
-    
+// set up our increment button
+$('.increment-qty').click(function (e) {
+    e.preventDefault();
+    var closestInput = $(this).closest('.input-group').find('.qty-input')[0];
+    var currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue + 1);
+})
+
+// set up decrement button
+$('.decrement-qty').click(function (e) {
+    e.preventDefault();
+    var closestInput = $(this).closest('.input-group').find('.qty-input')[0];
+    var currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue - 1);
+})
 
 </script>

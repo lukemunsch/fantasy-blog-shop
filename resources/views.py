@@ -93,29 +93,9 @@ def resource_details(request, slug):
     if product.approved_item == 0:
         from_pending = True
 
-    if request.method == 'POST':
-        form = ApproveProductForm(
-            request.POST,
-            instance=product
-        )
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request,
-                'You have updated the appearance of the product!'
-            )
-        else:
-            messages.error(
-                request,
-                "You have failed to update this item's approval"
-            )
-    else:
-        form = ApproveProductForm(instance=product)
-
     context = {
         'product': product,
         'from_pending': from_pending,
-        'form': form,
     }
 
     return render(request, 'resources/resource-details.html', context)
