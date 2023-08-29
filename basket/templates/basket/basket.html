@@ -40,14 +40,14 @@
 </div>
 <hr class="menus" />
 <!-- main content -->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
       {% if basket_items %}
       <div class="table-responsive">
         <table class="table table-sm table-borderless">
           <thead>
-            <tr class="renegade text-right">
+            <tr class="renegade">
               <th scope="col" class="">Product Info</th>
               <th scope="col"></th>
               <th scope="col">Price</th>
@@ -57,7 +57,7 @@
           </thead>
           {% for item in basket_items %}
           <tr class="league">
-            <td class="p-3 text-center">
+            <td class="p-3">
               <img
                 src="{{ item.product.image.url }}"
                 alt="{{ item.product.name}} product image"
@@ -70,15 +70,61 @@
                 <em>Cat: {{ item.product.category }}</em>
               </p>
             </td>
-            <td class="p-3 text-right">
+            <td class="p-3">
               <p class="my-0">
                 <strong>§{{ item.product.price|floatformat:2 }}</strong>
               </p>
             </td>
-            <td class="p-3 text-right w-25">
-              <p class="my-0"><strong>{{ item.quantity }}</strong></p>
+            <td class="p-3 w-25">
+              <form action="{% url 'update_basket' item.product_id %}" method="POST" class="form update-form">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <button
+                        class="decrement-qty btn-sm btn-console-link"
+                        data-product_id="{{ item.product_id }}"
+                        id="decrement-qty_{{ item.product_id }}"
+                      >
+                        <span class="icon">
+                          <i class="fa fa-sm fa-minus"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <input
+                      type="number"
+                      class="form-control-sm qty-input basket-update-qty"
+                      name="quantity"
+                      value="{{ item.quantity }}"
+                      min="1"
+                      max="99"
+                      data-product_id="{{ item.product_id }}"
+                      id="id_qty_{{ item.product_id }}"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="increment-qty btn-sm btn-console-link"
+                        data-product_id="{{ item.product_id }}"
+                        id="increment-qty_{{ item.product_id }}"
+                      >
+                        <span class="icon">
+                          <i class="fa fa-sm fa-plus"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <a class="update-link text-info"
+                ><small>Update</small></a
+              >
+              <a
+                class="remove-link text-danger float-right"
+                id="remove_{{ item.product_id }}"
+                ><small><strong>Remove</strong></small></a
+              >
             </td>
-            <td class="p-3 text-right">
+            <td class="p-3">
               <p class="my-0">
                 <strong>§{{ item.product.price|floatformat:2 }}</strong>
               </p>
@@ -109,7 +155,9 @@
           </tr>
           <tr>
             <td class="text-right" colspan="5">
-              <a href="{% url 'resources' %}" class="btn btn-console-link"><< Keep Shopping</a>
+              <a href="{% url 'resources' %}" class="btn btn-console-link"
+                ><< Keep Shopping</a
+              >
               <a href="#" class="btn btn-console-link">
                 <span class="icon">
                   <i class="fas fa-lock"></i> Secure Checkout
@@ -129,6 +177,14 @@
       {% endif %}
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 text-center btt-btn my-5">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
 </div>
 {% endblock %} {% block page_footer %}
 <div class="container footer-container">
@@ -136,4 +192,40 @@
     <div class="col"></div>
   </div>
 </div>
+{% endblock %} {% block postloadjs %}
+<!-- prevent overwrite postloadjs block -->
+{{ block.super }}
+<!-- Inlcude our file for js script -->
+{% include 'resources/includes/quantity_input_script.html' %}
+
+<script>
+  // update quantity on click
+  $('.update-link').click(function (e) {
+    var form = $(this).prev('.update-form');
+    form.Submit();
+  })
+
+  // remove item on click
+  $('.remove-link').click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `remove/${itemId}/`;
+    var data = {
+      'csrfmiddlewaretoken': csrfToken
+    };
+
+    $.post(url, data)
+      .done(function () {
+        location.reload();
+      });
+  })
+
+</script>
+
+<script>
+  $('.btt-link').click(function () {
+      window.scrollTo(0, 0)
+  })
+</script>
+<!-- endblock -->
 {% endblock %}

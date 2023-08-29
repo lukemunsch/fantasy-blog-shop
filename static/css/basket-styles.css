@@ -3,3 +3,19 @@
     float: right;
     border: 2px solid yellow;
 }
+
+input {
+    height: 30px;
+}
+
+.input-group-prepend button {
+    height: 30px;
+    padding: 0 5px 0 5px;
+    border-radius: 0;
+}
+
+.input-group-append button {
+    height: 30px;
+    padding: 0 5px 0 5px;
+    border-radius: 0;
+}

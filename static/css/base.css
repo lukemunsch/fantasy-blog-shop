@@ -447,6 +447,12 @@ a.add-link {
     background-color: #000;
 }
 
+.btt-link,
+.update-link,
+.remove-link {
+    cursor: pointer;
+}
+
 /* media queries */
 
 @media (min-width: 1200px) {
