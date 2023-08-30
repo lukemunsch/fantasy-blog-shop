@@ -2,7 +2,8 @@ from django.shortcuts import (
     render,
     redirect,
     reverse,
-    get_object_or_404
+    get_object_or_404,
+    HttpResponse
 )
 
 from django.contrib import messages
@@ -39,7 +40,7 @@ def add_to_basket(request, product_id):
 
 def update_basket(request, product_id):
     """set up our view for updating basket products"""
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
 
@@ -61,3 +62,22 @@ def update_basket(request, product_id):
     request.session['basket'] = basket
 
     return redirect(reverse('view_basket'))
+
+def remove_from_basket(request, product_id):
+    """set up our removing function from the basket"""
+    product = get_object_or_404(Product, pk=product_id)
+    basket = request.session.get('basket', {})
+
+    try:
+        basket.pop(product_id)
+        messages.success(
+            request,
+            f'{product.name} has been removed from your basket!'
+        )
+
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Failed to remove {product.name}')
+        return HttpResponse(status=500)
