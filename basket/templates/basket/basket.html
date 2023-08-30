@@ -3,6 +3,9 @@
 <!-- set  up load static -->
 {% load static %}
 
+<!-- set up load basket_tools -->
+{% load basket_tools %}
+
 <!-- Add extra css from resources -->
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/basket-styles.css' %}" />
@@ -124,7 +127,7 @@
             </td>
             <td class="p-3">
               <p class="my-0">
-                <strong>§{{ item.product.price|floatformat:2 }}</strong>
+                <strong>§{{ item.product.price|calc_subtotal:item.quantity }}</strong>
               </p>
             </td>
           </tr>
