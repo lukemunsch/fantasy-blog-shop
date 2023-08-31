@@ -179,7 +179,7 @@ USE_TZ = True
 
 # Setting up customer variables
 PURCHASE_THRESHOLD = 1500
-STANDARD_DELIVERY_PERC = 20
+STANDARD_DELIVERY_PERC = 10
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
