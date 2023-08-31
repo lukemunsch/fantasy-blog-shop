@@ -22,6 +22,7 @@ def view_basket(request):
 
 def add_to_basket(request, product_id):
     """Add a quantity for a specific product to shopping basket"""
+    product = Product.object.get(pk=product_id)
     quantity = int(request.POST.get('quantity'))
 
     redirect_url = request.POST.get('redirect_url')
@@ -30,8 +31,17 @@ def add_to_basket(request, product_id):
 
     if product_id in list(basket.keys()):
         basket[product_id] += quantity
+        messages.success(
+            request,
+            f'We have updated the quantity of {product.name}'
+        )
     else:
         basket[product_id] = quantity
+        messages.success(
+            request,
+            f'We have Successfully Added'
+            f'{product.name} to your basket!'
+        )
 
     request.session['basket'] = basket
 

@@ -185,6 +185,17 @@
       {% include 'includes/mobile-header.html' %}
     </header>
 
+    <!-- MESSAGES CONTAINER -->
+    <div class="container-fluid fixed-alerts">
+      <div class="row">
+        <div class="col-8 offset-2">
+          {% for message in messages %}
+          {% include "includes/toasts/toast-success.html" %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
     <!-- Main content -->
     <main>
       <!-- page header containers to push content down -->
@@ -201,6 +212,9 @@
     <!-- Javascript files -->
     {% block postloadjs %}
     <script src="{% static 'js/mobile-header.js' %}"></script>
+    <script>
+      $('.toasts').toast('show');
+    </script>
     {% endblock %}
   </body>
 </html>
