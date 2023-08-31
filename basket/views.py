@@ -48,7 +48,7 @@ def update_basket(request, product_id):
         basket[product_id] = quantity
         messages.success(
             request,
-            f'we have updated {product.name} ' 
+            f'We have updated {product.name} ' 
             f'quantity to {basket[product_id]}'
         )
     else:
