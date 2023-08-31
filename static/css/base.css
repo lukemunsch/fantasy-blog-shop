@@ -134,6 +134,23 @@ body {
     z-index: -1;
 }
 
+/* --------- mesages --- */
+
+.message-container {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 3px;
+}
+
 /* ---------- header --- */
 .fixed-top {
     border-bottom: 1px solid rgb(128, 69, 69);

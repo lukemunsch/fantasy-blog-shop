@@ -11,8 +11,6 @@ from django.contrib import messages
 from resources.models import Product
 
 # Create your views here.
-
-
 def view_basket(request):
     """Set up a view to display our shopping basket"""
     return render(request, 'basket/basket.html')
@@ -22,7 +20,7 @@ def view_basket(request):
 
 def add_to_basket(request, product_id):
     """Add a quantity for a specific product to shopping basket"""
-    product = Product.object.get(pk=product_id)
+    product = Product.objects.get(pk=product_id)
     quantity = int(request.POST.get('quantity'))
 
     redirect_url = request.POST.get('redirect_url')
