@@ -87,8 +87,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
 ROOT_URLCONF = 'Fantasy_blog.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -117,6 +115,9 @@ TEMPLATES = [
         },
     },
 ]
+
+# message controls
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'Fantasy_blog.wsgi.application'
 

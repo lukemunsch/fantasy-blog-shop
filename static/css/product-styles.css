@@ -79,7 +79,7 @@
     font-weight: 700;
     animation-name: delivery-blink;
     animation-duration: 1.9s;
-    animation-iteration-count: 7;
+    animation-iteration-count: 4;
 }
 
 .input-group-append button,

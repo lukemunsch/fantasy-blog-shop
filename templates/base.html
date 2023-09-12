@@ -189,7 +189,7 @@
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
-        {% with message.level as level%}
+        {% with message.level as level %}
         {% if level == 40 %}
         {% include 'includes/toasts/toast-error.html' %}
         {% elif level == 30 %}
@@ -222,7 +222,7 @@
     {% block postloadjs %}
     <script src="{% static 'js/mobile-header.js' %}"></script>
     <script>
-      $('.toasts').toast('show');
+      $('.toast').toast('show');
     </script>
     {% endblock %}
   </body>
