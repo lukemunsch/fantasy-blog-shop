@@ -136,7 +136,7 @@ def edit_news(request, news_id):
             )
             return redirect(reverse('news'))
         else:
-            messages.error(
+            messages.warning(
                 request, (
                     'Failed to update Mission'
                     'Please check through the form again!'

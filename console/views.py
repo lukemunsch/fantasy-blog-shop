@@ -27,7 +27,7 @@ def console_add_entry(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            'Sorry, this page is for Grandmasters Only'
+            'Sorry, this page is for Admins Only'
         )
         return redirect(reverse('home'))
 

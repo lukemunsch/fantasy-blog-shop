@@ -198,7 +198,7 @@ def delete_resource(request, slug):
         product.delete()
         messages.success(
             request,
-            f'You have successfully deleted ${ product.name }'
+            f'You have successfully deleted { product.name }'
         )
         return redirect(reverse('resources'))
 
