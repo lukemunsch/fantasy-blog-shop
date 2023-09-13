@@ -161,6 +161,32 @@ body {
     margin-right: 5px;
 }
 
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 20px solid black;
+    position: absolute;
+    top: -20px;
+    right: 36px;
+}
+
+.arrow-primary {border-bottom-color: #007bff !important;}
+.arrow-secondary {border-bottom-color: #6c757d !important;}
+.arrow-success {border-bottom-color: #28a745 !important;}
+.arrow-danger {border-bottom-color: #dc3545 !important;}
+.arrow-warning {border-bottom-color: #ffc107 !important;}
+.arrow-info {border-bottom-color: #17a2b8 !important;}
+.arrow-light {border-bottom-color: #f8f9fa !important;}
+.arrow-dark {border-bottom-color: #343a40 !important;}
+
+.basket-notification-wrapper {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* ---------- header --- */
 .fixed-top {
     border-bottom: 1px solid rgb(128, 69, 69);
