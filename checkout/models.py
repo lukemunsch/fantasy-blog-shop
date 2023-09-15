@@ -1,5 +1,12 @@
 from django.db import models
 
+import uuid
+
+from resources.models import Product
+
+from django.db.models import Sum
+from django.conf import settings
+
 # Create your models here.
 class Order(models.Model):
     """Set up your order model"""
@@ -19,4 +26,56 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=15, decimal_places=2, null=False, default=0)
 
     def __str__(self):
-        return self.full_name
+        return self.order_number
+
+    def _generate_order_number(self):
+        """generates a random unique orer number"""
+        return uuid.uuid4().hex.upper()
+
+    def update_total(self):
+        """
+        update grand total of order each time item is added
+        accounting for delivery costs
+        """
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        if self.order_total < settings.PURCHASE_THRESHOLD:
+            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERC/100
+        else:
+            self.delivery_cost = 0
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+
+    def save(self, *args, **kwargs):
+        """override save method to set order number if not set already"""
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
+
+
+class OrderLineItem(models.Model):
+    """Set up our line items for orders"""
+    order = models.ForeignKey(
+        Order,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name='lineitems'
+    )
+    product = models.ForeignKey(
+        Product,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+    )
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(
+        max_digits=15,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False
+    )
+
+    def __str__(self):
+        return f'{self.product.name} on order {self.order.order_number}'
