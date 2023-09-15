@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+<!-- set  up load static -->
+{% load static %}
+
+<!-- Add extra css from resources -->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
+{% endblock %}
+
+<!-- set up tab extra title -->
+{% block extra_title %} - Your Shopping Basket{% endblock %}
+
+<!-- set up page header to push ccon down -->
+{% block page_header %}
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- set up main content block -->
+{% block content %}
+<div class="cover-up"></div>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="renegade page-heading">Complete your Purchase</h3>
+    </div>
+    <div class="col-12 content-titles">
+      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      <a href="{% url 'view_basket' %}" class="menus"><< Shopping Basket</a>
+    </div>
+  </div>
+</div>
+<hr class="menus" />
+<!-- main content -->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center btt-btn my-5">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block page_footer %}
+<div class="container footer-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %} {% block postloadjs %}
+<!-- prevent overwrite postloadjs block -->
+{{ block.super }}
+<!-- Inlcude our file for js script -->
+{% include 'resources/includes/quantity_input_script.html' %}
+
+<script>
+  // update quantity on click
+  $('.update-link').click(function (e) {
+    var form = $(this).prev('.update-form');
+    form.submit();
+  })
+
+  // remove item on click
+  $('.remove-link').click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = `remove/${itemId}/`;
+    var data = {
+      'csrfmiddlewaretoken': csrfToken
+    };
+
+    $.post(url, data)
+      .done(function () {
+        location.reload();
+      });
+  })
+
+</script>
+
+<script>
+  $('.btt-link').click(function () {
+      window.scrollTo(0, 0)
+  })
+</script>
+<!-- endblock -->
+{% endblock %}
