@@ -38,8 +38,84 @@
 <!-- main content -->
 <div class="container">
   <div class="row">
+    <div class="col-12 col-lg-6 order-lg-last mb-5">
+      <div class="row">
+        <div class="col-7 offset-2">
+          <p class="mb-1 mt-0 small menus">Item</p>
+        </div>
+        <div class="col-3 text-right">
+          <p class="mb-1 mt-0 small menus">Subtotal</p>
+        </div>
+      </div>
+    </div>
     <div class="col-12">
-      <form action="{% url 'checkout' %}" method="POST" id="payment-form" class="form"></form>
+      <form
+        action="{% url 'checkout' %}"
+        method="POST"
+        id="payment-form"
+        class="form"
+      >
+        {% csrf_token %}
+        <fieldset class="border-0 px-3 mb-5">
+          <legend class="fieldset-label small renegade px-2">Details:</legend>
+          {{ order_form.full_name | as_crispy_field }}
+          {{ order_form.email | as_crispy_field }}
+        </fieldset>
+        <fieldset class="border-0 px-3 mb-5 league">
+          <legend class="fieldset-label small renegade px-2">Delivery:</legend>
+          {{ order_form.phone_number | as_crispy_field }}
+          {{ order_form.street_address1 | as_crispy_field }}
+          {{ order_form.street_address2 | as_crispy_field }}
+          {{ order_form.town_or_city | as_crispy_field }}
+          {{ order_form.county | as_crispy_field }}
+          {{ order_form.postcode | as_crispy_field }}
+          {{ order_form.country | as_crispy_field }}
+          <div class="form-check form-check-inline float-right mr-0">
+            {% if user.is_authenticated %}
+            <label for="id-save-info" class="form-check-label">
+              Save this information to my profile
+            </label>
+            <input
+              type="checkbox"
+              class="form-check-input ml-2 mr-0"
+              id="id-save-info"
+              name="save-info"
+              checked
+            />
+            {% else %}
+            <label for="id-save-info" class="form-check-label league">
+              <a href="{% url 'account_signup' %}" class="text-info"
+                >Create an Account</a
+              >
+              Or
+              <a href="{% url 'account_login' %}" class="text-warning">Login</a>
+                to save this information
+            </label>
+            {% endif %}
+          </div>
+        </fieldset>
+        <fieldset class="border-0 px-3 mb-5">
+          <legend class="fieldset-label small renegade px-2 w-auto">Payment:</legend>
+          <!-- card stripe element will go here -->
+          <div class="mb-3" id="card-element"></div>
+          <!-- used to display card errors -->
+          <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+        </fieldset>
+        <div class="submit-button text-right mt-5 mb-2">
+          <a href="{% url 'view_basket' %}" class="btn btn-console-link">
+            <span class="icon"><i class="fas fa-chevron-circle-left"></i></span>
+            <span>Adjust Basket</span>
+          </a>
+          <button class="btn btn-console-link">
+            <span><strong>Complete Order</strong></span>
+            <span class="icon"><i class="fas fa-lock"></i></span>
+          </button>
+          <p class="small menus my-0">
+            <span class="icon"><i class="fas fa-excalamation-circle"></i></span>
+            <span>Your card will be charged <strong>§{{ grand_total|floatformat:2 }}</strong></span>
+          </p>
+        </div>
+      </form>
     </div>
   </div>
   <div class="row">
@@ -60,37 +136,35 @@
 {% endblock %} {% block postloadjs %}
 <!-- prevent overwrite postloadjs block -->
 {{ block.super }}
-<!-- Inlcude our file for js script -->
+<!-- Include our file for js script -->
 {% include 'resources/includes/quantity_input_script.html' %}
 
 <script>
   // update quantity on click
-  $('.update-link').click(function (e) {
-    var form = $(this).prev('.update-form');
+  $(".update-link").click(function (e) {
+    var form = $(this).prev(".update-form");
     form.submit();
-  })
+  });
 
   // remove item on click
-  $('.remove-link').click(function (e) {
+  $(".remove-link").click(function (e) {
     var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr('id').split('remove_')[1];
+    var itemId = $(this).attr("id").split("remove_")[1];
     var url = `remove/${itemId}/`;
     var data = {
-      'csrfmiddlewaretoken': csrfToken
+      csrfmiddlewaretoken: csrfToken,
     };
 
-    $.post(url, data)
-      .done(function () {
-        location.reload();
-      });
-  })
-
+    $.post(url, data).done(function () {
+      location.reload();
+    });
+  });
 </script>
 
 <script>
-  $('.btt-link').click(function () {
-      window.scrollTo(0, 0)
-  })
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
 </script>
 <!-- endblock -->
 {% endblock %}
