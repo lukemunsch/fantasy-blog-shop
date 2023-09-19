@@ -3,6 +3,9 @@
 <!-- set  up load static -->
 {% load static %}
 
+<!-- set up load basket_tools -->
+{% load basket_tools %}
+
 <!-- Add extra css from resources -->
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
@@ -36,24 +39,47 @@
 </div>
 <hr class="menus" />
 <!-- main content -->
-<div class="container">
+<div class="container ">
   <div class="row">
     <div class="col-12 col-lg-6 order-lg-last mb-5">
       <div class="row">
         <div class="col-7 offset-2">
-          <p class="mb-1 mt-0 small menus">Item</p>
+          <p class="mb-2 mt-0 small menus">Item</p>
         </div>
         <div class="col-3 text-right">
-          <p class="mb-1 mt-0 small menus">Subtotal</p>
+          <p class="mb-2 mt-0 small menus">Subtotal</p>
         </div>
       </div>
       {% for item in basket_items %}
-      <div class="row">
-        
+      <div class="row checkout-product-row mb-3">
+        <div class="col-3 mb-1 text-center">
+          <a href="{% url 'resource_details' item.product.slug %}">
+            {% if not item.product.image %}
+            <img
+              src="{% static 'img/no-photo-available.jpg' %}"
+              alt="{{ item.product.name }}'s product image not available"
+              class="text-center checkout-image w-75"
+            />
+            {% else %}
+            <img
+              src="{{ item.product.image.url }}"
+              alt="{{ item.product.name }}'s product image"
+              class="text-center checkout-image "
+            />
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-6 mb-1 px-2">
+          <p class="league my-0"><strong>{{ item.product.name }}</strong></p>
+          <p class="league my-0 small">Quantity: {{ item.quantity }}</p>
+        </div>
+        <div class="col-3 mb-1 text-right">
+          <p class="my-0 small menus"><strong>§{{ item.product.price|calc_subtotal:item.quantity }}</strong></p>
+        </div>
       </div>
       {% endfor %}
     </div>
-    <div class="col-12">
+    <div class="col-12 col-lg-6 divide-right">
       <form
         action="{% url 'checkout' %}"
         method="POST"

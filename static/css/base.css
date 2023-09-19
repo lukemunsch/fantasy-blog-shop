@@ -83,6 +83,10 @@
     border-left: 3px solid black;
 }
 
+.divide-right {
+    border-right: 3px solid black;
+}
+
 .divide-top {
     border-top: 3px solid black;
     padding-top: 20px;
@@ -510,7 +514,8 @@ a.add-link {
     }
 
     .row.divide-top, 
-    .pending-mission.divide-left {
+    .pending-mission.divide-left,
+    .divide-right {
         border: none;
     } 
 }
