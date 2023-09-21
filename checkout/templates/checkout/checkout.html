@@ -14,7 +14,7 @@
 <!-- set up tab extra title -->
 {% block extra_title %} - Your Shopping Basket{% endblock %}
 
-<!-- set up page header to push ccon down -->
+<!-- set up page header to push con down -->
 {% block page_header %}
 <div class="container header-container">
   <div class="row">
@@ -84,17 +84,17 @@
       </div>
       {% endfor %}
       <!-- set up the order totals to customer clarity -->
-      <hr class="menus my-0">
+      <hr class="menus my-2">
       <div class="row menus text-right">
         <div class="col-7 offset-2">
           <p class="my-0">Order Total:</p>
           <p class="my-0 small mb-3">Delivery:</p>
-          <p class="my-0"><strong>Grand Total:</strong></p>
+          <p class="my-0 grand-total-checkout"><strong>Grand Total:</strong></p>
         </div>
-        <div class="col-3">
+        <div class="col-3 text-right">
           <p class="my-0">§{{ total|floatformat:2 }}</p>
-          <p class="my-0 small mb-3">§{{ delivery|floatformat:2 }}</p>
-          <p class="my-0"><strong>§{{ grand_total|floatformat:2 }}</strong></p>
+          <p class="small mb-3">§{{ delivery|floatformat:2 }}</p>
+          <p class="my-0 grand-total-checkout"><strong>§{{ grand_total|floatformat:2 }}</strong></p>
         </div>
       </div>
     </div>
@@ -125,7 +125,7 @@
           {{ order_form.county | as_crispy_field }}
           {{ order_form.postcode | as_crispy_field }}
           {{ order_form.country | as_crispy_field }}
-          <div class="form-check form-check-inline float-right mr-0">
+          <div class="form-check form-check-inline checkbox-save-profile float-right my-3">
             {% if user.is_authenticated %}
             <label for="id-save-info" class="form-check-label">
               Save this information to my profile
@@ -193,7 +193,8 @@
 {{ block.super }}
 <!-- Include our file for js script -->
 {% include 'resources/includes/quantity_input_script.html' %}
-
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
 <script>
   // update quantity on click
   $(".update-link").click(function (e) {

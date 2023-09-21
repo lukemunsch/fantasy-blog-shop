@@ -1,6 +1,7 @@
 input.stripe-style-input {
     margin-bottom: 7px;
     height: 35px;
+    width: 75%;
 }
 
 .checkout-image {
@@ -10,12 +11,55 @@ input.stripe-style-input {
 }
 
 .checkout-product-row {
-    height: 90px;
+    height: 100px;
+}
+
+.fieldset-label {
+    position: relative;
+    right: 5%;
+}
+
+.grand-total-checkout {
+    margin-right: 17%;
+}
+
+@media (max-width: 991px) {
+    input.stripe-style-input {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .fieldset-label {
+        position: relative;
+        left: 15%;
+    }
+
+    .checkbox-save-profile {
+        position: relative;
+        left: 20%;
+    }
 }
 
 @media (max-width: 700px) {
     .checkout-image {
         max-width: 100%;
         max-height: 100px;
+    }
+}
+
+@media (max-width: 494px) {
+    input.stripe-style-input {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .fieldset-label {
+        position: relative;
+        left: 0%;
+    }
+
+    .checkbox-save-profile {
+        position: relative;
+        left: 0%;
     }
 }
