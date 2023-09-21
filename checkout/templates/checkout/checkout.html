@@ -193,6 +193,7 @@
 {{ block.super }}
 <!-- Include our file for js script -->
 {% include 'resources/includes/quantity_input_script.html' %}
+<script src=" static 'checkout/js/stripe_elements.js"></script>
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script>
