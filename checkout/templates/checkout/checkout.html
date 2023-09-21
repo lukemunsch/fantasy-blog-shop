@@ -43,11 +43,16 @@
   <div class="row">
     <div class="col-12 col-lg-6 order-lg-last mb-5">
       <div class="row">
+        <div class="col-12">
+          <h4 class="renegade mb-3">
+            Your Order Summary: <strong>{{ product_count }} products</strong>
+          </h4>
+        </div>
         <div class="col-7 offset-2">
-          <p class="mb-2 mt-0 small menus">Item</p>
+          <p class="mb-2 mt-0 renegade">Item</p>
         </div>
         <div class="col-3 text-right">
-          <p class="mb-2 mt-0 small menus">Subtotal</p>
+          <p class="mb-2 mt-0 renegade">Subtotal</p>
         </div>
       </div>
       {% for item in basket_items %}
@@ -74,12 +79,31 @@
           <p class="league my-0 small">Quantity: {{ item.quantity }}</p>
         </div>
         <div class="col-3 mb-1 text-right">
-          <p class="my-0 small menus"><strong>§{{ item.product.price|calc_subtotal:item.quantity }}</strong></p>
+          <p class="my-0 league"><strong>§{{ item.product.price|calc_subtotal:item.quantity }}</strong></p>
         </div>
       </div>
       {% endfor %}
+      <!-- set up the order totals to customer clarity -->
+      <hr class="menus my-0">
+      <div class="row menus text-right">
+        <div class="col-7 offset-2">
+          <p class="my-0">Order Total:</p>
+          <p class="my-0 small mb-3">Delivery:</p>
+          <p class="my-0"><strong>Grand Total:</strong></p>
+        </div>
+        <div class="col-3">
+          <p class="my-0">§{{ total|floatformat:2 }}</p>
+          <p class="my-0 small mb-3">§{{ delivery|floatformat:2 }}</p>
+          <p class="my-0"><strong>§{{ grand_total|floatformat:2 }}</strong></p>
+        </div>
+      </div>
     </div>
     <div class="col-12 col-lg-6 divide-right">
+      <div class="col-12">
+        <h4 class="renegade mb-3">
+          Please complete the form below
+        </h4>
+      </div>
       <form
         action="{% url 'checkout' %}"
         method="POST"
@@ -143,7 +167,7 @@
           </button>
           <p class="small menus my-0">
             <span class="icon"><i class="fas fa-excalamation-circle"></i></span>
-            <span>Your card will be charged <strong>§{{ grand_total|floatformat:2 }}</strong></span>
+            <span class="small">Your card will be charged <strong>§{{ grand_total|floatformat:2 }}</strong></span>
           </p>
         </div>
       </form>
