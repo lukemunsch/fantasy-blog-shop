@@ -171,6 +171,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+#stripe settings
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
 # Setting up customer variables
 PURCHASE_THRESHOLD = 1500
 STANDARD_DELIVERY_PERC = 10
