@@ -57,9 +57,12 @@ form.addEventListener("submit", function (ev) {
             <span>${result.error.message}</span>
         `;
         $(errorDiv).html(html);
+        card.update({ disabled: true });
+        $("#submit-button").attr("disabled", true);
       } else {
-        if (result.paymentIntent.status === 'succeeded') {
-            form.submit();
+        if (result.paymentIntent.status === "succeeded") {
+          form.submit();
+          print("success");
         }
       }
     });
