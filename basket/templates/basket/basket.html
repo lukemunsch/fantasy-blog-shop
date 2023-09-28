@@ -61,11 +61,19 @@
           {% for item in basket_items %}
           <tr class="league">
             <td class="p-3">
-              <img
-                src="{{ item.product.image.url }}"
-                alt="{{ item.product.name}} product image"
-                class="item-image"
-              />
+              {% if not item.product.image %}
+            <img
+              src="{% static 'img/no-photo-available.jpg' %}"
+              alt="{{ item.product.name }}'s product image not available"
+              class="text-center checkout-image w-75"
+            />
+            {% else %}
+            <img
+              src="{{ item.product.image.url }}"
+              alt="{{ item.product.name }}'s product image"
+              class="text-center checkout-image "
+            />
+            {% endif %}
             </td>
             <td class="p-3">
               <h4 class="my-0"><strong>{{ item.product.name }}</strong></h4>
