@@ -4,11 +4,8 @@ from django.contrib import messages
 from django.conf import settings
 
 from basket.contexts import basket_contents
-
 import stripe
-
 from .forms import OrderForm
-
 from resources.models import Product
 from .models import Order, OrderLineItem
 
@@ -35,10 +32,10 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)
+            order = order_form.save()
             for product_id, quantity in basket.items():
                 try:
-                    product = Product.object.get(id=product_id)
+                    product = Product.objects.get(id=product_id)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
