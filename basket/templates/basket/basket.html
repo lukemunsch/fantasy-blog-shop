@@ -65,13 +65,13 @@
             <img
               src="{% static 'img/no-photo-available.jpg' %}"
               alt="{{ item.product.name }}'s product image not available"
-              class="text-center checkout-image w-75"
+              class="text-center item-image w-75"
             />
             {% else %}
             <img
               src="{{ item.product.image.url }}"
               alt="{{ item.product.name }}'s product image"
-              class="text-center checkout-image "
+              class="text-center item-image "
             />
             {% endif %}
             </td>
