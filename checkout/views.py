@@ -24,7 +24,7 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-            'basket': json.dumps(request.session.get('wallet', {})),
+            'basket': json.dumps(request.session.get('basket', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
@@ -58,7 +58,7 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_wallet = json.dumps(basket)
+            order.original_basket = json.dumps(basket)
             order.save()
             for product_id, quantity in basket.items():
                 try:
@@ -104,7 +104,6 @@ def checkout(request):
         current_basket = basket_contents(request)
         total = current_basket['grand_total']
         stripe_total = round(total * 100)
-
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
@@ -118,8 +117,12 @@ def checkout(request):
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
-                    'town_or_city': profile.default_town_or_city,
                     'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
