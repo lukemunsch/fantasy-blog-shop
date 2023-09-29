@@ -9,14 +9,44 @@ class OrderLineItemAdminInline(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    """set up the admin for order model"""
-    readonly_fields = ('order_number', 'date', 'delivery_cost',
-                       'order_total', 'grand_total',)
+    """set up our admin for the order model"""
     inlines = (OrderLineItemAdminInline,)
-    fields = ('order_number', 'date', 'full_name', 'email', 'phone_number',
-              'town_or_city', 'street_address1', 'street_address2', 'county',
-              'delivery_cost', 'order_total', 'grand_total',)
-    list_display = ('order_number', 'date', 'full_name',
-                    'order_total', 'delivery_cost', 'grand_total',)
+
+    readonly_fields = (
+        'order_number',
+        'date',
+        'delivery_cost',
+        'order_total',
+        'grand_total',
+        'original_basket',
+        'stripe_pid',
+    )
+    fields = (
+        'order_number',
+        'user_profile',
+        'date',
+        'full_name',
+        'email',
+        'phone_number',
+        'town_or_city',
+        'street_address1',
+        'street_address2',
+        'county',
+        'delivery_cost',
+        'order_total',
+        'grand_total',
+        'original_bag',
+        'stripe_pid',
+    )
+    list_display = (
+        'order_number',
+        'date',
+        'full_name',
+        'order_total',
+        'delivery_cost',
+        'grand_total',
+    )
+    ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)
