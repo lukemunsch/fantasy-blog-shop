@@ -23,7 +23,7 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
             'country': 'Country',
             'county': 'County',
-            'town_or_city': 'Town Or City',
+            'town_or_city': 'Town or City',
             'postcode': 'Postcode',
         }
 

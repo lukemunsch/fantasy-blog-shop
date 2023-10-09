@@ -25,7 +25,7 @@ def cache_checkout_data(request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'basket': json.dumps(request.session.get('basket', {})),
-            'save_info': request.POST.get('save_info'),
+            'save_info': request.POST.get('save-info'),
             'username': request.user,
         })
         return HttpResponse(status=200)
@@ -35,6 +35,8 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 # Create your views here.
+
+
 def checkout(request):
     """set up our view for checking out our wallet"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -53,6 +55,7 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'country': request.POST['country'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -89,9 +92,9 @@ def checkout(request):
         else:
             messages.error(
                 request, (
-                'There was a problem with your form - '
-                'Please double-check your information.'
-            ))
+                    'There was a problem with your form - '
+                    'Please double-check your information.'
+                ))
 
     else:
         basket = request.session.get('basket', {})
@@ -148,6 +151,27 @@ def checkout_success(request, order_number):
     """create a view for when our checkout is successful"""
     save_info = request.session.get('save-info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+    if save_info:
+        profile_data = {
+            'default_phone_number': order.phone_number,
+            'default_country': order.country,
+            'default_postcode': order.postcode,
+            'default_town_or_city': order.town_or_city,
+            'default_street_address1': order.street_address1,
+            'default_street_address2': order.street_address2,
+            'default_county': order.county,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
     messages.success(
         request,
         (f'Order successfully processed! \
