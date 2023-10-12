@@ -16,6 +16,10 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             'default_phone_number': 'Phone Number',
             'default_town_or_city': 'Town or City',
+            'default_county': 'County or State',
+            'default_street_address1': 'Street Address 1',
+            'default_street_address2': 'Street Address 2',
+            'default_postcode': 'Postcode',
         }
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
