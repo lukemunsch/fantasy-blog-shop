@@ -80,6 +80,7 @@ class OrderLineItem(models.Model):
         blank=False,
         editable=False
     )
+
     def save(self, *args, **kwargs):
         """Override the original save method to set the lineitem total
         and update the order total."""
