@@ -44,7 +44,7 @@ class ProductForm(forms.ModelForm):
             )
         }
 
-    profile_image = forms.ImageField(
+    image = forms.ImageField(
         label='Image',
         required=False,
         widget=CustomClearableFileInput
