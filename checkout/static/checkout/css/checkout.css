@@ -20,6 +20,11 @@ input.stripe-style-input {
     right: 5%;
 }
 
+/* checkout success page */
+.order-border {
+    border: 1px solid black;
+}
+
 @media (max-width: 991px) {
     input.stripe-style-input {
         width: 60%;

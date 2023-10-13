@@ -30,8 +30,8 @@
   <div class="row">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">Thank you for your purchase!</h3>
-      <p class="league">Your order information is below. 
-        A confirmation email will be sent to
+      <p class="league">
+        Your order information is below. A confirmation email will be sent to
         <strong>{{ order.email }}</strong>
       </p>
     </div>
@@ -45,8 +45,97 @@
 <!-- main content -->
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-7">
-        
+    <div class="col-12 col-lg-8 offset-lg-2">
+      <div class="order-confirmation-wrapper p-4 order-border">
+        <div class="row mb-3">
+          <!-- order info section -->
+          <div class="col">
+            <small class="renegade mb-2">Order Info</small>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <p class="mb-0 league"><strong>Order Number:</strong></p>
+              </div>
+              <div class="col-12 col-md-8 text-right">
+                <p class="small mb-0 menus">{{ order.order_number }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <p class="mb-0 league"><strong>Order Date:</strong></p>
+              </div>
+              <div class="col-12 col-md-8 text-right">
+                <p class="mb-0 menus">{{ order.date }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="menus" />
+        <div class="row mb-3">
+          <!-- order details section -->
+          <div class="col">
+            <small class="renegade mb-2">Order Details</small>
+            {% for item in order.lineitems.all %}
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <p class="small mb-0 league">
+                  <strong>{{ item.product.name }}</strong>
+                </p>
+              </div>
+              <div class="col-12 col-md-6 text-right">
+                <p class="mb-0 small menus">
+                  Qty: {{ item.quantity }} @ §{{ item.product.price }} each
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <hr class="menus" />
+        <!-- delivery info section -->
+        <div class="row mb-3">
+          <div class="col">
+            <small class="renegade">Delivery Info:</small>
+            <div class="row">
+              <div class="col-10 col-md-8 offset-2">
+                <p class="mb-0 menus">{{ order.full_name }}</p>
+                <p class="mb-0 menus">{{ order.street_address1 }}</p>
+                {% if order.street_address2 %}
+                <p class="mb-0 menus">{{ order.street_address2 }}</p>
+                {% endif %}
+                <p class="mb-0 menus">{{ order.town_or_city }}</p>
+                <p class="mb-0 menus">{{ order.county }}</p>
+                <p class="mb-0 menus">{{ order.postcode }}</p>
+                <p class="mb-0 menus">{{ order.country }}</p>
+                <p class="mb-0 menus">{{ order.phone_number }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="menus" />
+        <!-- Billing info Section -->
+        <div class="row">
+          <div class="col">
+            <small class="renegade">Billing Info:</small>
+            <div class="row">
+              <div class="col-6 col-md-4">
+                <p class="mb-0 league">Order Total:</p>
+                <p class="mb-0 league">Delivery:</p>
+                <p class="mb-0 league">Grand Total:</p>
+              </div>
+              <div class="col-6 col-md-5 text-right">
+                <p class="mb-0 small menus">§{{ order.order_total }}</p>
+                <p class="mb-0 small menus">
+                  {% if order.delivery_cost == 0 %}
+                  Free Delivery!
+                  {% else %}
+                  §{{ order.delivery_cost }}
+                  {% endif %}</p>
+                <p class="mb-0 menus"><strong>§{{ order.grand_total }}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -64,4 +153,12 @@
     <div class="col"></div>
   </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %} {{ block.super }}
+<script>
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
+</script>
 {% endblock %}

@@ -29,9 +29,11 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+
             self.fields[field].widget.attrs['class'] = (
                 'w-75'
-                )
+            )
+
         self.fields['default_phone_number'].label = 'Phone Number:'
         self.fields['default_town_or_city'].label = 'Town or City:'
         self.fields['default_country'].label = 'Country:'
