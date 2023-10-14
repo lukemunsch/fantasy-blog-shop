@@ -86,16 +86,18 @@
           </tr>
         </thead>
         <tbody>
+          {% for o in orders %}
           <tr>
             <!-- Order Number code -->
-            <th scope="row">123456...</th>
+            <th scope="row">{{ o.order_number|truncatechars:10 }}</th>
             <!-- Date -->
-            <td>01/05/2047</td>
+            <td>{{ o.date}}</td>
             <!-- item count -->
-            <td>5</td>
+            <td>{{ o.quantity }}</td>
             <!-- Total order price -->
-            <td>§5487.26</td>
+            <td>{{ o.grand_total }}</td>
           </tr>
+          {% endfor %}
     </div>
   </div>
 </div>
