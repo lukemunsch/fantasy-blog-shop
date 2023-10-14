@@ -20,9 +20,13 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
 
+    orders = profile.orders.all()
+
     context = {
         'profile': profile,
         'form': form,
+        'orders': orders,
+        'on_profile_page': True,
     }
 
     return render(request, 'user_profiles/profiles.html', context)
