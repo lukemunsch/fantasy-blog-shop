@@ -11,7 +11,12 @@ import stripe
 @require_POST
 @csrf_exempt
 def webhook(request):
-    """listen for webhook from stripe"""
+    """listening for webhooks from stipe"""
+    # set up
+    wh_secret = settings.STRIPE_WH_SECRET
+    stripe.api = settings.STRIPE_SECRET_KEY
+
+    # get webhook data and verify signature
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
@@ -28,14 +33,14 @@ def webhook(request):
         return HttpResponse(content=e, status=400)
     except Exception as e:
         return HttpResponse(content=e, status=400)
-    
+
     #set up webhook handler
     handler = StripeWH_Handler(request)
 
     #map webhook events to relevant handler functions
     event_map = {
-        'payment_intent.succeeded': handler.handler_payment_intent_succeeded,
-        'payment_intent.payment_failed': handler.handler_payment_intent_failed,
+        'payment_intent.succeeded': handler.handle_payment_intent_succeeded,
+        'payment_intent.payment_failed': handler.handle_payment_intent_failed,
     }
 
     # get the webhook type from stripe
