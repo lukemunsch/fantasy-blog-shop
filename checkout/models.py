@@ -1,4 +1,5 @@
 from django.db import models
+from django_countries.fields import CountryField
 
 import uuid
 
@@ -12,15 +13,21 @@ from user_profiles.models import UserProfile
 class Order(models.Model):
     """Set up your order model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name="orders")
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders"
+    )
     full_name = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(max_length=250, blank=False, null=False)
     phone_number = models.CharField(max_length=15, null=False, blank=False)
-    country = models.CharField(max_length=20, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=False, blank=False)
     town_or_city = models.CharField(max_length=20, null=False, blank=False)
     street_address1 = models.CharField(max_length=20, null=False, blank=False)
-    street_address2 = models.CharField(max_length=20, null=False, blank=False)
+    street_address2 = models.CharField(max_length=20, null=True, blank=True)
     county = models.CharField(max_length=20, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
