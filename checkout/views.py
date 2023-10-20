@@ -35,8 +35,6 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 # Create your views here.
-
-
 def checkout(request):
     """set up our view for checking out our wallet"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
