@@ -45,6 +45,18 @@ input.stripe-style-input {
     height: 100%;
 }
 
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+
+
 @media (max-width: 991px) {
     input.stripe-style-input {
         width: 60%;

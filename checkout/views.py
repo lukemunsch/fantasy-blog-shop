@@ -5,18 +5,15 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from basket.contexts import basket_contents
-import stripe
-import json
-
 from .forms import OrderForm
-
-from user_profiles.forms import UserProfileForm
-from user_profiles.models import UserProfile
-
 from resources.models import Product
 from .models import Order, OrderLineItem
+from user_profiles.forms import UserProfileForm
+from user_profiles.models import UserProfile
+from basket.contexts import basket_contents
 
+import stripe
+import json
 
 @require_POST
 def cache_checkout_data(request):
@@ -53,7 +50,6 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'country': request.POST['country'],
         }
-
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
