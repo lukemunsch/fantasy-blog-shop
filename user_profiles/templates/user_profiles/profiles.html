@@ -81,7 +81,6 @@
           <tr>
             <th scope="col">Order No.</th>
             <th scope="col">Date</th>
-            <th scope="col">Item Qnt.</th>
             <th scope="col">Price</th>
           </tr>
         </thead>
@@ -92,10 +91,8 @@
             <th scope="row">{{ o.order_number|truncatechars:10 }}</th>
             <!-- Date -->
             <td>{{ o.date}}</td>
-            <!-- item count -->
-            <td>{{ o.quantity }}</td>
             <!-- Total order price -->
-            <td>{{ o.grand_total }}</td>
+            <td scope="col-5">§{{ o.grand_total }}</td>
           </tr>
           {% endfor %}
     </div>
