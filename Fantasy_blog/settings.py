@@ -122,7 +122,6 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'Fantasy_blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -170,16 +169,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-#stripe settings
-STRIPE_CURRENCY = 'gbp'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
-STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
-
-# Setting up customer variables
-PURCHASE_THRESHOLD = 1500
-STANDARD_DELIVERY_PERC = 10
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -214,9 +203,19 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-if 'DEVELOPEMENT' in os.environ:
+# Setting up customer variables
+PURCHASE_THRESHOLD = 1500
+STANDARD_DELIVERY_PERC = 10
+
+#stripe settings
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
+if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'renegade@league.com'
+    DEFAULT_FROM_EMAIL = 'fantasyblogshop@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
