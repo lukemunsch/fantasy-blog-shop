@@ -15,7 +15,7 @@ class UserProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
-            'default_street_address1': 'Street Address 1',
+            'default_street_address1': 'Street Address',
             'default_street_address2': 'Street Address 2',
             'default_town_or_city': 'Town or City',
             'default_county': 'County or State',
@@ -35,9 +35,9 @@ class UserProfileForm(forms.ModelForm):
             )
 
         self.fields['default_phone_number'].label = 'Phone Number:'
-        self.fields['default_town_or_city'].label = 'Town or City:'
-        self.fields['default_country'].label = 'Country:'
-        self.fields['default_street_address1'].label = 'Street Address 1:'
-        self.fields['default_street_address2'].label = 'Street Address 2:'
-        self.fields['default_county'].label = 'County:'
-        self.fields['default_postcode'].label = 'Postcode:'
+        self.fields['default_town_or_city'].label = ''
+        self.fields['default_country'].label = ''
+        self.fields['default_street_address1'].label = 'Your Address:'
+        self.fields['default_street_address2'].label = ''
+        self.fields['default_county'].label = ''
+        self.fields['default_postcode'].label = ''
