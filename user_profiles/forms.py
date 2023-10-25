@@ -36,8 +36,8 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['default_phone_number'].label = 'Phone Number:'
         self.fields['default_town_or_city'].label = ''
-        self.fields['default_country'].label = ''
+        self.fields['default_country'].label = 'Country:'
         self.fields['default_street_address1'].label = 'Your Address:'
         self.fields['default_street_address2'].label = ''
         self.fields['default_county'].label = ''
-        self.fields['default_postcode'].label = ''
+        self.fields['default_postcode'].label = 'Postcode:'
