@@ -5,6 +5,10 @@ input.stripe-style-input {
     width: 75%;
 }
 
+#div_id_country {
+    width: 75%;
+}
+
 .checkout-image {
     max-width: 75%;
     max-height: 100px;
@@ -63,6 +67,11 @@ select option[value=""] {
         margin-left: 20%;
     }
 
+    #div_id_country {
+        width: 60%;
+        margin-left: 20%;
+    }
+
     .fieldset-label {
         position: relative;
         left: 15%;
@@ -83,6 +92,11 @@ select option[value=""] {
 
 @media (max-width: 494px) {
     input.stripe-style-input {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #div_id_country {
         width: 90%;
         margin-left: 5%;
     }
