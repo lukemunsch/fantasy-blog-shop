@@ -10,6 +10,8 @@ from resources.models import Product
 import json
 import time
 
+import stripe
+
 class StripeWH_Handler:
     """handle stripe webhooks"""
     def __init__(self, request):
