@@ -47,9 +47,13 @@ class StripeWH_Handler:
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
 
-        billing_details = intent.charges.data[0].billing_details
+        # Get the Charge object
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # clean data in the shopping details
         for field, value in shipping_details.address.items():
@@ -137,11 +141,10 @@ class StripeWH_Handler:
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
                      'Created order in webhook'),
-            status=200
-        )
+            status=200)
 
     def handle_payment_intent_failed(self, event):
         """handle failed payment intent webhooks from stripe"""
         return HttpResponse(
-            content=f'Failed Webhook received: {event["type"]}',
+            content=f'failed Webhook received: {event["type"]}',
             status=200)

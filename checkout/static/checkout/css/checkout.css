@@ -59,8 +59,6 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
-
-
 @media (max-width: 991px) {
     input.stripe-style-input {
         width: 60%;
