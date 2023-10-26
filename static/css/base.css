@@ -494,6 +494,15 @@ a.add-link {
     background-color: #000;
 }
 
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
+.order-number-link {
+    color: rgb(250, 255, 35);
+}
+
 .btt-link,
 .update-link,
 .remove-link {

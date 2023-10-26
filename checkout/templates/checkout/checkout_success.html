@@ -125,17 +125,34 @@
               <div class="col-6 col-md-5 text-right">
                 <p class="mb-0 small menus">§{{ order.order_total }}</p>
                 <p class="mb-0 small menus">
-                  {% if order.delivery_cost == 0 %}
-                  Free Delivery!
-                  {% else %}
-                  §{{ order.delivery_cost }}
-                  {% endif %}</p>
-                <p class="mb-0 menus"><strong>§{{ order.grand_total }}</strong></p>
+                  {% if order.delivery_cost == 0 %} Free Delivery! {% else %}
+                  §{{ order.delivery_cost }} {% endif %}
+                </p>
+                <p class="mb-0 menus">
+                  <strong>§{{ order.grand_total }}</strong>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center mt-5">
+      {% if from_profile %}
+      <a href="{% url 'profile' %}" class="btn-console-link">
+        <span>Return to Profile <i class="fas fa-address-card"></i></span>
+      </a>
+      {% else %}
+      <a href="{% url 'resources' %}" class="btn-console-link">
+        <i class="fas fa-chevron-circle-left"></i>
+        <span>Return to the Shop</span>
+      </a>
+      <a href="{% url 'profile' %}" class="btn-console-link">
+        <span>Head to your Profile <i class="fas fa-address-card"></i></span>
+      </a>
+      {% endif %}
     </div>
   </div>
   <div class="row">
@@ -153,9 +170,7 @@
     <div class="col"></div>
   </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %} {{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script>
   $(".btt-link").click(function () {
     window.scrollTo(0, 0);

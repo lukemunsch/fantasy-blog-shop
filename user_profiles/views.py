@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from .models import UserProfile
+from checkout.models import Order
 from .forms import UserProfileForm
 
 
@@ -30,3 +31,15 @@ def profile(request):
     }
 
     return render(request, 'user_profiles/profiles.html', context)
+
+def order_history(request, order_number):
+    """set up new view for order history"""
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.info(request, f'This is a previous confirmation for the order number {order_number}. \
+                  You should have received and email on the order date.')
+    
+    context = {
+        'order': order,
+        'from_profile': True,
+    }
+    return render(request, 'checkout/checkout_success.html', context)

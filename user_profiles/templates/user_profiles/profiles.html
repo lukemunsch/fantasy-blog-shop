@@ -88,11 +88,18 @@
           {% for o in orders %}
           <tr>
             <!-- Order Number code -->
-            <th scope="row">{{ o.order_number|truncatechars:10 }}</th>
+            <th scope="row">
+              <a 
+                href="{% url 'order_history' o.order_number %}"
+                title="{{ order.order_number}}"
+                class="order-number-link">
+                {{ o.order_number|truncatechars:10 }}
+              </a>
+            </th>
             <!-- Date -->
-            <td>{{ o.date}}</td>
+            <td class="renegade">{{ o.date}}</td>
             <!-- Total order price -->
-            <td scope="col-5">§{{ o.grand_total }}</td>
+            <td scope="col-5" class="menus">§{{ o.grand_total }}</td>
           </tr>
           {% endfor %}
     </div>
