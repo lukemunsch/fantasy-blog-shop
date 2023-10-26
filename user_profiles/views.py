@@ -37,7 +37,7 @@ def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(request, f'This is a previous confirmation for the order number {order_number}. \
                   You should have received and email on the order date.')
-    
+
     context = {
         'order': order,
         'from_profile': True,
