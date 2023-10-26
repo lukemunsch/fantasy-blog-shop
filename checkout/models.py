@@ -36,6 +36,10 @@ class Order(models.Model):
     original_basket = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
+    class Meta:
+        """set up some specifics for model"""
+        ordering = ['-date']
+
     def __str__(self):
         return self.order_number
 
