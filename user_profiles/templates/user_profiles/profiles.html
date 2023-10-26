@@ -110,19 +110,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-  let countrySelected = $('#id_default_country').val();
-  if(!countrySelected) {
-    $('#id_default_country').css('color', '#646665');
-  };
-  $('#id_default_country').change(function () {
-    countrySelected = $(this).val();
-    if(!countrySelected) {
-      $(this).css('color', '#646665');
-    } else {
-      $(this).css('color', '#000');
-    }
-  });
-</script>
 <script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
 {% endblock %}
