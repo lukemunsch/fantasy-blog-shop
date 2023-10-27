@@ -137,7 +137,6 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                print(order)
                 for product_id, quantity in json.loads(basket).items():
                     product = Product.objects.get(id=product_id)
                     order_line_item = OrderLineItem(
@@ -146,10 +145,11 @@ class StripeWH_Handler:
                         quantity=quantity,
                     )
                     order_line_item.save()
+                print(order)
             except Exception as e:
                 if order:
                     order.delete()
-                    print("deleted!")
+                print("deleted!")
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
