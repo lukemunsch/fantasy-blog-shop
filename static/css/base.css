@@ -495,12 +495,16 @@ a.add-link {
 }
 
 .order-history {
-    max-height: 416px;
+    max-height: 80%;
     overflow-y: auto;
 }
 
 .order-number-link {
-    color: rgb(250, 255, 35);
+    text-decoration: none;
+}
+
+.order-number-link:hover {
+    color: red;
 }
 
 .btt-link,
