@@ -495,7 +495,8 @@ a.add-link {
 }
 
 .order-history {
-    max-height: 210px;
+    height: 340px;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 

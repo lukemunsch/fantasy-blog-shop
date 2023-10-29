@@ -76,36 +76,39 @@
     <!-- Add code for displaying the orers we have placed -->
     <div class="col-12 col-lg-6 divide-left">
       <h3 class="renegade mb-4">Order History:</h3>
-      <table
-        class="table table-borderless order-history table-responsive mx-3 league">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Order No.</th>
-            <th scope="col">Date</th>
-            <th scope="col">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for o in orders %}
-          <tr>
-            <!-- Order Number code -->
-            <th scope="row">
-              <a
-                href="{% url 'order_history' o.order_number %}"
-                title="{{ order.order_number}}"
-                class="renegade order-number-link"
-              >
-                {{ o.order_number|truncatechars:10 }}
-              </a>
-            </th>
-            <!-- Date -->
-            <td class="renegade">{{ o.date}}</td>
-            <!-- Total order price -->
-            <td scope="col-5" class="menus">§{{ o.grand_total }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      <div class="table-wrapper order-history">
+        <table
+          class="table table-borderless  table-responsive mx-3 league"
+        >
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Order No.</th>
+              <th scope="col">Date</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in orders %}
+            <tr>
+              <!-- Order Number code -->
+              <th scope="row">
+                <a
+                  href="{% url 'order_history' o.order_number %}"
+                  title="{{ order.order_number}}"
+                  class="renegade order-number-link"
+                >
+                  {{ o.order_number|truncatechars:10 }}
+                </a>
+              </th>
+              <!-- Date -->
+              <td class="renegade">{{ o.date}}</td>
+              <!-- Total order price -->
+              <td scope="col-5" class="menus">§{{ o.grand_total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
