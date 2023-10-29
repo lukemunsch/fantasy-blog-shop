@@ -22,8 +22,8 @@
   <div class="row">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
-        User Profile: {% if request.user.is_superuser %} Grandmaster {% endif
-        %}{{ profile.user }}
+        User Profile: {% if request.user.is_superuser %} Grandmaster 
+        {% endif%}{{ profile.user }}
       </h3>
       <p class="league page-subhead">
         Below are the details for the user's profile.
@@ -75,10 +75,9 @@
 
     <!-- Add code for displaying the orers we have placed -->
     <div class="col-12 col-lg-6 divide-left">
-      <h3 class="renegade">Order History:</h3>
+      <h3 class="renegade mb-4">Order History:</h3>
       <table
-        class="table table-borderless order-history table-responsive mx-3 league"
-      >
+        class="table table-borderless order-history table-responsive mx-3 league">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Order No.</th>
@@ -110,7 +109,9 @@
     </div>
   </div>
 </div>
-{% endblock %} {% block page_footer %}
+{% endblock %}
+<!-- page footer section -->
+{% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>

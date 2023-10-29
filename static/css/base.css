@@ -496,7 +496,7 @@ a.add-link {
 
 .order-history {
     max-height: 210px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .order-number-link {
