@@ -22,8 +22,8 @@
   <div class="row">
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
-        User Profile: {% if request.user.is_superuser %} 
-        Grandmaster {% endif %}{{ profile.user }}
+        User Profile: {% if request.user.is_superuser %} Grandmaster {% endif
+        %}{{ profile.user }}
       </h3>
       <p class="league page-subhead">
         Below are the details for the user's profile.
@@ -76,7 +76,9 @@
     <!-- Add code for displaying the orers we have placed -->
     <div class="col-12 col-lg-6 divide-left">
       <h3 class="renegade">Order History:</h3>
-      <table class="table order-history table-borderless mx-3 league">
+      <table
+        class="table table-borderless order-history table-responsive mx-3 league"
+      >
         <thead class="thead-dark">
           <tr>
             <th scope="col">Order No.</th>
@@ -89,10 +91,11 @@
           <tr>
             <!-- Order Number code -->
             <th scope="row">
-              <a 
+              <a
                 href="{% url 'order_history' o.order_number %}"
                 title="{{ order.order_number}}"
-                class="renegade order-number-link">
+                class="renegade order-number-link"
+              >
                 {{ o.order_number|truncatechars:10 }}
               </a>
             </th>
@@ -102,20 +105,17 @@
             <td scope="col-5" class="menus">§{{ o.grand_total }}</td>
           </tr>
           {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-{% endblock %} 
-
-{% block page_footer %}
+{% endblock %} {% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>
   </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
 {% endblock %}
