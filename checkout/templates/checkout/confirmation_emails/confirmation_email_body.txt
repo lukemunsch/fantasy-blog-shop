@@ -12,7 +12,7 @@ Your order information is below: ~
 Your Order will be shipped to: ~
 
     {{ order.street_address1 }},
-    {% if order.street_address2 %}{{ order.street_address2 }}{% endif %},
+    {% if order.street_address2 %}{{ order.street_address2 }},{% endif %}
     {{ order.town_or_city }},
     {{ order.county }},
     {{ order.postcode }}
