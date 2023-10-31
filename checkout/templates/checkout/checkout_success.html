@@ -149,9 +149,16 @@
         <i class="fas fa-chevron-circle-left"></i>
         <span>Return to the Shop</span>
       </a>
+
+      {% if not request.user %}
       <a href="{% url 'profile' %}" class="btn-console-link">
         <span>Head to your Profile <i class="fas fa-address-card"></i></span>
       </a>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="btn-console-link">
+        <span>Sign in to your Account <i class="fas fa-address-card"></i></span>
+      </a>
+      {% endif %}
       {% endif %}
     </div>
   </div>

@@ -16,6 +16,7 @@ class ProductForm(forms.ModelForm):
             'price',
             'category',
             'approved_item',
+            'image',
         ]
         widgets = {
             'name': forms.TextInput(
