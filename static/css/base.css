@@ -476,7 +476,7 @@ a.add-link {
 }
 
 .form-inner-content .textinput.textInput {
-    width: 100%;
+    width: 60%;
     margin-bottom: 20px;
 }
 
@@ -486,6 +486,10 @@ a.add-link {
 
 .select-image:hover {
     color: rgb(0, 255, 0);
+}
+
+.lazyselect {
+    width: 60%;
 }
 
 /* Order history */
@@ -521,12 +525,6 @@ a.add-link {
 
 /* media queries */
 
-@media (min-width: 1200px) {
-    .form-inner-content .textinput.textInput {
-        width: 60%;
-    }
-}
-
 @media (max-width: 991px) {
     .container-push {
         margin-top: 120px;
@@ -555,6 +553,15 @@ a.add-link {
 
     .warning-statement {
         font-size: 20px;
+    }
+
+    .form-inner-content .textinput.textInput {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .lazyselect {
+        width: 100%;
     }
 }
 
