@@ -21,6 +21,9 @@
     border: 1px solid red;
 }
 
+.quantity-input {
+    width: 50%;
+}
 
 .product-card {
     font-family: 'Urbanist', Arial, Helvetica, sans-serif;
@@ -93,6 +96,12 @@
     100% {opacity: 1;}
 }
 
+@media (max-width: 991px) {
+    .quantity-input {
+        width: 100%;
+    }
+}
+
 @media (max-width: 767px) {
     .product-desc {
         padding: 0 20px 0px 20px;
@@ -104,5 +113,15 @@
 
     .quantity-form {
         padding: 0 0 0 20px;
+    }
+
+    .quantity-input {
+        width: 50%;
+    }
+}
+
+@media (max-width: 390px) {
+    .quantity-input {
+        width: 100%;
     }
 }
