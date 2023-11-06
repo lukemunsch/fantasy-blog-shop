@@ -85,6 +85,7 @@
               <th scope="col">Order No.</th>
               <th scope="col">Date</th>
               <th scope="col">Price</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -97,7 +98,7 @@
                   title="{{ order.order_number}}"
                   class="renegade order-number-link"
                 >
-                  {{ o.order_number|truncatechars:10 }}
+                  {{ o.order_number|truncatechars:6 }}
                 </a>
               </th>
               <!-- Date -->
