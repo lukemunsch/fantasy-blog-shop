@@ -591,6 +591,15 @@ a.add-link {
         width: 105%;
         right: 15px;
     }
+
+    .addition-btn {
+        font-size: 1.2rem
+    }
+
+    .select-image,
+    input#new-image {
+        width: 100%;
+    }
 }
 
 @media (max-height: 500px) {
