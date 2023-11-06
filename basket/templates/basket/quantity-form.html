@@ -1,0 +1,47 @@
+<form
+  action="{% url 'update_basket' item.product_id %}"
+  method="POST"
+  class="form update-form"
+>
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <button
+          class="decrement-qty btn-sm btn-console-link"
+          data-product_id="{{ item.product_id }}"
+          id="decrement-qty_{{ item.product_id }}"
+        >
+          <span class="icon">
+            <i class="fa fa-sm fa-minus"></i>
+          </span>
+        </button>
+      </div>
+      <input
+        type="number"
+        class="form-control-sm qty-input basket-update-qty"
+        name="quantity"
+        value="{{ item.quantity }}"
+        min="1"
+        max="99"
+        data-product_id="{{ item.product_id }}"
+        id="id_qty_{{ item.product_id }}"
+      />
+      <div class="input-group-append">
+        <button
+          class="increment-qty btn-sm btn-console-link"
+          data-product_id="{{ item.product_id }}"
+          id="increment-qty_{{ item.product_id }}"
+        >
+          <span class="icon">
+            <i class="fa fa-sm fa-plus"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+<a class="update-link text-info"><small>Update</small></a>
+<a class="remove-link text-danger float-right" id="remove_{{ item.product_id }}"
+  ><small><strong>Remove</strong></small></a
+>

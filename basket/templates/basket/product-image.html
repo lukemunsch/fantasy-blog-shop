@@ -1,0 +1,13 @@
+{% if not item.product.image %}
+<img
+  src="{{ MEDIA_URL}}no-photo-available.jpg"
+  alt="{{ item.product.name }}'s product image not available"
+  class="text-center item-image w-75"
+/>
+{% else %}
+<img
+  src="{{ item.product.image.url }}"
+  alt="{{ item.product.name }}'s product image"
+  class="text-center item-image"
+/>
+{% endif %}

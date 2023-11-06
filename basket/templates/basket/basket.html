@@ -61,25 +61,10 @@
           {% for item in basket_items %}
           <tr class="league">
             <td class="p-3">
-              {% if not item.product.image %}
-            <img
-              src="{% static 'img/no-photo-available.jpg' %}"
-              alt="{{ item.product.name }}'s product image not available"
-              class="text-center item-image w-75"
-            />
-            {% else %}
-            <img
-              src="{{ item.product.image.url }}"
-              alt="{{ item.product.name }}'s product image"
-              class="text-center item-image "
-            />
-            {% endif %}
+              {% include 'basket/product-image.html' %}
             </td>
             <td class="p-3">
-              <h4 class="my-0"><strong>{{ item.product.name }}</strong></h4>
-              <p class="my-0 small">
-                <em>Cat: {{ item.product.category }}</em>
-              </p>
+              {% include 'basket/product-info.html' %}
             </td>
             <td class="p-3">
               <p class="my-0">
@@ -87,91 +72,25 @@
               </p>
             </td>
             <td class="p-3 w-25">
-              <form action="{% url 'update_basket' item.product_id %}" method="POST" class="form update-form">
-                {% csrf_token %}
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <button
-                        class="decrement-qty btn-sm btn-console-link"
-                        data-product_id="{{ item.product_id }}"
-                        id="decrement-qty_{{ item.product_id }}"
-                      >
-                        <span class="icon">
-                          <i class="fa fa-sm fa-minus"></i>
-                        </span>
-                      </button>
-                    </div>
-                    <input
-                      type="number"
-                      class="form-control-sm qty-input basket-update-qty"
-                      name="quantity"
-                      value="{{ item.quantity }}"
-                      min="1"
-                      max="99"
-                      data-product_id="{{ item.product_id }}"
-                      id="id_qty_{{ item.product_id }}"
-                    />
-                    <div class="input-group-append">
-                      <button
-                        class="increment-qty btn-sm btn-console-link"
-                        data-product_id="{{ item.product_id }}"
-                        id="increment-qty_{{ item.product_id }}"
-                      >
-                        <span class="icon">
-                          <i class="fa fa-sm fa-plus"></i>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <a class="update-link text-info"><small>Update</small></a>
-              <a
-                class="remove-link text-danger float-right"
-                id="remove_{{ item.product_id }}"
-                ><small><strong>Remove</strong></small></a
-              >
+              {% include 'basket/quantity-form.html' %}
             </td>
             <td class="p-3">
               <p class="my-0">
-                <strong>§{{ item.product.price|calc_subtotal:item.quantity }}</strong>
+                <strong
+                  >§{{ item.product.price|calc_subtotal:item.quantity }}</strong
+                >
               </p>
             </td>
           </tr>
           {% endfor %}
           <tr class="menus">
             <td colspan="5" class="pt-5 text-right">
-              <h6>Basket Total: <strong>§{{ total|floatformat:2 }}</strong></h6>
-              {% if delivery <= 0 %}
-              <h6 class="mt-3">
-                <strong>You have qualified for free delivery!</strong>
-              </h6>
-              {% else %}
-              <h6 class="mt-3">
-                Delivery Charge: <strong>§{{ delivery|floatformat:2 }}</strong>
-              </h6>
-              {% endif %} {% if free_delivery_delta > 0 %}
-              <p class="menus mb-3">
-                Spend just <strong>§{{ free_delivery_delta }}</strong>
-                more to get free delivery!
-              </p>
-              {% endif %}
-              <h4>
-                <strong>Grand Total: §{{ grand_total|floatformat:2 }}</strong>
-              </h4>
+              {% include 'basket/basket-totals.html' %}
             </td>
           </tr>
           <tr>
             <td class="text-right" colspan="5">
-              <a href="{% url 'resources' %}" class="btn btn-console-link"
-                ><< Keep Shopping</a
-              >
-              <a href="{% url 'checkout' %}" class="btn btn-console-link">
-                <span class="icon">
-                  <i class="fas fa-lock"></i> Secure Checkout
-                </span>
-              </a>
+              {% include 'basket/checkout-buttons.html' %}
             </td>
           </tr>
         </table>
@@ -209,32 +128,30 @@
 
 <script>
   // update quantity on click
-  $('.update-link').click(function (e) {
-    var form = $(this).prev('.update-form');
+  $(".update-link").click(function (e) {
+    var form = $(this).prev(".update-form");
     form.submit();
-  })
+  });
 
   // remove item on click
-  $('.remove-link').click(function (e) {
+  $(".remove-link").click(function (e) {
     var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr('id').split('remove_')[1];
+    var itemId = $(this).attr("id").split("remove_")[1];
     var url = `remove/${itemId}/`;
     var data = {
-      'csrfmiddlewaretoken': csrfToken
+      csrfmiddlewaretoken: csrfToken,
     };
 
-    $.post(url, data)
-      .done(function () {
-        location.reload();
-      });
-  })
-
+    $.post(url, data).done(function () {
+      location.reload();
+    });
+  });
 </script>
 
 <script>
-  $('.btt-link').click(function () {
-      window.scrollTo(0, 0)
-  })
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
 </script>
 <!-- endblock -->
 {% endblock %}
