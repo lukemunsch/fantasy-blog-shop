@@ -23,7 +23,7 @@
     <div class="col-12 text-center">
       <h3 class="renegade page-heading">
         User Profile: {% if request.user.is_superuser %} Grandmaster 
-        {% endif%}{{ profile.user }}
+        {% endif %}{{ profile.user }}
       </h3>
       <p class="league page-subhead">
         Below are the details for the user's profile.
@@ -74,12 +74,10 @@
     </div>
 
     <!-- Add code for displaying the orers we have placed -->
-    <div class="col-12 col-lg-6 divide-left">
+    <div class="col-12 col-lg-6 divide-left mb-3">
       <h3 class="renegade mb-4">Order History:</h3>
       <div class="table-wrapper order-history">
-        <table
-          class="table table-borderless  table-responsive mx-3 league"
-        >
+        <table class="table table-borderless table-responsive mx-3 league">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Order No.</th>
@@ -111,6 +109,13 @@
         </table>
       </div>
     </div>
+    <!-- back to top button -->
+    <div class="col-12 text-center btt-btn">
+      <a class="btt-link btn">
+        <i class="fas fa-arrow-up"></i> Back to Top
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
   </div>
 </div>
 {% endblock %}
@@ -123,4 +128,9 @@
 </div>
 {% endblock %} {% block postloadjs %} {{ block.super }}
 <script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
+<script>
+  $(".btt-link").click(function () {
+    window.scrollTo(0, 0);
+  });
+</script>
 {% endblock %}
