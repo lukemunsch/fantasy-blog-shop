@@ -59,6 +59,16 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
+#card-element {
+    font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
+    background: #fffff0;
+    height: 40px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    float: right;
+}
+
 @media (max-width: 991px) {
     input.stripe-style-input {
         width: 60%;
@@ -78,6 +88,12 @@ select option[value=""] {
     .checkbox-save-profile {
         position: relative;
         left: 20%;
+    }
+
+    #card-element {
+        padding: 10px;
+        width: 60%;
+        float: none;
     }
 }
 
@@ -107,5 +123,11 @@ select option[value=""] {
     .checkbox-save-profile {
         position: relative;
         left: 0%;
+    }
+
+    #card-element {
+        padding: 10px;
+        width: 90%;
+        float: none;
     }
 }

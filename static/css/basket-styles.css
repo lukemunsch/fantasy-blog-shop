@@ -5,17 +5,17 @@
 }
 
 input {
-    height: 30px;
+    height: 40px;
 }
 
 .input-group-prepend button {
-    height: 30px;
+    height: 40px;
     padding: 0 5px 0 5px;
     border-radius: 0;
 }
 
 .input-group-append button {
-    height: 30px;
+    height: 40px;
     padding: 0 5px 0 5px;
     border-radius: 0;
 }
@@ -23,5 +23,15 @@ input {
 @media (max-width: 767px) {
     .item-image {
         float: none;
+    }
+
+    .quantity-form-input {
+        margin-left: 27%;
+    }
+}
+
+@media (max-width: 575px) {
+    .quantity-form-input {
+        left: 40px;
     }
 }

@@ -71,7 +71,7 @@
             <p class="my-0">§{{ item.product.price }} each</p>
             <p class="league mb-2">§{{ item.product.price|calc_subtotal:item.quantity }} total for this item</p>
           </div>
-          <div class="col-12 col-sm-6 mb-3">{% include 'basket/quantity-form.html' %}</div>
+          <div class="col-12 col-sm-6 mb-3 text-center">{% include 'basket/quantity-form.html' %}</div>
         </div>
         {% endfor %}
       </div>
