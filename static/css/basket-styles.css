@@ -32,6 +32,7 @@ input {
 
 @media (max-width: 575px) {
     .quantity-form-input {
-        left: 40px;
+        width: 120px;
+        margin-left: 39%;
     }
 }
