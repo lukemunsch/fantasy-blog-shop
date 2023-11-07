@@ -37,7 +37,7 @@ def add_to_basket(request, product_id):
         basket[product_id] = quantity
         messages.success(
             request,
-            f'We have Successfully Added'
+            f'We have Successfully Added '
             f'{product.name} to your basket!'
         )
 
