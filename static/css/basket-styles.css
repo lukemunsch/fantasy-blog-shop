@@ -26,6 +26,8 @@ input {
     }
 
     .quantity-form-input {
-        position: relative;
+        align-items: center;
+        text-align: center;
+        align-content: center;
     }
 }
