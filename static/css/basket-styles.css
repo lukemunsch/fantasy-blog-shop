@@ -26,13 +26,6 @@ input {
     }
 
     .quantity-form-input {
-        margin-left: 27%;
-    }
-}
-
-@media (max-width: 575px) {
-    .quantity-form-input {
-        width: 120px;
-        margin-left: 39%;
+        position: relative;
     }
 }
