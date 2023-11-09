@@ -43,7 +43,7 @@ https://fantasy-blog-shop.onrender.com
 
 ## LucidCHART ERD Diagram
 
-[Fantasy Blog Shop]()
+[Fantasy Blog Shop](media/README/fbs-erd.png)
 
 ## Wireframes
 
