@@ -5,7 +5,7 @@
 >
   {% csrf_token %}
   <div class="form-group mb-2">
-    <div class="input-group quantity-form-input">
+    <div class="input-group d-flex justify-content-center align-items-center">
       <div class="input-group-prepend">
         <button
           class="decrement-qty btn-sm btn-console-link"
@@ -41,7 +41,11 @@
     </div>
   </div>
 </form>
-<a class="update-link text-info"><small>Update</small></a>
-<a class="remove-link text-danger float-right" id="remove_{{ item.product_id }}"
-  ><small><strong>Remove</strong></small></a
->
+<div class="d-flex justify-content-center align-items-center">
+  <a class="update-link text-info"><small>Update</small></a>
+  <a
+    class="remove-link text-danger float-right"
+    id="remove_{{ item.product_id }}"
+    ><small><strong>Remove</strong></small></a
+  >
+</div>
