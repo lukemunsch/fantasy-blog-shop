@@ -171,13 +171,18 @@
     </div>
   </div>
 </div>
-{% endblock %} {% block page_footer %}
+{% endblock %} 
+<!-- footer -->
+{% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>
   </div>
 </div>
-{% endblock %} {% block postloadjs %} {{ block.super }}
+{% include 'includes/footer.html' %}
+{% endblock %}
+<!-- add additional js code -->
+{% block postloadjs %} {{ block.super }}
 <script>
   $(".btt-link").click(function () {
     window.scrollTo(0, 0);
