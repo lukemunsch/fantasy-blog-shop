@@ -69,13 +69,13 @@ Upon subsequent visits to the site, they can see any updated content and new ite
 
 ## Features
 
-I wanted the design and colour scheme to look basic but sci-fi-esque. Dark green for the background allows me to add a few light colours for the text and content. Black for header and footer for same reason with red for menus and navigation links.
+I wanted the design and colour scheme to look basic but sci-fi-esque. Dark green for the background allows me to add a few light colours for the text and content. Black for header and footer for same reason with red for menus and navigation links. Most of the pages have a link at the bottom fo the page to scroll back up to the top in the event the page is long; styles in green writing with upward pointing arrows and a small thin black border - The writing boldens and changes to yellow when hovering over.
 
 ### Index page
 
 The main homepage background is an image of a group of adventurers (guardians of the galaxy) to signify the kind of group of people I expect to be in this guild. It has a dark colour scheme in order to let the lighter menues, navs and objects stand out. The stand out colours in the image will be the key colours through the rest of the site.
 
-The main nav bar is a black bar with the Guild name and and logo located in left top corner with the red menu in the top right for the main actions; home, Console, Account and Shop.
+The main nav bar is a black bar with the Guild name and and logo located in left top corner with the red menu in the top right for the main actions; home, Console, Account and Shop. When a customer has added an item to their basket, the grand total will replace the word shop with a value.
 
 In smaller screens, the logo is single initials and the menu is a rollover black screen with dropdown menus suitable for mobiles.
 
@@ -107,6 +107,33 @@ For superusers there will be edit and delete buttons at the top of the page and 
 The mission details page is more informative than the News page - shows the current status of the mission (whether it is still active/cancelled/on hold/etc), mission title, lead preperation time and mission time. The description is underneath the image and at the bottom there is also the hidden/displayed option for the superusers to adjust accordingly as well as the edit/delete buttons at the top.
 
 [Mission Details page](media/README/mission-details.png)
+
+### Personnel Details Page
+
+This is the page that displays the individual details about each guild member that has been recruited.
+
+They have their Name, Rank and their current status (whether they are active, on leave, deceased) at the top above the main bulk of the content. There is a profile image for the member so people can see what they look like, but if an image is not provided then a temporary image is placed there by default. They also have their hometown, age and when they first joined the Renegade League, and a small paragraph about them and some of their abilities.
+
+We have also provided a list of any missions undertaken by the members with a link to view the missions so they can view them.
+
+[Personnel Page](media/README/personnel-details.png)
+
+### Resources Page
+
+The resources page is a shop page that looks like a similar style to the console page with a few major tweeks;
+There is a flashing banner with a free delivery promotion stating how much you would have to spend in order to get the delivery without an additional charge. We have a search function for the resources and a filtering system based on the categories. There is also the ability to sort the shop based on name price category, descending and ascending.
+
+There is a product count for the page which adapts depending ont he filters or search term and a reset button can appear.
+
+The products are listed on a black background bordered by yellow with the name and size of the product, an image, the price and the category it is apart of. There is a view button underneath the category, but for superusers they get the edit and delete buttons as well.
+
+[Resources Page](media/README/resources-page.png)
+
+### Resources Page
+
+The resource details page will look similar to the Missions page; There is a product name at the top with an image underneath and the category it is a part of. There is a product description
+
+[Resource Details Page](media/README/resource-details-page.png)
 
 ## Features to implement
 
