@@ -131,7 +131,7 @@ The products are listed on a black background bordered by yellow with the name a
 
 ### Resources Page
 
-The resource details page will look similar to the Missions page; There is a product name at the top with an image underneath and the category it is a part of. There is a product description
+The resource details page will look similar to the Missions page; There is a product name at the top with an image underneath and the category it is a part of. There is a product description and teh cateogry it belongs to beneth it. We have a quantity form with an increasing and decreasing button as well as a button to return to the resources page or to add the selected item to the basket with the quantity from the form.
 
 [Resource Details Page](media/README/resource-details-page.png)
 
