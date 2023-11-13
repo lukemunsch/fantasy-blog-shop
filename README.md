@@ -1,4 +1,6 @@
-# fantasy-blog-shop
+![Am I Responsive Image](media/README/amiresp-img.png)
+
+# Fantasy Blog Shop
 
 ## # Table of Contents
 
@@ -67,9 +69,47 @@ Upon subsequent visits to the site, they can see any updated content and new ite
 
 ## Features
 
-I wanted the design and colour scheme to look basic but sci-fi-esque. Dark green for the background allows me to add a few light colours for the 
+I wanted the design and colour scheme to look basic but sci-fi-esque. Dark green for the background allows me to add a few light colours for the text and content. Black for header and footer for same reason with red for menus and navigation links.
+
+### Index page
+
+The main homepage background is an image of a group of adventurers (guardians of the galaxy) to signify the kind of group of people I expect to be in this guild. It has a dark colour scheme in order to let the lighter menues, navs and objects stand out. The stand out colours in the image will be the key colours through the rest of the site.
+
+The main nav bar is a black bar with the Guild name and and logo located in left top corner with the red menu in the top right for the main actions; home, Console, Account and Shop.
+
+In smaller screens, the logo is single initials and the menu is a rollover black screen with dropdown menus suitable for mobiles.
+
+The Superusers for the guild also have a secondary menu on the home page that shows them the pending unapproved entries that require review and update.
+
+[Homepage and Index](media/README/index-and-homepage.png)
+[Small Screen Menu](media/README/small-menu.png)
+
+### Console page
+
+The console page is a series of sections for the different types of content the guild will be uploading - sections for the News, Missions and Personnel updates. They have their own sections with a different colour scheme to tell them aparts - Blue for News, purple for Missions and grey for Peronnel. they will have a simplified view for the console page, and a slightly more advanced view when in their own access pages, but the styles will be the same.
+
+Superusers will have a view/Edit/Delete combo of buttons for each entry, as well as an access to the pending content, whereas regular users will only see view button. There are red nav buttons for users to head straight to the sections they want to interact with.
+
+[Console Page](media/README/console-page.png)
+
+### News Detail Page
+
+One the news details page, the Users can see the Image associated to the news article - depending on the type of news, a different image will be displayed if you haven't chosen an image to assign to it manually. The title of the post is displayed underneath it with post information; date and author.
+
+The content of the post will all be displayed in a light green colour to accentuate against the darker green background.
+
+For superusers there will be edit and delete buttons at the top of the page and towards the bottom of the page there is a section that allows the S.U's to update whether or not the article will be approved or hidden for users viewing.
+
+[News Details page](media/README/news-details-page.png)
+
+### Mission Details page
+
+The mission details page is more informative than the News page - shows the current status of the mission (whether it is still active/cancelled/on hold/etc), mission title, lead preperation time and mission time. The description is underneath the image and at the bottom there is also the hidden/displayed option for the superusers to adjust accordingly as well as the edit/delete buttons at the top.
+
+[Mission Details page](media/README/mission-details.png)
 
 ## Features to implement
+
 
 
 
