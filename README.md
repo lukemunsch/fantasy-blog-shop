@@ -135,6 +135,28 @@ The resource details page will look similar to the Missions page; There is a pro
 
 [Resource Details Page](media/README/resource-details-page.png)
 
+### Shopping Basket Notification
+
+This little notification pops up whenever something happens, usually either an item is added to the basket, something is updated or added to the console/shop. For the shopping basket notification I have used a solid black box with a color changing top vorder depending on what type of notification it is. 
+
+It has a small description of what the activity is, a tally of how many items are in your basket and then a list of those items in a scrolling bar. We have the total and a small notification explaining how much more you need to add to the basket in order to qualify for free deliver. At the bottom fo the box is a button that will take you directly to your shopping basket to complete your review of your order before making a payment.
+
+[Shopping Basket Notification](media/README/shopping-notification.png)
+
+### Shopping Basket Page
+
+The shopping basket page is a simple list of rows for each item with an image, name with category underneath, price, Quantity form for adjusting how many of the item you want or remove them completely, and the subtotal for each of the line item. At the bottom of the page is a small collecting of text for basket total, delivery fee or free delivery text and Grand total adding basket total and delivery fee together.
+
+There are a couple of buttons in a similar style to the rest of the site at the bottom for either returning to the resources page to get more items or heading to the secure checkout page.
+
+[Shopping Basket Page](media/README/shopping-basket-page.png)
+
+### Checkout Page
+
+The checkout page is a complex group of elements split into two sides of the webpage;
+
+We have the form for completing the checkout which requires the customers details and delivery information. There is either a button for saving the informatino to your profile or there is a couple of signin/up 
+
 ## Features to implement
 
 
