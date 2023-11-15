@@ -129,7 +129,7 @@ The products are listed on a black background bordered by yellow with the name a
 
 [Resources Page](media/README/resources-page.png)
 
-### Resources Page
+### Resources Detail Page
 
 The resource details page will look similar to the Missions page; There is a product name at the top with an image underneath and the category it is a part of. There is a product description and teh cateogry it belongs to beneth it. We have a quantity form with an increasing and decreasing button as well as a button to return to the resources page or to add the selected item to the basket with the quantity from the form.
 
@@ -155,7 +155,23 @@ There are a couple of buttons in a similar style to the rest of the site at the 
 
 The checkout page is a complex group of elements split into two sides of the webpage;
 
-We have the form for completing the checkout which requires the customers details and delivery information. There is either a button for saving the informatino to your profile or there is a couple of signin/up 
+We have the form for completing the checkout which requires the customers details and delivery information. There is either a button for saving the information to your profile or there is a couple of signin/up links for those that want to create a profile. We also have a payment line for inputting their card details. Underneath these is a button combo again for heading back a page to the basket to adjust quantites and the button for completing the payment. There is a notification underneath the buttons for the value that will be charged to the customer, as well as a message that appears under the card input row if there is an issue with the card details.
+
+In the column to the right we have the order line items so that we can see exactly what it is we are purchasing with a sample of the info from the basket - picture, name and quantity, and subtotal for the line items. Underneath the line items is the total, delivery/free delivery text and grand total.
+
+[Checkout Page](media/README/checkout-page.png)
+
+### Checkout Success Page
+
+This is the Page that will load after the submit button has been pressed with correct details and the blue loading spinner has passed.
+
+This page has the order info at the top (order number and date), followed by the items included in the order with their quantity and value for the item. The order delivery information follows this with the name address and contact number for the order. Finally the last section is for the order total, delivery and grand total.
+
+We have a couple of buttons to redirect to the shop aggain to purchase more items and a button to head to the profile if the user is signed in or an account sign in page if the user is not signed in.
+
+If the user has not logged in there is a message at the top that will be displayed explaining that the order is not going to be attached to an account.
+
+[Checkout Success Page](media/README/checkout-success.png)
 
 ## Features to implement
 

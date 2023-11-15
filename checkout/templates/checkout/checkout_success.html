@@ -34,6 +34,9 @@
         Your order information is below. A confirmation email will be sent to
         <strong>{{ order.email }}</strong>
       </p>
+      {% if not request.user.is_authenticated %}
+      <p class="menus">This order has not been attached to an account as you have not logged in.</p>
+      {% endif %}
     </div>
     <div class="col-12 content-titles">
       <a href="{% url 'home' %}" class="menus btn"><< Home</a>
@@ -149,8 +152,7 @@
         <i class="fas fa-chevron-circle-left"></i>
         <span>Return to the Shop</span>
       </a>
-
-      {% if not request.user %}
+      {% if not request.user.is_authenticated %}
       <a href="{% url 'account_login' %}" class="btn-console-link">
         <span>Sign in to your Account <i class="fas fa-address-card"></i></span>
       </a>
