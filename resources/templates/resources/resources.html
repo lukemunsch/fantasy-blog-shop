@@ -43,11 +43,11 @@
   <div class="row">
     <div class="col-12 text-center content-titles mb-3">
       {% if from_homepage and request.user.is_superuser %}
-      <a href="{% url 'resources' %}" class="menus btn"><< Return to the shop</a>
+      <a href="{% url 'resources' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Return to the shop</a>
       {% elif request.user.is_superuser %}
-      <a href="{% url 'pending_resources' %}" class="menus btn"><< Pending Resources</a>
+      <a href="{% url 'pending_resources' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Pending Resources</a>
       {% endif %}
-      <a href="{% url 'view_basket' %}" class="menus btn"><< Shopping Basket</a>
+      <a href="{% url 'view_basket' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Shopping Basket</a>
     </div>
   </div>
   {% if not from_homepage %}

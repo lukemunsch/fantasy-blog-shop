@@ -40,12 +40,12 @@
       <div class="col-12 content-titles">
         {% if from_pending == True %}
         <a href="{% url 'pending_resources' %}" class="menus">
-          << Pending Resources
+          <i class="fas fa-chevron-circle-left"></i> Pending Resources
         </a>
         {% else %}
-        <a href="{% url 'resources' %}" class="menus btn"><< Resources</a>
+        <a href="{% url 'resources' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Resources</a>
         {% endif %}
-        <a href="{% url 'view_basket' %}" class="menus btn"><< Shopping Basket </a>
+        <a href="{% url 'view_basket' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Shopping Basket </a>
       </div>
     </div>
   </div>
@@ -142,7 +142,7 @@
           </div>
           <div class="col-12">
             <a href="{% url 'resources' %}" class="btn btn-console-link mt-5">
-              << Keep Shopping
+              <i class="fas fa-chevron-circle-left"></i> Keep Shopping
             </a>
             <input
               type="submit"
