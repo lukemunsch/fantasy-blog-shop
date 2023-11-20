@@ -191,23 +191,60 @@ I have run my html code through the W3C markup validator and produced a set of r
 
 [Base/Index HTML Testing](media/README/html_testing/base-index-html-testing.png)
 
-[Console HTML Testing]()
-[News HTML Testing]()
-[News Details HTML Testing]()
-[Mission HTML Testing]()
-[Mission Details HTML Testing]()
-[Personnel HTML Testing]()
-[Personnel Details HTML Testing]()
+[Console HTML Testing](media/README/html_testing/console-html-testing.png)
+
+[News HTML Testing](media/README/html_testing/news-html-testing.png)
+
+[News Add/Edit HTML Testing](media/README/html_testing/add-edit-news-html-testing.png)
+
+[News Delete HTML Testing](media/README/html_testing/news-delete-html-testing.png)
+
+[News Details HTML Testing](media/README/html_testing/news-details-html-testing.png)
+
+[Mission HTML Testing](media/README/html_testing/mission-html-testing.png)
+
+[Mission Add/Edit HTML Testing](media/README/html_testing/add-edit-mission-html-testing.png)
+
+[Mission Delete HTML Testing](media/README/html_testing/mission-delete-html-testing.png)
+
+[Mission Details HTML Testing](media/README/html_testing/mission-details-html-testing.png)
+
+[Personnel HTML Testing](media/README/html_testing/personnel-html-testing.png)
+
+[Personnel Add/Edit HTML Testing](media/README/html_testing/add-edit-personnel-html-testing.png)
+
+[Personnel Delete HTML Testing](media/README/html_testing/personnel-delete-html-testing.png)
+
+[Personnel Details HTML Testing](media/README/html_testing/personnel-details-html-testing.png)
+
+[Update HTML Testing]()
+
+[]()
+
+[]()
+
+[]()
+
 [Resources HTML Testing]()
+
+[Resources Add/Edit HTML Testing]()
+
+[Resources Delete HTML Testing]()
+
 [Resources Details HTML Testing]()
+
 [Shopping Basket HTML Testing]()
+
 [Checkout HTML Testing]()
+
 [Checkout Success HTML Testing]()
-[Delete HTML Testing]()
-[Add/Edit HTML Testing]()
+
 [Profile HTML Testing]()
+
 [Signup HTML Testing]()
+
 [Sign In HTML Testing]()
+
 [Sign Out HTML Testing]()
 
 ### CSS Testing

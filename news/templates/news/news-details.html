@@ -52,10 +52,10 @@
         {% if request.user.is_superuser %}
         <div class="col-12 text-center">
             <a href="{% url 'edit_news' event.id %}">
-                <button class="btn-console-link my-3">Edit Article</button>
+                <span class="btn-console-link my-3">Edit Article</span>
             </a>
             <a href="{% url 'delete_news' event.id %}">
-                <button class="btn-console-link my-3">Delete Article</button>
+                <span class="btn-console-link my-3">Delete Article</span>
             </a>
         </div>
         {% endif %}

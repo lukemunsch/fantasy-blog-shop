@@ -28,7 +28,7 @@
         <div class="col-12 text-center">
             <h3 class="renegade page-heading">Update Details</h3>
             <p class="league page-subhead">
-                These are the details for the Update</em>
+                These are the details for the Update
             </p>
         </div>
         <div class="col-12 content-titles text-center">
@@ -37,16 +37,16 @@
         </div>
     </div>
 </div>
-<hr class="menus" />
+<hr class="menus">
 {% if request.user.is_superuser %}
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
             <a href="{% url 'edit_update' update.id %}">
-                <button class="btn-console-link my-3">Edit Update</button>
+                <span class="btn-console-link my-3">Edit Update</span>
             </a>
             <a href="{% url 'delete_update' update.id %}">
-                <button class="btn-console-link my-3">Delete Update</button>
+                <span class="btn-console-link my-3">X Update</span>
             </a>
         </div>
     </div>
@@ -75,7 +75,7 @@
     </div>
     <div class="row text-center">
         <div class="col-8 offset-2 col-md-4 offset-md-4 form-inner-content">
-            <form action="" method="POST" class="form mt-3 mb-2 card-origins approval-form league">
+            <form method="POST" class="form mt-3 mb-2 card-origins approval-form league">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button class="btn-console-link mt-3" type="submit">Approve Update</button>
