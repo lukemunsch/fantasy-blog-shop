@@ -45,6 +45,7 @@
         >Access the Shop</a
       >
     </div>
+  </div>
     {% if request.user.is_superuser %}
     <div
       class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5"
@@ -105,9 +106,7 @@
   </div>
   {% endif %}
 </div>
-{% endblock content %}
-
-{% block page_footer %}
+{% endblock content %} {% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>
