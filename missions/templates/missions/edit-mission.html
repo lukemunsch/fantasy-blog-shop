@@ -27,9 +27,9 @@
         </p>
     </div>
     <div class="col-12 content-titles text-center">
-        <a href="{% url 'home' %}" class="menus btn"><< Home</a>
-        <a href="{% url 'missions' %}" class="menus btn"><< Missions</a>
-        <a href="{% url 'console' %}" class="menus btn"><< Console</a>
+        <a href="{% url 'home' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Home</a>
+        <a href="{% url 'missions' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Missions</a>
+        <a href="{% url 'console' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Console</a>
     </div>
   </div>
 </div>
@@ -53,7 +53,7 @@
           {% endif %}
         {% endfor %}
         <div class="my-3 text-right">
-          <a href="{% url 'missions' %}" class="btn-console-link"><< Cancel</a>
+          <a href="{% url 'missions' %}" class="btn-console-link"><i class="fas fa-chevron-circle-left"></i> Cancel</a>
           <button class="btn-console-link" type="submit">+ Edit Mission</button>
         </div>
       </form>

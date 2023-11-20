@@ -34,12 +34,12 @@
         <div class="col-12 content-titles">
             {% if from_pending == True %}
             <a href="{% url 'pending_missions' %}" class="menus">
-                << Pending Missions
+                <i class="fas fa-chevron-circle-left"></i> Pending Missions
             </a>
             {% else %}
-            <a href="{% url 'missions' %}" class="menus btn"><< Missions</a>
+            <a href="{% url 'missions' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Missions</a>
             {% endif %}
-            <a href="{% url 'console' %}" class="menus btn"><< Console</a>
+            <a href="{% url 'console' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Console</a>
         </div>
     </div>
 </div>

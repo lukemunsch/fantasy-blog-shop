@@ -30,9 +30,9 @@
     </div>
     <div class="col-12 content-titles">
       {% if from_homepage %}
-      <a href="{% url 'home' %}" class="menus"><< Home</a>
+      <a href="{% url 'home' %}" class="menus"><i class="fas fa-chevron-circle-left"></i> Home</a>
       {% endif %}
-      <a href="{% url 'console' %}" class="menus"><< Console</a>
+      <a href="{% url 'console' %}" class="menus"><i class="fas fa-chevron-circle-left"></i> Console</a>
     </div>
   </div>
 </div>
@@ -41,9 +41,9 @@
   <div class="row">
     <div class="col-12 text-center content-titles">
       {% if from_homepage and request.user.is_superuser %}
-      <a href="{% url 'personnel' %}" class="menus btn"><< Authorised Members</a>
+      <a href="{% url 'personnel' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Authorised Members</a>
       {% elif request.user.is_superuser %}
-      <a href="{% url 'pending_members' %}" class="menus btn"><< Pending Recruits</a>
+      <a href="{% url 'pending_members' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Pending Recruits</a>
       {% endif %}
     </div>
   </div>
