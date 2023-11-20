@@ -70,26 +70,22 @@
                 <img
                   src="{{ MEDIA_URL }}announcement-default-img.png"
                   alt="General announcement default image"
-                  class="card-img-top"
-                />
+                  class="card-img-top">
                 {% elif n.news_type == 2 %}
                 <img
                   src="{{ MEDIA_URL }}system-default-img.png"
                   alt="System dault image"
-                  class="card-img-top"
-                />
+                  class="card-img-top">
                 {% else %} {% if n.news_img %}
                 <img
                   src="{{ n.news_img.url }}"
                   alt="{{ n.title }} image"
-                  class="card-img-top"
-                />
+                  class="card-img-top">
                 {% else %}
                 <img
                   src="{{ MEDIA_URL }}discover-default-img.png"
                   alt="General announcement deault image"
-                  class="card-img-top"
-                />
+                  class="card-img-top">
                 {% endif %} {% endif %}
               </a>
             </div>
@@ -140,7 +136,7 @@
     </div>
   </div>
 </div>
-<hr class="menus mt-4 mb-3" id="missions" />
+<hr class="menus mt-4 mb-3" id="missions">
 <!-- content for Missions -->
 <div class="container-fluid">
   <div class="row mb-3">
@@ -158,14 +154,12 @@
                 <img
                   class="card-img-top"
                   src="{{ m.mission_img.url }}"
-                  alt="{{ m.mission }} profile image"
-                />
+                  alt="{{ m.mission }} profile image">
                 {% else %}
                 <img
                   class="card-img-top"
                   src="{{ MEDIA_URL }}mission-default-image.png"
-                  alt="No image available"
-                />
+                  alt="No image available">
                 {% endif %}
               </a>
             </div>
@@ -222,7 +216,7 @@
     </div>
   </div>
 </div>
-<hr class="menus mt-4 mb-3" id="personnel" />
+<hr class="menus mt-4 mb-3" id="personnel">
 <!-- content for Personnel changes -->
 <div class="container-fluid mb-5">
   <div class="row mb-3">
@@ -240,14 +234,12 @@
                 <img
                   class="card-img-top"
                   src="{{ c.profile_image.url }}"
-                  alt="{{ c.name }} profile image"
-                />
+                  alt="{{ c.name }} profile image">
                 {% else %}
                 <img
                   class="card-img-top"
                   src="{{ MEDIA_URL }}no-image.png"
-                  alt="No image available"
-                />
+                  alt="No image available">
                 {% endif %}
               </a>
             </div>
