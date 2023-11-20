@@ -5,7 +5,7 @@
 
 <!-- add extra css stylesheet -->
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/news-details.css' %}" />
+<link rel="stylesheet" href="{% static 'css/news-details.css' %}">
 {% endblock %}
 
 <!-- set up tab extra title -->
@@ -28,7 +28,7 @@
         <div class="col-12 text-center">
             <h3 class="renegade page-heading">News Report</h3>
             <p class="league page-subhead">
-                This is the news article you have selected</em>
+                This is the news article you have selected
             </p>
         </div>
         <div class="col-12 content-titles">
@@ -45,7 +45,7 @@
         </div>
     </div>
 </div>
-<hr class="menus" />
+<hr class="menus">
 <!-- main content for displaying news articles -->
 <div class="container league current-news">
     <div class="row">
@@ -62,25 +62,23 @@
         <div class="col-12 text-center mb-3">
             {% if event.news_type == 1 %}
             <img src="{{ MEDIA_URL }}announcement-default-img.png"
-                alt="General announcement default image" class="image-top" />
+                alt="General announcement default image" class="image-top">
             {% elif event.news_type == 2 %}
             <img src="{{ MEDIA_URL }}system-default-img.png" alt="System dault image"
-                class="image-top" />
+                class="image-top">
             {% else %} {% if event.news_img %}
-            <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="image-top" />
+            <img src="{{ n.news_img.url }}" alt="{{ n.title }} image" class="image-top">
             {% else %}
             <img src="{{ MEDIA_URL }}discover-default-img.png"
-                alt="General announcement deault image" class="image-top" />
+                alt="General announcement deault image" class="image-top">
             {% endif %} {% endif %}
         </div>
         <div class="col-12">
             <h1 class="league mb-3 mx-4 text-center"><strong>{{ event.title }}</strong></h1>
         </div>
         <div class="col-12 mb-5 text-center">
-            <em>
-                <h5>Published on <strong>{{ event.publish_date }}</strong>
-                    Article by <strong>{{ event.author }}</strong></h5>
-            </em>
+            <h5>Published on <strong><em>{{ event.publish_date }}</em></strong>
+                    Article by <strong><em>{{ event.author }}</em></strong></h5>
         </div>
     </div>
     <div class="row mb-5">
