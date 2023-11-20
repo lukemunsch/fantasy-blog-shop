@@ -175,10 +175,37 @@ If the user has not logged in there is a message at the top that will be display
 
 ## Features to implement
 
-
-
+I would like to possibly implement a social communication feature; being able to chat amongst the other users of the site, catch up with the team members and interact more with the crew involved with the running/uploading of content.
 
 ## Testing
+
+### Lighthouse Reports
+
+I have run the project through the chrome development tool and produced a lighthouse report showing how the site works optimally within the browser.
+
+[Lighthouse Reports](#lighthouse-reports)
+
+### HTML Testing
+
+I have run my html code through the W3C markup validator and produced a set of reports confirming how my code stands up to standards of the industry.
+
+[HTML Testing](#html-testing)
+
+### CSS Testing
+
+CSS testing as been run on all my CSS files in the project and fullfil the industry criteria and pass the expected standards!
+
+[CSS Testing](media/README/css_testing/)
+
+### PEP8 Testing
+
+[PEP8 Testing](#pep8-testing)
+
+### Manual Testing
+
+[Manual Testing](#manual-testing)
+
+### Feature testing
 
 
 

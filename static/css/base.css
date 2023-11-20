@@ -6,7 +6,6 @@
 /* ---------- text position --- */
 .text-right {
     text-align: right;
-    align-items: right;
 }
 
 /* ---------- Text Styles --- */
@@ -390,7 +389,6 @@ footer {
 }
 
 .card-img-top {
-    float: center;
     align-items: center;
     text-align: center;
     max-height: 200px;
