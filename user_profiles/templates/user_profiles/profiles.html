@@ -35,7 +35,7 @@
     </div>
   </div>
 </div>
-<hr class="menus" />
+<hr class="menus" >
 <div class="container">
   <div class="row">
     <!-- add code for our user details form -->
@@ -52,7 +52,7 @@
           Update Profile
         </button>
       </form>
-      <br />
+      <br>
       {% if request.user.is_superuser %}
       <h4>News articles you have contributed:</h4>
       {% if request.user.articles.all|length == 0 %}
@@ -90,7 +90,7 @@
             {% for o in orders %}
             <tr>
               <!-- Order Number code -->
-              <td scope="row">
+              <td>
                 <a
                   href="{% url 'order_history' o.order_number %}"
                   title="{{ order.order_number}}"
@@ -102,7 +102,8 @@
               <!-- Date -->
               <td class="renegade">{{ o.date}}</td>
               <!-- Total order price -->
-              <td scope="col-5" class="menus">§{{ o.grand_total }}</td>
+              <td class="menus">§{{ o.grand_total }}</td>
+              <td></td>
             </tr>
             {% endfor %}
           </tbody>
@@ -127,7 +128,7 @@
   </div>
 </div>
 {% endblock %} {% block postloadjs %} {{ block.super }}
-<script type="text/javascript" src="{% static 'js/countryfield.js' %}"></script>
+<script src="{% static 'js/countryfield.js' %}"></script>
 <script>
   $(".btt-link").click(function () {
     window.scrollTo(0, 0);

@@ -239,13 +239,13 @@ I have run my html code through the W3C markup validator and produced a set of r
 
 [Checkout Success HTML Testing]()
 
-[Profile HTML Testing]()
+[Profile HTML Testing](media/README/html_testing/profile-html-testing.png)
 
-[Signup HTML Testing]()
+[Signup HTML Testing](media/README/html_testing/signup-html-testing.png)
 
-[Sign In HTML Testing]()
+[Sign In HTML Testing](media/README/html_testing/signin-html-testing.png)
 
-[Sign Out HTML Testing]()
+[Sign Out HTML Testing](media/README/html_testing/signout-html-testing.png)
 
 ### CSS Testing
 
