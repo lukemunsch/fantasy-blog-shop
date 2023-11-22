@@ -223,19 +223,19 @@ I have run my html code through the W3C markup validator and produced a set of r
 
 [Pending Page](media/readme/html_testing/pending-page-html-testing.png)
 
-[Resources HTML Testing]()
+[Resources HTML Testing](media/README/html_testing/resources-html-testing.png)
 
-[Resources Add/Edit HTML Testing]()
+[Resources Add/Edit HTML Testing](media/readme/html_testing/resource-add-edit-html-testing.png)
 
-[Resources Delete HTML Testing]()
+[Resources Delete HTML Testing](media/README/html_testing/resource-delete-html-testing.png)
 
-[Resources Details HTML Testing]()
+[Resources Details HTML Testing](media/README/html_testing/resource-details-html-testing.png)
 
-[Shopping Basket HTML Testing]()
+Shopping Basket HTML Testing - Currently due to refactoring code this page displays two lots of every item's quantity ids - as only one part of the page is displayed at anyone time, it does not fail to operate correctly, but when run through W3C Validator, it shows duplicate id's
 
-[Checkout HTML Testing]()
+[Checkout HTML Testing](media/README/html_testing/checkout-html-testing.png)
 
-[Checkout Success HTML Testing]()
+[Checkout Success HTML Testing](media/README/html_testing/checkout-success-html-testing.png)
 
 [Profile HTML Testing](media/README/html_testing/profile-html-testing.png)
 
