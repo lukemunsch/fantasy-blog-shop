@@ -417,6 +417,8 @@ footer {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 70%;
+    text-decoration: none;
+    color: #000;
 }
 
 a.add-link {

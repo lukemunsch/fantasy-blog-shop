@@ -217,13 +217,11 @@ I have run my html code through the W3C markup validator and produced a set of r
 
 [Personnel Details HTML Testing](media/README/html_testing/personnel-details-html-testing.png)
 
-[Update HTML Testing]()
+[Update HTML Testing](media/README/html_testing/update-html-testing.png)
 
-[]()
+[Adding Page](media/README/html_testing/add-page-html-testing.png)
 
-[]()
-
-[]()
+[Pending Page](media/readme/html_testing/pending-page-html-testing.png)
 
 [Resources HTML Testing]()
 
