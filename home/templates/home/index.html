@@ -45,62 +45,64 @@
         >Access the Shop</a
       >
     </div>
+    <div
+      class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5"
+    >
+      <h3>Welcome back, Grandmaster {{ request.user }}</h3>
+      <h5 class="my-3">
+        There are currently updates requiring your attention:
+      </h5>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <h5><u>Pending News Articles</u></h5>
+          <a
+            href="{% url 'pending_articles' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+            ><strong>{{ articles|length }}</strong> Unapproved Article(s)</a
+          >
+        </div>
+        <div class="col-12 col-lg-6 pending-mission divide-left">
+          <h5><u>Pending Mission Reports</u></h5>
+          <a
+            href="{% url 'pending_missions' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+            ><strong>{{ missions|length }}</strong> Unapproved Mission(s)</a
+          >
+        </div>
+      </div>
+      <div class="row divide-top">
+        <div class="col-12 col-lg-6">
+          <h5><u>Unauthorised Members</u></h5>
+          <a
+            href="{% url 'pending_members' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+          >
+            <strong>{{ members|length }}</strong> Unapproved Members(s)
+          </a>
+        </div>
+        <div class="col-12 col-lg-6 pending-mission divide-left">
+          <h5><u>Pending Mission Updates</u></h5>
+          <a
+            href="{% url 'pending_updates' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+            ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
+          >
+        </div>
+      </div>
+      <div class="row divide-top">
+        <div class="col-12">
+          <h5><u>Unauthorised Items</u></h5>
+          <a
+            href="{% url 'pending_resources' %}"
+            class="mb-3 btn btn-console-link p-1 mt-2"
+          >
+            <strong>{{ resources|length }}</strong> Unapproved Item(s)
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
   {% if request.user.is_superuser %}
-  <div
-    class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5"
-  >
-    <h3>Welcome back, Grandmaster {{ request.user }}</h3>
-    <h5 class="my-3">There are currently updates requiring your attention:</h5>
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <h5><u>Pending News Articles</u></h5>
-        <a
-          href="{% url 'pending_articles' %}"
-          class="mb-3 btn btn-console-link p-1 mt-2"
-          ><strong>{{ articles|length }}</strong> Unapproved Article(s)</a
-        >
-      </div>
-      <div class="col-12 col-lg-6 pending-mission divide-left">
-        <h5><u>Pending Mission Reports</u></h5>
-        <a
-          href="{% url 'pending_missions' %}"
-          class="mb-3 btn btn-console-link p-1 mt-2"
-          ><strong>{{ missions|length }}</strong> Unapproved Mission(s)</a
-        >
-      </div>
-    </div>
-    <div class="row divide-top">
-      <div class="col-12 col-lg-6">
-        <h5><u>Unauthorised Members</u></h5>
-        <a
-          href="{% url 'pending_members' %}"
-          class="mb-3 btn btn-console-link p-1 mt-2"
-        >
-          <strong>{{ members|length }}</strong> Unapproved Members(s)
-        </a>
-      </div>
-      <div class="col-12 col-lg-6 pending-mission divide-left">
-        <h5><u>Pending Mission Updates</u></h5>
-        <a
-          href="{% url 'pending_updates' %}"
-          class="mb-3 btn btn-console-link p-1 mt-2"
-          ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
-        >
-      </div>
-    </div>
-    <div class="row divide-top">
-      <div class="col-12">
-        <h5><u>Unauthorised Items</u></h5>
-        <a
-          href="{% url 'pending_resources' %}"
-          class="mb-3 btn btn-console-link p-1 mt-2"
-        >
-          <strong>{{ resources|length }}</strong> Unapproved Item(s)
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 {% endif %} {% endblock content %} {% block page_footer %}
 <div class="container footer-container">
