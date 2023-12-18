@@ -45,6 +45,10 @@
         >Access the Shop</a
       >
     </div>
+<<<<<<< HEAD
+=======
+    {% if request.user.is_superuser %}
+>>>>>>> 4c73627581fd968314a29fb90af1754e6c40355c
     <div
       class="col-10 offset-1 col-md-4 offset-md-none text-center auth-only-text mb-5"
     >
@@ -101,10 +105,17 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
   {% if request.user.is_superuser %}
+=======
+    {% endif %}
+  </div>
+>>>>>>> 4c73627581fd968314a29fb90af1754e6c40355c
 </div>
-{% endif %} {% endblock content %} {% block page_footer %}
+{% endblock content %} 
+<!-- page footer spacing -->
+{% block page_footer %}
 <div class="container footer-container">
   <div class="row">
     <div class="col"></div>
