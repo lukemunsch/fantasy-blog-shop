@@ -250,9 +250,9 @@ body {
 
 footer {
     height: 40px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(145, 145, 145);
     font-family: 'Urbanist', Arial, Helvetica, sans-serif, serif;
-    color: gainsboro;
+    color: rgb(0, 0, 0);
 }
 
 /* Set up styles for main content */
@@ -286,10 +286,9 @@ footer {
 }
 
 .btn-console-link {
-    color: black;
-    font-weight: 300;
+    color: rgb(250, 255, 35);
     text-decoration: none;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 60, 0);
     padding: 10px;
     border: 2px solid black;
     border-radius: 8px;

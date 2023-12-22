@@ -27,22 +27,22 @@
         Giving you the latest news and mission for the league
       </h5>
       <a class="btn btn-console-link p-1 my-2" href="{% url 'console' %}"
-        >Access to the Console</a
+        ><strong>Access to the Console</strong></a
       >
       <h5 class="mt-2 divide-top">
         Access to your user profiles and ordering for resources
       </h5>
       {% if request.user.is_authenticated %}
       <a class="btn btn-console-link p-1 mt-2" href="{% url 'profile' %}"
-        >Access to your profile</a
+        ><strong>Access to your profile</strong></a
       >
       {% else %}
       <a class="btn btn-console-link p-1 mt-2" href="{% url 'account_login' %}"
-        >Log in to your account</a
+        ><strong>Log in to your account</strong></a
       >
       {% endif %}
       <a class="btn btn-console-link p-1 mt-2" href="{% url 'resources' %}"
-        >Access the Shop</a
+        ><strong>Log in to your account</strong></a
       >
     </div>
     {% if request.user.is_superuser %}
@@ -59,7 +59,7 @@
           <a
             href="{% url 'pending_articles' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ articles|length }}</strong> Unapproved Article(s)</a
+            ><strong>{{ articles|length }} Unapproved Article(s)</strong></a
           >
         </div>
         <div class="col-12 col-lg-6 pending-mission divide-left">
@@ -67,7 +67,7 @@
           <a
             href="{% url 'pending_missions' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ missions|length }}</strong> Unapproved Mission(s)</a
+            ><strong>{{ missions|length }} Unapproved Mission(s)</strong></a
           >
         </div>
       </div>
@@ -78,7 +78,7 @@
             href="{% url 'pending_members' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
           >
-            <strong>{{ members|length }}</strong> Unapproved Members(s)
+            <strong>{{ members|length }} Unapproved Members(s)</strong>
           </a>
         </div>
         <div class="col-12 col-lg-6 pending-mission divide-left">
@@ -86,7 +86,7 @@
           <a
             href="{% url 'pending_updates' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
+            ><strong>{{ updates|length }} Unapproved Update(s)</strong></a
           >
         </div>
       </div>
@@ -97,7 +97,7 @@
             href="{% url 'pending_resources' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
           >
-            <strong>{{ resources|length }}</strong> Unapproved Item(s)
+            <strong>{{ resources|length }} Unapproved Item(s)</strong>
           </a>
         </div>
       </div>
