@@ -39,52 +39,28 @@
 </div>
 <hr class="menus mb-5">
 <!-- container for additional buttons -->
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div
-      class="col-10 offset-1 col-md-4 offset-md-0
-      col-lg-4 text-center mb-4">
-      <a href="{% url 'pending_articles' %}" class="my-3 plain-link">
-        <span class="addition-btn news-btn add-link">
+    <a href="{% url 'pending_missions' %}" class="col-10 offset-1 col-md-4 offset-md-0 
+      text-center addition-btn mb-4 text-center plain-link add-link my-auto news-btn">
           Access Pending Articles
-        </span>
       </a>
-    </div>
-    <div
-      class="col-10 offset-1 col-md-4 offset-md-0 
-      text-center mb-4">
-      <a href="{% url 'pending_missions' %}" class="text-center plain-link my-3">
-        <span class="addition-btn mission-btn add-link">
+    <a href="{% url 'pending_missions' %}" class="col-10 offset-1 col-md-4 offset-md-0 
+      text-center addition-btn mb-4 text-center plain-link add-link my-auto mission-btn">
           Access Pending Missions
-        </span>
       </a>
-    </div>
-    <div
-      class="col-10 offset-1 col-md-4 offset-md-0
-      text-center mb-4">
-      <a href="{% url 'pending_updates'  %}" class="my-3 plain-link">
-        <span class="addition-btn update-btn add-link">
+    <a href="{% url 'pending_missions' %}" class="col-10 offset-1 col-md-4 offset-md-0 
+      text-center addition-btn mb-4 text-center plain-link add-link my-auto update-btn ">
           Access Pending Updates
-        </span>
       </a>
-    </div>
-    <div
-      class="col-10 offset-1 col-md-4 offset-md-1 text-center mb-4">
-      <a href="{% url 'pending_members'  %}" class="my-3 plain-link">
-        <span class="addition-btn personnel-btn add-link">
-          Access Pending Members
-        </span>
+    <a href="{% url 'pending_missions' %}" class="col-10 offset-1 col-md-4 offset-md-0 
+      text-center addition-btn mb-4 text-center plain-link add-link my-auto personnel-btn ">
+          Access Pending Personnel
       </a>
-    </div>
-    <div
-      class="col-10 offset-1 col-md-4 offset-md-2
-      text-center mb-4">
-      <a href="{% url 'pending_resources'  %}" class="my-3 plain-link">
-        <span class="addition-btn item-btn add-link">
-          Access Pending Products
-        </span>
+    <a href="{% url 'pending_missions' %}" class="col-10 offset-1 col-md-4 offset-md-0 
+      text-center addition-btn mb-4 text-center plain-link add-link my-auto item-btn ">
+          Access Pending Resources
       </a>
-    </div>
   </div>
 </div>
 {% endblock %}
