@@ -116,7 +116,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <h3 class="page-heading renegade text-center mb-5">Mission Updates</h3>
-            {% if not mission.updates.all.approved == 1 %}
+            {% if not mission.updates.all %}
             <p class="page-subhead league">
                 There are currently no updates for this Mission
             </p>
@@ -127,10 +127,12 @@
         {% if u.approved == 1 %}
         <div class="row">
             <div class="col-10 offset-1">
-                <a href="{% url 'update_details' u.id %}" class="menus plain-link">{{ mission.mission_lead }} - {{ u.created_on }}</a>
+                <a href="{% url 'update_details' u.id %}" class="menus plain-link">
+                <p><strong>{{ mission.mission_lead }} - {{ u.created_on }}</strong></p>
+                <p><strong>{{ u.title }}</strong></p>
+                </a>
             </div>
             <div class="col-10 offset-1 league mission-desc">
-                <p><strong>{{ u.title }}</strong></p>
                 <p>{{ u.body }}</p>
             </div>
         </div>
