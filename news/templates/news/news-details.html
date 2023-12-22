@@ -31,7 +31,7 @@
                 This is the news article you have selected
             </p>
         </div>
-        <div class="col-12 content-titles">
+        <div class="col-12 content-titles mb-5">
             {% if from_pending == True %}
             <a href="{% url 'pending_articles' %}" class="menus">
                 <i class="fas fa-chevron-circle-left"></i> Pending Articles 
@@ -50,12 +50,12 @@
 <div class="container league current-news">
     <div class="row">
         {% if request.user.is_superuser %}
-        <div class="col-12 text-center">
-            <a href="{% url 'edit_news' event.id %}">
-                <span class="btn-console-link my-3">Edit Article</span>
+        <div class="col-12 text-center mb-5">
+            <a href="{% url 'edit_news' event.id %}" class="btn-console-link">
+                <span class="my-3">Edit Article</span>
             </a>
-            <a href="{% url 'delete_news' event.id %}">
-                <span class="btn-console-link my-3">Delete Article</span>
+            <a href="{% url 'delete_news' event.id %}" class="btn-console-link">
+                <span class="my-3">Delete Article</span>
             </a>
         </div>
         {% endif %}

@@ -45,17 +45,19 @@
 </div>
 <hr class="menus" />
 <div class="container current-personnel league">
+    {% if request.user.is_superuser %}
     <div class="row mb-5">
-        {% if request.user.is_superuser %}
         <div class="col-12 text-center">
-            <a href="{% url 'edit_member' member.id %}">
-                <button class="btn-console-link my-3">Edit Member</button>
+            <a href="{% url 'edit_member' member.id %}" class="btn-console-link">
+                <span class="my-3">Edit Member</span>
             </a>
-            <a href="{% url 'delete_member' member.id %}">
-                <button class="btn-console-link my-3">Delete Member</button>
+            <a href="{% url 'delete_member' member.id %}" class="btn-console-link">
+                <span class="my-3">Delete Member</span>
             </a>
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
+    <div class="row">
         <div class="col-12 text-center">
             <h1 class=""><strong>{{ member.name }}</strong></h1>
         </div>

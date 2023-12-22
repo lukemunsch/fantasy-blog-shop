@@ -46,13 +46,13 @@
 <hr class="menus" />
 {% if request.user.is_superuser %}
 <div class="container">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-12 text-center">
-            <a href="{% url 'edit_mission' mission.id %}">
-                <button class="btn-console-link my-3">Edit Mission</button>
+            <a href="{% url 'edit_mission' mission.id %}" class="btn-console-link">
+                <span class="my-3">Edit Mission</span>
             </a>
-            <a href="{% url 'delete_mission' mission.id %}">
-                <button class="btn-console-link my-3">Delete Mission</button>
+            <a href="{% url 'delete_mission' mission.id %}" class="btn-console-link">
+                <span class="my-3">Delete Mission</span>
             </a>
         </div>
     </div>
