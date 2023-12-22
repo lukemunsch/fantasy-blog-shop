@@ -296,7 +296,6 @@ footer {
 
 .btn-console-link:hover {
     background-color: rgb(0, 0, 0);
-    font-weight: 700;
     color: rgb(255, 0, 0);
 }
 
@@ -375,7 +374,9 @@ footer {
     padding: 20px 10px 20px 10px;
 }
 
-.more-content-card:hover {
+.personnel-card:hover,
+.news-card:hover, 
+.mission-card:hover {
     background-color: red;
 }
 

@@ -31,15 +31,18 @@
     border: 1px solid yellow;
 }
 
+.product-card:hover {
+    color: red;
+}
+
 .product-link {
     text-decoration: none;
     color: rgb(0, 255, 0);
 }
 
-.product-link:hover {
-    text-decoration: underline;
-    text-underline-position: under;
-    color: red;
+.product-link {
+    text-decoration: none;
+    color: rgb(0, 255, 0);
 }
 
 .product-name {
