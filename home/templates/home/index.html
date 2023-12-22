@@ -42,7 +42,7 @@
       >
       {% endif %}
       <a class="btn btn-console-link p-1 mt-2" href="{% url 'resources' %}"
-        ><strong>Log in to your account</strong></a
+        ><strong>Acccess to the shop</strong></a
       >
     </div>
     {% if request.user.is_superuser %}
@@ -86,7 +86,7 @@
           <a
             href="{% url 'pending_updates' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
-            ><strong>{{ updates|length }} Unapproved Update(s)</strong></a
+            ><strong>{{ updates|length }}</strong> Unapproved Update(s)</a
           >
         </div>
       </div>
@@ -97,7 +97,7 @@
             href="{% url 'pending_resources' %}"
             class="mb-3 btn btn-console-link p-1 mt-2"
           >
-            <strong>{{ resources|length }} Unapproved Item(s)</strong>
+            <strong>{{ resources|length }}</strong> Unapproved Item(s)
           </a>
         </div>
       </div>
