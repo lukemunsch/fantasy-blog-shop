@@ -36,8 +36,12 @@
       </p>
     </div>
     <div class="col-12 content-titles">
-      <a href="{% url 'home' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Home</a>
-      <a href="{% url 'resources' %}" class="menus btn"><i class="fas fa-chevron-circle-left"></i> Resources</a>
+      <a href="{% url 'home' %}" class="menus btn"
+        ><i class="fas fa-chevron-circle-left"></i> Home</a
+      >
+      <a href="{% url 'resources' %}" class="menus btn"
+        ><i class="fas fa-chevron-circle-left"></i> Resources</a
+      >
     </div>
   </div>
 </div>
@@ -58,20 +62,29 @@
         <div class="row">
           <div class="col">
             {% include 'basket/checkout-buttons.html' %}
-            <hr class="menus">
+            <hr class="menus" />
             <p class="renegade mt-3 mb-5">A summary of your basket is below:</p>
           </div>
         </div>
         <!-- Iterate through product listing -->
         {% for item in basket_items %}
         <div class="row">
-          <div class="col-12 col-sm-6 text-center mb-2">{% include 'basket/product-image.html' %}</div>
-          <div class="col-12 col-sm-6 league text-center mb-2">{% include 'basket/product-info.html' %}</div>
+          <div class="col-12 col-sm-6 text-center mb-2">
+            {% include 'basket/product-image.html' %}
+          </div>
+          <div class="col-12 col-sm-6 league text-center mb-2">
+            {% include 'basket/product-info.html' %}
+          </div>
           <div class="col-12 col-sm-6 league text-center">
             <p class="my-0">§{{ item.product.price }} each</p>
-            <p class="league mb-2">§{{ item.product.price|calc_subtotal:item.quantity }} total for this item</p>
+            <p class="league mb-2">
+              §{{ item.product.price|calc_subtotal:item.quantity }} total for
+              this item
+            </p>
           </div>
-          <div class="col-12 col-sm-6 text-center">{% include 'basket/quantity-form.html' %}</div>
+          <div class="col-12 col-sm-6 text-center">
+            {% include 'basket/quantity-form.html' %}
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -88,20 +101,14 @@
           </thead>
           {% for item in basket_items %}
           <tr class="league">
-            <td class="p-3">
-              {% include 'basket/product-image.html' %}
-            </td>
-            <td class="p-3">
-              {% include 'basket/product-info.html' %}
-            </td>
+            <td class="p-3">{% include 'basket/product-image.html' %}</td>
+            <td class="p-3">{% include 'basket/product-info.html' %}</td>
             <td class="p-3">
               <p class="my-0">
                 <strong>§{{ item.product.price|floatformat:2 }}</strong>
               </p>
             </td>
-            <td class="p-3 w-25">
-              {% include 'basket/quantity-form.html' %}
-            </td>
+            <td class="p-3 w-25">{% include 'basket/quantity-form.html' %}</td>
             <td class="p-3">
               <p class="my-0">
                 <strong
@@ -127,7 +134,9 @@
       <div class="text-center mt-5">
         <h4 class="lead renegade mb-5">Your Basket is EMPTY!!!</h4>
         <a href="{% url 'resources' %}">
-          <button class="btn btn-console-link my-3"><i class="fas fa-chevron-circle-left"></i> Keep Shopping</button>
+          <button class="btn btn-console-link my-3">
+            <i class="fas fa-chevron-circle-left"></i> Keep Shopping
+          </button>
         </a>
       </div>
       {% endif %}
