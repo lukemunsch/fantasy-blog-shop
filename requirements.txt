@@ -2,6 +2,7 @@ asgiref==3.11.0
 certifi==2026.1.4
 charset-normalizer==3.4.4
 Django==6.0.1
+django-allauth==65.14.0
 django-crispy-forms==2.5
 django-database-url==1.0.3
 gunicorn==24.1.1
